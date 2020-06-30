@@ -1,87 +1,141 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="SunDaohan">
+
+
+
+
+
+<title>归档: 2020 | SunDaohan</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
     
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <title>归档</title>
-    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/meethigher-font.css">
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
 
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/animate.css">
-
     
-<link rel="stylesheet" href="/css/index.css">
+        
+    
+
 
 <meta name="generator" content="Hexo 4.2.1"></head>
 <body>
-<header class="header">
-    <div class="header-menu"><span class="fa fa-bars"></span></div>
-    <div class="header-search"><span class="fa fa-search"></span></div>
-    <div class="header-title"><a href="/">SunDaohan<span class="header-subtitle"> | </span></a></div>
-    <ul class="header-navbar clearFix">
-        
-            <li><a href="/">主页</a></li>
-        
-            <li><a href="/tags">标签</a></li>
-        
-            <li><a href="/archives">归档</a></li>
-        
-            <li><a href="/about">关于</a></li>
-        
-    </ul>
-</header>
-<div id="particles-js"></div>
-<div class="search" title="站内搜索"><span class="fa fa-search"></span></div>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
 
-<div class="tool">
-    <div class="up" title="返回顶部"><span class="fa fa-long-arrow-up"></span></div>
-    <div class="down" title="返回底部"><span class="fa fa-long-arrow-down"></span></div>
-    <a href="/app.apk" class="app" title="下载App" download="app.apk"><span class="fa fa-android"></span></a>
-</div>
-
-<main class="main">
-    <div class="main-content meethigher-scroll">
     
-    <div class="tag-tags">
-        <span class="tags-title">归档&nbsp;-&nbsp;共2篇</span>
-        <ul class="posts-all">
-            
-                <li><span>2020-06-30</span><a href="/2020/06/30/Hello-SunDaohan/">Hello SunDaohan</a></li>
-            
-                <li><span>2020-06-29</span><a href="/2020/06/29/hello-world/">Hello World</a></li>
-            
-        </ul>
-    </div>
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="post-wrap archive">
+    
+    
+        
+
+        
+            <h3>2020</h3>
+        
+
+        <article class="archive-item">
+            <a class="archive-item-link" href="/2020/06/30/Hello-SunDaohan/">Hello SunDaohan</a>
+            <span class="archive-item-date">六月 30, 2020</span>
+        </article>
+    
+        
+
+        
+
+        <article class="archive-item">
+            <a class="archive-item-link" href="/2020/06/29/hello-world/">Hello World</a>
+            <span class="archive-item-date">六月 29, 2020</span>
+        </article>
+    
+    
 </div>
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© SunDaohan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
 
-</main>
-
-<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/jquery.min.js"></script>
-
-
-<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/particles.min.js"></script>
-
-
-<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/app.js"></script>
-
-
-<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@11/js/layer/layer.js"></script>
-
-
-<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@13/js/instantpage.js"></script>
-
-
-<script src="/js/lazyloadImpl.js"></script>
-
-
-<script src="/js/meethigher.js"></script>
-
+    </div>
 </body>
 </html>
