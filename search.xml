@@ -39,6 +39,9 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701182001775.png" alt="image-20200701182001775"></p>
 <p>依次打开Contents、PlugIns、platforms文件夹，用刚才复制的文件，替换其中的<span style='color:red'><strong>libqcocoa.dylib</strong></span>文件，之后就可以正常使用IDA了。</p>
 ]]></content>
+      <categories>
+        <category>【学习】</category>
+      </categories>
       <tags>
         <tag>【工具】</tag>
         <tag>【常见问题】</tag>
