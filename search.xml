@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello SunDaohan</title>
+    <url>/2020/06/30/Hello-SunDaohan/</url>
+    <content><![CDATA[<h2 id="这是第一篇博文"><a href="#这是第一篇博文" class="headerlink" title="这是第一篇博文"></a>这是第一篇博文</h2><p>试下效果</p>
+]]></content>
+      <categories>
+        <category>Hello</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决MacOS 10.15以上版本无法启动IDA的问题</title>
     <url>/2020/07/01/%E8%A7%A3%E5%86%B3MacOS-10-15%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8ida%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
@@ -96,18 +108,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello SunDaohan</title>
-    <url>/2020/06/30/Hello-SunDaohan/</url>
-    <content><![CDATA[<h2 id="这是第一篇博文"><a href="#这是第一篇博文" class="headerlink" title="这是第一篇博文"></a>这是第一篇博文</h2><p>试下效果</p>
-]]></content>
-      <categories>
-        <category>Hello</category>
-      </categories>
-      <tags>
-        <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/06/29/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -124,5 +124,76 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>在MacOS系统下运行本地以太坊源码</title>
+    <url>/2020/09/19/%E5%9C%A8MacOS%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%90%E8%A1%8C%E6%9C%AC%E5%9C%B0%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%90%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
+<li>操作系统：MacOS 10.15</li>
+<li>编译器：goland 2020.2.2</li>
+<li>环境：Go 1.15.2</li>
+</ul>
+<br>
+
+<h1 id="二、go-ethereum代码下载"><a href="#二、go-ethereum代码下载" class="headerlink" title="二、go-ethereum代码下载"></a>二、go-ethereum代码下载</h1><p>​    ethereum开源免费，可以前往<a href="https://github.com/ethereum/go-ethereum下载源码：" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum下载源码：</a></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143445539.png" alt="image-20200919143445539"></p>
+<p>点击右上角绿色的Code，再点击下方的Download ZIP即可将源代码下载至本地</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143552435.png" alt="image-20200919143552435"></p>
+<br>
+
+<h1 id="三、项目结构"><a href="#三、项目结构" class="headerlink" title="三、项目结构"></a>三、项目结构</h1><p>​    该项目对目录结构有严格的要求，如果不按其预定的目录结构进行部署，将会有一系列的编译错误：</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143750120.png" alt="image-20200919143750120"></p>
+<p>其正确的目录要求如下：</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143853298.png" alt="image-20200919143853298"></p>
+<p>1.首先先用goland创建一个新项目，这个项目名任意，我起的叫做geth，然后再其中创建三个文件夹，分别为bin、pkg以及src</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144007994.png" alt="image-20200919144007994"></p>
+<p>2.然后进入src目录下创建github.com目录和golang.org目录</p>
+<p>![image-20200919144107511](/Users/sundaohan/Library/Application Support/typora-user-images/image-20200919144107511.png)</p>
+<ol start="3">
+<li><p>进入到github.com目录，创建ethereum目录</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144157891.png" alt=""></p>
+</li>
+<li><p>进入到ethereum目录，将刚才下好的源代码复制进去，同时将其名字改为go-ethereum</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144312938.png" alt="image-20200919144312938"></p>
+</li>
+</ol>
+<h1 id="四、源码编译"><a href="#四、源码编译" class="headerlink" title="四、源码编译"></a>四、源码编译</h1><ol>
+<li><p>用goland编译器打开刚才设置好的项目，点击最上方的Goland选项卡，点击Preferences</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144526041.png" alt="image-20200919144526041"></p>
+</li>
+<li><p>点击GOPATH，并将该项目加入其中</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144618530.png" alt=""></p>
+</li>
+<li><p>点开go-ethereum-cmd-geth-main.go文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144849725.png" alt="image-20200919144849725"></p>
+</li>
+<li><p>点击右上角的Edit Configurations</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144940535.png" alt="image-20200919144940535"></p>
+</li>
+<li><p>如图所示修改 Name，Run kind，Directory，Output directory选项，并点击Apply，再点击Ok</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145110549.png" alt="image-20200919145110549"></p>
+</li>
+<li><p>点击运行，即可通过编译，成功运行</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145641821.png" alt="image-20200919145641821"></p>
+</li>
+</ol>
+   <br>
+
+<h1 id="五、常见问题"><a href="#五、常见问题" class="headerlink" title="五、常见问题"></a>五、常见问题</h1><p><strong>1.依赖问题，这类问题是没有下载所需的依赖包</strong></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145730455.png" alt="image-20200919145730455"></p>
+<p>​    找到错误位置，并点击红色小灯泡 点击go get…………下载所需依赖即可，如下图这种常见的缺失的依赖包，此处已经下载完毕，所以没有报错</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145906521.png" alt="image-20200919145906521"></p>
+<p><strong>2.go: cannot find main module； see ‘go help modules‘</strong></p>
+<p>解决方法很简单，打开Edit Configurations</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919150957460.png" alt="image-20200919150957460"></p>
+<p>在Environment选项中加入GO111MODULE=auto即可</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919151107158.png" alt="image-20200919151107158"></p>
+]]></content>
+      <categories>
+        <category>【学习】</category>
+      </categories>
+      <tags>
+        <tag>【区块链】</tag>
+      </tags>
   </entry>
 </search>
