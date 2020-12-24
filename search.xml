@@ -1,7 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>阿里云服务器上以太坊基于PoA共识机制的以太坊私链搭建和连接</title>
+    <title>Hello SunDaohan</title>
+    <url>/2020/06/30/Hello-SunDaohan/</url>
+    <content><![CDATA[<h2 id="这是第一篇博文"><a href="#这是第一篇博文" class="headerlink" title="这是第一篇博文"></a>这是第一篇博文</h2><p>试下效果</p>
+]]></content>
+      <categories>
+        <category>Hello</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Paxos共识算法的GO语言模拟</title>
+    <url>/2020/11/25/Paxos%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E7%9A%84GO%E8%AF%AD%E8%A8%80%E6%A8%A1%E6%8B%9F/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>【实践】</category>
+      </categories>
+      <tags>
+        <tag>【共识机制】</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/06/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>以太坊中Ghost协议与叔块</title>
+    <url>/2020/10/11/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%ADGhost%E5%8D%8F%E8%AE%AE%E4%B8%8E%E5%8F%94%E5%9D%97/</url>
+    <content><![CDATA[<h2 id="Ghost协议为什么出现"><a href="#Ghost协议为什么出现" class="headerlink" title="Ghost协议为什么出现"></a>Ghost协议为什么出现</h2><p>​    与比特币相比，以太坊大大缩减了其出块的时间，由比特币中的10分钟缩减为15秒，在提升了其确认速度和效率的同时，也产生了共识问题。</p>
+<p>​    在比特币系统中，遵循着”长链优先“规则，也就是最长的主链才是比特币中合法的链，如果矿工挖出的区块，并不是沿着最长链进行的，就会产生分叉，这些区块也被称为”孤块“，其将会被认定为无用的，矿工也无法获得相应的奖励。</p>
+<p>​    由于以太坊出块时间仅仅是15秒，很有可能多个矿工同时挖出了一个区块，此时占据优势算力、地理位置优越的矿池发布的区块能更快的被各个节点确认，而单个矿工的速度远远赶不上这些矿池，导致他们所挖出的块成为”孤块“，如果还继续沿用比特币的处理方式，那么这些矿工将无法获得任何奖励，再加上算力证明机制下算力的巨大投入，也带来了资源和人力的浪费。长此以往，将不仅会是算力浪费的问题，还会导致矿工怠工或者一系列的安全问题，影响到区块链的共识，因此，以太坊引入了Ghost协议，来解决这些问题。</p>
+<h2 id="以最重链取代最长链"><a href="#以最重链取代最长链" class="headerlink" title="以最重链取代最长链"></a>以最重链取代最长链</h2><p>​    在以太坊的Ghost协议中，孤块并非像比特币中直接被抛弃，而是认为孤块也有一定的价值，并给予挖出孤块的矿工一定的回报，并称其为”叔块“，这不仅减少了在更短出块时间下频繁产生分差的算力浪费问题，也为主链的安全作出贡献。</p>
+<p>​    与比特币不同，以太坊中的主链是最重链，而不是最长链，打包引用叔块的矿工也能够获得一定的报酬，同时也能够使主链更重，这激励了矿工去打包叔块。</p>
+<h2 id="叔块如何被引用"><a href="#叔块如何被引用" class="headerlink" title="叔块如何被引用"></a>叔块如何被引用</h2><p>​    相比于引用，我认为网络上所说的”招安“更加通俗和恰当，打包叔块可以理解为主链上的大区块来”招安“叔块，避免有些矿工在分叉后不愿意合并到主链，继续在自己的分叉上挖矿，希望能够赌运气下一次比大矿池挖得更快，这样就会不利于出现分叉后的快速合并。</p>
+<p>​    并非所有叔块和引用者都能得到奖励，在Ghost协议下，只有7代以内的叔块能够被招安并得到奖励，这样是为了避免有些矿工专门在之前的链上制造分叉，然后等待被招安获得奖励的情况。同时，距离主链代数越近的叔块，被招安得到的奖励也就越多，从1到7代分别为:7/8、6/8、5/8……1/8，其奖励也就 = 出块奖励 * 比例。引用者得到的奖励 = 出块奖励 + 1/32 * 出块奖励 * 打包的叔块数，每次打包的叔块数不能超过2个。</p>
+<p>​    <img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/1446032-20180909110545259-1917568601.png" alt="1446032-20180909110545259-1917568601"></p>
+<p>​    如图所示，主链为1、2、3、4，其他的均为叔块，假设此时3已经出块，大矿池想要将叔块与主链快速合并，就要进行招安，它可以首先选择3-1、3-2两个叔块，那么他就要讲这两个叔块的Hash值写到即将要挖出来的4号区块中，如果4号区块成功被挖出，那大矿池能够得到的奖励 = 出块奖励 * 1/32  * 2 + 出块奖励，同时挖出这两个区块的矿工能够获得的奖励 = 出块奖励 * 7/8，当3-1、3-2两个叔块的矿工发现自己被招安，且获得奖励，那么他们将有很大概率不会继续挑战大矿池的算力而选择合并，由此实现了主链的快速合并。</p>
+<p>​    在准备挖第五块区块时，可以继续选择招安3-3、3-4两个叔块，但是此时的奖励比例已经变成了6/8，一直到某个叔块已经超过7代，就不会获得奖励了。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/wanghui-garcia/p/9607356.html" target="_blank" rel="noopener">https://www.cnblogs.com/wanghui-garcia/p/9607356.html</a></p>
+<p><a href="https://blog.csdn.net/t46414704152abc/article/details/81191804" target="_blank" rel="noopener">https://blog.csdn.net/t46414704152abc/article/details/81191804</a></p>
+]]></content>
+      <categories>
+        <category>【学习】</category>
+      </categories>
+      <tags>
+        <tag>【以太坊】</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在MacOS系统下运行本地以太坊源码</title>
+    <url>/2020/09/19/%E5%9C%A8MacOS%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%90%E8%A1%8C%E6%9C%AC%E5%9C%B0%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%90%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
+<li>操作系统：MacOS 10.15</li>
+<li>编译器：goland 2020.2.2</li>
+<li>环境：Go 1.15.2</li>
+</ul>
+<br>
+
+<h1 id="二、go-ethereum代码下载"><a href="#二、go-ethereum代码下载" class="headerlink" title="二、go-ethereum代码下载"></a>二、go-ethereum代码下载</h1><p>​    ethereum开源免费，可以前往<a href="https://github.com/ethereum/go-ethereum" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum</a>  下载源码</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143445539.png" alt="image-20200919143445539"></p>
+<p>点击右上角绿色的Code，再点击下方的Download ZIP即可将源代码下载至本地</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143552435.png" alt="image-20200919143552435"></p>
+<br>
+
+<h1 id="三、项目结构"><a href="#三、项目结构" class="headerlink" title="三、项目结构"></a>三、项目结构</h1><p>​    该项目对目录结构有严格的要求，如果不按其预定的目录结构进行部署，将会有一系列的编译错误：</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143750120.png" alt="image-20200919143750120"></p>
+<p>其正确的目录要求如下：</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143853298.png" alt="image-20200919143853298"></p>
+<p>1.首先先用goland创建一个新项目，这个项目名任意，我起的叫做geth，然后再其中创建三个文件夹，分别为bin、pkg以及src</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144007994.png" alt="image-20200919144007994"></p>
+<p>2.然后进入src目录下创建github.com目录和golang.org目录</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144107511.png" alt="image-20200919144107511"></p>
+<ol start="3">
+<li><p>进入到github.com目录，创建ethereum目录</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144157891.png" alt=""></p>
+</li>
+<li><p>进入到ethereum目录，将刚才下好的源代码复制进去，同时将其名字改为go-ethereum</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144312938.png" alt="image-20200919144312938"></p>
+</li>
+</ol>
+<h1 id="四、源码编译"><a href="#四、源码编译" class="headerlink" title="四、源码编译"></a>四、源码编译</h1><ol>
+<li><p>用goland编译器打开刚才设置好的项目，点击最上方的Goland选项卡，点击Preferences</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144526041.png" alt="image-20200919144526041"></p>
+</li>
+<li><p>点击GOPATH，并将该项目加入其中</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144618530.png" alt=""></p>
+</li>
+<li><p>点开go-ethereum-cmd-geth-main.go文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144849725.png" alt="image-20200919144849725"></p>
+</li>
+<li><p>点击右上角的Edit Configurations</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144940535.png" alt="image-20200919144940535"></p>
+</li>
+<li><p>如图所示修改 Name，Run kind，Directory，Output directory选项，并点击Apply，再点击Ok</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145110549.png" alt="image-20200919145110549"></p>
+</li>
+<li><p>点击运行，即可通过编译，成功运行</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145641821.png" alt="image-20200919145641821"></p>
+</li>
+</ol>
+   <br>
+
+<h1 id="五、常见问题"><a href="#五、常见问题" class="headerlink" title="五、常见问题"></a>五、常见问题</h1><p><strong>1.依赖问题，这类问题是没有下载所需的依赖包</strong></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145730455.png" alt="image-20200919145730455"></p>
+<p>​    找到错误位置，并点击红色小灯泡 点击go get…………下载所需依赖即可，如下图这种常见的缺失的依赖包，此处已经下载完毕，所以没有报错</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145906521.png" alt="image-20200919145906521"></p>
+<p><strong>2.go: cannot find main module； see ‘go help modules‘</strong></p>
+<p>解决方法很简单，打开Edit Configurations</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919150957460.png" alt="image-20200919150957460"></p>
+<p>在Environment选项中加入GO111MODULE=auto即可</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919151107158.png" alt="image-20200919151107158"></p>
+]]></content>
+      <categories>
+        <category>【学习】</category>
+      </categories>
+      <tags>
+        <tag>【区块链】</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>注册码、注册机失效时用补丁破解010 editor</title>
+    <url>/2020/06/30/%E6%B3%A8%E5%86%8C%E7%A0%81%E3%80%81%E6%B3%A8%E5%86%8C%E6%9C%BA%E5%A4%B1%E6%95%88%E6%97%B6%E7%94%A8%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3010-editor/</url>
+    <content><![CDATA[<h1 id="一、操作环境"><a href="#一、操作环境" class="headerlink" title="一、操作环境"></a>一、操作环境</h1><p>​    操作系统：此操作全部基于Mac OS操作系统。</p>
+<p>​    软件版本：010 editor v7.0.2</p>
+<br>
+
+<h1 id="二、010-editor"><a href="#二、010-editor" class="headerlink" title="二、010 editor"></a>二、010 editor</h1><p>​    010 editor是一款极其强大，甚至可以说是最优秀的文本/十六机制编辑器，同时兼容Mac OS、Windows、Linux等操作系统，支持模版和脚本操作，可以为二进制文件定义模版，如果以后再编辑相同类型文件，可以调用模版进行自动分析，功能丰富、简单易用。</p>
+<br>
+
+<h1 id="三、注册码、注册机方式"><a href="#三、注册码、注册机方式" class="headerlink" title="三、注册码、注册机方式"></a>三、注册码、注册机方式</h1><p>​    010 editor早已经被破解，主要方式主要是注册码以及注册机两种，注册码方式如下：</p>
+<p>​    百度查找通用注册码，如下图</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630222452730.png" alt="image-20200630222452730"></p>
+<p>​    将其输入至下图所示的文本框中，即完成破解</p>
+<br>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630223618224.png" alt="image-20200630223618224"></p>
+<br>
+
+<p>注册机方式如下：</p>
+<p>​    下载如图所示的注册机，输入Name，就会得到相应的注册码</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630224813986.png" alt="image-20200630224813986">    将得到的内容，输入到对应的文本框，即可完成破解。</p>
+<br>
+
+<h1 id="四、破解补丁方式"><a href="#四、破解补丁方式" class="headerlink" title="四、破解补丁方式"></a>四、破解补丁方式</h1><p>​    注册码、注册机方式进行破解后，很有可能会出现如图所示问题：</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/896827_F6NYZSAQ7SX54UB.png" alt="图片描述"></p>
+<p>为解决此问题，可以使用破解补丁方式，绕过网络审核，从而破解软件。</p>
+<p><strong>补丁下载链接：</strong></p>
+<p>链接: <a href="https://pan.baidu.com/s/1oCCmK0LMxwg-VMuC9ZEX2w" target="_blank" rel="noopener">https://pan.baidu.com/s/1oCCmK0LMxwg-VMuC9ZEX2w</a><br>密码: 3968</p>
+<br>
+
+<p>将此补丁下载后，将其中的010 editor文件复制，找到你电脑应用中的010 editor,点击右键，选择显示包内容</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/896827_HTK79TDDM4V7BUY.png" alt="图片描述"></p>
+<p>然后找到MacOS文件夹</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630225416412.png" alt="image-20200630225416412"></p>
+<p>并用刚才复制的010 editor文件覆盖此文件夹中的对应文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630225513189.png" alt="image-20200630225513189"></p>
+<p>之后可正常使用该软件。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630225535473.png" alt="image-20200630225535473"></p>
+]]></content>
+      <categories>
+        <category>【学习】</category>
+      </categories>
+      <tags>
+        <tag>【工具】</tag>
+        <tag>【破解】</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决MacOS 10.15以上版本无法启动IDA的问题</title>
+    <url>/2020/07/01/%E8%A7%A3%E5%86%B3MacOS-10-15%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8ida%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
+<li><p>操作系统：MacOS 10.15以上版本</p>
+</li>
+<li><p>使用工具：IDA v7.0</p>
+<br>
+
+</li>
+</ul>
+<h1 id="二、IDA简介"><a href="#二、IDA简介" class="headerlink" title="二、IDA简介"></a>二、IDA简介</h1><p>​    IDA是IDA Pro的简称，是一款极为优秀的交互式汇编工具，也是目前最为优秀的静态反编译软件之一，具有强大的功能，但是操作十分复杂，功能众多。IDA具有交互式、可编程、可扩展、多处理器等特点，是最好的逆向工程利器之一。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701180000231.png" alt="image-20200701180000231"></p>
+<br>
+
+<h1 id="三、解决IDA在MacOS-10-15版本上无法运行的问题"><a href="#三、解决IDA在MacOS-10-15版本上无法运行的问题" class="headerlink" title="三、解决IDA在MacOS 10.15版本上无法运行的问题"></a>三、解决IDA在MacOS 10.15版本上无法运行的问题</h1><p>​    由于10.15版本以上的Mac系统指令集的问题，IDA无法直接安装，但是如果在10.4等低版本的Mac系统上安装后，提取在/Applications文件下的文件，在10.15上打开就可以正确运行，有以下两种方式可以做到：</p>
+<p>​    <strong>1.用vm虚拟机构建MacOS低版本环境，安装好IDA后，提取出来，在自己的电脑环境中运行。</strong></p>
+<p>​    <strong>2.将自己的电脑系统版本退回到低版本（极不推荐）。</strong></p>
+<p>​    以上两种方式都可以解决此问题，但是都有些麻烦，因此我将已经安装成功的IDA提取出来，放在网盘上，经测试可以正确使用。</p>
+<p>​    下载地址：</p>
+<p>​    <strong>链接:</strong> <strong><a href="https://pan.baidu.com/s/1ZBfbtQUOal3a5E0L9vOM5Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1ZBfbtQUOal3a5E0L9vOM5Q</a></strong>  </p>
+<p>​    <strong>密码: jrik</strong></p>
+<p>​    下载之后，解压，可正常使用。</p>
+<br>
+
+<h1 id="四、解决IDA-has-almost-crashed问题"><a href="#四、解决IDA-has-almost-crashed问题" class="headerlink" title="四、解决IDA has almost crashed问题"></a>四、解决IDA has almost crashed问题</h1><p>​    在使用ida时，经常会出现如下问题</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701181159903.png" alt="image-20200701181159903"></p>
+<p>​    这是由于多输入法造成的，只要在使用的时候，使用自带的默认英文状态，不使用其他输入法，就可以解决此类问题，成功启动</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701181253112.png" alt="image-20200701181253112"></p>
+<p>​    如果觉得很麻烦，可以参考此项目：<a href="https://github.com/fjh658/IDA7.0_SP" target="_blank" rel="noopener">https://github.com/fjh658/IDA7.0_SP</a></p>
+<p>​    如果看不懂的话，可以下载如下链接中的内容：</p>
+<p>​    <strong>链接: <a href="https://pan.baidu.com/s/1JhAeTFOZ4yxKbjN81IsTHQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1JhAeTFOZ4yxKbjN81IsTHQ</a></strong>  </p>
+<p>​    <strong>密码: 4me0</strong></p>
+<p>​    下载解压后，复制其中的<span style='color:red'><strong>libqcocoa.dylib</strong></span>文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701181827977.png" alt="image-20200701181827977"></p>
+<p>右键点击在应用中的IDA，选择显示包内容</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701182001775.png" alt="image-20200701182001775"></p>
+<p>依次打开Contents、PlugIns、platforms文件夹，用刚才复制的文件，替换其中的<span style='color:red'><strong>libqcocoa.dylib</strong></span>文件，之后就可以正常使用IDA了。</p>
+]]></content>
+      <categories>
+        <category>【学习】</category>
+      </categories>
+      <tags>
+        <tag>【工具】</tag>
+        <tag>【常见问题】</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于PoA共识机制的以太坊私链在阿里云服务器上的搭建和连接</title>
     <url>/2020/12/24/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E4%BA%8EPoA%E5%85%B1%E8%AF%86%E6%9C%BA%E5%88%B6%E7%9A%84%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE%E6%90%AD%E5%BB%BA%E5%92%8C%E8%BF%9E%E6%8E%A5/</url>
     <content><![CDATA[<h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
 <li>操作系统：MacOS 10.15以上版本(win一样)</li>
@@ -132,235 +362,5 @@
       <tags>
         <tag>【以太坊】</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Paxos共识算法的GO语言模拟</title>
-    <url>/2020/11/25/Paxos%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E7%9A%84GO%E8%AF%AD%E8%A8%80%E6%A8%A1%E6%8B%9F/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>【实践】</category>
-      </categories>
-      <tags>
-        <tag>【共识机制】</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>以太坊中Ghost协议与叔块</title>
-    <url>/2020/10/11/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%ADGhost%E5%8D%8F%E8%AE%AE%E4%B8%8E%E5%8F%94%E5%9D%97/</url>
-    <content><![CDATA[<h2 id="Ghost协议为什么出现"><a href="#Ghost协议为什么出现" class="headerlink" title="Ghost协议为什么出现"></a>Ghost协议为什么出现</h2><p>​    与比特币相比，以太坊大大缩减了其出块的时间，由比特币中的10分钟缩减为15秒，在提升了其确认速度和效率的同时，也产生了共识问题。</p>
-<p>​    在比特币系统中，遵循着”长链优先“规则，也就是最长的主链才是比特币中合法的链，如果矿工挖出的区块，并不是沿着最长链进行的，就会产生分叉，这些区块也被称为”孤块“，其将会被认定为无用的，矿工也无法获得相应的奖励。</p>
-<p>​    由于以太坊出块时间仅仅是15秒，很有可能多个矿工同时挖出了一个区块，此时占据优势算力、地理位置优越的矿池发布的区块能更快的被各个节点确认，而单个矿工的速度远远赶不上这些矿池，导致他们所挖出的块成为”孤块“，如果还继续沿用比特币的处理方式，那么这些矿工将无法获得任何奖励，再加上算力证明机制下算力的巨大投入，也带来了资源和人力的浪费。长此以往，将不仅会是算力浪费的问题，还会导致矿工怠工或者一系列的安全问题，影响到区块链的共识，因此，以太坊引入了Ghost协议，来解决这些问题。</p>
-<h2 id="以最重链取代最长链"><a href="#以最重链取代最长链" class="headerlink" title="以最重链取代最长链"></a>以最重链取代最长链</h2><p>​    在以太坊的Ghost协议中，孤块并非像比特币中直接被抛弃，而是认为孤块也有一定的价值，并给予挖出孤块的矿工一定的回报，并称其为”叔块“，这不仅减少了在更短出块时间下频繁产生分差的算力浪费问题，也为主链的安全作出贡献。</p>
-<p>​    与比特币不同，以太坊中的主链是最重链，而不是最长链，打包引用叔块的矿工也能够获得一定的报酬，同时也能够使主链更重，这激励了矿工去打包叔块。</p>
-<h2 id="叔块如何被引用"><a href="#叔块如何被引用" class="headerlink" title="叔块如何被引用"></a>叔块如何被引用</h2><p>​    相比于引用，我认为网络上所说的”招安“更加通俗和恰当，打包叔块可以理解为主链上的大区块来”招安“叔块，避免有些矿工在分叉后不愿意合并到主链，继续在自己的分叉上挖矿，希望能够赌运气下一次比大矿池挖得更快，这样就会不利于出现分叉后的快速合并。</p>
-<p>​    并非所有叔块和引用者都能得到奖励，在Ghost协议下，只有7代以内的叔块能够被招安并得到奖励，这样是为了避免有些矿工专门在之前的链上制造分叉，然后等待被招安获得奖励的情况。同时，距离主链代数越近的叔块，被招安得到的奖励也就越多，从1到7代分别为:7/8、6/8、5/8……1/8，其奖励也就 = 出块奖励 * 比例。引用者得到的奖励 = 出块奖励 + 1/32 * 出块奖励 * 打包的叔块数，每次打包的叔块数不能超过2个。</p>
-<p>​    <img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/1446032-20180909110545259-1917568601.png" alt="1446032-20180909110545259-1917568601"></p>
-<p>​    如图所示，主链为1、2、3、4，其他的均为叔块，假设此时3已经出块，大矿池想要将叔块与主链快速合并，就要进行招安，它可以首先选择3-1、3-2两个叔块，那么他就要讲这两个叔块的Hash值写到即将要挖出来的4号区块中，如果4号区块成功被挖出，那大矿池能够得到的奖励 = 出块奖励 * 1/32  * 2 + 出块奖励，同时挖出这两个区块的矿工能够获得的奖励 = 出块奖励 * 7/8，当3-1、3-2两个叔块的矿工发现自己被招安，且获得奖励，那么他们将有很大概率不会继续挑战大矿池的算力而选择合并，由此实现了主链的快速合并。</p>
-<p>​    在准备挖第五块区块时，可以继续选择招安3-3、3-4两个叔块，但是此时的奖励比例已经变成了6/8，一直到某个叔块已经超过7代，就不会获得奖励了。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/wanghui-garcia/p/9607356.html" target="_blank" rel="noopener">https://www.cnblogs.com/wanghui-garcia/p/9607356.html</a></p>
-<p><a href="https://blog.csdn.net/t46414704152abc/article/details/81191804" target="_blank" rel="noopener">https://blog.csdn.net/t46414704152abc/article/details/81191804</a></p>
-]]></content>
-      <categories>
-        <category>【学习】</category>
-      </categories>
-      <tags>
-        <tag>【以太坊】</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在MacOS系统下运行本地以太坊源码</title>
-    <url>/2020/09/19/%E5%9C%A8MacOS%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%90%E8%A1%8C%E6%9C%AC%E5%9C%B0%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%90%E7%A0%81/</url>
-    <content><![CDATA[<h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
-<li>操作系统：MacOS 10.15</li>
-<li>编译器：goland 2020.2.2</li>
-<li>环境：Go 1.15.2</li>
-</ul>
-<br>
-
-<h1 id="二、go-ethereum代码下载"><a href="#二、go-ethereum代码下载" class="headerlink" title="二、go-ethereum代码下载"></a>二、go-ethereum代码下载</h1><p>​    ethereum开源免费，可以前往<a href="https://github.com/ethereum/go-ethereum" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum</a>  下载源码</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143445539.png" alt="image-20200919143445539"></p>
-<p>点击右上角绿色的Code，再点击下方的Download ZIP即可将源代码下载至本地</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143552435.png" alt="image-20200919143552435"></p>
-<br>
-
-<h1 id="三、项目结构"><a href="#三、项目结构" class="headerlink" title="三、项目结构"></a>三、项目结构</h1><p>​    该项目对目录结构有严格的要求，如果不按其预定的目录结构进行部署，将会有一系列的编译错误：</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143750120.png" alt="image-20200919143750120"></p>
-<p>其正确的目录要求如下：</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143853298.png" alt="image-20200919143853298"></p>
-<p>1.首先先用goland创建一个新项目，这个项目名任意，我起的叫做geth，然后再其中创建三个文件夹，分别为bin、pkg以及src</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144007994.png" alt="image-20200919144007994"></p>
-<p>2.然后进入src目录下创建github.com目录和golang.org目录</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144107511.png" alt="image-20200919144107511"></p>
-<ol start="3">
-<li><p>进入到github.com目录，创建ethereum目录</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144157891.png" alt=""></p>
-</li>
-<li><p>进入到ethereum目录，将刚才下好的源代码复制进去，同时将其名字改为go-ethereum</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144312938.png" alt="image-20200919144312938"></p>
-</li>
-</ol>
-<h1 id="四、源码编译"><a href="#四、源码编译" class="headerlink" title="四、源码编译"></a>四、源码编译</h1><ol>
-<li><p>用goland编译器打开刚才设置好的项目，点击最上方的Goland选项卡，点击Preferences</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144526041.png" alt="image-20200919144526041"></p>
-</li>
-<li><p>点击GOPATH，并将该项目加入其中</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144618530.png" alt=""></p>
-</li>
-<li><p>点开go-ethereum-cmd-geth-main.go文件</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144849725.png" alt="image-20200919144849725"></p>
-</li>
-<li><p>点击右上角的Edit Configurations</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144940535.png" alt="image-20200919144940535"></p>
-</li>
-<li><p>如图所示修改 Name，Run kind，Directory，Output directory选项，并点击Apply，再点击Ok</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145110549.png" alt="image-20200919145110549"></p>
-</li>
-<li><p>点击运行，即可通过编译，成功运行</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145641821.png" alt="image-20200919145641821"></p>
-</li>
-</ol>
-   <br>
-
-<h1 id="五、常见问题"><a href="#五、常见问题" class="headerlink" title="五、常见问题"></a>五、常见问题</h1><p><strong>1.依赖问题，这类问题是没有下载所需的依赖包</strong></p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145730455.png" alt="image-20200919145730455"></p>
-<p>​    找到错误位置，并点击红色小灯泡 点击go get…………下载所需依赖即可，如下图这种常见的缺失的依赖包，此处已经下载完毕，所以没有报错</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145906521.png" alt="image-20200919145906521"></p>
-<p><strong>2.go: cannot find main module； see ‘go help modules‘</strong></p>
-<p>解决方法很简单，打开Edit Configurations</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919150957460.png" alt="image-20200919150957460"></p>
-<p>在Environment选项中加入GO111MODULE=auto即可</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919151107158.png" alt="image-20200919151107158"></p>
-]]></content>
-      <categories>
-        <category>【学习】</category>
-      </categories>
-      <tags>
-        <tag>【区块链】</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决MacOS 10.15以上版本无法启动IDA的问题</title>
-    <url>/2020/07/01/%E8%A7%A3%E5%86%B3MacOS-10-15%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8ida%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
-<li><p>操作系统：MacOS 10.15以上版本</p>
-</li>
-<li><p>使用工具：IDA v7.0</p>
-<br>
-
-</li>
-</ul>
-<h1 id="二、IDA简介"><a href="#二、IDA简介" class="headerlink" title="二、IDA简介"></a>二、IDA简介</h1><p>​    IDA是IDA Pro的简称，是一款极为优秀的交互式汇编工具，也是目前最为优秀的静态反编译软件之一，具有强大的功能，但是操作十分复杂，功能众多。IDA具有交互式、可编程、可扩展、多处理器等特点，是最好的逆向工程利器之一。</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701180000231.png" alt="image-20200701180000231"></p>
-<br>
-
-<h1 id="三、解决IDA在MacOS-10-15版本上无法运行的问题"><a href="#三、解决IDA在MacOS-10-15版本上无法运行的问题" class="headerlink" title="三、解决IDA在MacOS 10.15版本上无法运行的问题"></a>三、解决IDA在MacOS 10.15版本上无法运行的问题</h1><p>​    由于10.15版本以上的Mac系统指令集的问题，IDA无法直接安装，但是如果在10.4等低版本的Mac系统上安装后，提取在/Applications文件下的文件，在10.15上打开就可以正确运行，有以下两种方式可以做到：</p>
-<p>​    <strong>1.用vm虚拟机构建MacOS低版本环境，安装好IDA后，提取出来，在自己的电脑环境中运行。</strong></p>
-<p>​    <strong>2.将自己的电脑系统版本退回到低版本（极不推荐）。</strong></p>
-<p>​    以上两种方式都可以解决此问题，但是都有些麻烦，因此我将已经安装成功的IDA提取出来，放在网盘上，经测试可以正确使用。</p>
-<p>​    下载地址：</p>
-<p>​    <strong>链接:</strong> <strong><a href="https://pan.baidu.com/s/1ZBfbtQUOal3a5E0L9vOM5Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1ZBfbtQUOal3a5E0L9vOM5Q</a></strong>  </p>
-<p>​    <strong>密码: jrik</strong></p>
-<p>​    下载之后，解压，可正常使用。</p>
-<br>
-
-<h1 id="四、解决IDA-has-almost-crashed问题"><a href="#四、解决IDA-has-almost-crashed问题" class="headerlink" title="四、解决IDA has almost crashed问题"></a>四、解决IDA has almost crashed问题</h1><p>​    在使用ida时，经常会出现如下问题</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701181159903.png" alt="image-20200701181159903"></p>
-<p>​    这是由于多输入法造成的，只要在使用的时候，使用自带的默认英文状态，不使用其他输入法，就可以解决此类问题，成功启动</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701181253112.png" alt="image-20200701181253112"></p>
-<p>​    如果觉得很麻烦，可以参考此项目：<a href="https://github.com/fjh658/IDA7.0_SP" target="_blank" rel="noopener">https://github.com/fjh658/IDA7.0_SP</a></p>
-<p>​    如果看不懂的话，可以下载如下链接中的内容：</p>
-<p>​    <strong>链接: <a href="https://pan.baidu.com/s/1JhAeTFOZ4yxKbjN81IsTHQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1JhAeTFOZ4yxKbjN81IsTHQ</a></strong>  </p>
-<p>​    <strong>密码: 4me0</strong></p>
-<p>​    下载解压后，复制其中的<span style='color:red'><strong>libqcocoa.dylib</strong></span>文件</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701181827977.png" alt="image-20200701181827977"></p>
-<p>右键点击在应用中的IDA，选择显示包内容</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701182001775.png" alt="image-20200701182001775"></p>
-<p>依次打开Contents、PlugIns、platforms文件夹，用刚才复制的文件，替换其中的<span style='color:red'><strong>libqcocoa.dylib</strong></span>文件，之后就可以正常使用IDA了。</p>
-]]></content>
-      <categories>
-        <category>【学习】</category>
-      </categories>
-      <tags>
-        <tag>【工具】</tag>
-        <tag>【常见问题】</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>注册码、注册机失效时用补丁破解010 editor</title>
-    <url>/2020/06/30/%E6%B3%A8%E5%86%8C%E7%A0%81%E3%80%81%E6%B3%A8%E5%86%8C%E6%9C%BA%E5%A4%B1%E6%95%88%E6%97%B6%E7%94%A8%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3010-editor/</url>
-    <content><![CDATA[<h1 id="一、操作环境"><a href="#一、操作环境" class="headerlink" title="一、操作环境"></a>一、操作环境</h1><p>​    操作系统：此操作全部基于Mac OS操作系统。</p>
-<p>​    软件版本：010 editor v7.0.2</p>
-<br>
-
-<h1 id="二、010-editor"><a href="#二、010-editor" class="headerlink" title="二、010 editor"></a>二、010 editor</h1><p>​    010 editor是一款极其强大，甚至可以说是最优秀的文本/十六机制编辑器，同时兼容Mac OS、Windows、Linux等操作系统，支持模版和脚本操作，可以为二进制文件定义模版，如果以后再编辑相同类型文件，可以调用模版进行自动分析，功能丰富、简单易用。</p>
-<br>
-
-<h1 id="三、注册码、注册机方式"><a href="#三、注册码、注册机方式" class="headerlink" title="三、注册码、注册机方式"></a>三、注册码、注册机方式</h1><p>​    010 editor早已经被破解，主要方式主要是注册码以及注册机两种，注册码方式如下：</p>
-<p>​    百度查找通用注册码，如下图</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630222452730.png" alt="image-20200630222452730"></p>
-<p>​    将其输入至下图所示的文本框中，即完成破解</p>
-<br>
-
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630223618224.png" alt="image-20200630223618224"></p>
-<br>
-
-<p>注册机方式如下：</p>
-<p>​    下载如图所示的注册机，输入Name，就会得到相应的注册码</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630224813986.png" alt="image-20200630224813986">    将得到的内容，输入到对应的文本框，即可完成破解。</p>
-<br>
-
-<h1 id="四、破解补丁方式"><a href="#四、破解补丁方式" class="headerlink" title="四、破解补丁方式"></a>四、破解补丁方式</h1><p>​    注册码、注册机方式进行破解后，很有可能会出现如图所示问题：</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/896827_F6NYZSAQ7SX54UB.png" alt="图片描述"></p>
-<p>为解决此问题，可以使用破解补丁方式，绕过网络审核，从而破解软件。</p>
-<p><strong>补丁下载链接：</strong></p>
-<p>链接: <a href="https://pan.baidu.com/s/1oCCmK0LMxwg-VMuC9ZEX2w" target="_blank" rel="noopener">https://pan.baidu.com/s/1oCCmK0LMxwg-VMuC9ZEX2w</a><br>密码: 3968</p>
-<br>
-
-<p>将此补丁下载后，将其中的010 editor文件复制，找到你电脑应用中的010 editor,点击右键，选择显示包内容</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/896827_HTK79TDDM4V7BUY.png" alt="图片描述"></p>
-<p>然后找到MacOS文件夹</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630225416412.png" alt="image-20200630225416412"></p>
-<p>并用刚才复制的010 editor文件覆盖此文件夹中的对应文件</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630225513189.png" alt="image-20200630225513189"></p>
-<p>之后可正常使用该软件。</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630225535473.png" alt="image-20200630225535473"></p>
-]]></content>
-      <categories>
-        <category>【学习】</category>
-      </categories>
-      <tags>
-        <tag>【工具】</tag>
-        <tag>【破解】</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello SunDaohan</title>
-    <url>/2020/06/30/Hello-SunDaohan/</url>
-    <content><![CDATA[<h2 id="这是第一篇博文"><a href="#这是第一篇博文" class="headerlink" title="这是第一篇博文"></a>这是第一篇博文</h2><p>试下效果</p>
-]]></content>
-      <categories>
-        <category>Hello</category>
-      </categories>
-      <tags>
-        <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/06/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
 </search>
