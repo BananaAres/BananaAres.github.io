@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>跨平台编译</title>
+    <url>/2021/07/09/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h1 id="跨平台编译"><a href="#跨平台编译" class="headerlink" title="跨平台编译"></a>跨平台编译</h1><h3 id="1-windows"><a href="#1-windows" class="headerlink" title="1.windows"></a>1.windows</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED&#x3D;0  &#x2F;&#x2F; 禁用CGO</span><br><span class="line">SET GOOS&#x3D;linux  &#x2F;&#x2F; 目标平台是linux</span><br><span class="line">SET GOARCH&#x3D;amd64  &#x2F;&#x2F; 目标处理器架构是amd64</span><br><span class="line">SET CGO_ENABLED&#x3D;0</span><br><span class="line">SET GOOS&#x3D;darwin&#x2F;&#x2F;Mac</span><br><span class="line">SET GOARCH&#x3D;amd64</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2.MAC"></a>2.MAC</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED&#x3D;0 GOOS&#x3D;linux GOARCH&#x3D;amd64 go build&#x2F;&#x2F;Linux</span><br><span class="line">CGO_ENABLED&#x3D;0 GOOS&#x3D;windows GOARCH&#x3D;amd64 go build&#x2F;&#x2F;Windows</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-Linux"><a href="#3-Linux" class="headerlink" title="3.Linux"></a>3.Linux</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED&#x3D;0 GOOS&#x3D;darwin GOARCH&#x3D;amd64 go build</span><br><span class="line">CGO_ENABLED&#x3D;0 GOOS&#x3D;windows GOARCH&#x3D;amd64 go build</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>【语言学习】</category>
+      </categories>
+      <tags>
+        <tag>【golang】</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基于PoA共识机制的以太坊私链在阿里云服务器上的搭建和连接</title>
     <url>/2020/12/24/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E4%BA%8EPoA%E5%85%B1%E8%AF%86%E6%9C%BA%E5%88%B6%E7%9A%84%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE%E6%90%AD%E5%BB%BA%E5%92%8C%E8%BF%9E%E6%8E%A5/</url>
     <content><![CDATA[<h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
