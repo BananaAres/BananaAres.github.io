@@ -13,7 +13,7 @@
 
 
 
-<title>记一次连接云服务器MySQL数据库时总是空闲连接超时断开问题 | SunDaohan</title>
+<title>hexo博客github账号密码登录失败问题 | SunDaohan</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">记一次连接云服务器MySQL数据库时总是空闲连接超时断开问题</h1>
+            <h1 class="post-title">hexo博客github账号密码登录失败问题</h1>
             
                 <div class="post-meta">
                     
@@ -183,7 +183,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">三月 21, 2022&nbsp;&nbsp;21:10:45</a>
+                        Date: <a href="#">三月 21, 2022&nbsp;&nbsp;21:41:51</a>
                         </span>
                     
                     
@@ -199,15 +199,28 @@
         </header>
 
         <div class="post-content">
-            <h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p>​    最新在写项目的时候使用了hikari连接池，连接的是阿里云服务器上部署的MySQL数据库，结果每次运行项目后没操作一小会，就开始报一些警告，具体如下</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220321210958448.png" alt="image-20220321210958448"></p>
-<p>​    The last packet successfully received from the server was 1,209,470 milliseconds ago.  The last packet sent successfully to the server was 5,005 milliseconds ago.). Possibly consider using a shorter maxLifetime value.</p>
-<p>还有</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220321211209136.png" alt="image-20220321211209136"></p>
-<p> DateHikariCP - Thread starvation or clock leap detected (housekeeper delta=5m11s731ms).</p>
-<p>然后连接就断开，无法访问数据库了。</p>
-<h1 id="二、原因分析"><a href="#二、原因分析" class="headerlink" title="二、原因分析"></a>二、原因分析</h1><p>​    上面的问题总而言之意思就是，连接存活时间超时了之类的，但是数据库中的设置和我的连接池设置的空闲存活时间跟最大存活时间都远大于空闲时间，所以按理说不应该出现这种情况，而换到我本地的数据库，配置完全相同也不会出现这种情况，根据网上说的一些方法修改也不成功。</p>
-<p>​    再查了查，发现应该是因为云服务器的Linux系统上的安全设置问题，如果在一段时间内没有与服务器进行交互就会断开连接，包括在用ssh连接云服务器时，如果一段时间不操作，也会卡死只能重连，所以只要是在本地的，就不会出现这种情况。</p>
+            <h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p>​    博客写好想要推送到github上时，运行hexo d发现出错</p>
+<p>![image-20220321214258930](/Users/sundaohan/Library/Application Support/typora-user-images/image-20220321214258930.png)</p>
+<p>根据网上很多方式进行修改，无法解决，最后发现是github账号密码错误，现在github登录时不能使用密码，而是使用token，具体解决方式如下</p>
+<h1 id="二、问题解决"><a href="#二、问题解决" class="headerlink" title="二、问题解决"></a>二、问题解决</h1><h2 id="2-1-申请token"><a href="#2-1-申请token" class="headerlink" title="2.1. 申请token"></a>2.1. 申请token</h2><p>参考：</p>
+<p><a href="https://blog.csdn.net/weixin_41010198/article/details/119698015?utm_source=app&amp;app_version=4.12.0&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41010198/article/details/119698015?utm_source=app&amp;app_version=4.12.0&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen</a></p>
+<p>1.点击setting</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220321214438353.png" alt="image-20220321214438353"></p>
+<p>2.点击最下面的开发者设置</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220321214507169.png" alt="image-20220321214507169"></p>
+<p>3.创建token</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220321214618983.png" alt="image-20220321214618983"></p>
+<p>4.根据自己需求打勾，生成即可</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220321214759848.png" alt="image-20220321214759848"></p>
+<p>5.把生成的token复制一下，比较敏感不放图片</p>
+<h2 id="2-2-修改hexo配置"><a href="#2-2-修改hexo配置" class="headerlink" title="2.2 修改hexo配置"></a>2.2 修改hexo配置</h2><p>1.进入hexo博客主文件夹中</p>
+<p>2.修改配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
+
+<p>3.修改内容如下</p>
+<p>repo: <a href="https://token@github.com/名字/名字.github.io.git" target="_blank" rel="noopener">https://token@github.com/名字/名字.github.io.git</a></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220321215027065.png" alt="image-20220321215027065"></p>
+<p>3.保存，hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 即可正常上传</p>
 
         </div>
 
@@ -236,7 +249,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E3%80%90Java%E3%80%91/"># 【Java】</a>
+                        <a href="/tags/%E3%80%90hexo%E3%80%91/"># 【hexo】</a>
                     
                         
                 </span>
@@ -249,10 +262,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2022/03/21/hexo%E5%8D%9A%E5%AE%A2github%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/">hexo博客github账号密码登录失败问题</a>
             
-            
-            <a class="next" rel="next" href="/2022/01/18/springboot-Bcos%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8E%E8%B0%83%E7%94%A8/">springboot+Bcos智能合约的部署与调用</a>
+            <a class="next" rel="next" href="/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%97%B6%E6%80%BB%E6%98%AF%E7%A9%BA%E9%97%B2%E8%BF%9E%E6%8E%A5%E8%B6%85%E6%97%B6%E6%96%AD%E5%BC%80%E9%97%AE%E9%A2%98/">记一次连接云服务器MySQL数据库时总是空闲连接超时断开问题</a>
             
         </section>
 
