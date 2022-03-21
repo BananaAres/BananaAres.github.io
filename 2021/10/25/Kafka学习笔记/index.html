@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="author" content="SunDaohan">
+
+
+
+
+
+<title>Kafka学习笔记 | SunDaohan</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">孙道涵的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">孙道涵的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Kafka学习笔记</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">SunDaohan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 25, 2021&nbsp;&nbsp;22:06:07</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E3%80%90%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%91/">【消息队列】</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h1><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><p>​    kafka是一个分布式的基于发布/订阅模式的消息队列，主要应用于大数据实时处理领域</p>
+<h3 id="1-2-消息队列"><a href="#1-2-消息队列" class="headerlink" title="1.2 消息队列"></a>1.2 消息队列</h3><h4 id="1-2-1-消息队列的应用场景"><a href="#1-2-1-消息队列的应用场景" class="headerlink" title="1.2.1 消息队列的应用场景"></a>1.2.1 消息队列的应用场景</h4><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019132724762.png" alt="image-20211019132724762"></p>
+<p>使用消息队列的好处：  </p>
+<p>（1）解耦：</p>
+<p>​    允许独立的扩展或修改两边的处理过程，只要保证它们遵守同样的接口约束 </p>
+<p>（2）可恢复性：</p>
+<p>​    系统的一部分组件失效，不影响整个系统</p>
+<p>（3）缓冲：</p>
+<p>​    有助于控制和优化数据流经过系统的速度，解决生产消息和消费消息的处理速度不一致的情况（生产&gt;消费）</p>
+<p>（4）灵活性&amp;峰值处理能力（削峰）：</p>
+<p>​    访问量剧增的情况下，应用仍需继续发挥作用。使用消息队列能够使关键组件顶住突发的访问压力，而不会因为突发的超负荷的请求而完全崩溃</p>
+<p>（5）异步通信：</p>
+<p>​    消息队列提供异步处理机制，允许用户把一个消息放入队列，但并不立即处理。</p>
+<h4 id="1-2-2-消息队列的两种模式"><a href="#1-2-2-消息队列的两种模式" class="headerlink" title="1.2.2 消息队列的两种模式"></a>1.2.2 消息队列的两种模式</h4><p>（1）点对点模式（一对一，消费者主动拉取数据，消息收到后消息清除）</p>
+<p>（2）发布/订阅模式（一对多，消费者消费数据之后不会清除消息）</p>
+<p>​    消息生产者（发布）将消息发布到topic中，同时有多个消息消费者（订阅）消费该消息，和点对点方式不同，发布到topic的消息会被所有订阅者消费</p>
+<p>![image-20211019133619513](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019133619513.png)</p>
+<h3 id="1-3-kafka基础架构"><a href="#1-3-kafka基础架构" class="headerlink" title="1.3 kafka基础架构"></a>1.3 kafka基础架构</h3><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019150922580.png" alt="image-20211019150922580"></p>
+<h2 id="二、kafka快速入门"><a href="#二、kafka快速入门" class="headerlink" title="二、kafka快速入门"></a>二、kafka快速入门</h2><h3 id="2-1-搭建集群"><a href="#2-1-搭建集群" class="headerlink" title="2.1 搭建集群"></a>2.1 搭建集群</h3><p>（1）官网地址：kafka.apache.org</p>
+<p>下载 0.11.0</p>
+<p>（2）解压到/opt/software </p>
+<p>​    tar zxvf kafka_2.11-0.11.0.0.tgz</p>
+<p>(3)改名 mv </p>
+<p>​    mv kafka_2.11-0.11.0.0 kafka</p>
+<p>（4）修改config下的server.properties文件，修改四项内容</p>
+<p>![image-20211019154945056](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019154945056.png)</p>
+<p>修改id，不能重复，本次使用0 ，1，2</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154423982.png" alt="image-20211019154423982"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154403179.png" alt="image-20211019154403179"></p>
+<p>/opt/software/kafka/logs</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154311710.png" alt="image-20211019154311710"></p>
+<p>192.168.33.12:2181,192.168.33.13:2181,192.168.33.14:2181</p>
+<p>在kafka下创建logs目录 </p>
+<p>mkdir logs</p>
+<p>（5）使用写好的脚本启动zk集群</p>
+<p>./zk.sh start</p>
+<p>（6）启动</p>
+<p>bin/kafka-server-start.sh -daemon config/server.properties</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019155613032.png" alt="image-20211019155613032"></p>
+<p>群起脚本</p>
+<p>shell脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">case $1 in</span><br><span class="line"></span><br><span class="line">"start")&#123;</span><br><span class="line">	for i in 192.168.33.12 192.168.33.13 192.168.33.14</span><br><span class="line">	do</span><br><span class="line">			echo ---------------- kafka $i 启动 ------------</span><br><span class="line">			ssh $i "/opt/software/kafka/bin/kafka-server-start.sh -daemon /opt/software/kafka/config/server.properties"</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">;;</span><br><span class="line"></span><br><span class="line">"stop")&#123;</span><br><span class="line">	for i in 192.168.33.12 192.168.33.13 192.168.33.14</span><br><span class="line">	do</span><br><span class="line">			echo ---------------- kafka $i 停止 ------------</span><br><span class="line">			ssh $i "/opt/software/kafka/bin/kafka-server-stop.sh /opt/software/kafka/config/server.properties"</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line">;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-命令"><a href="#2-2-命令" class="headerlink" title="2.2 命令"></a>2.2 命令</h3><p>（1）创建主题</p>
+<p>bin/kafka-topics.sh –create –zookeeper 192.168.33.12:2181 –topic first  –partitions 2 –replication-factor 2</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019161427213.png" alt="image-20211019161427213"></p>
+<p>（2）查看主题</p>
+<p>bin/kafka-topics.sh –list –zookeeper 192.168.33.12:2181</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019161440493.png" alt="image-20211019161440493"></p>
+<p>（3）删除</p>
+<p>bin/kafka-topics.sh –delete –zookeeper 192.168.33.12:2181 –topic first</p>
+<p>![image-20211019190227449](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190227449.png)</p>
+<p>(4)查看信息</p>
+<p>bin/kafka-topics.sh –describe –topic first –zookeeper 192.168.33.12:2181</p>
+<p>![image-20211019190521194](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190521194.png)</p>
+<p>注意副本数不能超过broker数，分区数不受限制</p>
+<p>（5）生产消息</p>
+<p>bin/kafka-console-producer.sh –topic first –broker-list 192.168.33.12:9092</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170215428.png" alt="image-20211025170215428"></p>
+<p>（6）建立消费者消费消息（zookeeper老版本）</p>
+<p>bin/kafka-console-consumer.sh –topic first –zookeeper 192.168.33.12:2181</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025152057281.png" alt="image-20211025152057281">此时可能会报kafka.consumer.ConsumerFetcherManager$LeaderFinderThread错误</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170252571.png" alt="image-20211025170252571"></p>
+<p>到config中 修改server.properties 将advertised.listeners中的host修改为自己的ip地址，集群内的所有机器都要修改，即可解决该问题</p>
+<p>![image-20211025170414645](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211025170414645.png)</p>
+<p>生产者发送消息后，消费者即可拿到消息</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170330958.png" alt="image-20211025170330958"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170339918.png" alt="image-20211025170339918"></p>
+<p>最新方式启动</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025171108866.png" alt="image-20211025171108866"></p>
+<h2 id="三、Kafka架构深入"><a href="#三、Kafka架构深入" class="headerlink" title="三、Kafka架构深入"></a>三、Kafka架构深入</h2><h3 id="3-1-工作流程及文件存储机制"><a href="#3-1-工作流程及文件存储机制" class="headerlink" title="3.1 工作流程及文件存储机制"></a>3.1 工作流程及文件存储机制</h3><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025210815632.png" alt="image-20211025210815632">    Kafka中消息是以topic进行分类的,生产者生产消息，消费者消费消息，都是面向topic的。<br>    topic是逻辑上的概念，而partition 是物理上的概念，每个partition 对应于一个log文件，该log文件中存储的就是producer生产的数据。Producer生产的数据会被不断追加到该log文件末端，且每条数据都有自己的offset。消费者组中的每个消费者,都会实时记录自己消费到了哪个offset,以便出错恢复时，从上次的位置继续消费。</p>
+<p>​    每个分区都维护独立的偏移量，即Kafka只能保证局部的消息有序，而不能保证全局有序。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025213218142.png" alt="image-20211025213218142"></p>
+<p>​    由于生产者生产的消息会不断追加到log文件末尾，为防止log文件过大导致数据定位效率低下，Kafka 采取了分片和索引机制，将每个partition 分为多个segment.每个segment对应两个文件——“.index”文件 和“.1og”文件。这些文件位于一个文件夹下，该文件夹的命名规则为: topic 名称+分区序号。例如，first 这个topic有三个分区，则其对应的文件夹为first-0,first-1 ,first-2。。</p>
+<p>​    在server.properties中可以设置一个.log文件最大的大小，默认1G，当超过1G后会新建一个.log存储，.log中只存数据，index中存索引</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025213534581.png" alt="image-20211025213534581"></p>
+<p>.log命名是当前的偏移量，从哪个开始的</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025214054632.png" alt="image-20211025214054632"></p>
+<h3 id="3-2-生产者"><a href="#3-2-生产者" class="headerlink" title="3.2 生产者"></a>3.2 生产者</h3><h4 id="3-2-1分区策略"><a href="#3-2-1分区策略" class="headerlink" title="3.2.1分区策略"></a>3.2.1分区策略</h4><h5 id="3-2-1-1-分区的原因"><a href="#3-2-1-1-分区的原因" class="headerlink" title="3.2.1.1 分区的原因"></a>3.2.1.1 分区的原因</h5><p>（1）方便在集群中扩展,每个Partition可以通过调整以适应它所在的机器，而一个topic又可以有多个Partition组成，因此整个集群就可以适应任意大小的数据了<br>（2）可以提高并发，因为可以以Partition为单位读写了</p>
+<h5 id="3-2-1-2-分区的原则"><a href="#3-2-1-2-分区的原则" class="headerlink" title="3.2.1.2 分区的原则"></a>3.2.1.2 分区的原则</h5><p>​    需要将producer发送的数据封装成一个ProducerRecord对象</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025220104661.png" alt="image-20211025220104661"></p>
+<p>（1）指明partition 的情况下，直接将指明的值直接作为partiton 值；<br>（2）没有指明partition 值但有key的情况下，将key的hash 值与topic 的partition数进行取余得到partition 值；<br>（3）既没有partition 值又没有key 值的情况下，第一次调用时随机生成一个整数（后面每次调用在这个整数上自增），将这个值与topic 可用的partition 总数取余得到partition值，也就是常说的round-robin 算法。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>SunDaohan</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>为中华之<strong>崛起</strong>而读书</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E3%80%90Kafka%E3%80%91/"># 【Kafka】</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/11/11/java%E5%85%AB%E8%82%A1%E6%96%87/">java八股文</a>
+            
+            
+            <a class="next" rel="next" href="/2021/10/10/Redis%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/">Redis配置与使用</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+
+        <!-- 不蒜子统计 -->
+        <div align="center"><span id="busuanzi_container_site_pv" >
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span></div>
+        <div align = "center"><span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <div class="copyright">
+        <span>© SunDaohan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+    </div>
+</body>
+</html>

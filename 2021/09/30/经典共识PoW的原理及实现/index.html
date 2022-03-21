@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="author" content="SunDaohan">
+
+
+
+
+
+<title>经典共识PoW的原理及实现 | SunDaohan</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">孙道涵的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">孙道涵的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">经典共识PoW的原理及实现</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">SunDaohan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 30, 2021&nbsp;&nbsp;21:36:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E3%80%90%E5%AE%9E%E8%B7%B5%E3%80%91/">【实践】</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="经典共识PoW的原理及实现"><a href="#经典共识PoW的原理及实现" class="headerlink" title="经典共识PoW的原理及实现"></a>经典共识PoW的原理及实现</h1><h2 id="一、PoW简介"><a href="#一、PoW简介" class="headerlink" title="一、PoW简介"></a>一、PoW简介</h2><p>​    PoW(Proof of Work)是工作量证明的简称，最早使用在防止拒绝服务攻击以及过滤垃圾邮件，现在成为区块链公链中最常见也是最有效的共识算法之一，当下最流行的比特币、以太坊等公链目前均使用PoW共识。</p>
+<p>​    PoW是通过对一个复杂难题的求解，来保证区块链交易打包出块的公平性，即最先解决难题的矿工，可以获得记账权，并将打包好的区块发送至其他节点验证上链，从而获得激励。在保证能够在不可信的环境下创造可信的同时，运用PoW还可以天然的防御女巫攻击等针对区块链的攻击。</p>
+<p>​    由于PoW要求所有矿工节点都解决无意义的复杂难题，导致了巨大的资源浪费，因此，最新的以太坊版本考虑使用PoS代替PoW成为其共识算法。</p>
+<h2 id="二、PoW原理及实现"><a href="#二、PoW原理及实现" class="headerlink" title="二、PoW原理及实现"></a>二、PoW原理及实现</h2><p>​    在介绍PoW原理之前，需要先了解一些知识。</p>
+<h3 id="2-1-区块头"><a href="#2-1-区块头" class="headerlink" title="2.1 区块头"></a>2.1 区块头</h3><p>​    在区块链中，区块分为区块头和区块体两部分，区块体以默克尔树的数据结构存储了交易数据，区块头存储了上一个区块的Hash、默克尔树树根值、时间戳、难度值、区块高度等等非交易数据信息。</p>
+<h3 id="2-2-哈希计算"><a href="#2-2-哈希计算" class="headerlink" title="2.2 哈希计算"></a>2.2 哈希计算</h3><p>​    哈希计算实际上就是使用哈希函数(散列函数)对不同长度的数据都能计算出等长的输出，而且对数据微小差距都十分敏感，比如”hello world”和”Hello world”的哈希值差距都是巨大的。</p>
+<h3 id="2-3-原理及实现"><a href="#2-3-原理及实现" class="headerlink" title="2.3 原理及实现"></a>2.3 原理及实现</h3><p>​    PoW的原理十分简单，实际上就是计算一个随机数Nounce，要求这个Nounce和区块头拼接后做的哈希值小于我们预设的值。具体实现如下：</p>
+<p>​    1.预设一个难度值targetBit，比如我们想PoW计算出的Hash值最前面开始有16个0，则设置该值为16。</p>
+<p>​    2.找到判断是否找出正确Nounce值的临界值target，在比特币中，PoW使用的是SHA256，输出的哈希值都是256位的，比如设置的难度值是16，那么我们最终应该得到的值的形式应该是 0000 0000 0000 0000 xxxx……xxxx(共256位)，那么我们可以得知，当我得到的值小于0000 0000 0000 0001 0000……0000(共256位)时，该值合法，因为这个值已经小于了前面有15个0的最小值，那么其前面一定有16个0。</p>
+<p>​    所以我们只要将临界值target先设置为1,二进制表示为0000 0000……0001(共256位)，再将这个值左移256-targetBit = 256 - 16 = 240位，即可得到前面有15个0的最小值，即0000 0000 0000 0001 0000……0000(共256位)。</p>
+<p>​    3.将随机数Nounce置为0，再拼接上区块头的内容，计算其哈希值，如果大于了我们的目标值target，则将Nounce加1，再拼接区块头的内容计算哈希。重复上述过程，直到计算出小于target的哈希值，此时的Nounce就是最终的解。</p>
+<p>​    </p>
+<h2 id="三、PoW的go语言实现"><a href="#三、PoW的go语言实现" class="headerlink" title="三、PoW的go语言实现"></a>三、PoW的go语言实现</h2><p>1.首先定义工作量证明对象</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ProofOfWork <span class="keyword">struct</span> &#123;</span><br><span class="line">   Block  *Block   <span class="comment">//当前要验证的区块</span></span><br><span class="line">   target *big.Int <span class="comment">//大数存储</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.定义难度值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//256位hash里面至少有16个零</span></span><br><span class="line"><span class="keyword">const</span> targetBit = <span class="number">16</span></span><br></pre></td></tr></table></figure>
+
+<p>3.初始化工作量证明对象，计算出临界值target</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewProofOfWork</span><span class="params">(block *Block)</span> *<span class="title">ProofOfWork</span></span> &#123;</span><br><span class="line">   <span class="comment">//创建一个初始值为1的target</span></span><br><span class="line">   target := big.NewInt(<span class="number">1</span>)</span><br><span class="line">   <span class="comment">//左移256-targetBit</span></span><br><span class="line">   target = target.Lsh(target, <span class="number">256</span>-targetBit)</span><br><span class="line">   <span class="keyword">return</span> &amp;ProofOfWork&#123;</span><br><span class="line">      block,</span><br><span class="line">      target,</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.拼接Nounce值和区块头中的内容</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(proofOfWork *ProofOfWork)</span> <span class="title">prepareData</span><span class="params">(nonce <span class="keyword">int</span>)</span> []<span class="title">byte</span></span> &#123;</span><br><span class="line">   join := bytes.Join(</span><br><span class="line">      [][]<span class="keyword">byte</span>&#123;</span><br><span class="line">         proofOfWork.Block.PreBlockHash,<span class="comment">//前一个区块的hash</span></span><br><span class="line">         proofOfWork.Block.HashTransactions(),<span class="comment">//默克尔树根</span></span><br><span class="line">         Utils.IntToHex(proofOfWork.Block.TimeStamp),<span class="comment">//时间戳</span></span><br><span class="line">         Utils.IntToHex(<span class="keyword">int64</span>(targetBit)),<span class="comment">//难度值</span></span><br><span class="line">         Utils.IntToHex(<span class="keyword">int64</span>(nonce)),<span class="comment">//Nounce</span></span><br><span class="line">         Utils.IntToHex(<span class="keyword">int64</span>(proofOfWork.Block.Height)),<span class="comment">//区块高度</span></span><br><span class="line">      &#125;,</span><br><span class="line">      []<span class="keyword">byte</span>&#123;&#125;,</span><br><span class="line">   )</span><br><span class="line">   <span class="keyword">return</span> join</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5.开始进行工作量证明计算</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(proofOfWork *ProofOfWork)</span> <span class="title">Run</span><span class="params">()</span> <span class="params">([]<span class="keyword">byte</span>, <span class="keyword">int64</span>)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">   nonce := <span class="number">0</span></span><br><span class="line">   <span class="keyword">var</span> hashInt big.Int <span class="comment">//存储我们新生成的hash</span></span><br><span class="line">   <span class="keyword">var</span> hash [<span class="number">32</span>]<span class="keyword">byte</span></span><br><span class="line">   <span class="keyword">for</span> &#123;</span><br><span class="line">      <span class="comment">// 将BLOCK属性拼接成字节数组</span></span><br><span class="line">      dataBytes := proofOfWork.prepareData(nonce)</span><br><span class="line">      <span class="comment">// 生成hash, sum256返回32位需要转换为64位</span></span><br><span class="line">      hash = sha256.Sum256(dataBytes)</span><br><span class="line">      <span class="comment">// 将hash存储到hashInt,采取hash[:]将切片转换为64位</span></span><br><span class="line">      hashInt.SetBytes(hash[:])</span><br><span class="line">      fmt.Printf(<span class="string">"\r%x"</span>, hash)</span><br><span class="line">      <span class="comment">// 判断hashInt是否小于Block里面的target</span></span><br><span class="line">      <span class="comment">// x &lt; y -1</span></span><br><span class="line">      <span class="comment">// x == y 0</span></span><br><span class="line">      <span class="comment">// x &gt; y 1</span></span><br><span class="line">      <span class="keyword">if</span> proofOfWork.target.Cmp(&amp;hashInt) == <span class="number">1</span> &#123;</span><br><span class="line">         <span class="comment">//判断有效性，如果满足条件，跳出循环</span></span><br><span class="line">         <span class="keyword">break</span></span><br><span class="line">      &#125;</span><br><span class="line">      nonce = nonce + <span class="number">1</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> hash[:], <span class="keyword">int64</span>(nonce)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6.编写当需要验证Nounce值是否合法时的验证函数</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(proofOfWork *ProofOfWork)</span> <span class="title">IsValid</span><span class="params">()</span> <span class="title">bool</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> hashInt big.Int</span><br><span class="line">	hashInt.SetBytes(proofOfWork.Block.Hash)</span><br><span class="line">  <span class="comment">//判断提供的hash是否小于target</span></span><br><span class="line">	<span class="keyword">if</span> proofOfWork.target.Cmp(&amp;hashInt) == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>SunDaohan</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>为中华之<strong>崛起</strong>而读书</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E3%80%90%E5%85%B1%E8%AF%86%E6%9C%BA%E5%88%B6%E3%80%91/"># 【共识机制】</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/30/%E3%80%90go%E3%80%91%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/">【go】跨平台编译</a>
+            
+            
+            <a class="next" rel="next" href="/2021/07/10/%E3%80%90go%E3%80%91%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">【go】基本数据类型</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+
+        <!-- 不蒜子统计 -->
+        <div align="center"><span id="busuanzi_container_site_pv" >
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span></div>
+        <div align = "center"><span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <div class="copyright">
+        <span>© SunDaohan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+    </div>
+</body>
+</html>

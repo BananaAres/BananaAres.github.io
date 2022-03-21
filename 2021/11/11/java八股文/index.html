@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="author" content="SunDaohan">
+
+
+
+
+
+<title>java八股文 | SunDaohan</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">孙道涵的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">孙道涵的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">java八股文</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">SunDaohan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十一月 11, 2021&nbsp;&nbsp;19:39:31</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91/">【面试】</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="JAVA面试八股文"><a href="#JAVA面试八股文" class="headerlink" title="JAVA面试八股文"></a>JAVA面试八股文</h1><h1 id="JAVA基础"><a href="#JAVA基础" class="headerlink" title="JAVA基础"></a>JAVA基础</h1><h2 id="1-JDK、JRE、JVM三者区别和联系"><a href="#1-JDK、JRE、JVM三者区别和联系" class="headerlink" title="1. JDK、JRE、JVM三者区别和联系"></a>1. JDK、JRE、JVM三者区别和联系</h2><p>JDK：</p>
+<p>Java Development Kit java开发工具</p>
+<p>JRE：</p>
+<p>Java Runtime Environment java运行时环境</p>
+<p>JVM:</p>
+<p>Java Virtual Machine java虚拟机</p>
+<h2 id="2、JVM虚拟机详解："><a href="#2、JVM虚拟机详解：" class="headerlink" title="2、JVM虚拟机详解："></a>2、JVM虚拟机详解：</h2><p><img src="file:///Users/sundaohan/Library/Application%20Support/typora-user-images/image-20211029203932039.png?lastModify=1636630829" alt="image-20211029203932039"></p>
+<p>new出来的东西都放在堆里</p>
+<p>栈放局部变量，每个线程开启都会分配一个单独的栈用来存放其局部变量</p>
+<p>栈帧，每调用一个方法就会在栈中分配独有的栈帧来存放局部变量</p>
+<p>例子程序：</p>
+<p>字节码反编译文件：</p>
+<p>0处代表将Int类型常量1压入操作数栈</p>
+<p>1处代表声明一个局部变量并将int类型值存入局部变量1（操作数栈出栈赋值）（局部变量0是this，即调用当前方法的对象）</p>
+<p>2、3处同理</p>
+<p>4、5处从局部变量1、2处装载int类型值（压入操作数栈）</p>
+<p>6处表示弹出两个数相加后得到3再压入操作数栈</p>
+<p>7处表示压入一个10进入操作数栈</p>
+<p>9处表示做乘法</p>
+<p>10表示代表声明一个局部变量并将int类型值存入局部变量3</p>
+<p>11表示将变量3的值装载</p>
+<p>12返回这个值</p>
+<p>局部变量表负责保存局部变量</p>
+<p>操作数栈用来保存操作数</p>
+<p>动态链接负责需要调用的方法在方法区中的地址（符号引用转为直接引用）</p>
+<p>方法出口是指一个方法运行完之后能找到之前调用它的那一行代码继续运行</p>
+<p>程序计数器用来记录当前运行到的那一行代码的地址，方便线程切换时继续运行</p>
+<p>对象优先分配到Eden区中，当Eden区满后会触发minor gc即垃圾回收</p>
+<p>可达性分析算法：将”GC Roots”对象作为起点，从这些节点开始向下搜索引用的对象，找到的对象都标记为非垃圾对象，其余未标记的都是垃圾对象</p>
+<p>GC Roots根节点：线程栈的本地变量、静态变量、本地方法栈的变量等等</p>
+<p><img src="file:///Users/sundaohan/Library/Application%20Support/typora-user-images/image-20211029212117363.png?lastModify=1636630829" alt="image-20211029212117363"></p>
+<p>非垃圾对象会被复制到非空的survivor区，每进行了一次可达性分析，经过的对象就会增长一代，15代以后会被移到老年代</p>
+<h2 id="3-JVM调优"><a href="#3-JVM调优" class="headerlink" title="3.JVM调优"></a>3.JVM调优</h2><p>arthas工具</p>
+<p>当老年代放满后会先触发full gc，对堆中所有垃圾进行收集，如果还没有改善，之后会触发OOM（内存溢出），调优主要就是要减少full gc次数，因为其的STW(Stop The World)时间很长，即抢占所有线程，专心进行垃圾回收处理</p>
+<p>为什么要有STW：不让对象的垃圾状态变化，影响gc的准确性，提高效率</p>
+<p>如果一批对象的总大小大于这块Survivor区域内大小的50%，有可能直接进入老年代</p>
+<p><strong>阿里面试题：能否对JVM调优，让其几乎不发生full gc</strong></p>
+<p>​    将年轻代（eden、survivor）空间调大一些，老年代小一些，这样触发Minor gc（只清理年轻代）的时候就能把产生的垃圾清除</p>
+<p>而Eden区太大也有问题，触发minor gc也会STW，空间太大导致搜索垃圾速度慢，STW长</p>
+<p>可以使用G1策略（分区回收，满足一定条件立刻开始回收，而不是等到满了再回收）</p>
+<p><strong>JVM如何调优</strong></p>
+<p>JVM调优主要就是通过定制JVM运行参数来提高JAVA应用程序的运行速度</p>
+<p><strong>JVM参数有哪些</strong></p>
+<p>JVM参数大概分为三类：</p>
+<p>（1）标准指令：-开头，这些事所有HotSpot都支持的参数 java -help可以打印出来</p>
+<p>（2）非标准指令：-X开头，通常是跟特定的HotSpot版本对应，可以用java -x打印出来</p>
+<p>（3）不稳定参数：-XX开头，这一类参数是跟特定HotSpot版本对应的，并且变化非常大，详细文档资料很少 JDK1.8版本下，有几个常用的：</p>
+<p>java -xx:+PrintCommandLineFlags：查看当前命令的不稳定指令</p>
+<p>Java -XX:+PrintFlagsInitial：查看所有不稳定指令的默认值</p>
+<p>java -xx:+PrintFlagsFinal：查看所有不稳定指令最终生效的实际值</p>
+<p><strong>怎么查看一个JAVA进程的JVM参数</strong></p>
+<p><strong>谈谈了解的JVM参数</strong></p>
+<h2 id="4-HashTable和HashMap的区别？"><a href="#4-HashTable和HashMap的区别？" class="headerlink" title="4.HashTable和HashMap的区别？"></a>4.HashTable和HashMap的区别？</h2><p>HashTale的每个方法都加了SCN，是线程安全的，HashMap是线程不安全的</p>
+<p>HashMap底层使用数组+链表，从JDK8开始，当链表高度达到8、数组长度超过64，链表转换为红黑树，元素以内部类Node节点存在</p>
+<p>（1）计算key的Hash值，二次hash然后对数组长度取模，对应到数组下表</p>
+<p>（2）如果没有产生hash冲突（下标位置没有元素），则直接创建Node存入数组</p>
+<p>（3）如果产生hash冲突，先进行equal比较，如果相同就取代该元素，如果不同就判断链表高度插入链表，链表高度达到8，并且数组长度达到64则转变为红黑树，长度低于6则将红黑树转回链表</p>
+<p>（4）key为null,存在下标0的位置</p>
+<p>数组扩容</p>
+<p>JDK8使用红黑树解决链表查询过慢的问题</p>
+<p>链表缺点：查询慢</p>
+<p>优点：插入删除快</p>
+<p>红黑树优点：查询快</p>
+<p>红黑树缺点：插入删除慢</p>
+<h2 id="5、-和equals"><a href="#5、-和equals" class="headerlink" title="5、==和equals"></a>5、==和equals</h2><p>==对比的是栈中的值，基本数据类型是变量值，引用类型是堆中内存对象的地址</p>
+<p>equals：object中默认也采用==比较，通常会重写</p>
+<h2 id="6、ArrayList和LinkedList的区别"><a href="#6、ArrayList和LinkedList的区别" class="headerlink" title="6、ArrayList和LinkedList的区别"></a>6、ArrayList和LinkedList的区别</h2><p>（1）ArrayList：基于动态数组，连续内存存储，适合下标访问（随机访问）</p>
+<p>扩容机制：数组长度固定，超出长度存数据时需要新建数组，然后再拷贝过去，如果不是尾部插入数据会涉及到元素移动，使用尾插法并指定初始容量可以极大地提高性能、甚至超过linkedList（需要创建大量node对象）</p>
+<p>（2）LinkedList:基于链表，可以存储在分散的内存中，适合做数据插入及删除操作，不适合查询:需要逐一遍历。</p>
+<p>​    遍历LinkedList必须使用iterator不能使用for循环，因为每次for循环体内通过get(i)取得某一元素时都需要对list重新进行遍历，性能消耗极大。另外不要试图使用indexOf等返回元素索引，并利用其进行遍历，使用indexOf对list进行了遍历，当结果为空时会遍历整个列表。 </p>
+<h2 id="7、泛型中extends和super的区别"><a href="#7、泛型中extends和super的区别" class="headerlink" title="7、泛型中extends和super的区别"></a>7、泛型中extends和super的区别</h2><p>（1）&lt;? extends T&gt; 表示包括T在内的任何T的子类</p>
+<p>（2）&lt;? super T&gt; 表示包括T在内的任何T的父类</p>
+<h2 id="8、深拷贝和浅拷贝"><a href="#8、深拷贝和浅拷贝" class="headerlink" title="8、深拷贝和浅拷贝"></a>8、深拷贝和浅拷贝</h2><p>​    深拷贝和浅拷贝是指对象的拷贝，一个对象中存在两种类型的属性，一种是基本数据类型，一种是实例对象的引用</p>
+<p>（1）浅拷贝是指，只会拷贝基本数据类型的值，以及实例对象的引用地址，并不会复制一份引用地址所指向的对象，也就是浅拷贝出来的对象，内部的类属性指向的是同一个对象</p>
+<p>（2）深拷贝是指，既会拷贝基本数据类型的值，也会针对实例对象的引用地址所指向的对象进行复制，深拷贝出来的对象，内部属性指向的是同一个对象</p>
+<h2 id="9、重载和重写的区别"><a href="#9、重载和重写的区别" class="headerlink" title="9、重载和重写的区别"></a>9、重载和重写的区别</h2><p>（1）重载：发生在同一个类中，方法名必须相同，参数类型不同、个数不同、顺序不同。</p>
+<p>方法返回值和访问修饰符不同不叫重载，在编译时就会报错</p>
+<p>（2）重写：发生在父子类中，方法名、参数列表必须相同，返回值范围小于等于父类，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类，如果父类访问修饰符为private则子类不能重写该方法</p>
+<h2 id="10、CountDownLatch和Semaphore的区别和底层原理"><a href="#10、CountDownLatch和Semaphore的区别和底层原理" class="headerlink" title="10、CountDownLatch和Semaphore的区别和底层原理"></a>10、CountDownLatch和Semaphore的区别和底层原理</h2><p>​    CountDownLatch表示计数器，可以给CountDownLatch设置一个数字, 一个线程调CountDownLatch的await()将会阻塞，其他线程可以调用CountDownLatch的countDown()方法来对CountDownLatch中的数字减一， 当数字被减成0后，所有await的线程都将被唤醒。<br>​    对应的底层原理就是，调用await()方法的线程 会利用AQS排队，一旦数字被减为0,则会将AQS中排队的线程依次唤醒。<br>​    Semaphore表示信号量，可以设置许可的个数,表示同时允许最多多少个线程使用该信号量,通过acquire()来获取许可，如果没有许可可用则线程阻塞,并通过AQS来排队，可以通过release0方法来释放许可，当某个线程释放了某个许可后，会从AQS中正在排队的第一个线程开始依次唤醒，直到没有空闲许可。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211101192810001.png" alt="image-20211101192810001"></p>
+<h2 id="11、ReentrantLock中lock和trylock方法的区别"><a href="#11、ReentrantLock中lock和trylock方法的区别" class="headerlink" title="11、ReentrantLock中lock和trylock方法的区别"></a>11、ReentrantLock中lock和trylock方法的区别</h2><p>lock()是阻塞加锁，直到加锁后才能执行其他操作</p>
+<p>trylock是尝试加锁，有返回值，如果加锁成功返回true否则false</p>
+<p>//自旋锁</p>
+<p>while(!reentrantLock.tryLock()){</p>
+<p>}</p>
+<h2 id="12、如何查看线程死锁"><a href="#12、如何查看线程死锁" class="headerlink" title="12、如何查看线程死锁"></a>12、如何查看线程死锁</h2><p>（1）可以通过jstack命令来进行查看，jstack命令会显示发生了死锁的线程</p>
+<p>（2）两个线程去操作数据库时，数据库发生了死锁，这时可以查询数据库的死锁情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、查询是否锁表</span><br><span class="line">show OPEN TABLES where In_use &gt; 0;</span><br><span class="line">2、查询进程</span><br><span class="line">show processlist;</span><br><span class="line">3、查看正在锁的事务</span><br><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS;</span><br><span class="line">4、查看等待锁的事务</span><br><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="13、ThreadLocal的原理和使用场景"><a href="#13、ThreadLocal的原理和使用场景" class="headerlink" title="13、ThreadLocal的原理和使用场景"></a>13、ThreadLocal的原理和使用场景</h2><p>​    每一个Thread对象均含有一个ThreadLoca7Map类型的成员变量threadLocals，它存储本线程中所有ThreadLocal对象及其对应的值。</p>
+<p>​    ThreadLocaTMap由一个个Entry对象构成。</p>
+<p>​    Entry继承自WeakReference &lt;ThreadLoca1&lt;?&gt;&gt;。一个Entry由ThreadLocal对象和object构成。由此可见，Entry 的key是ThreadLocal对象,并且是一个弱引用。 当没指向key的强引用后，该key就会被垃圾收集器回收。</p>
+<p>​    当执行set方法时，ThreadLocal首先会获取当前线程对象，然后获取当前线程的ThreadLocalMap对象。再以当前ThreadLocal对象为key,将值存储进ThreadLocalMap对象中。</p>
+<p>​    get方法执行过程类似。ThreadLocal首先会获取当前线程对象,然后获取当前线程的ThreadLocalMap对象。再以当前ThreadLocal对象为key,获取对应的value。由于每一条线程均含有各自私有的ThreadLocalMap容器,这些容器相互独立互不影响，因此不会存在线程安全性问题，从而也无需使用同步机制来保证多条线程访问容器的互斥性。 </p>
+<p><strong>使用场景：</strong></p>
+<p>（1）在进行对象跨层传递的时候，使用ThreadLocal可以避免多次传递，打破层次间的约束</p>
+<p>（2）线程间数据隔离</p>
+<p>（3）进行事务操作，用于存储线程事务信息</p>
+<p>（4）数据库连接，Session会话管理</p>
+<h2 id="14、Sychronized的偏向锁、轻量级锁、重量级锁"><a href="#14、Sychronized的偏向锁、轻量级锁、重量级锁" class="headerlink" title="14、Sychronized的偏向锁、轻量级锁、重量级锁"></a>14、Sychronized的偏向锁、轻量级锁、重量级锁</h2><p>1.偏向锁:在锁对象的对象头中记录一下当前获取到该锁的线程ID, 该线程下次如果又来获取该锁就可以直接获取到了<br>2.轻量级锁:由偏向锁升级而来，当一个线程获取到锁后，此时这把锁是偏向锁，此时如果有第二个线程来竞争锁,偏向锁就会升级为轻量级锁,之所以叫轻量级锁，是为了和重量级锁区分开来,轻量级锁底层是通过自旋来实现的，并不会阻塞线程<br>3.如果自旋次数过多仍然没有获取到锁，则会升级为重量级锁,重量级锁会导致线程阻塞<br>4.自旋锁:自旋锁就是线程在获取锁的过程中,不会去阻塞线程,也就无所谓唤醒线程,阻塞和唤醒这两个步骤都是需要操作系统去进行的，比较消耗时间，自旋锁是线程通过CAS获取预期的一个标记,如果没有获取到，则继续循环获取,如果获取到了则表示获取到了锁，这个过程线程一直在运行中，相对而言没有使用太多的操作系统资源，比较轻量。</p>
+<h2 id="15、并发、并行、串行的区别"><a href="#15、并发、并行、串行的区别" class="headerlink" title="15、并发、并行、串行的区别"></a>15、并发、并行、串行的区别</h2><p>串行在时间上不可能发生重叠，前一个任务没搞定，下一个任务就只能等着</p>
+<p>并行在时间上是重叠的，两个任务在同一时刻互不干扰同时进行</p>
+<p>并发允许两个任务彼此干扰，同一时间点只有一个人运行，交替执行</p>
+<h2 id="16、线程之间如何进行通讯"><a href="#16、线程之间如何进行通讯" class="headerlink" title="16、线程之间如何进行通讯"></a>16、线程之间如何进行通讯</h2><p>1.线程之间可以通过共享内存或基于网络来进行通信<br>2.如果是通过共享内存来进行通信，则需要考虑并发问题，什么时候阻塞，什么时候唤醒<br>3.像Java中的wait()、notify()就是阻塞和唤醒<br>4.通过网络就比较简单了,通过网络连接将通信数据发送给对方，当然也要考虑到并发问题,处理方式就是加锁等方式</p>
+<h2 id="17、对线程安全的理解"><a href="#17、对线程安全的理解" class="headerlink" title="17、对线程安全的理解"></a>17、对线程安全的理解</h2><p>​    不是线程安全，应该是内存安全，堆是共享内存，可以被所有线程访问</p>
+<p>​    当多个线程访问一个对象时，如果不进行额外的同步控制或其他的协调操作，调用这个对象的行为都可以获得正确的结果，我们就说这个对象是线程安全的</p>
+<p>​    堆是进程和线程共有的空间，分全局堆和局部堆。全局堆就是所有没有分配的空间，局部堆就是用户分配的空间。堆在操作系统对进程初始化的时候分配，运行过程中也可以向系统要额外的堆，但是用完了要还给操作系统,要不然就是内存泄漏。<br>​    在Java中，堆是Java虚拟机所管理的内存中最大的一-块，是所有线程共享的一块内存区域，在虚拟机启动时创建。堆所存在的内存区域的唯一目的就是存放对象实例， 几乎所有的对象实例以及数组都在这里分配内存。<br>​    栈是每个线程独有的，保存其运行状态和局部自动变量的。栈在线程开始的时候初始化,每个线程的栈互相独立,因此，栈是线程安全的。操作系统在切换线程的时候会自动切换栈。栈空间不需要在高级语言里面显式的分配和释放。<br>​    目前主流操作系统都是多任务的，即多个进程同时运行。为了保证安全,每个进程只能访问分配给自己的内存空间，而不能访问别的进程的,这是由操作系统保障的。<br>​    在每个进程的内存空间中都会有一块特殊的公共区域，通常称为堆(内存)。进程内的所有线程都可以访问到该区域，这就是造成问题的潜在原因。</p>
+<h2 id="18、简述线程池处理流程"><a href="#18、简述线程池处理流程" class="headerlink" title="18、简述线程池处理流程"></a>18、简述线程池处理流程</h2><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211101214939191.png" alt="image-20211101214939191"></p>
+<h2 id="19、线程池的底层工作原理"><a href="#19、线程池的底层工作原理" class="headerlink" title="19、线程池的底层工作原理"></a>19、线程池的底层工作原理</h2><p>​    线程池内部是通过队列+线程实现的，当我们利用线程池执行任务时:<br>1.如果此时线程池中的线程数量小于corePoolSize（核心线程数）,即使线程池中的线程都处于空闲状态,也要创建新的线程来处理被添加的任务。<br>2.如果此时线程池中的线程数量等于corePoolSize,但是缓冲队列workQueue未满, 那么任务被放入缓冲队列。<br>3.如果此时线程池中的线程数量大于等于corePoolSize,缓冲队列workQueue满, 并且线程池中的数量小于maximumPoolSize,建新的线程来处理被添加的任务。<br>4.如果此时线程池中的线程数量大于corePoolSize,缓冲队列workQueue满, 并且线程池中的数量等于maximumPoolSize,那么通过handler所指定的策略来处理此任务.<br>5.当线程池中的线程数量大于corePoolSize时,如果某线程空闲时间超过keepAliveTime,线程将被终止。这样,线程池可以动态的调整池中的线程数</p>
+<h2 id="20、-GC如何判断对象可以被回收"><a href="#20、-GC如何判断对象可以被回收" class="headerlink" title="20、 GC如何判断对象可以被回收"></a>20、 GC如何判断对象可以被回收</h2><p>（1）引用计数法（java不采用这个）：每个对象有一个引用计数属性，新增一个引用时技术加1，引用释放时技术减1，计数为0时可以回收</p>
+<p>​    引用计数法可能会出现A引用B，B引用A，这时候就算都不使用了，但因为相互引用，计数器=1，永远无法回收</p>
+<p>（2）可达性分析法：从GC Roots开始向下搜索，搜索所走过的路径称为引用链。当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可用的，那么虚拟机就判断是可回收对象。</p>
+<p>GC Roots对象有：</p>
+<p>虚拟机栈（栈帧中的本地变量表）中引用的对象</p>
+<p>方法区中类静态属性引用的对象</p>
+<p>方法区中常量引用的对象</p>
+<p>本地方法栈中JNI（即一般说的Native方法）引用的对象</p>
+<p>​    可达性算法中的不可达对象并不是立即死亡的，对象拥有一次自我拯救的机会。对象被系统宣告死亡至少要经历两次标记过程:第- -次是经过可达性分析发现没有与GC Roots相连接的引用链，第二次是在由虚拟机自动建立的Finalizer队列中判断是否需要执行finalize()法。<br>​    当对象变成(GC Roots)不可达时, GC会判断该对象是否覆盖(重写)了finalize方法，若末覆盖,则直接将其回收。否则，若对象未执行过finalize方法，将其放入F-Queue队列， 由- -低优先级线程执行该队列中对象的finalize方法。执行finalize方法完毕后，GC会再次判断该对象是否可达，若不可达，则进行回收,否则，对象”复活<br>​    每个对象只能触发一次finalize)方法由于finalize()方法运行代价高昂，不确定性大，无法保证各个对象的调用顺序，不推荐大家使用，建议遗忘它。</p>
+<h2 id="21、什么是字节码，采用字节码的好处？"><a href="#21、什么是字节码，采用字节码的好处？" class="headerlink" title="21、什么是字节码，采用字节码的好处？"></a>21、什么是字节码，采用字节码的好处？</h2><p><strong>java中的编译器和解释器:</strong><br>Java中引入了虚拟机的概念,即在机器和编译程序之间加入了一层抽象的虚拟的机器。这台虚拟的机器在任何平台上都提供给编译程序-个的共同的接口。<br>    编译程序只需要面向虚拟机，生成虚拟机能够理解的代码，然后由解释器来将虚拟机代码转换为特定系统的机器码执行。在Java中，这种供虚拟机理解的代码叫做字节码(即扩展名为.class的文件)，它不面向任何特定的处理器，只面向虚拟机。<br>    每一种平台的解释器是不同的，但是实现的虚拟机是相同的。Java源程序经过编译器编译后变成字节码,字节码由虚拟机解释执行,虛拟机将每一条要执行的字节码送给解释器 ，解释器将其翻译成特定机器上的机器码，然后在特定的机器.上运行。这也就是解释了]ava的编译与解释并存的特点。</p>
+<p>Java源代—&gt;编译—jm可执行的Java字节码(即虚拟令)–&gt;-jvm—&gt;jvm中解释qi–机器可执行的二进<br>制机器—&gt;程序运行。<br><strong>采用字节码的好处:</strong><br>    Java语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以Java程序运行时比较高效,而且，由于字节码并不专对一种特定的机器，因此，Java程序无须重新编译便可在多种不同的计算机上运行。</p>
+<h2 id="22、双亲委托模型"><a href="#22、双亲委托模型" class="headerlink" title="22、双亲委托模型"></a>22、双亲委托模型</h2><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211103211618646.png" alt="image-20211103211618646"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvZGV5YW5iYW8=,size_16,color_FFFFFF,t_70.png" alt="img"></p>
+<p>Bootstrap classLoader:主要负责加载核心的类库(java.lang.*等)，构造ExtClassLoader和APPClassLoader。</p>
+<p>ExtClassLoader：主要负责加载jre/lib/ext目录下的一些扩展的jar。</p>
+<p>AppClassLoader：主要负责加载应用程序的主函数类</p>
+<p>tomcat是用的自定义的类加载器：因为tomcat管理很多应用，里面有很多类，如果共用一个类加载器的话，可能会引发冲突</p>
+<p>双亲委派模型的好处：</p>
+<p>（1）主要是为了安全性，避免用户自己编写的类动态替换Java的一些核心类，比如String</p>
+<p>（2）同时也避免了类的重复加载，因为JVM中区分不同类，不仅仅是根据类名，相同的class文件被不同的ClassLoader加在就是不同的两个类</p>
+<h2 id="23、Java的内存结构，堆分为哪几部分，默认年龄多大进入老年代"><a href="#23、Java的内存结构，堆分为哪几部分，默认年龄多大进入老年代" class="headerlink" title="23、Java的内存结构，堆分为哪几部分，默认年龄多大进入老年代"></a>23、Java的内存结构，堆分为哪几部分，默认年龄多大进入老年代</h2><p>1、年轻代：</p>
+<p>(1)Eden区(8)</p>
+<p>(2)From Survivor区(1)</p>
+<p>(3)To Survivor区(1)</p>
+<p>2、老年代</p>
+<p>默认对象的年龄达到15后，就会进入老年代</p>
+<h2 id="24、JVM有哪些垃圾回收器？如何工作？什么是STW？他都发生在哪些阶段？什么是三色标记？如何解决错标记和漏标记的问题？为什么要设计这么多垃圾回收器？"><a href="#24、JVM有哪些垃圾回收器？如何工作？什么是STW？他都发生在哪些阶段？什么是三色标记？如何解决错标记和漏标记的问题？为什么要设计这么多垃圾回收器？" class="headerlink" title="24、JVM有哪些垃圾回收器？如何工作？什么是STW？他都发生在哪些阶段？什么是三色标记？如何解决错标记和漏标记的问题？为什么要设计这么多垃圾回收器？"></a>24、JVM有哪些垃圾回收器？如何工作？什么是STW？他都发生在哪些阶段？什么是三色标记？如何解决错标记和漏标记的问题？为什么要设计这么多垃圾回收器？</h2><p>STW：stop the world是在垃圾回收算法执行过程中，需要将JVM内存冻结的一种状态，在STW状态下，JAVA的所有线程都是停止执行的，GC线程除外，native方法可以执行，但是不能和JVM交互。GC各种算法优化的重点，就是减少STW</p>
+<p>JVM的垃圾回收器：</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211104151656334.png" alt="image-20211104151656334"></p>
+<p>不分代算法不再有年轻代和老年代之分</p>
+<p><strong>（1）Serial：串行</strong></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211104152018428.png" alt="image-20211104152018428"></p>
+<p>需要GC时，直接暂停，GC完了再继续，是早期垃圾回收器，只有一个线程执行GC，在多CPU架构下，性能会严重下降，只适用于几十兆的内存空间</p>
+<p><strong>（2）Parallel：并行</strong></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211104152222679.png" alt="image-20211104152222679"></p>
+<p>在串行基础上增加多线程GC，PS（Parallel Scavenge）+PO（Parallel Old）这种组合是JDK1.8默认的垃圾回收器，在多CPU架构下，性能比Serial高很多</p>
+<p><strong>（3）CMS Concurrent Mark Sweep：</strong></p>
+<p>核心思想就是将STW打散，让一部分GC线程与用户线程并行进行</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211104162011239.png" alt="image-20211104162011239"></p>
+<p>（1）初始标记阶段：STW只标出根对象直接引用的对象</p>
+<p>（2）并发标记：继续标记其他对象，与应用程序是并发执行</p>
+<p>（3）重新标记：STW对并发执行阶段的对象进行重新标记</p>
+<p>（4）并发清除：并行，将产生的垃圾清除，清除过程中会不断产生新的垃圾，叫浮动垃圾。这些垃圾就需要等待到下一次GC过程中清除</p>
+<p><strong>（4）G1 Garbage First垃圾优先</strong></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211104171019797.png" alt="image-20211104171019797"></p>
+<p>内存模型实际不再分代，但是逻辑上分代。将内存分成小块Region，每个region可以隶属于不同的年代</p>
+<p>GC分为四个阶段：</p>
+<p>1.初始标记，标记处GCRoot直接引用的对象，stw</p>
+<p>2.标记Region，通过Rset标记出上一个阶段标记的Region引用到的Old区Region，并发</p>
+<p>3.并发标记，跟CMS步骤差不多，遍历范围不再是整个OLD区，而是只需哟啊遍历第二部标记出来的Region</p>
+<p>4.重新标记，跟CMS中的重新标记过程差不多</p>
+<p>5.垃圾清理：与CMS不同的是，G1采用拷贝算法，直接将整个Region中的对象拷贝到另一个Region，而这个阶段G1只选择垃圾较多的Region来清理，并不是完全清理</p>
+<h2 id="25、-如何判断一个对象是不是垃圾"><a href="#25、-如何判断一个对象是不是垃圾" class="headerlink" title="25、 如何判断一个对象是不是垃圾"></a>25、 如何判断一个对象是不是垃圾</h2><p>两种方法</p>
+<p>1、引用计数法：给堆内存中的每个记录记录一个引用数，引用个数为0就认为是垃圾，这是早期JDK使用的方法。无法解决循环引用问题，会造成内存泄漏，进而引发内存溢出</p>
+<p>2、根可达算法：这种方式是在内存中，从引用根对象向下一直找引用，找不到的就是垃圾</p>
+<p>哪些是GC Root？ Stack =&gt; JVM Stack，Native Stack，class类，run-time constant pool常量池，static reference静态变量</p>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="1、ACID靠什么保证"><a href="#1、ACID靠什么保证" class="headerlink" title="1、ACID靠什么保证"></a>1、ACID靠什么保证</h2><p>A：原子性，由undo log日志保证，它记录了需要回滚的日志信息，事务回滚时撤销已经执行成功的sq|<br>C：一致性，由其他三大特性保证、程序代码要保证业务上的一致性<br>I：隔离性，由MVCC来保证<br>D：持久性，由内存+redo log来保证, mysql修改数据同时在内存和redo log记录这次操作，宕机的时候可以从redo<br>log恢复</p>
+<p>InnoDB redo log写盘，InnoDB事务进入prepare状态，</p>
+<p>如果前面prepare成功，binlog写盘，再继续将事务日志持久化到binlog，如果持久化成功，那么InnoDB事务进入commit状态（在redo log中写一个commit记录）</p>
+<p>redo log的刷盘会在系统空闲时进行</p>
+<h2 id="2、B树和B-树的区别，为什么MySQL使B-树"><a href="#2、B树和B-树的区别，为什么MySQL使B-树" class="headerlink" title="2、B树和B+树的区别，为什么MySQL使B+树"></a>2、B树和B+树的区别，为什么MySQL使B+树</h2><p>B树的特点: .<br>1.节点排序</p>
+<p>2.一个节点了可以存多个元素，多个元素也排序了</p>
+<p>B+树的特点:<br>1.拥有B树的特点<br>2.叶子节点之间有指针<br>3.非叶子节点上的元素在叶子节点上都冗除了，也就是叶子节点中存储了所有的元素,并且排好顺序</p>
+<p>​    Mysql索引使用的是B +树,因为索引是用来加快查询的，而B+树通过对数据进行排序所以是可以提高查询速度的,然后通过一个节点中可以存储多个元素,从而可以使得B+树的高度不会太高,在Mysq|中- 个Innodb页就是一个B+ 树节点, 一个Innodb页默认16kb,所以一般情况下一颗两层的B +树可以存2000万行左右的数据，然后通过利用B +树叶子节点存储了所有数据并且进行了排序,并且叶子节点之间有指针,可以很好的支持全表扫描，范围查找等SQL语句。</p>
+<h2 id="3、MySQL的索引结构是什么样的，聚簇索引和非聚簇索引又是什么？"><a href="#3、MySQL的索引结构是什么样的，聚簇索引和非聚簇索引又是什么？" class="headerlink" title="3、MySQL的索引结构是什么样的，聚簇索引和非聚簇索引又是什么？"></a>3、MySQL的索引结构是什么样的，聚簇索引和非聚簇索引又是什么？</h2><p>进化路程：</p>
+<p>二叉树》AVL树（平衡树）》红黑树》B树》B+树</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211104212154216.png" alt="image-20211104212154216"></p>
+<p>聚簇索引就是数据和索引是在一起的，聚簇索引中包含索引键值和所有数据</p>
+<p>MyISAM使用的是非聚簇索引，树的子节点上的data不是数据本身，而是数据存放的地址，InnoDB采用的是聚簇索引，树的叶子结点上的data就是数据本身。</p>
+<p>聚簇索引的数据物理存放地址和索引顺序是一致的，所以一个表中只能有一个聚簇索引，而非聚簇索引可以有多个</p>
+<p>​    InnoDB中，如果表定义了PK，那PK就是聚簇索引吗。如果没有PK，就会找第一个非空的unique列作为聚簇索引。否则InnoDB会创建一个隐藏的row-id作为聚簇索引</p>
+<p><strong>MySQL的覆盖索引和回表</strong></p>
+<p>​    如果只需要在一颗索引树上就可以获取SQL所需要的所有列，就不需要再回表查询，这样查询速度会更快</p>
+<p>​    实现索引覆盖最简单的方式就是将要查询的字段，全部建立到联合索引中。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211104213216732.png" alt="image-20211104213216732"></p>
+<h2 id="4、Innodb是如何实现事务的"><a href="#4、Innodb是如何实现事务的" class="headerlink" title="4、Innodb是如何实现事务的"></a>4、Innodb是如何实现事务的</h2><p>Innodb通过Buffer Pool, LogBuffer, Redo Log, Undo Log来实现事务,以一个update语句为例:</p>
+<ol>
+<li>Innodb在收到一个update语句后，先根据条件找到数据所在的页,并将该页缓存在Buffer Pool中</li>
+<li>执行update语询, 修改Buffer Pool中的数据,也就是内存中的数据</li>
+<li>针对update语句生成一个RedoLog对象, 并存入LogBuffer中</li>
+<li>针对update语句生成undolog日志，用于事务回滚</li>
+<li>如果事务提交,那么则把RedoLog对象进行持久化,后续还有其他机制将Buffer Pool中所修改的数据页持久化到磁盘中</li>
+<li>如果事务回滚，则利用undolog日志进行回滚</li>
+</ol>
+<h2 id="5、mysql索引的数据结构，各自优劣"><a href="#5、mysql索引的数据结构，各自优劣" class="headerlink" title="5、mysql索引的数据结构，各自优劣"></a>5、mysql索引的数据结构，各自优劣</h2><p>​    索引的数据结构和具体存储弓|擎的实现有关,在MySQL中使用较多的索引|有Hash索引，B+树索引等，InnoDB存储弓擎的默认索引实现为: B+树索引。对于哈希索引来说，底层的数据结构就是哈希表，因此在绝大多数需求为单条记录查询的时候，可以选择哈希索引，查询性能最快;余大部分场景,建议选择BTree索引。<br>B+树:<br>​    B+树是一个平衡的多叉树，从根节点到每个叶子节点的高度差值不超过1,而且同层级的节点间有指针相互链接。在B+树上的常规检索，从根节点到叶子节点的搜索效率基本相当,不会出现大幅波动，而且基于索弓|的顺序扫描时，也可以利用双向指针快速左右移动，效率非常高。因此，B+树索引被广泛应用于数据库、文件系统等场景。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211105152438245.png" alt="image-20211105152438245"></p>
+<p>​    如果是等值查询，那么哈希索弓|明显有绝对优势，因为只需要经过一次算法即可找到相应的键值;前提是键值都是唯一的。如果键值不是唯一的，就需要先找到该键所在位置，然后再根据链表往后扫描,直到找到相应的数据;<br>​    如果是范围查询检索，这时候哈希索弓|就毫无用武之地了，因为原先是有序的键值，经过哈希算法后，有可能变成不连续的了，就没办法再利用索引|完成范围查询检索;<br>​    哈希索弓|也没办法利用索引|完成排序,以以like ‘xxx%’这样的部分模糊查询(这种部分模糊查询，其实本质上也是范围查询) ;<br>​    哈希索引也不支持多列联合索引的最左匹配规则;<br>​    B+树索弓|的关键字检索效率比较平均，不像B树那样波动幅度大，在有大量重复键值情况下，哈希索弓|的效率也是极低的，因为存在哈希碰撞问题。</p>
+<h2 id="6、MySQL的集群是如何搭建的？读写分离是怎么做的？"><a href="#6、MySQL的集群是如何搭建的？读写分离是怎么做的？" class="headerlink" title="6、MySQL的集群是如何搭建的？读写分离是怎么做的？"></a>6、MySQL的集群是如何搭建的？读写分离是怎么做的？</h2><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211105152838312.png" alt="image-20211105152838312"></p>
+<p>通过将主节点的Binlog同步给从节点完成主从之间的数据同步。</p>
+<p>MySQL的主从集群只会将binlog从主节点同步到从节点，而不会反过来同步，所以需要读写分离</p>
+<p>因为要保证主从之间的数据一致，写数据只能在主节点完成</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211105154319842.png" alt="image-20211105154319842"></p>
+<p>​    由于binlog的发送过程是异步的吗，主服务在向客户端反馈执行结果时，是不知道binlog是否同步成功了的，这时候如果主服务器宕机了，而从服务还没有备份到新执行的binlog，那么就有可能丢失数据。</p>
+<p>​    靠MySQL的半同步复制机制来保证数据安全</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211105154520857.png" alt="image-20211105154520857"></p>
+<p>这种半同步复制相比异步复制，能够有效的提高数据的安全性。但是这种安全性也不是绝对的，他只保证事务提交后的binlog至少传输到了一个从库,并且并不保证从库应用这个事务的binlog是成功的。另一方面，半同步复制机制也会造成一定程度的延迟，这个延迟时间最少一个TCP/IP请求往返的时间。</p>
+<h2 id="7、MySQL执行计划怎么看"><a href="#7、MySQL执行计划怎么看" class="headerlink" title="7、MySQL执行计划怎么看"></a>7、MySQL执行计划怎么看</h2><p>执行计划就是sql的执行查询的顺序，以及如何使用索引查询，返回的结果集的行数</p>
+<p>EXPLAIN SELECT * from A where X=? and Y=?</p>
+<p>![image-20211105155804961](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211105155804961.png)</p>
+<p>1.id :是一个有顺序的编号，是查询的顺序号,有几个select就显示几行。id的顺序是按select出现的顺序增<br>长的。id列的值越大执行优先级越高越先执行，id列的值相同则从上往下执行，id列的值为NULL最后执行。<br>2.selectType 表示查询中每个select子句的类型<br>●SIMPLE: 示此查询不包含UNION查询或子查询<br>●PRIMARY:表示此查询是最外层的查询(包含子查询)<br>●SUBQUERY:子查询中的第一个SELECT<br>●UNION:表示此查询是 UNION的第二或随后的查询<br>●DEPENDENT UNION: UNION 中的第二个或后面的查询语句, 取决于外面的查询<br>●UNION RESULT, UNION的结果<br>●DEPENDENT SUBQUERY:子查询中的第一个 SELECT,取决于外面的查询.即子查询依赖于外层查询的结果.<br>●DERIVED: 衍生，表示导出表的SELECT (FROM子句的子查询)<br>3.table:表示该语句查询的表<br>4.type:优化sq的重要字段，也是我们判断sql性能和优化程度重要指标。他的取值类型范围:</p>
+<p>5.possible_ keys:它表示Mysq|在执行该sq|语句的时候，可能用到的索引信息，仅仅是可能，实际不一定会用<br>到。<br>6.key:此字段是mysql在当前查询时所真正使用到的索引。他是possible_ keys的子集</p>
+<p>7.key_ len:表示查询优化器使用了索引的字节数，这个字段可以评估组合索引是否完全被使用,这也是我们优化<br>sq|时，评估索引的重要指标<br>9.rows: mysql 查询优化器根据统计信息，估算该sq|返回结果集需要扫描读取的行数，这个值相关重要,索引优<br>化之后，扫描读取的行数越多,说明索引设置不对，或者字段传入的类型之类的问题，说明要优化空间越大<br>10.filtered:返回结果的行占需要读到的行(rows列的值)的百分比，就是百分比越高，说明需要查询到数据越准确，百分比越小，说明查询到的数据量大，而结果集很少<br>11.extra<br>●using filesort :表示mysql对结果集进行外部排序，不能通过索弓|顺序达到排序效果。-般有using filesort都建议优化去掉，因为这样的查询cpu资源消耗大,延时大。<br>●using index:覆盖索引扫描，表示查询在索弓|树中就可查找所需数据，不用扫描表数据文件,往往说明性能不错。<br>●using temporary:查询有使用临时表,一般出现于排序， 分组和多表join的情况，查询效率不高， 建议优化。<br>●using where : sq|使用了where过滤效率较高。</p>
+<h2 id="8、mysql主从同步原理"><a href="#8、mysql主从同步原理" class="headerlink" title="8、mysql主从同步原理"></a>8、mysql主从同步原理</h2><p>mysql主从同步的过程:<br>    Mysql的主从复制中主要有三个线程: master (bin1og dump thread) 、slave (I/O thread 、SQL thread)，Master- 条线程和Slave中的两条线程。<br>●主节点binlog,主从复制的基础是主库记录数据库的所有变更记录到binlog。binlog 是数据库服务器启动的<br>那一刻起，保存所有修改数据库结构或内容的一个文件。<br>●主节点log dump线程，当binlog有变动时，log dump线程读取其内容并发送给从节点。<br>●从节点I/O线程接收binlog内容,并将其写入到relay log文件中。<br>●从节点的SQL线程读取relay log文件内容对数据更新进行重放，最终保证主从数据库的一致性。<br>注:主从节点使用binglog文件+ position偏移量来定位主从同步的位置,从节点会保存其已接收到的偏移量,如果从节点发生宕机重启，则会自动从position的位置发起同步。<br>    由于mysq|默认的复制方式是异步的，主库把日志发送给从库后不关心从库是否已经处理,这样会产生一个问题就是假设主库挂了，从库处理失败了，这时候从库升为主库后，日志就丢失了。由此产生两个概念。</p>
+<p>全同步复制<br>    主库写入binlog后强制同步日志到从库,所有的从库都执行完成后才返回给客户端，但是很显然这个方式的话性能会受到严重影响。</p>
+<p>半同步复制</p>
+<p>​    和全同步不同的是，半同步复制的逻辑是从库写入日志成功后返回ACK确认给主库，主库收到至少一个从库的确认就认为写操作完成</p>
+<h2 id="9、MySQL有哪几种数据存储引擎，有什么区别"><a href="#9、MySQL有哪几种数据存储引擎，有什么区别" class="headerlink" title="9、MySQL有哪几种数据存储引擎，有什么区别"></a>9、MySQL有哪几种数据存储引擎，有什么区别</h2><p>使用 show ENGINES可以看到所有引擎，最为常用的是MyISAM和InnoDB两种</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211105212307913.png" alt="image-20211105212307913"></p>
+<p>MyISAM和InnDB的区别：</p>
+<p>1、存储文件。MyISAM每个表有两个文件，MYD和MYISAM文件，MYD是数据文件，MYI是索引文件，而InnDB每个表只有一个文件，idb。</p>
+<p>2、Innodb支持事务，支持行级锁，支持外键</p>
+<p>3、InnoDB支持XA事务</p>
+<p>4、InnoDB支持savePoints</p>
+<h2 id="9、简述mysql中索引类型以及对数据库性能的影响"><a href="#9、简述mysql中索引类型以及对数据库性能的影响" class="headerlink" title="9、简述mysql中索引类型以及对数据库性能的影响"></a>9、简述mysql中索引类型以及对数据库性能的影响</h2><p>普通索引:允许被索引的数据列包含重复的值。<br>唯一索引:可以保证数据记录的唯一性。<br>主键:是一种特殊的唯一索引，在一张表中只能定义一个主键索引，主键用于唯一标识一 条记录, 使用关键字PRIMARY KEY来创建。<br>联合索引:索引可以覆盖多个数据列，如像INDEX(columnA, columnB)索引。<br>全文索引:通过建立倒排索引,可以极大的提升检索效率,解决判断字段是否包含的问题，是目前搜索引|擎使用的一种关键技术。可以通过ALTER TABLE table_ name ADD FULLTEXT (column);创建全文索引</p>
+<p>索引可以极大的提高数据的查询速度。<br>通过使用索引，可以在查询的过程中，使用优化隐藏器，提高系统的性能。<br>但是会降低插入、删除、更新表的速度，因为在执行这些写操作时,还要操作索引文件<br>索弓|需要占物理空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大，如果非聚集索引很多，一旦聚集索引改变，那么所有非聚集索引都会跟着变。</p>
+<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="1、-RDB和AOF机制"><a href="#1、-RDB和AOF机制" class="headerlink" title="1、 RDB和AOF机制"></a>1、 RDB和AOF机制</h2><p>RDB: Redis DataBase<br>    在指定的时间间隔内将内存中的数据集快照写入磁盘，实际操作过程是fork-个子进程,先将数据集写入临时文<br>件，写入成功后，再替换之前的文件，用二进制压缩存储。<br>优点:<br>1、整个Redis数据库将只包含-个文件dump.rdb,方便持久化。<br>2、容灾性好，方便备份。<br>3、性能最大化，fork 子进程来完成写操作，让主进程继续处理命令,所以是I0最大化。使用单独子进程来进行<br>持久化，主进程不会进行任何10操作,保证了redis的高性能<br>4.相对于数据集大时，比AOF的启动效率更高。<br>缺点:<br>1、数据安全性低。RDB是间隔一段时间进行持久化，如果持久化之间redis发生故障，会发生数据丢失。所以这<br>种方式更适合数据要求不严谨的时候)<br>2、由于RDB是通过fork子 进程来协助完成数据持久化工作的，因此，如果当数据集较大时，可能会导致整个服务<br>器停止服务几百毫秒，甚至是1秒钟。</p>
+<h2 id="2、Redis单线程为什么这么快"><a href="#2、Redis单线程为什么这么快" class="headerlink" title="2、Redis单线程为什么这么快"></a>2、Redis单线程为什么这么快</h2><p>​    Redis基于Reactor模式开发了网络事件处理器、文件事件处理器file event handler。它是单线程的，所以Redis才叫做单线程的模型，它采用IO多路复用机制来同时监听多个Socket,根据Socket上的事件类型来选择对应的事件处理器来处理这个事件。可以实现高性能的网络通信模型，又可以跟内部其他单线程的模块进行对接，保证了Redis内部的线程模型的简单性。<br>​    文件事件处理器的结构包含4个部分:多个Socket、I0多路复用程序、文件事件分派器以及事件处理器(命令请求处理器、命令回复处理器、连接应答处理器等)。<br>​    多个Socket可能并发的产生不同的事件，10多路复用程序会监听多个Socket,会将Socket放入一个队列中排队，每次从队列中有序、同步取出一个Socket给事件分派器，事件分派器把Socket给对应的事件处理器。然后一个Socket的事件处理完之后，10多路复用程序才会将队列中的下一个Socket给事件分派器。文件事件分派器会根据每个Socket当前产生的事件,来选择对应的事件处理器来处理。</p>
+<p>1、Redis启动初始化时,将连接应答处理器跟AE_ READABLE事件关联。<br>2、若一个客户端发起连接，会产生一个AE_ <em>READABLE事件,然后由连接应答处理器负责和客户端建立连接,创<br>建客户端对应的socket,同时将这个socket的AE</em> READABLE事件和命令请求处理器关联，使得客户端可以向主服<br>务器发送命令请求。<br>3、当客户端向Redis发请求时(不管读还是写请求)，客户端socket都会产生一 个AE_ READABLE事件,触发命令<br>请求处理器。处理器读取客户端的命令内容，然后传给相关程序执行。<br>4、当Redis服务 器准备好给客户端的响应数据后，会将socket的AE_ WRITABLE事件和命令回复处理器关联,当客<br>户端准备好读取响应数据时，会在socket产生一个AE_ <em>WRITABLE事件，由对应命令回复处理器处理，即将准备好<br>的响应数据写入socket,供客户端读取。</em></p>
+<p>5、命令回复处理器全部写完到socket后，就会删除该socket的AE_ _WRITABLE事件和命令回复处理器的映射。</p>
+<p>单线程快的原因</p>
+<p>（1）纯内存操作</p>
+<p>（2）核心是基于非阻塞的IO多路复用机制</p>
+<p>（3）单线程反而避免了多线程的频繁上下文切换带来的性能问题</p>
+<h2 id="3、redis的持久化机制"><a href="#3、redis的持久化机制" class="headerlink" title="3、redis的持久化机制"></a>3、redis的持久化机制</h2><p>​    RDB: Redis DataBase将某一个时刻的内存快照 (Snapshot) ，以二进制的方式写入磁盘。<br>手动触发:<br>●save命令，使Redis处于阻塞状态，直到RDB持久化完成,才会响应其他客户端发来的命令,所以在生产环<br>境一定要慎用<br>●bgsave命令, fork出一个子进程执行持久化，主进程只在fork过程中有短暂的阻塞，子进程创建之后，主进程，<br>就可以响应客户端请求了</p>
+<p>自动触发:<br>●savemn:在m秒内，如果有n个键发生改变,则自动触发持久化，通过bgsave执行,如果设置多个、只要满足其一就会触发,配置文件有默认配置(可以注释掉)<br>●flushall: 用于清空redis所有的数据库 ，flushdb清空 当前redis所在库数据(默认是0号数据库),会清空RDB文件，同时也会生成dump.rdb.内容为空<br>●主从同步:全量同步时会自动触发bgsave命令,生成rdb发送给从节点</p>
+<p>优点:<br>1、整个Redis数据库将只包含一个文件dump.rdb,方便持久化。<br>2、容灾性好,方便备份。<br>3、性能最大化，fork 子进程来完成写操作，让主进程继续处理命令，所以是I0最大化。使用单独子进程来进行持久化，主进程不会进行任何10操作,保证了redis的高性能<br>4.相对于数据集大时，比AOF的启动效率更高。</p>
+<p>缺点:<br>1、数据安全性低。RDB 是间隔一段时间进行持久化， 如果持久化之间redis发生故障，会发生数据丢失。所以这<br>种方式更适合数据要求不严谨的时候)<br>2、由于RDB是通过fork子进程来协助完成数据持久化工作的，因此,如果当数据集较大时,可能会导致整个服务器停止服务几百毫秒，甚至是1秒钟。会占用cpu<br>AOF: Append Only File以日志的形式记录服务 器所处理的每一个写、 删除操作，查询操作不会记录，以收本的方式记录，可以打开文件看到详细的操作记录，调操作系统命令进程刷盘<br>1、所有的写命令会追加到AOF缓冲中。<br>2、AOF缓冲区根据对应的策略向硬盘进行同步操作。<br>3、随着AOF文件越来越大，需要定期对AOF文件进行重写，达到压缩的目的。<br>4、当Redis重启时，可以加载AOF文件进行数据恢复。</p>
+<p>同步策略: .<br>●每秒同步:异步完成，效率非常高，- -旦系统出现宕机现象，那么这一秒钟之内修改的数据将会丢失<br>●每修改同步:同步持久化,每次发生的数据变化都会被立即记录到磁盘中,最多丢一条<br>●不同步:由操作系统控制，可能丢失较多数据<br>●优点:<br>1、数据安全<br>2、通过append模式写文件,即使中途服务器宕机也不会破坏已经存在的内容,可以通过redis-check-aof工具解决数据一致性问题。<br>3、AOF机制的rewrite模式。定期对AOF文件进行重写，以达到压缩的目的<br>●缺点:<br>1、AOF文件比RDB文件大，且恢复速度慢。<br>2、数据集大的时候，比rdb启动效率低。<br>3、运行效率没有RDB高</p>
+<p>AOF文件比RDB更新频率高，优先使用AOF还原数据。<br>AOF比RDB更安全也更大<br>RDB性能比AOF好<br>如果两个都配了优先加载AOF</p>
+<h2 id="4、Redis的过期键的删除策略"><a href="#4、Redis的过期键的删除策略" class="headerlink" title="4、Redis的过期键的删除策略"></a>4、Redis的过期键的删除策略</h2><p>​    Redis是key-value数据库，我们可以设置Redis中缓存的key的过期时间。Redis的过期策略就是指当Redis中缓存的key过期了，Redis如何处理。<br>●惰性过期:只有当访问一个key时， 才会判断该key是否已过期，过期则清除。该策略可以最大化地节省CPU资源，却对内存非常不友好。极端情况可能出现大量的过期key没有再次被访问,从而不会被清除，占用大量内存。<br>●定期过期:每隔一定的时间，会扫描一 定数量的数据库的expires字典中一定数量的key,并清除其中已过期的key。该策略是前两者的一个折中方案。通过调整定时扫描的时间间隔和每次扫描的限定耗时，可以在不同情况下使得CPU和内存资源达到最优的平衡效果。<br>(expires字典会保存所有设置了过期时间的key的过期时间数据，其中，key是指向键空间中的某个键的指针,<br>value是该键的毫秒精度的UNIX时间戳表示的过期时间。键空间是指该Redis集群中保存的所有键。)<br>Redis中同时使用了惰性过期和定期过期两种过期策略。</p>
+<h2 id="5、Redis的分布式锁底层如何实现"><a href="#5、Redis的分布式锁底层如何实现" class="headerlink" title="5、Redis的分布式锁底层如何实现"></a>5、Redis的分布式锁底层如何实现</h2><p>1.首先利用setnx来保证:如果key不存在才能获取到锁,如果key存在,则获取不到锁<br>2.然后还要利用lua脚本来保证多个redis操作的原子性<br>3.同时还要考虑到锁过期,所以需要额外的一个看]狗定时任务来监听锁是否需要续约<br>4.同时还要考虑到redis节点挂掉后的情况，所以需要采用红锁的方式来同时向N/2+ 1个节点申请锁,都申请到了才证明获取锁成功，这样就算其中某个redis节点挂掉了，锁也不能被其他客户端获取到</p>
+<h2 id="6、Redis有哪些数据结构？分别有哪些典型的应用场景"><a href="#6、Redis有哪些数据结构？分别有哪些典型的应用场景" class="headerlink" title="6、Redis有哪些数据结构？分别有哪些典型的应用场景"></a>6、Redis有哪些数据结构？分别有哪些典型的应用场景</h2><p>Redis的数据结构有:<br>1.字符串:可以用来做最简单的数据缓存，可以缓存某个简单的字符串，也可以缓存某个json格式的字符串，Redis分布式锁的实现就利用了这种数据结构,还包括可以实现计数器、Session共享、 分布式ID<br>2.哈希表:可以用来存储一些key-value对, 更适合用来存储对象<br>3.列表: Redis的列表通过命令的组合,既可以当做栈，也可以当做队列来使用，可以用来缓存类似微信公众号、微博等消息流数据。<br>4.集合:和列表类似，也可以存储多个元素,但是不能重复，集合可以进行交集、并集、差集操作,从而可以实现类似,<br>我和某人共同关注的人、朋友圈点赞等功能<br>5.有序集合:集合是无序的,有序集合可以设置顺序，可以用来实现排行榜功能</p>
+<h2 id="7、-Redis主从复制的原理"><a href="#7、-Redis主从复制的原理" class="headerlink" title="7、 Redis主从复制的原理"></a>7、 Redis主从复制的原理</h2><p>![image-20211107205606534](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211107205606534.png)</p>
+<p>​    通过执行slaveof命令或设置slaveof选项，让一个服务 器去复制另一个服务器的数据。主数据库可以进行读写操作，当写操作导致数据变化时会自动将数据同步给从数据库。而从数据库-般是只读的，并接受主数据库同步过来<br>的数据。一个主数据库可以拥有多个从数据库，而一个从数据库只能拥有一个主数据库<br>全量复制:<br>(1)节点通过bgsave命令fork子进程进行RDB持久化，该过程是非常消耗CPU、内存页表复制)、硬盘lO的<br>(2)节点通过网络将RDB文件发送给从节点,对主从节点的带宽都会带来很大的消耗<br>(3)从节点清空老数据、载入新RDB文件的过程是阻塞的，无法响应客户端的命令;如果从节点执行bgrewriteaof,也会带来额外的消耗<br>部分复制:<br>1.复制偏移<br>2.复制积压缓冲区:主节点内部维护了一个固定长度的、先进先出(FIFO)队列 作为复制积压缓冲区，当主从节点<br>offset的差距过大超过缓冲区长度时，将无法执行部分复制，只能执行全量复制。<br>3.服务器运行ID(runid):每个Redis节点, 都有其运行ID,运行ID由节点在启动时自动生成，主节点会将自己的<br>运行ID发送给从节点，从节点会将主节点的运行ID存起来。从节点Redis断开重连的时候，就是根据运行ID来<br>判断同步的进度:</p>
+<p>1.复制偏移量:执行复制的双方，主从节点，分别会维护一个复制偏移量offset<br>2.复制积压缓冲区:主节点内部维护了一个固定长度的、先进先出(FIFO)队列 作为复制积压缓冲区，当主从节点offset的差距过大超过缓冲区长度时,将无法执行部分复制，只能执行全量复制。<br>3.服务器运行ID(runid):每个Redis节点, 都有其运行ID,运行ID由节点在启动时自动生成，主节点会将自己的运行ID发送给从节点，从节点会将主节点的运行ID存起来。从节点Redis断开重连的时候，就是根据运行ID来判断同步的进度:</p>
+<p>​    如果从节点保存的runid与主节点现在的runid相同,说明主从节点之前同步过，主节点会继续尝试使用部分复制(到底能不能部分复制还要看offset和复制积压缓冲区的情况);<br>​    如果从节点保存的runid与主节点现在的runid不同，说明从节点在断线前同步的Redis节点并不是当前的主节点，只能进行全量复制。</p>
+<h2 id="8、布隆过滤器原理，优缺点"><a href="#8、布隆过滤器原理，优缺点" class="headerlink" title="8、布隆过滤器原理，优缺点"></a>8、布隆过滤器原理，优缺点</h2><p>位图: int[10], 每个int类型的整数是4*8=32个bit,则int[10]- 共有320 bit,每个bit非0即1,初始化时都是0</p>
+<p>添加数据时，将数据进行hash得到hash值,对应到bit位,将该bit改为1，hash函数可以定义多个，则一个数据添加会将多个(hash函数个数) bit改为1, 多个hash函数的目的是减少hash碰撞的概率</p>
+<p>查询数据: hash函数计算得到hash值,对应到bit中，如果有一个为0, 则说明数据不在bit中,如果都为1,则该<br>数据可能在bit中</p>
+<p>优点:<br>●占用内存小<br>●增加和查询元素的时间复杂度为: O(K), (K为哈希函数的个数,一般比较小)，与数据量大小无关<br>●哈希函数相互之间没有关系，方便硬件并行运算<br>●布隆过滤器不需要存储元素本身，在某些对保密要求比较严格的场合有很大优势<br>●数据量很大时,布隆过滤器可以表示全集<br>●使用同一组散列函数的布隆过滤器可以进行交、并、差运算</p>
+<p>缺点:<br>●误判率,即存在假阳性(False Position), 不能准确判断元素是否在集合中<br>●不能获取元素本身<br>●一般情况下不能从布隆过滤器中删除元素</p>
+<h2 id="9、-常见的缓存淘汰算法"><a href="#9、-常见的缓存淘汰算法" class="headerlink" title="9、 常见的缓存淘汰算法"></a>9、 常见的缓存淘汰算法</h2><p>FIFO (First In First Out,先进先出)，根据缓存 被存储的时间，离当前最远的数据优先被淘汰;<br>LRU (Least Recently Used,最近最少使用)， 根据最近被使用的时间，离当前最远的数据优先被淘汰;<br>LFU (Least Frequently Used,最不经常使用)，在一 段时间内, 缓存数据被使用次数最少的会被淘汰。</p>
+<h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h1><h2 id="1、SpringBoot、Spring-MVC和Spring有什么区别"><a href="#1、SpringBoot、Spring-MVC和Spring有什么区别" class="headerlink" title="1、SpringBoot、Spring MVC和Spring有什么区别"></a>1、SpringBoot、Spring MVC和Spring有什么区别</h2><p>spring是一个I0C容器，用来管理Bean,使用依赖注入实现控制反转，可以很方便的整合各种框架，提供AOP机制弥补00P的代码重复问题、更方便将不同类不同方法中的共同处理抽取成切面、自动注入给方法执行，比如日志、异常等</p>
+<p>springmvc是spring对web框架的一个解决方案，提供了一个总的前端控制器Servlet,来接收请求,然后定义了一套路由策略 (url|到handle的映射) 及适配执行handle,将handle结果使用视图解析技术生成视图展现给前端</p>
+<p>springboot是spring提供的一个快速开发工具包，让程序员能更方便、更快速的开发spring+springmvc应用， 简<br>化了配置(约定了默认配置)，整合了一系列的解决方案(starter机制) 、redis、 mongodb、 es,可以开箱即用</p>
+<h2 id="2、-和-的区别"><a href="#2、-和-的区别" class="headerlink" title="2、 #{}和${}的区别"></a>2、 #{}和${}的区别</h2><p>#{}是预编译处理、是占位符，${}是字符串替换、 是拼接符。<br>Mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement来赋值;<br>Mybatis在处理${}时，就是把${}替换成变量的值， 调用Statement来赋值;<br>#{}的变量替换是在DBMS中、变量替换后，#{} 对应的变量自动加上单引号<br>${}的变量替换是在DBMS外、变量替换后，${} 对应的变量不会加_上单引号<br>使用#{}可以有效的防止SQL注入，提高系统安全性。</p>
+<h2 id="3、ApplicationContext和BeanFactory有什么区别"><a href="#3、ApplicationContext和BeanFactory有什么区别" class="headerlink" title="3、ApplicationContext和BeanFactory有什么区别"></a>3、ApplicationContext和BeanFactory有什么区别</h2><p>​    BeanFactory是Spring中非常核心的组件，表示Bean厂，可以生成Bean, 维护Bean, 而ApplicationContext继承了 BeanFactory,所以ApplicationContext拥有BeanFactory所有的特点, 但是ApplicationContext除开继承了BeanFactory之外，还继承了诸如EnvironmentCapable、MessageSource、ApplicationEventPublisher等接口，从而ApplicationContext还有获取系统环境变量、国际化、事件发布等功能，这是BeanFactory不具备的</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109155210675.png" alt="image-20211109155210675"></p>
+<p> <img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109155505152.png" alt="image-20211109155505152"></p>
+<h2 id="4、Mybatis的插件运行原理"><a href="#4、Mybatis的插件运行原理" class="headerlink" title="4、Mybatis的插件运行原理"></a>4、Mybatis的插件运行原理</h2><p>​    Mybatis 只支持针对ParameterHandler、ResultSetHandler. StatementHandler. Executor 这4种接口的插件，Mybatis 使用JDK的动态代理，为需要拦截的接口生成代理对象以实现接口方法拦截功能，每当执行这4种接口对象的方法时，就会进入拦截方法，具体就是InvocationHandler的invoke()方法，拦截那些你指定需要拦截的方法。</p>
+<p>​    编写插件:实现Mybatis的Interceptor接口并复写intercept()方法，然后在给插件编写注解，指定要拦截哪一<br>个接口的哪些方法即可，在配置文件中配置编写的插件。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109160312626.png" alt="image-20211109160312626"></p>
+<h2 id="5、MyBatis存在哪些优点和缺点"><a href="#5、MyBatis存在哪些优点和缺点" class="headerlink" title="5、MyBatis存在哪些优点和缺点"></a>5、MyBatis存在哪些优点和缺点</h2><p>优点:<br>1.基于SQL语句编程,相当灵活，不会对应用程序或者数据库的现有设计造成任何影响，SQL 单独写，解除sql与程序代码的耦合,便于统-管<br>理。<br>2.与JDBC相比，减少了50%以上的代码量，消除了JDBC大量冗余的代码,不需要手动开关连接;<br>3.很好的与各种数据库兼容( 因为MyBatis使用JDBC来连接数据库,所以只要JDBC支持的数据库MyBatis都支持)。<br>4.能够与Spring很好的集成;<br>5.提供映射标签，支持对象与数据库的ORM字段关系映射;提供对象关系映射标签，支持对象关系组件维护。<br>缺点:</p>
+<ol>
+<li>SQL语句的编写工作量较大，其当字段移、关联表多时，对开发人员编写SQL语句的功底有一定要求。</li>
+<li>SQL语句依赖于数据库，导致数据库移植性差 ，不能随意更换数据库</li>
+</ol>
+<h2 id="6、SrpingMVC的底层工作原理"><a href="#6、SrpingMVC的底层工作原理" class="headerlink" title="6、SrpingMVC的底层工作原理"></a>6、SrpingMVC的底层工作原理</h2><p>1.用户发送请求至前端控制器DispatcherServlet.</p>
+<p>2.DispatcherServlet收到请求调用HandlerMapping处理器映射器。</p>
+<p>3.处理器映射器找到具体的处理器(可以根据xml配置、注解进行查找)，生成处理器及处理器拦截器(如果有则生成)一并返回给DispatcherServlet.</p>
+<p>4.DispatcherServlet调用HandlerAdapter处理器适配器。</p>
+<p>5.HandlerAdapter经过适配调用具体的处理器(Controller,也叫后端控制器)</p>
+<p>6.Controller 执行完成返回ModelAndView.</p>
+<p>7.HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet。</p>
+<p>8.DispatcherServlet 将ModelAndView传给ViewReslover视图解析器。</p>
+<p>9.ViewReslover解析后返回具体View。</p>
+<p>10.DispatcherServlet根据View进行渲染视图(即将模型数据填充至视图中)。</p>
+<p>11.DispatcherServlet响应用户。</p>
+<h2 id="7、SpringBoot自动配置原理"><a href="#7、SpringBoot自动配置原理" class="headerlink" title="7、SpringBoot自动配置原理"></a>7、SpringBoot自动配置原理</h2><p>@Import + @configuration + Spring spi</p>
+<p>自动配置类由各个starter提供，使用@Configuration+@Bean定义配置类，放到META-INF/spring.factories下</p>
+<p>使用Spring spi扫描META-INF/spring.factories下的配置类</p>
+<p>使用@Import导入自动配置类</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109203555364.png" alt="image-20211109203555364"></p>
+<h1 id="8、-SpringMVC中的控制器是不是单例模式，如果是如何保证线程安全？"><a href="#8、-SpringMVC中的控制器是不是单例模式，如果是如何保证线程安全？" class="headerlink" title="8、 SpringMVC中的控制器是不是单例模式，如果是如何保证线程安全？"></a>8、 SpringMVC中的控制器是不是单例模式，如果是如何保证线程安全？</h1><p>控制器是单例模式</p>
+<p>单例模式下会有线程安全问题</p>
+<p>spring中保证线程安全的方法：</p>
+<p>1、将scop设置成非singleton，而是prototype，request，但是当高并发时，每个线程都有一个对象会造成系统负担</p>
+<p>2、最好的方式是将控制器设置成无状态模式，在控制器中不要携带数据，但是可以引用无状态的service和dao即没有属性，controller引用service，service引用dao也是无状态的，因为他们两个本身就无状态，无状态互相引用还是无状态</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109205809340.png" alt="image-20211109205809340"></p>
+<h2 id="9、spring框架中用到了哪些设计模式"><a href="#9、spring框架中用到了哪些设计模式" class="headerlink" title="9、spring框架中用到了哪些设计模式"></a>9、spring框架中用到了哪些设计模式</h2><p>1、简单工厂:由一个工厂类根据传入的参数，动态决定应该创建哪一个产品类。（不属于23种设计模式）<br>    Spring中的BeanFactory就是简单工厂模式的体现，根据传入一-个唯一的标识来获得Bean对象， 但是否是在传入参数后创建还是传入参数前创建这个要根据具体情况来定。</p>
+<p>2、工厂方法:<br>    实现了FactoryBean接口的bean是一类叫做factory的bean。其特点是，spring会在使用getBean()调用获得该bean时，会自动调用该bean的getobject()方法，所以返回的不是factory这个bean，而是这个bean . getojbect()方法的返回值。<br>3、单例模式:保证一个类仅有一 个实例，并提供一个访问它的全 局访问点<br>    spring对单例的实现: spring中的单例模式完成 了后半句话，即提供了全局的访问点BeanFactory。但没有从构造器级别去控制单例，这是因为spring管理的是任意的java对象。</p>
+<p>4、适配器模式:<br>    Spring定义了-一个适配接口，使得每一种Controller 有一- 种对应的适配器实现类，让适配器代替controller执行相应的方法。这样在扩展Controller时，只需要增加一一个适配器类就完成了SpringMVC的扩展了。<br>5、装饰器模式:动态地给一个对象添加一 -些额外的职责。就增加功能来说，Decorator模式相比生 成子类更为灵活。<br>    Spring中用到的包装器模式在类名上有两种表现:一种是类名中 含有Wrapper，另一一种是类名中含Decorator。</p>
+<p>6、动态代理:<br>    切面在应用运行的时刻被织入。一 般情况下，在织入切面时，AOP 容器会为目标对象创建动态的创建一一个代理对象。<br>    SpringAOP就是以这种方式织入切面的。<br>    织入:把切面应用到目标对象并创建新的代理对象的过程。<br>7、观察者模式:<br>    spring的事件驱动模型使用的是观察者模式，Spring中observer 模式常用的地方是1istener的实现。<br>8、策略模式:<br>    Spring框架的资源访问Resource接口。该接口提供了更强的资源访问能力，Spring框架本身大量使用了Resource接口来访问底层资源。</p>
+<h1 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h1><h2 id="1、zk的watch机制实现原理"><a href="#1、zk的watch机制实现原理" class="headerlink" title="1、zk的watch机制实现原理"></a>1、zk的watch机制实现原理</h2><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109213251960.png" alt="image-20211109213251960"></p>
+<p>通过动态添加的watcher会覆盖创建对象时指定的watcher</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109215408507.png" alt="image-20211109215408507"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109220507217.png" alt="image-20211109220507217"></p>
+<h2 id="2、zk的初始化选举和崩溃选举过程"><a href="#2、zk的初始化选举和崩溃选举过程" class="headerlink" title="2、zk的初始化选举和崩溃选举过程"></a>2、zk的初始化选举和崩溃选举过程</h2><p>zxld:事务id, sld: 节点id<br>先对比zxld,再对比sId,先投自己，选票内容(zxld, sId) ，遇强改投<br>投票箱:每个节点在本地维护自己和其他节点的投票信息，改投时需要更新信息,并扩播<br>节点状态:<br>●LOOKING,竞选状态。<br>●FOLLOWING, 随从状态，同步leader状态,参与投票。<br>●OBSERVING, 观察状态，同步leader状态,不参与投票。<br>●LEADING, 领导者状态。<br><strong>初始化:没有历史数据，5个节点为例</strong><br>●节点1启动，此时只有一台服务器启动，它发出去的请求没有任何响应，所以它的选举状态一直是LOOKING状<br>●节点2启动,它与节点1进行通信,互相交换自己的选举结果，由于两者都没有历史数据,所以serverld值较大的服务器2胜出,但是由于没有达到半数以上，所以服务器1,2还是继续保持LOOKING状态<br>●节点3启动，与1、2节点通信交互数据，服务器3成为服务器1,2,3中的leader, 此时有三台服务器选举了3,所以3成为leader<br>●节点4启动,理论上服务器4应该是服务器1,2,3,4中最大的， 但是由于前面已经有半数以上的服务器选举了服务器3，所以它只能切换为follower</p>
+<p>●节点5启动,同4一样<br><strong>崩溃选举:</strong><br>●更状态，leader故障后，follower进 入looking状态<br>●各节点投票,先投自己(zxld, sId) ，再广播投票,<br>●接收到投票，对比zxId和sId,如果本节点小则将票改为接收的投票信息，并记录投票信息，重新广播。否<br>则本节点大、则可不做处理<br>●统计本地投票信息,超过半数,则切换为leading状态并广播</p>
+<h2 id="3、zk分布式锁的实现原理"><a href="#3、zk分布式锁的实现原理" class="headerlink" title="3、zk分布式锁的实现原理"></a>3、zk分布式锁的实现原理</h2><p>●上来直接创建一 个锁节点下的一个接一个的临时顺序节点<br>●如果自己不是第一个节点,就对自己上一个节点加监听器<br>●只要上一个节点释放锁，自己就排到前面去了，相当于是一个排队机制。<br>而且用临时顺序节点，如果某个客户端创建临时顺序节点之后，自己宕机了，zk感知到那个客户端宕机，会自删<br>除对应的临时顺序节点，相当于自动释放锁，或者是自动取消自己的排队。解决了惊群效应</p>
+<h2 id="4、说说你了解的-分布式锁"><a href="#4、说说你了解的-分布式锁" class="headerlink" title="4、说说你了解的 分布式锁"></a>4、说说你了解的 分布式锁</h2><p>​    分布式锁所要解决的问题的本质是:能够对分布在多台机器中的线程对共享资源的互斥访问。在这个原理上可以有很多的实现方式:<br>1.基于Mysq|,分布式环境中的线程连接同一个数据库,利用数据库中的行锁来达到互斥访问，但是Mysql的加锁和释放锁的性能会比较低，不适合真正的实际生产环境<br>2.基于Zookeeper, Zookeeper中的数据是存在内存的，所以相对于Mysq|性能上是适合实际环境的,诅基于Zookeeper的顺序节点临时节点Watch机制能非常好的来实现的分布式锁<br>3.基于Redis, Redis中的数据也是在内存,基于Redis的消费订阅功能、数据超时时间，lua脚本等功能，也能很好的实现的分布式锁</p>
+<h2 id="5、Zookeeper中的领导者选举的流程是怎样的？"><a href="#5、Zookeeper中的领导者选举的流程是怎样的？" class="headerlink" title="5、Zookeeper中的领导者选举的流程是怎样的？"></a>5、Zookeeper中的领导者选举的流程是怎样的？</h2><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211110195621180.png" alt="image-20211110195621180"></p>
+<h2 id="6、Zookeeper集群中节点之间数据如何同步"><a href="#6、Zookeeper集群中节点之间数据如何同步" class="headerlink" title="6、Zookeeper集群中节点之间数据如何同步"></a>6、Zookeeper集群中节点之间数据如何同步</h2><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211110202814095.png" alt="image-20211110202814095"></p>
+<h1 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h1><h2 id="1、Kafka、ActiveMQ、RabbitMQ、RocketMQ对比"><a href="#1、Kafka、ActiveMQ、RabbitMQ、RocketMQ对比" class="headerlink" title="1、Kafka、ActiveMQ、RabbitMQ、RocketMQ对比"></a>1、Kafka、ActiveMQ、RabbitMQ、RocketMQ对比</h2><p>（1）ActiveMQ: JMS规范,支持事务、支持XA协议,没有生产大规模支撑场景、官方维护越来越少<br>（2）RabbitMQ: erlang语言开发、性能好、高并发，支持多种语言，社区、文档方面有优势，erlang语 言不利于java程序员二次开发，依赖开源社区的维护和升级，需要学习AMQP协议、学习成本相对较高</p>
+<p>以上吞吐量单机都在万级<br>（3）kafka:高性能，高可用，生产环境有大规模使用场景，单机容量有限(超过64个分区响应明显变长)、社区更新慢<br>吞吐量单机百万<br>（4）rocketmq: java实现，方便二次开发、 设计参考了kafka,可用、可靠,社区活跃度-般、支持语言较少<br>吞吐量单机十万</p>
+<h2 id="2、-Kafka的Pull和Push分别有什么优缺点"><a href="#2、-Kafka的Pull和Push分别有什么优缺点" class="headerlink" title="2、 Kafka的Pull和Push分别有什么优缺点"></a>2、 Kafka的Pull和Push分别有什么优缺点</h2><ol>
+<li>pull表示消费者主动拉取，可以批量拉取，也可以单条拉取，所以pull可以由消费者自己控制,根据自己的消息处理能力来进行控制，但是消费者不能及时知道是否有消息，可能会拉到的消息为空</li>
+<li>push表示Broker主动给消费者推送消息，所以肯定是有消息时才会推送，但是消费者不能按自己的能力来消费消息，推过来多少消息,消费者就得消费多少消息，所以可能会造成网络堵塞,消费者压勵大等问题</li>
+</ol>
+<h2 id="3、Kafka高性能高吞吐的原因"><a href="#3、Kafka高性能高吞吐的原因" class="headerlink" title="3、Kafka高性能高吞吐的原因"></a>3、Kafka高性能高吞吐的原因</h2><p>1、磁盘顺序读写:保证了消息的堆积<br>●顺序读写,磁盘会预读,预读即在读取的起始地址连续读取多个页面，主要时间花费在了传输时间，而这个时间两种读写可以认为是一样的。<br>●随机读写，因为数据没有在一起, 将预读浪费掉了。需要多次寻道和旋转延迟。而这个时间可能是传输时间的许多倍。</p>
+<p>2、零拷贝:避免CPU将数据从一块存储拷贝到另外一块存储的技术<br>●传统的数据复制:<br>1、读取磁盘文件数据到内核缓冲区<br>2、将内核缓冲区的数据copy到用户缓冲区<br>2、将用户缓冲区的数据copy到socket的发送缓冲区<br>3、将socket发送缓冲区中的数据发送到网卡、进行传输<br>●零拷贝:<br>磁盘文件-&gt;内核空间读取缓冲区-&gt;网卡接口-&gt;消费者进程<br>3、分区分段+索引<br>    Kafka的message消息实际上是分布式存储在一个一个小的segment中的， 每次文件操作也是直接操作的segment。为了进一步的查询优化， Kafka又 默认为分段后的数据文件建立了索引文件，就是文件系统的.index文件。这种分区分段+索引的设计,不仅提升了数据读取的效率,同时也提高了数据操作的并行度<br>4、批量压缩:多条消息一起压缩，降低带宽<br>5、批量读写</p>
+<p>6、直接操作page cache，而不是JVM、避免GC耗时及对象创建耗时，且读写速度更高，进程重启、缓存也不会丢失</p>
+<h2 id="4、Kafka是pull还是push，优劣势分析"><a href="#4、Kafka是pull还是push，优劣势分析" class="headerlink" title="4、Kafka是pull还是push，优劣势分析"></a>4、Kafka是pull还是push，优劣势分析</h2><p><strong>pull模式:</strong><br>●根据consumer的消费能力进行数据拉取，可以控制速率<br>● 可以批量拉取、也可以单条拉取<br>●可以设置不同的提交方式，实现不同的传输语义<br>缺点:如果kafka没有数据，会导致consumer空循环， 消耗资源<br>解决:通过参数设置，consumer拉取数据为空或者没有达到一-定数量时进行阻塞<br><strong>push模式:不会导致consumer循环等待</strong><br>缺点:速率固定、忽略了consumer的消费能力，可能导致拒绝服务或者网络拥塞等情况</p>
+<p><strong>生产者使用push模式将消息发布到Broker，消费者使用pull模式从Broker订阅消息。</strong></p>
+<h2 id="5、kafka为什么比RocketMQ的吞吐量要高"><a href="#5、kafka为什么比RocketMQ的吞吐量要高" class="headerlink" title="5、kafka为什么比RocketMQ的吞吐量要高"></a>5、kafka为什么比RocketMQ的吞吐量要高</h2><p>​    Kafka的生产者采用的是异步发送消息机制，当发送一条消息时， 消息并没有发送到Broker而是缓存起来,然后直接向业务返回成功，当缓存的消息达到一定数量时再批量发送给Broker。这种做法减少了网络io,从而提高了消息发送的吞吐量，但如果消息生产者宕机，会导致消息失,业务出错,所以理论上kafka利用此机制提高了性能却降低了可靠性。</p>
+<h2 id="6、kafka消息丢失的场景以及解决方案"><a href="#6、kafka消息丢失的场景以及解决方案" class="headerlink" title="6、kafka消息丢失的场景以及解决方案"></a>6、kafka消息丢失的场景以及解决方案</h2><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211110215647344.png" alt="image-20211110215647344"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211110220313165.png" alt="image-20211110220313165"></p>
+<h2 id="7、MQ有什么用，有哪些具体的使用场景"><a href="#7、MQ有什么用，有哪些具体的使用场景" class="headerlink" title="7、MQ有什么用，有哪些具体的使用场景"></a>7、MQ有什么用，有哪些具体的使用场景</h2><p>MQ: MessageQueue, 消息队列。队列是一 种FIFO先进先出的数据结构。 消息由生产者发送到MQ进行排队，然后由消费者对消息进行处理。QQ、微信 就是典型的MQ场景。<br>MQ的作用主要有三个方面:<br>1、异步:<br>例子:快递。快递员-&gt; 菜鸟驿站&lt;-客户<br>作用:异步能提高系统的响应速度和吞吐量。<br>2、解耦:<br>例子:《Thinking in java》-&gt; 编辑社</p>
+<p>作用：服务之间进行解耦，可以减少服务之间的影响，提高系统的稳定性和可扩展性</p>
+<p>另外，解耦之后可以实现数据分发，生产者发送一个消息后，可以由多个消费者处理</p>
+<p>3、削峰</p>
+<p>例子:长江涨水-&gt;三峡大坝<br>作用:以稳定的系统资源应对突发的流量冲击。</p>
+<p>MQ缺点：</p>
+<p>1、系统可用性降低: 一旦MQ宕机，整个业务就会产生影响。高可用<br>2、系统的复杂度提高:引入MQ之后， 数据链路就会变得很复杂。如何保证消息不丢失?消息不会重复调用?怎么保证消息的顺序性?、</p>
+<p>3、数据一致性：A系统发消息，需要由B、C两个系统一同处理，如果B系统处理成功，C系统处理失败，就会造成数据一致性问题</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>SunDaohan</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>为中华之<strong>崛起</strong>而读书</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E3%80%90Java%E3%80%91/"># 【Java】</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/01/16/IDEA-gitee%E5%8D%8F%E4%BD%9C%E5%BC%8F%E7%BC%96%E7%A8%8B/">IDEA+gitee协作式编程</a>
+            
+            
+            <a class="next" rel="next" href="/2021/10/25/Kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Kafka学习笔记</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+
+        <!-- 不蒜子统计 -->
+        <div align="center"><span id="busuanzi_container_site_pv" >
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span></div>
+        <div align = "center"><span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <div class="copyright">
+        <span>© SunDaohan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+    </div>
+</body>
+</html>

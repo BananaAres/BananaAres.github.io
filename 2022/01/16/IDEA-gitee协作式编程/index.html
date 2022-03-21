@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="author" content="SunDaohan">
+
+
+
+
+
+<title>IDEA+gitee协作式编程 | SunDaohan</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">孙道涵的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">孙道涵的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">IDEA+gitee协作式编程</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">SunDaohan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">一月 16, 2022&nbsp;&nbsp;17:26:23</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E3%80%90git%E3%80%91/">【git】</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="IDEA-gitee协作式编程"><a href="#IDEA-gitee协作式编程" class="headerlink" title="IDEA+gitee协作式编程"></a>IDEA+gitee协作式编程</h1><h2 id="一、git下载"><a href="#一、git下载" class="headerlink" title="一、git下载"></a>一、git下载</h2><p>略</p>
+<h2 id="二、创建仓库"><a href="#二、创建仓库" class="headerlink" title="二、创建仓库"></a>二、创建仓库</h2><p>1.登录gitee，点击右上角加号，点击新建仓库</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173139107.png" alt="image-20220116173139107"></p>
+<p>2.根据提示构建自己所需的仓库</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173332064.png" alt="image-20220116173332064"></p>
+<p>3.之后可以看到官方提供的操作提示，可以按步骤进行</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173450613.png" alt="image-20220116173450613"></p>
+<p>创建仓库步骤可以自己进行，在自己想放本地仓库的位置，新建一个文件，文件名和远程仓库名保持一致，此处为test</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173636036.png" alt="image-20220116173636036"></p>
+<p>在终端上 进入这个文件夹，输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173721700.png" alt="image-20220116173721700"></p>
+<p>继续输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch README.md</span><br></pre></td></tr></table></figure>
+
+<p>创建一个README.md文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173902095.png" alt="image-20220116173902095"></p>
+<p>输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<p>将刚才更新的文件提交到本地缓冲区</p>
+<p>此时可以输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>查看是否成功</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174004343.png" alt="image-20220116174004343"></p>
+<p>如图所示，有一行绿色的new file，证明成功了</p>
+<p>接着输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m 'fisrt test'</span><br></pre></td></tr></table></figure>
+
+<p>将修改提交到当前的本地库中</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174314336.png" alt="image-20220116174314336"></p>
+<p>之后输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://gitee.com/BananaAres/test.git</span><br></pre></td></tr></table></figure>
+
+<p>绑定远程仓库，那串链接实际上就是下图所示的链接</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174651267.png" alt="image-20220116174651267"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174719454.png" alt="image-20220116174719454"></p>
+<p>再输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin "master"</span><br></pre></td></tr></table></figure>
+
+<p>推送到远程仓库</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174931069.png" alt="image-20220116174931069"></p>
+<p>此时已经成功了，可以去gitee查看一下</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174951924.png" alt="image-20220116174951924"></p>
+<p>此时发现README.md已经上传成功了</p>
+<h2 id="三、多人协作开发"><a href="#三、多人协作开发" class="headerlink" title="三、多人协作开发"></a>三、多人协作开发</h2><p>​    项目会分为多个分支，master是主分支，是已经测试成功上线运行的代码，dev是develop的缩写，是开发时使用的分支，如果需要的话，还可以有一个测试test分支，用来在上线前进行测试。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116175538437.png" alt="image-20220116175538437"></p>
+<p>​    所以在开发时，开发人员会将代码克隆一份到自己的本地库，再进行并行开发，最后合并即可。</p>
+<p>​    首先先把合作的人拉进仓库中，找到右上方的管理</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116175738979.png" alt="image-20220116175738979"></p>
+<p>再点击仓库成员管理</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116175827179.png" alt="image-20220116175827179"></p>
+<p>点击邀请用户</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116175946906.png" alt="image-20220116175946906"></p>
+<p>选择喜欢的方式，邀请开发者进入即可，不过免费版只能最多5个人合作</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180021528.png" alt="image-20220116180021528"></p>
+<p>为了保证master分支的安全，可以设置权限，保证只有特定的人可以合并master分支</p>
+<p>点击保护分支设置</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180117230.png" alt="image-20220116180117230"></p>
+<p>点击新建规则</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180143668.png" alt="image-20220116180143668"></p>
+<p>根据需要设立规则</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180251458.png" alt="image-20220116180251458"></p>
+<p>回到仓库首页，点击管理分支</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180354756.png" alt="image-20220116180354756"></p>
+<p>将master设置为保护分支即可</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180440617.png" alt="image-20220116180440617"></p>
+<p>设置好以后，现在以一个人为例，演示协作开发的过程：</p>
+<p>​    1.新建一个文件夹，当做本地仓库，来clone该项目，克隆地址在仓库首页就能找到</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180606894.png" alt="image-20220116180606894"></p>
+<p>新建的文件夹取个自己觉得合适的名字，比如自己的名字之类的</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180657484.png" alt="image-20220116180657484"></p>
+<p>终端中进入该文件夹</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180717946.png" alt="image-20220116180717946"></p>
+<p>进行clone</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/BananaAres/test.git</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180804760.png" alt="image-20220116180804760"></p>
+<p>可以看到，已经clone下来了</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180827163.png" alt="image-20220116180827163"></p>
+<p>之后进入项目文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd test</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180917450.png" alt="image-20220116180917450"></p>
+<p>由于现在还没有develop分支，我们可以预先创建一个，后续的开发者可以在这个分支上进行合作编码</p>
+<p>先创建一个develop分支</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch develop</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181248083.png" alt="image-20220116181248083"></p>
+<p>然后进入分支</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop</span><br></pre></td></tr></table></figure>
+
+<p>此时如果直接push，会提示</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181421400.png" alt="image-20220116181421400"></p>
+<p>我们按照提示，输入命令之后再push</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --set-upstream origin develop</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181518011.png" alt="image-20220116181518011"></p>
+<p>此时到gitee查看是否添加分支成功</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181553813.png" alt="image-20220116181553813"></p>
+<p>可以看到，此时分支添加成功了</p>
+<p>​    现在我们已经在develop分支中了，我们可以根据我们需要开发的功能，再创建一个分支，并在该分支上工作，比如要开发一个登陆功能，可以再创建一个feature-login分支</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch feature-login</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181724225.png" alt="image-20220116181724225"></p>
+<p>切换到该分支中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout feature-login</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181801533.png" alt="image-20220116181801533"></p>
+<p>此时我们可以进行开发，这里就创建一个新文件代替开发</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181848835.png" alt="image-20220116181848835"></p>
+<p>开发好后，我们将修改加入本地缓冲区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181933718.png" alt="image-20220116181933718"></p>
+<p>之后将其提交到本地库，-m后的可以随便写，不是定死的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#39;sdh-login&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182014610.png" alt="image-20220116182014610"></p>
+<p>之后我们切换到develop分支后，将feature-login分支合并到develop分支中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop</span><br><span class="line">git merge feature-login</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182233713.png" alt="image-20220116182233713"></p>
+<p>此时feature-login分支已经没用了，将其删除，防止分支太多导致冗余</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d feature-login</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182401617.png" alt="image-20220116182401617"></p>
+<p>然后push即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182429757.png" alt="image-20220116182429757"></p>
+<p>此时前往gitee查看，发现master分支内容没有改变</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182505924.png" alt="image-20220116182505924"></p>
+<p>切换到develop分支，发现内容已经修改</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182523900.png" alt="image-20220116182523900"></p>
+<p>至此，协作编码基本流程演示完毕，其他角色流程相同</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>SunDaohan</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>为中华之<strong>崛起</strong>而读书</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E3%80%90git%E3%80%91/"># 【git】</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/01/18/springboot-Bcos%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8E%E8%B0%83%E7%94%A8/">springboot+Bcos智能合约的部署与调用</a>
+            
+            
+            <a class="next" rel="next" href="/2021/11/11/java%E5%85%AB%E8%82%A1%E6%96%87/">java八股文</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+
+        <!-- 不蒜子统计 -->
+        <div align="center"><span id="busuanzi_container_site_pv" >
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span></div>
+        <div align = "center"><span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <div class="copyright">
+        <span>© SunDaohan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+    </div>
+</body>
+</html>

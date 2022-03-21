@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="author" content="SunDaohan">
+
+
+
+
+
+<title>Redis配置与使用 | SunDaohan</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">孙道涵的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">孙道涵的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Redis配置与使用</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">SunDaohan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 10, 2021&nbsp;&nbsp;21:41:15</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%91/">【数据库】</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="一-NoSQL数据库"><a href="#一-NoSQL数据库" class="headerlink" title="一.NoSQL数据库"></a>一.NoSQL数据库</h2><h3 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a>1.1 概念</h3><p>​    NoSQL是为了解决性能问题</p>
+<p>​    (1)解决CPU及内存压力</p>
+<p>​    (2)解决IO压力</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211009203858031.png" alt="image-20211009203858031"></p>
+<p>​    NoSQL(Not Only SQL)，泛指非关系型数据库，不依赖业务逻辑方式存储，而以简单的k-v方式存储，大大增加数据库的扩展能力</p>
+<p>​    (1)不遵循SQL标准</p>
+<p>​    (2)不支持ACID(原子性、一致性、隔离性、持久性)</p>
+<p>​    (3)远超于SQL的性能</p>
+<h3 id="1-2-NoSQL适用场景"><a href="#1-2-NoSQL适用场景" class="headerlink" title="1.2 NoSQL适用场景"></a>1.2 NoSQL适用场景</h3><p>1.对数据高并发的读写</p>
+<p>2.海量数据的读写</p>
+<p>3.对数据的高可扩展性</p>
+<h3 id="1-3-NoSQL不适用场景"><a href="#1-3-NoSQL不适用场景" class="headerlink" title="1.3 NoSQL不适用场景"></a>1.3 NoSQL不适用场景</h3><p>1.需要事务支持</p>
+<p>2.基于sql的结构化查询存储，处理复杂的关系，需要即席查询</p>
+<p>(用不着sql和用了sql也不行的时候，考虑使用NoSQL)</p>
+<h2 id="二、Redis"><a href="#二、Redis" class="headerlink" title="二、Redis"></a>二、Redis</h2><p>1.Redis是一个开源的k-v存储系统</p>
+<p>2.支持string、list、set、zset(sorted set — 有序集合)、hash</p>
+<p>3.这些数据类型都支持pop/push、add/remove及取交集并集和差集等丰富的操作，而且都是原子操作</p>
+<p>4.Redis支持各种不同方式的排序</p>
+<p>5.数据缓存在内存中</p>
+<p>6.与memcached的区别是Redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件</p>
+<p>7.实现了master-slave（主从）同步</p>
+<h2 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h2><p>1.官网下载Redis 6.2.1 redis-6.2.1.tar.gz  官网：<a href="https://redis.io/，也可以前往https://download.redis.io/releases/下载" target="_blank" rel="noopener">https://redis.io/，也可以前往https://download.redis.io/releases/下载</a></p>
+<p>2.进入/opt目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br></pre></td></tr></table></figure>
+
+<p>3.解压redis-6.2.1.tar.gz</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf redis-6.2.1.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>4.安装c语言环境(已安装可略过)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install centos-release-scl scl-utils-build</span><br><span class="line">yum install -y devtoolset-8-toolchain</span><br><span class="line">scl enable devtoolset-8 bash</span><br></pre></td></tr></table></figure>
+
+<p>测试gcc版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010202134794.png" alt="image-20211010202134794"></p>
+<p>5.进入 redis-6.2.1目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd redis-6.2.1</span><br></pre></td></tr></table></figure>
+
+<p>6.编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>7.执行安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010202651293.png" alt="image-20211010202651293"></p>
+<p>8.进入bin目录，使用前台启动测试安装是否成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /bin</span><br><span class="line">redis-server</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010203010224.png" alt="image-20211010203010224"></p>
+<p>出现这个界面就算成功了，使用control+c停止redis进程</p>
+<p>9.设置后台启动</p>
+<p>(1)进入 redis-6.2.1目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/redis-6.2.1</span><br></pre></td></tr></table></figure>
+
+<p>(2)复制redis.conf文件到/etc目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp redis.conf /etc/redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>(3)进入/etc文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc</span><br></pre></td></tr></table></figure>
+
+<p>(4)修改 redis.conf文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>(5)后台启动设置daemonize no改为yes，可以打/dae搜索到这个语句</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010204625406.png" alt="image-20211010204625406"></p>
+<p>找到 daemonize no 改为yes</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010204811127.png" alt="image-20211010204811127"></p>
+<p>保存修改</p>
+<p>(6)进入 /usr/local/bin目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/bin</span><br></pre></td></tr></table></figure>
+
+<p>（7）输入 redis-server /etc/redis.conf后台启动redis</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /etc/redis.conf</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010205124156.png" alt="image-20211010205124156"></p>
+<p>此时可以输入redis-cli可以客户端访问</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010205256276.png" alt="image-20211010205256276"></p>
+<p>输入ping，返回PONG说明已经正常连接</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010205403233.png" alt="image-20211010205403233"></p>
+<p>(8)在redis-cli状态下，输入shutdown可以关闭redis</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010205519946.png" alt="image-20211010205519946"></p>
+<h2 id="四、Redis相关知识"><a href="#四、Redis相关知识" class="headerlink" title="四、Redis相关知识"></a>四、Redis相关知识</h2><p>1.默认有16个数据库，所有库密码相同，默认使用0号库</p>
+<p>可以使用select切换数据如，如select 8</p>
+<p>可以使用dbsize查看当前数据库的key的数量</p>
+<p>flushdb清空当前库</p>
+<p>flushall通杀全部库</p>
+<p>2.redis是单线程+多路IO复用，memcashed是多线程+锁</p>
+<h2 id="五、常用五大数据类型"><a href="#五、常用五大数据类型" class="headerlink" title="五、常用五大数据类型"></a>五、常用五大数据类型</h2><h3 id="5-1-Redis键-key"><a href="#5-1-Redis键-key" class="headerlink" title="5.1 Redis键(key)"></a>5.1 Redis键(key)</h3><p>Keys * 查看当前库所有key</p>
+<p>set [key] [value]:设置k-v 如 set k1 name</p>
+<p>exists [key] 判断key是否存在，返回1存在，返回0不存在</p>
+<p>type [key]  查看key是什么类型</p>
+<p>del [key] 删除指定的key数据</p>
+<p>Unlink [key] 根据value选择非阻塞删除:仅将keys从keyspace元数据中删除，真正的删除会在后续异步操作</p>
+<p>expire [key] [time]:为给定的key设定过期时间，以秒为单位</p>
+<p>ttl [key]查看还有多少秒过期，-1表示永不过期，-2表示已过期</p>
+<h3 id="5-2-字符串String"><a href="#5-2-字符串String" class="headerlink" title="5.2 字符串String"></a>5.2 字符串String</h3><p>​    Redis的String类型是最基本的数据类型，一个字符串value值最多可以使512M，同时String是二进制安全的，可以包含任何数据，比如jpg图片或者序列化的对象</p>
+<p>操作:</p>
+<p>(1)set [key] [value]:设置k-v 如 set k1 name</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011144731620.png" alt="image-20211011144731620"></p>
+<p>(2)get [key]:获取该key对应的value</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011144813377.png" alt="image-20211011144813377"></p>
+<p>(3)append [key] [value]:向key对应的value后追加值，同时返回长度，若key不存在，则新建</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011144942354.png" alt="image-20211011144942354"></p>
+<p>(4)strlen [key]:获取长度</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011145103816.png" alt="image-20211011145103816"></p>
+<p>(5)setnx [key] [value]:只有key不存在时，才设置key的值</p>
+<p>key1存在，所以无法设置成功</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011145412074.png" alt="image-20211011145412074"></p>
+<p>key2不存在，成功设置</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011145433099.png" alt="image-20211011145433099"></p>
+<p>(6) incr [key]:将key中存储的数字值增加1，只能对数字操作</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011145645507.png" alt="image-20211011145645507"></p>
+<p>当key不存在时，新建并值为1</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011145719568.png" alt="image-20211011145719568"></p>
+<p>(7)decr [key]:将key中存储的数字值减1</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011145743593.png" alt="image-20211011145743593"></p>
+<p>如果key不存在，新建并值为-1</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011145820299.png" alt="image-20211011145820299"></p>
+<p>(8)incrby [key] [步长]:将key中存储的数字值增加，自定义步长，如果步长为20则值增加20</p>
+<p>(9)decrby [key] [步长]:将key中存储的数字值减少，自定义步长，如果步长为20则值减少20</p>
+<h3 id="5-3-列表List"><a href="#5-3-列表List" class="headerlink" title="5.3 列表List"></a>5.3 列表List</h3><p>​    List是单键多值的数据类型，按照插入顺序排序。可以添加一个元素到列表的头部或者尾部。其底层是双向链表。</p>
+<p>操作：</p>
+<p>（1）lpush/rpush [key] [value1] [value2]……：从左边/右边插入一个或多个值</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011195152155.png" alt="image-20211011195152155"></p>
+<p>（2）Irange [key] [start] [stop]：按照索引下表获得元素(从左到右)，如果输入的start和stop分别是0和-1则表示取所有值</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011195419315.png" alt="image-20211011195419315"></p>
+<p>（3）lpop/rpop [key]：从左边/右边弹出一个值，当值全部弹出，键自动删除</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011195517596.png" alt="image-20211011195517596"></p>
+<p>（4）rpoplpush [key1] [key2]：从key1列表右边弹出一个值，插入到key2列表的左边</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011195733955.png" alt="image-20211011195733955"></p>
+<p>（5）lindex [key] [index]：按照索引下表获取指定元素（从左到右）</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011195804261.png" alt="image-20211011195804261"></p>
+<p>（6）linsert [key] before [value] [newvalue]：在[value]前面插入[newvalue]</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011200008482.png" alt="image-20211011200008482"></p>
+<p>（7）lrem [key] [n] [value]：从左边删除n个value</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011200033824.png" alt="image-20211011200033824"></p>
+<p>（8）lset [key] [index] [value]：将列表key下标为index的值替换成value</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011200105459.png" alt="image-20211011200105459"></p>
+<h3 id="5-4-Redis集合Set"><a href="#5-4-Redis集合Set" class="headerlink" title="5.4 Redis集合Set"></a>5.4 Redis集合Set</h3><p>​    Redis中的集合也是类似于列表的功能，但是set中不允许存在重复元素，其实string类型的无需集合，底层为哈希表，添加、删除、查找的复杂度都是O(1)</p>
+<p>操作：</p>
+<p>（1）sadd [key] [value1] [value2]：将一个或多个元素加入到key中，自动排重</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011200737962.png" alt="image-20211011200737962"></p>
+<p>（2）smembers [key]：查看集合中所有值</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011200753596.png" alt="image-20211011200753596"></p>
+<p>（3）sismember [key] [value]：判断集合key是否含有给定value值，有返回1，没有返回0</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011200835616.png" alt="image-20211011200835616"></p>
+<p>（4）scard [key]：返回该集合的元素个数</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011200859899.png" alt="image-20211011200859899"></p>
+<p>（5）srem [key] [value1] [value2]：删除集合中的某个元素</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011200914762.png" alt="image-20211011200914762"></p>
+<p>（6）spop [key]：随机从集合中弹出一个值</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201015679.png" alt="image-20211011201015679"></p>
+<p>（7）srandmember [key] [n]：随机从集合中取出n个值，不从集合中删除这些值</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201050295.png" alt="image-20211011201050295"></p>
+<p>（8）smove [source] [destination] [value]：把集合中的一个值移动到另一个集合</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201421546.png" alt="image-20211011201421546"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201421546.png" alt=""></p>
+<p>（9）sinter [key1] [key2]： 返回两个集合的交集</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201558700.png" alt="image-20211011201558700"></p>
+<p>（10）sunion [key1] [key2]： 返回两个集合的并集</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201616779.png" alt="image-20211011201616779"></p>
+<p>（11）sdiff [key1] [key2]： 返回两个集合的差集（key1中的，不包含key2中的）</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201632139.png" alt="image-20211011201632139"></p>
+<h3 id="5-5-Redis哈希Hash"><a href="#5-5-Redis哈希Hash" class="headerlink" title="5.5 Redis哈希Hash"></a>5.5 Redis哈希Hash</h3><p>​    Redis中的hash是一个string类型的field和value的映射表，适合用于存储对象，类似java中的Map&lt;String,Object&gt;，其底层当field-value长度较短且个数较少时，会使用ziplist（压缩列表），否则使用hashtable（hash表）</p>
+<p>操作：</p>
+<p>（1）hset [key] [field] [value]：给key集合中的field键赋值value</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203250489.png" alt="image-20211011203250489"></p>
+<p>（2）hget [key] [field]：从key1集合filed取出value</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203318971.png" alt="image-20211011203318971"></p>
+<p>（3）hmset [key1] [field1] [value1] [field2] [value2]：批量设置hash的值（新版本hset也可以实现该功能）</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203401641.png" alt="image-20211011203401641"></p>
+<p>（4）hexists [key1] [field]：查看哈希表key中，给定域field是否存在</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203453362.png" alt="image-20211011203453362"></p>
+<p>（5）hkeys [key]：列出该hash集合的所有field</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203514471.png" alt="image-20211011203514471"></p>
+<p>（6）hvals [key]：列出该hash集合的所有value</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203526640.png" alt="image-20211011203526640"></p>
+<p>（7）hincrby [key] [field] [increment]：为哈希表key中的域field的值加上增量</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203705135.png" alt="image-20211011203705135"></p>
+<p>（8）hsetnx [key] [field] [value]：将哈希表key中的域field的值设为value，当且仅当域field不存在时才能成功操作</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203811372.png" alt="image-20211011203811372"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011204000283.png" alt="image-20211011204000283"></p>
+<h3 id="5-6-Redis有序集合Zset"><a href="#5-6-Redis有序集合Zset" class="headerlink" title="5.6 Redis有序集合Zset"></a>5.6 Redis有序集合Zset</h3><p>​    Zset也是一个没有重复元素的集合，与set的不同是Zset的每个成员都关联了一个评分，按照评分从低到高排序集合中的成员，评分可以重复。</p>
+<p>​    其底层使用了两个数据结构:</p>
+<p>​    （1）哈希表，作用是关联value和score，保障元素的唯一性</p>
+<p>​    （2）跳跃表，作用是给value排序，根据score的饭味获取元素列表</p>
+<p>操作：</p>
+<p>（1）zadd [key] [score1] [value1] [score2] [value2]：将一个或多个member元素及其值加入到key中</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011204731380.png" alt="image-20211011204731380"></p>
+<p>（2）zrange [key] [start] [end] [WITHSCORES]：返回下表在start和end之间的元素，如果带上WITHSCORES，可以将分数一起返回，如果start和end分别是0，-1，则返回全部元素</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011204831112.png" alt="image-20211011204831112"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011204852149.png" alt="image-20211011204852149"></p>
+<p>（3）zrangebyscore [key] [min] [max] [withscores] [limit offset count]：返回所有score值介于min和max之间（闭区间）的成员，按score从小到大排列，limit offset count是分页</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011204952952.png" alt="image-20211011204952952"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011205014351.png" alt="image-20211011205014351"></p>
+<p>（4）zrevrangebyscore [key] [max] [min] [withscores] [limit offset count]：返回所有score值介于min和max之间（闭区间）的成员，按score从大到小排列</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011205143520.png" alt="image-20211011205143520"></p>
+<p>（5）zincrby [key] [increment] [value]：为元素的score加上增量</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011205432322.png" alt="image-20211011205432322"></p>
+<p>（6）zrem [key] [value]：删除指定值的元素</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011205458082.png" alt="image-20211011205458082">（7）zcount [key] [min] [max]：统计区间内的元素个数（闭区间）</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011205522605.png" alt="image-20211011205522605"></p>
+<p>（8）zrank [key] [value]：返回指定值在集合中的排名，从0开始</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011205604287.png" alt="image-20211011205604287"></p>
+<h2 id="六、配置文件"><a href="#六、配置文件" class="headerlink" title="六、配置文件"></a>六、配置文件</h2><h3 id="6-1-Units单位"><a href="#6-1-Units单位" class="headerlink" title="6.1 Units单位"></a>6.1 Units单位</h3><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012140900501.png" alt="image-20211012140900501"></p>
+<p>配置大小单位，定义了一些基本的度量单位，只支持Bytes，不支持bit</p>
+<h3 id="6-2-INCLUDES"><a href="#6-2-INCLUDES" class="headerlink" title="6.2 INCLUDES"></a>6.2 INCLUDES</h3><p>设置包含的其他配置信息，比如有些公共部分，可以设置包含来配置</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012141103389.png" alt="image-20211012141103389"></p>
+<h3 id="6-3-网络配置"><a href="#6-3-网络配置" class="headerlink" title="6.3 网络配置"></a>6.3 网络配置</h3><p>（1）bind</p>
+<p>如果设置的是127.0.0.1，表示只能本地连接，不能通过其他设备进行远程连接</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012141424427.png" alt="image-20211012141424427">（2）保护模式</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012141623050.png" alt="image-20211012141623050"></p>
+<p>protected-mode yes表示开启保护模式，当没有设置密码时也是保证不可以远程连接</p>
+<p>注释bind，将保护模式关闭，表示没设置密码也可以开放远程连接</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012141513835.png" alt="image-20211012141513835"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012141727798.png" alt="image-20211012141727798"></p>
+<p>（3）端口号</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012141925095.png" alt="image-20211012141925095"></p>
+<p>（4）tcp-backlog</p>
+<p>用来设置tcp的backlog，backlog是一个连接队列，backlog队列总和=未完成三次握手的队列+已完成三次握手队列</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012144442489.png" alt="image-20211012144442489"></p>
+<p>（5）timeout</p>
+<p>超时时间，以秒为单位，表示多长时间未操作就断开连接，如果是0表示永不超时</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012145032224.png" alt="image-20211012145032224"></p>
+<p>（6）tcp-keepalvie</p>
+<p>tcp长链接保持时间，检测连接是否还活着，表示发送ACK的间隔时间</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012145143788.png" alt="image-20211012145143788"></p>
+<p>（7）pidfile</p>
+<p>存放pid文件的位置，每个实例会产生不同的pid文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012145626800.png" alt="image-20211012145626800"></p>
+<p>（8）日志级别</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012145734140.png" alt="image-20211012145734140"></p>
+<p>分为四种级别</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012145747380.png" alt="image-20211012145747380"></p>
+<p>debug:开发环境中使用，看到更加详细的信息</p>
+<p>verbose:看到有用的信息，但是没有debug那么详细</p>
+<p>notice:生产环境使用</p>
+<p>warning:只会看到特别重要的信息</p>
+<p>（9）日志输出目录</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012145946895.png" alt="image-20211012145946895"></p>
+<p>设置日志的输出目录</p>
+<p>（10）databases</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211012150109822.png" alt="image-20211012150109822"></p>
+<p>默认的16个库</p>
+<h2 id="七、Redis6新数据类型"><a href="#七、Redis6新数据类型" class="headerlink" title="七、Redis6新数据类型"></a>七、Redis6新数据类型</h2><h3 id="7-1-Bitmaps"><a href="#7-1-Bitmaps" class="headerlink" title="7.1 Bitmaps"></a>7.1 Bitmaps</h3><p>TODO</p>
+<h3 id="八、Redis案例"><a href="#八、Redis案例" class="headerlink" title="八、Redis案例"></a>八、Redis案例</h3><p>1.输入手机号，点击后发送随机生成6位数字码，两分钟有效</p>
+<p>2.输入验证码，点击验证，返回成功或者失败</p>
+<p>3.每个手机号每天只能输入3次</p>
+<h2 id="九、Redis与SpringBoot整合"><a href="#九、Redis与SpringBoot整合" class="headerlink" title="九、Redis与SpringBoot整合"></a>九、Redis与SpringBoot整合</h2><h2 id="十、Redis6的事务操作"><a href="#十、Redis6的事务操作" class="headerlink" title="十、Redis6的事务操作"></a>十、Redis6的事务操作</h2><h3 id="10-1-Redis的事务定义"><a href="#10-1-Redis的事务定义" class="headerlink" title="10.1 Redis的事务定义"></a>10.1 Redis的事务定义</h3><p>​    Redis事务是一个单独的隔离操作，事务总的所有命令都会序列化、按顺序地执行。事务在执行过程中，不会被其他客户端发来的命令所打断。</p>
+<p>​    Redis事务的主要作用就是串联多个命令防止别的命令插队。</p>
+<h3 id="10-2-Multi、Exec、Discard"><a href="#10-2-Multi、Exec、Discard" class="headerlink" title="10.2 Multi、Exec、Discard"></a>10.2 Multi、Exec、Discard</h3><p>​    从输入Multi命令开始，输入的命令都会依次进入命令队列，但不会执行，直到输入Exec后，Redis会将之前的命令队列中的命令依次执行，组队的过程中可以通过discard放弃组队。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211013140016209.png" alt="image-20211013140016209"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211013140327491.png" alt="image-20211013140327491"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211013140308142.png" alt="image-20211013140308142"></p>
+<h3 id="10-3-事务错误处理"><a href="#10-3-事务错误处理" class="headerlink" title="10.3 事务错误处理"></a>10.3 事务错误处理</h3><p>​    组队中某个命令出错，在执行时整个队列命令都会取消</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211013140548978.png" alt="image-20211013140548978"></p>
+<p>在执行阶段某个命令出错，则只有报错的命令不会被执行，其他的命令正常执行</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211013140748573.png" alt="image-20211013140748573"></p>
+<p>由于设置的k1的value并不是数字，导致incr自增失败</p>
+<h3 id="10-4-锁"><a href="#10-4-锁" class="headerlink" title="10.4 锁"></a>10.4 锁</h3><p>（1）悲观锁</p>
+<p>​    悲观锁是认为数据在共享前会出现线程安全问题，所以先上锁，其他人想使用这个数据就要先等待锁释放。传统的关系型数据库用到了很多这种锁机制，比如行锁、表锁、读锁、写锁等。这种方式效率很低</p>
+<p> <img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211013141349983.png" alt="image-20211013141349983"></p>
+<p>（2）乐观锁</p>
+<p>​    乐观锁，每次拿数据时都认为别人不会修改，所以不上锁，但是在更新的时候会判断此期间有没有别人更新过这个数据，可以使用版本号等机制。乐观锁适用于多度的应用类型，可以提高吞吐量。Redis就是利用这种check-and-set机制实现事务的</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211013142341060.png" alt="image-20211013142341060"></p>
+<p>在两个终端上进行一次乐观锁的测试，两个终端都watch balance，之后终端1对balance进行加10操作并加入事务队列，终端2对balance进行加20操作，并加入事务队列，终端1先执行了事务，成功加10，终端2再执行无效</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211013171133390.png" alt="image-20211013171133390"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211013171327875.png" alt="image-20211013171327875"></p>
+<p>使用unwatch命令可以取消监视</p>
+<h3 id="10-5-Redis事务三特性"><a href="#10-5-Redis事务三特性" class="headerlink" title="10.5 Redis事务三特性"></a>10.5 Redis事务三特性</h3><p>（1）单独的隔离操作：</p>
+<p>​    Redis事务是一个单独的隔离操作，事务总的所有命令都会序列化、按顺序地执行。事务在执行过程中，不会被其他客户端发来的命令所打断。</p>
+<p>（2）没有隔离级别的概念：</p>
+<p>​    队列中的命令在没有提交之前不会被执行</p>
+<p>（3）不保证原子性</p>
+<p>​    事务中如果有一条命令执行失败，其他的命令仍会执行，没有回滚</p>
+<h2 id="十一、Redis持久化"><a href="#十一、Redis持久化" class="headerlink" title="十一、Redis持久化"></a>十一、Redis持久化</h2><h3 id="11-1-RDB（Redis-DataBase）"><a href="#11-1-RDB（Redis-DataBase）" class="headerlink" title="11.1 RDB（Redis DataBase）"></a>11.1 RDB（Redis DataBase）</h3><h4 id="11-1-1-概念"><a href="#11-1-1-概念" class="headerlink" title="11.1.1 概念"></a>11.1.1 概念</h4><p>​    RDB指在指定的时间间隔将内存中的数据集快照写入磁盘，恢复时是将快照文件直接读取到内存里</p>
+<h4 id="11-1-2-备份如何执行"><a href="#11-1-2-备份如何执行" class="headerlink" title="11.1.2 备份如何执行"></a>11.1.2 备份如何执行</h4><p>​    Redis会单独创建(fork)一个子进程来进行持久化，先将数据写入到一个临时文件中，等持久化进程都结束了，再用这个临时文件替换上次持久化好的文件。整个过程中，主进程不进行任何IO操作，如果需要进行大规模的数据恢复，且对于数据恢复的完整性不是非常敏感，那么RDB方式要比AOF方式更加高效。RDB的缺点是最后一次持久化后的数据可能丢失。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014143112600.png" alt="image-20211014143112600"></p>
+<h4 id="11-1-3-Fork"><a href="#11-1-3-Fork" class="headerlink" title="11.1.3 Fork"></a>11.1.3 Fork</h4><p>​    Fork的作用是复制一个与当前进程一样的进程。 新进程的所有数据(变量、环境变量、程序计数器等)数值都和原进程一致,但是是一个全新的进程,并作为原进程的子进程。</p>
+<p>​    在Linux程序中, fork()会产生一个 和父进程完全相同的子进程,但子进程在此后多会exec系统调用,出于效率考虑, Linux中引入了”写时复制技术”</p>
+<p>​    一般情况父进程和子进程会共用同一段物理内存,只有进程空间的各段的内容要发生变化时，才会将父进程的内容复制一份给子进程。</p>
+<h4 id="11-1-4-dump-rdb文件"><a href="#11-1-4-dump-rdb文件" class="headerlink" title="11.1.4 dump.rdb文件"></a>11.1.4 dump.rdb文件</h4><p>​    可以在redis.conf中配置文件名称，默认为dump.rdb，通过vi打开配置文件，输入/dbfilename可以搜索到这条配置信息</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014143359143.png" alt="image-20211014143359143"></p>
+<p>下方的dir表示文件生成在哪个目录，./表示生成在启动目录下</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014143538619.png" alt="image-20211014143538619"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014143653960.png" alt="image-20211014143653960"></p>
+<p>stop-writes-on-bgsave-error表示当Redis无法写入磁盘时，比如硬盘已经满了等情况，直接关闭Redis的写操作，推荐使用yes</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014143857766.png" alt="image-20211014143857766"></p>
+<p> rdbcompression表示设置对存储到磁盘中的快照是否压缩存储，如果yes则使用LZF算法进行压缩</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014144204287.png" alt="image-20211014144204287"></p>
+<p>rdbchecksum表示进行完整性检查，在存储快照后，redis使用CRC64算法来进行数据校验，但是会增加大约10%的性能消耗</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014144027525.png" alt="image-20211014144027525"></p>
+<p>save是用来在指定的时间间隔内将内存中的数据集快照写入磁盘，格式为 save 秒 写操作次数</p>
+<p>默认有三种，第一种是15分钟内做了一次修改操作，第二种是在五分钟内做了五次修改操作，第三种是一分钟内做了一万次修改操作。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014194957728.png" alt="image-20211014194957728"></p>
+<p>如设置save 20 3，则表示在20秒内做了3次修改操作会自动将数据集快照写入磁盘</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014195156104.png" alt="image-20211014195156104"></p>
+<p>注释save指令或给save传入空字符串都可以禁用</p>
+<h4 id="11-1-5-RDB优势"><a href="#11-1-5-RDB优势" class="headerlink" title="11.1.5 RDB优势"></a>11.1.5 RDB优势</h4><p>（1）适合大规模的数据恢复</p>
+<p>（2）对数据完整性和一致性要求不高更适合使用</p>
+<p>（3）节省磁盘空间</p>
+<p>（4）恢复速度快</p>
+<h4 id="11-1-6-劣势"><a href="#11-1-6-劣势" class="headerlink" title="11.1.6 劣势"></a>11.1.6 劣势</h4><p>（1）Fork会克隆一份内存中的数据，体积会膨胀2倍</p>
+<p>（2）虽然Redis在fork时使用了写时拷贝技术，但是如果数据庞大会十分消耗性能</p>
+<p>（3）如果redis意外down掉，会丢失最后一次快照后的所有修改：因为save操作是在一定时间间隔内做多少次操作才会触发，如果在时间段内的操作还没有达到设定的次数就崩溃了，会导致本次的所有操作没有进行持久化操作，修改就会丢失</p>
+<h3 id="11-2-AOF（Append-Of-File）"><a href="#11-2-AOF（Append-Of-File）" class="headerlink" title="11.2 AOF（Append Of File）"></a>11.2 AOF（Append Of File）</h3><h4 id="11-2-1-概念"><a href="#11-2-1-概念" class="headerlink" title="11.2.1 概念"></a>11.2.1 概念</h4><p>​    以日志的形式来记录每个写操作（增量保存），将Redis执行过的所有指令记录下来（读操作不记录），只需追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，即按照文件内容将指令从头到尾执行一遍</p>
+<h4 id="11-2-2-AOF持久化流程"><a href="#11-2-2-AOF持久化流程" class="headerlink" title="11.2.2 AOF持久化流程"></a>11.2.2 AOF持久化流程</h4><p>（1）客户端的请求写命令会被append追加到AOF缓冲区内</p>
+<p>（2）AOF缓冲区根据AOF持久化策略[always，everysec，no]将操作sync同步到磁盘的AOF文件中</p>
+<p>（3）AOF文件大小超过重写策略或手动重写时，会对AOF文件rewrite重写，压缩AOF文件容量</p>
+<p>（4）Redis服务重启时，会重新Load加载AOF文件中的写操作达到数据恢复的目的</p>
+<h4 id="11-2-3-AOF配置"><a href="#11-2-3-AOF配置" class="headerlink" title="11.2.3 AOF配置"></a>11.2.3 AOF配置</h4><p>​    AOF默认不开启，可以在redis.conf中配置文件名称，默认为appendonly.aof，AOF文件的保存路径和RDB的路径一致</p>
+<p>​    配置文件中默认为no，文件名称默认为appendonly.aof</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014204703083.png" alt="image-20211014204703083"></p>
+<p>将其改为yes，则开启AOF</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014204808472.png" alt="image-20211014204808472"></p>
+<p>重启redis后，可以看到生成了对应文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014204931434.png" alt="image-20211014204931434"></p>
+<p>​    当AOF和RDB同时开启时，系统会默认取AOF的数据</p>
+<h4 id="11-2-4-异常恢复"><a href="#11-2-4-异常恢复" class="headerlink" title="11.2.4 异常恢复"></a>11.2.4 异常恢复</h4><p>​    如果AOF文件意外损坏，可以通过/usr/local/bin/redis-check-aof–fix appendonly.aof进行恢复</p>
+<p>​    用vi命令打开appendonly.aof文件并在其后随便追加一个无用信息</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014205624208.png" alt="image-20211014205624208"></p>
+<p>​    重新启动redis后，启动客户端失败，因为无法正确读取AOF文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014205714951.png" alt="image-20211014205714951"></p>
+<p>此时输入上述命令对aof文件进行修复</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014205807962.png" alt="image-20211014205807962"></p>
+<p>此时，正确连接并成功读取数据</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014205847537.png" alt="image-20211014205847537"></p>
+<h4 id="11-2-5-AOF同步频率设置"><a href="#11-2-5-AOF同步频率设置" class="headerlink" title="11.2.5 AOF同步频率设置"></a>11.2.5 AOF同步频率设置</h4><p>​    同步频率设置分为三种</p>
+<p>（1）appendfsync always：</p>
+<p>​    表示始终同步，每次Redis的写入都会立刻记入日志，性能较差但是数据完整性比较好</p>
+<p>（2）appendfsync evverysec</p>
+<p>​    每秒同步，每秒计入日志一次，如果此时崩溃，可能会丢失本秒的数据</p>
+<p>（3）appendfsync no</p>
+<p>​    不主动同步，把同步时机交给操作系统</p>
+<p>![image-20211014210243169](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014210243169.png)</p>
+<h4 id="11-2-6-Rewrite压缩"><a href="#11-2-6-Rewrite压缩" class="headerlink" title="11.2.6 Rewrite压缩"></a>11.2.6 Rewrite压缩</h4><p>​    AOF采用文件追加方式,文件会越来越大为避免出现此种情况,新增了重写机制，当AOF文件的大小超过所设定的阈值时, Redis就会启动AOF文件的内容压缩，只保留可以恢复数据的最小指令集.可以使用命令bgrewriteaofs</p>
+<p>​    AOF文件持续增长而过大时，会fork出一条新进程来将文件重写( 也是先写临时文件最后再rename) ，redis4.0版本后的重写，就是把rdb的快照，以二进制的形式附在新的aof头部，作为已有的历史数据,替换掉原来的流水账操作。</p>
+<h4 id="11-2-7-优势"><a href="#11-2-7-优势" class="headerlink" title="11.2.7 优势"></a>11.2.7 优势</h4><p>（1）备份机制更稳健，丢失数据概率更低</p>
+<p>（2）可读的日志文本，通过操作AOF文件，可以处理误操作</p>
+<h4 id="11-2-8-劣势"><a href="#11-2-8-劣势" class="headerlink" title="11.2.8 劣势"></a>11.2.8 劣势</h4><p>（1）比起RDB占用空间更大</p>
+<p>（2）恢复备份速度慢</p>
+<p>（3）每次读写都同步的话，性能压力大</p>
+<h3 id="11-3-总结"><a href="#11-3-总结" class="headerlink" title="11.3 总结"></a>11.3 总结</h3><p>如果对数据不敏感，可以单独选用RDB</p>
+<p>不建议单独启用AOF，可能会出现BUG</p>
+<p>如果仅仅做纯内存缓存，可以都不用</p>
+<h2 id="十二、主从复制"><a href="#十二、主从复制" class="headerlink" title="十二、主从复制"></a>十二、主从复制</h2><h3 id="12-1-概念"><a href="#12-1-概念" class="headerlink" title="12.1 概念"></a>12.1 概念</h3><p>​    主机数据更新后根据配置和策略，自动同步到备机的master/slaver机制，Master以写为主，Slave以读为主</p>
+<h3 id="12-2-作用"><a href="#12-2-作用" class="headerlink" title="12.2 作用"></a>12.2 作用</h3><p>（1）读写分离，扩展性能</p>
+<p>（2）抗灾性强，快速恢复</p>
+<h3 id="12-3-模拟搭建一主二从"><a href="#12-3-模拟搭建一主二从" class="headerlink" title="12.3 模拟搭建一主二从"></a>12.3 模拟搭建一主二从</h3><p>（1）在根目录下创建myredis目录，并进入目录</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014214114849.png" alt="image-20211014214114849"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014214124725.png" alt="image-20211014214124725"></p>
+<p>（2）复制/etc/redic.conf到/myredis/redis.conf</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014214222061.png" alt="image-20211014214222061"></p>
+<p>（3）创建三个配置文件，分别命名redis6379.conf、redis6380.conf、redis6381.conf，并通过include引入共同配置文件redis.conf，同时进行对应配置信息的修改</p>
+<p>首先通过vi创建并修改redis6379.conf配置文件的内容</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014214736262.png" alt="image-20211014214736262"></p>
+<p>输入以下内容并保存退出，表示引入redis.conf，修改pidfile，端口号为6379，修改持久化RDB的文件名称</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014214809319.png" alt="image-20211014214809319"></p>
+<p>用相同的方法，创建redis6380.conf，并进行同样的修改</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014214953963.png" alt="image-20211014214953963"></p>
+<p>继续配置redis6381.conf</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215050330.png" alt="image-20211014215050330"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215130319.png" alt="image-20211014215130319"></p>
+<p>（4）启动三个服务</p>
+<p>![image-20211014215242074](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014215242074.png)</p>
+<p>（5）检查服务开启是否成功</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215318875.png" alt="image-20211014215318875"></p>
+<p>（6）开启三个终端，分别打开三个服务的客户端</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215620764.png" alt="image-20211014215620764"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215630300.png" alt="image-20211014215630300"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215704640.png" alt="image-20211014215704640"></p>
+<p>（7）配置6379为主，其他为从</p>
+<p>在6380和6381执行：slaveof 127.0.0.1 6379 该命令格式为:slaveof [ip] [port]</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215843242.png" alt="image-20211014215843242"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215852327.png" alt="image-20211014215852327"></p>
+<p>（8）查看是否配置成功</p>
+<p>​    在三个终端分别通过命令info replication查看信息</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014220032926.png" alt="image-20211014220032926"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014220101419.png" alt="image-20211014220101419"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014220128045.png" alt="image-20211014220128045"></p>
+<p>（9）测试效果</p>
+<p>在主机中进行写操作</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014220338340.png" alt="image-20211014220338340"></p>
+<p>在从机中查看</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014220409982.png" alt="image-20211014220409982"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014220422877.png" alt="image-20211014220422877"></p>
+<p>如果在从机中进行写操作则会报错</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014220454852.png" alt="image-20211014220454852"></p>
+<p>当从服务器挂掉后，重新连接会从头同步数据，如果主服务器挂掉，从服务器不会取代，还是认同之前挂掉的主服务器</p>
+<h3 id="12-4-复制原理"><a href="#12-4-复制原理" class="headerlink" title="12.4 复制原理"></a>12.4 复制原理</h3><p>（1）当从连接上主服务器之后，从服务器向主服务器发送进行数据同步消息</p>
+<p>（2）主服务器接到从服务器发送来的同步消息，把主服务器数据进行持久化到rdb文件中，把rdb文件发送到从服务器，从服务器拿到rdb进行读取</p>
+<p>（3）每次主服务器进行写操作之后，和从服务器进行数据同步</p>
+<p>全量复制：slave服务器在接收到数据库文件数据后，将其存盘并加载到内存中</p>
+<p>增量复制：Master继续将新的所有收集到的修改命令依次传给slave完成同步</p>
+<p>只要重新连接master，一次完全同步将被自动执行</p>
+<h3 id="12-5-薪火相传"><a href="#12-5-薪火相传" class="headerlink" title="12.5 薪火相传"></a>12.5 薪火相传</h3><p>​    即层层管理，主服务器挂掉，从服务器也不会上位</p>
+<h3 id="12-6-反客为主"><a href="#12-6-反客为主" class="headerlink" title="12.6 反客为主"></a>12.6 反客为主</h3><p>​    主服务器挂了，从服务器自动上位，slaveof no one命令可以手动将从服务器提升为主服务器</p>
+<h3 id="12-7-哨兵模式（sentinel）"><a href="#12-7-哨兵模式（sentinel）" class="headerlink" title="12.7 哨兵模式（sentinel）"></a>12.7 哨兵模式（sentinel）</h3><h4 id="12-7-1-概念"><a href="#12-7-1-概念" class="headerlink" title="12.7.1 概念"></a>12.7.1 概念</h4><p>​    是反客为主的自动版，能够后台自动监视主机是否故障，如果故障了根据投票数自动将从机转换为主机</p>
+<h4 id="12-7-2-模拟实现"><a href="#12-7-2-模拟实现" class="headerlink" title="12.7.2 模拟实现"></a>12.7.2 模拟实现</h4><p>（1）首先先调整一主二从模式，6379为主，6380、6381为从</p>
+<p>（2）在/myredis目录下新建sentinel.conf文件，名字固定</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015142830647.png" alt="image-20211015142830647"></p>
+<p>（3）配置哨兵，填写内容</p>
+<p>sentinel monitor mymaster 127.0.0.1 6379 1</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015142830647.png" alt="image-20211015142749368"></p>
+<p>其中mymaster为监控对象起的服务器名称，1为至少有多少个哨兵同意迁移的数量</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015142845053.png" alt="image-20211015142845053"></p>
+<p>（4）启动哨兵</p>
+<p>redis-sentinel /myredis/sentinel.conf</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015143018145.png" alt="image-20211015143018145"></p>
+<p>（5）关闭主机，查看效果</p>
+<p>在6379中输入shutdown关闭服务</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015143734684.png" alt="image-20211015143734684"></p>
+<p>可以看到，哨兵选举了6381成为新的主机</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015143936003.png" alt="image-20211015143936003"></p>
+<p>到6380和6381查看信息</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015144006228.png" alt="image-20211015144006228"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015144019746.png" alt="image-20211015144019746"></p>
+<p>可以看到6381已经成为新的主机</p>
+<p>（6）重新打开6379，查看信息</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015144520932.png" alt="image-20211015144520932"></p>
+<h4 id="12-7-3-复制延时"><a href="#12-7-3-复制延时" class="headerlink" title="12.7.3 复制延时"></a>12.7.3 复制延时</h4><p>​    由于所有的写操作都是先在Master上操作,然后同步更新到Slave.上,所以从Master同步到Slave机器有一定的延迟,当系统很繁忙的时候,延迟问题会更加严重, Slave机器数量的增加也会使这个问题更加严重。</p>
+<h4 id="12-7-4-新主机选取规则"><a href="#12-7-4-新主机选取规则" class="headerlink" title="12.7.4 新主机选取规则"></a>12.7.4 新主机选取规则</h4><p>（1）选择优先级靠前的</p>
+<p>​    优先级在redis.conf中可以设置，默认为replica-priority 100，值越小优先级越大</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015144844129.png" alt="image-20211015144844129"></p>
+<p>（2）选择偏移量最大的</p>
+<p>​    偏移量是指获得原主机的数据最全的</p>
+<p>（3）选择runid最小的从服务器</p>
+<p>​    每个redis实例启动会随机生成40位的runid</p>
+<h2 id="十三、Redis集群"><a href="#十三、Redis集群" class="headerlink" title="十三、Redis集群"></a>十三、Redis集群</h2><h3 id="13-1-概念"><a href="#13-1-概念" class="headerlink" title="13.1 概念"></a>13.1 概念</h3><p>​    Redis集群实现了对Redis的水平扩容，即启动N个redis节点，将整个数据库分布存储在这N个节点中,每个节点存储总数据的1N。Redis集群通过分区( partition )来提供一定程度的可用性 ( availability ) :即使集群中有一部分节点失效或者无法进行通讯，集群也可以继续处理命令请求。</p>
+<h3 id="13-2-Redis集群搭建"><a href="#13-2-Redis集群搭建" class="headerlink" title="13.2 Redis集群搭建"></a>13.2 Redis集群搭建</h3><p>（1）清空rdb等持久化文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015154146210.png" alt="image-20211015154146210"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015154212701.png" alt="image-20211015154212701"></p>
+<p>（2）创建redis6379.conf、redis6380.conf、redis6381.conf、redis6389.conf、redis6390.conf、redis6391.conf六个配置文件，并进行配置修改</p>
+<p>​    以6379为例，在基础配置上再添加几个集群配置</p>
+<p>cluster-enabled yes 打开集群模式</p>
+<p>cluster-config-file nodes-6379.conf 设定节点配置文件名</p>
+<p>cluster-node-timeout 15000 设定节点失联时间，超过该时间（毫秒），集群自动进行主从切换</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015160254798.png" alt="image-20211015160254798"></p>
+<p>同理，配置其他五个文件，只不过把6379改为对应的id</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015160323002.png" alt="image-20211015160323002"></p>
+<p>（3）启动6个redis服务</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015160525697.png" alt="image-20211015160525697"></p>
+<p>检查开启状态</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015160628418.png" alt="image-20211015160628418"></p>
+<p>查看nodes-xxxx.conf文件正确生成</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015160835491.png" alt="image-20211015160835491"></p>
+<p>（4）将6个节点合成一个集群</p>
+<p>首先进入redis安装目录中的src目录下，此处我的redis安装在/opt下</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015161028810.png" alt="image-20211015161028810"></p>
+<p>使用redis-cli –cluster create –cluster-replicas 1 192.168.33.11:6379 192.168.33.11:6380 192.168.33.11:6381 192.168.33.11:6389 192.168.33.11:6390 192.168.33.11:6391</p>
+<p>–replicas 1表示采用最简单的方式配置集群，一台主机，一台从机，正好三组</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015161639220.png" alt="image-20211015161639220"></p>
+<p>之后会询问是否接受这种分配方式，yes即可</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015162405747.png" alt="image-20211015162405747"></p>
+<p>如果出现一些问题，可以使用redis-cli –cluster fix 192.168.33.11:6379 这个命令来修复出问题的节点</p>
+<p>redis-cli –cluster check 192.168.33.11:6379可以检查节点出现了什么问题</p>
+<p>（5）连接集群</p>
+<p>通过redis-cli -c -p 6379连接，-c表示采用集群策略连接，设置数据会自动切换到相应的主机，因为redis集群采用无中心连接方式，所以用任何一个节点进行连接都可以，即命令中的6379可以换成其他的端口号，如6380</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015162800239.png" alt="image-20211015162800239"></p>
+<p>（6）查看节点信息</p>
+<p>通过 cluster nodes可以查看集群内节点信息</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015163854551.png" alt="image-20211015163854551"></p>
+<h3 id="13-3-什么是slots"><a href="#13-3-什么是slots" class="headerlink" title="13.3 什么是slots"></a>13.3 什么是slots</h3><p>​    一个Redis集群包含16384 个插槽（hash slot），数据库中的每个键都属于这16384个插槽的其中一个。<br>​    集群使用公式CRC16(key) % 16384来计算键key属于哪个槽，其中CRC16(key)语句用于计算键key的CRC16校验和。集群中的每个节点负责处理一部分插槽</p>
+<p>​    向集群内插入k1 v1，经过计算，数据应该插入在12706这个插槽中，但是6379这个节点维护的是0-5460的插槽，12706并不在这个范围内，查找到在6381维护的范围内，所以直接插入到6381维护的插槽中，此时自动切换到6381节点</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015165649753.png" alt="image-20211015165649753"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015165909574.png" alt="image-20211015165909574"></p>
+<p>可以使用cluster keyslot [key]来计算该key在哪个插槽</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015170337828.png" alt="image-20211015170337828"></p>
+<p>使用cluster countkeysinslot [slot]可以查看该插槽内键的数量</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015170534686.png" alt="image-20211015170534686"></p>
+<p>cluster getkeysinslot [slot] [count] 返回count个slot插槽中的键</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015170650837.png" alt="image-20211015170650837"></p>
+<h3 id="13-4-故障恢复"><a href="#13-4-故障恢复" class="headerlink" title="13.4 故障恢复"></a>13.4 故障恢复</h3><p>​    如果主机宕机，从机会代替原主机成为主机，如果原主机再次连接，会成为从机。</p>
+<p>​    如果某一段插槽的主从都宕机，而配置文件中cluster-require-full-coverage配置为yes，那么整个集群都挂掉，而如果是no，那么该插槽数据全部不能使用，也不能存储</p>
+<h2 id="十四、Redis应用问题"><a href="#十四、Redis应用问题" class="headerlink" title="十四、Redis应用问题"></a>十四、Redis应用问题</h2><h3 id="14-1-缓存穿透"><a href="#14-1-缓存穿透" class="headerlink" title="14.1 缓存穿透"></a>14.1 缓存穿透</h3><h4 id="14-1-1-原因"><a href="#14-1-1-原因" class="headerlink" title="14.1.1 原因"></a>14.1.1 原因</h4><p>​    由于在缓存中并没有请求的数据，因此每次针对该key的请求都无法从缓存中获取到，只能去数据库中进行请求，从而使得压力变大崩溃</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015174245526.png" alt="image-20211015174245526"></p>
+<h4 id="14-1-2-解决方案"><a href="#14-1-2-解决方案" class="headerlink" title="14.1.2 解决方案"></a>14.1.2 解决方案</h4><p>（1）对空值缓存：</p>
+<p>​    如果查询返回的数据为空，我们仍然将这个空结果进行缓存，设置空结果的过期时间很短，防止存储压力过大</p>
+<p>（2）设置可访问名单（白名单）：</p>
+<p>​    使用bitmaps类型定义一个可以访问的白名单，名单id作为bitmaps的偏移量，如果访问id不在bitmaps里，则不允许访问</p>
+<p>（3）采用布隆过滤器：</p>
+<p>​        布隆过滤器可以检索一个元素是否在一个集合中，优点是空间效率和查询时间都远远超过一般算法，缺点是有一定的误判率和删除困难，可以使用布隆过滤器提高白名单的查询效率</p>
+<p>（4）进行实时监控：</p>
+<p>​    当发现Redis命中率开始急速降低时，排查访问对象和访问的数据，配合运维人员设置黑名单限制服务</p>
+<h3 id="14-2-缓存击穿"><a href="#14-2-缓存击穿" class="headerlink" title="14.2 缓存击穿"></a>14.2 缓存击穿</h3><h4 id="14-2-1-原因"><a href="#14-2-1-原因" class="headerlink" title="14.2.1 原因"></a>14.2.1 原因</h4><p>​    redis中某个key过期了，与此同时大量的访问使用了这个key，造成数据库访问压力瞬间增大，导致缓存击穿。其与缓存穿透的不同点就是击穿发生时redis是正常运行的，也并没有出现大量Key过期的情况</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015180158775.png" alt="image-20211015180158775"></p>
+<h4 id="14-2-2-解决方案"><a href="#14-2-2-解决方案" class="headerlink" title="14.2.2 解决方案"></a>14.2.2 解决方案</h4><p>（1）预先设置热门数据：在redis访问高峰之前，把一些热门数据提前存入到redis里面，并且过期时间设置的稍长</p>
+<p>（2）实时调整：运维人员实时监控哪些数据热门，实时调整key的过期时长</p>
+<p>（3）使用锁：当缓存失效时（即查询结果为空），不立刻去数据库查询数据，而是去设置一个查询的排他锁，如果加锁失败，说明已经有其他的线程开始查询数据库并同步缓存了，此时等待一会再重复刚才的查询操作。如果加锁成功，则前往数据库查询数据、同步缓存，成功后删除排他锁。该方案一定可以解决缓存击穿问题，但是效率较低</p>
+<h3 id="14-3-缓存雪崩"><a href="#14-3-缓存雪崩" class="headerlink" title="14.3 缓存雪崩"></a>14.3 缓存雪崩</h3><h4 id="14-3-1-原因"><a href="#14-3-1-原因" class="headerlink" title="14.3.1 原因"></a>14.3.1 原因</h4><p>在极少的时间段，大量的key集中过期，访问请求无法读取数据，所以数据库访问大量增加，导致服务器崩溃</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015181924091.png" alt="image-20211015181924091"></p>
+<h4 id="14-3-2-解决方案"><a href="#14-3-2-解决方案" class="headerlink" title="14.3.2 解决方案"></a>14.3.2 解决方案</h4><p>（1）构建多级缓存架构：</p>
+<p>​    nginx缓存+redis缓存+其他缓存（ehcache等）</p>
+<p>（2）使用锁或队列：</p>
+<p>​    用加锁或者队列的方式来保证不会有大量的线程对数据库一次性进行读写，从而避免失效时大量的并发请求落在底层存储系统上。这种方式不适合高并发情况</p>
+<p>（3）设置过期标志更新缓存：</p>
+<p>​    记录缓存数据是否过期（设置提前量），如果过期会触发通知另外的现成在后台去更新实际key的缓存</p>
+<p>（4）将缓存失效时间分散开：</p>
+<p>​    可以在原有的失效时间上增加一个随机值，这样过期时间重复率就会降低，降低引发集体失效的概率</p>
+<h3 id="14-4总结："><a href="#14-4总结：" class="headerlink" title="14.4总结："></a>14.4总结：</h3><p>穿透是大量的无效访问，缓存中不存在这些数据，导致redis命中率降低，服务器压力增大</p>
+<p>缓存击穿是高频key过期，导致大量访问直接查询数据库，导致压力增大</p>
+<p>缓存雪崩是指大量的key集中过期，导致的大量访问请求落在数据库上，导致服务器崩溃</p>
+<h3 id="14-4-分布式锁"><a href="#14-4-分布式锁" class="headerlink" title="14.4 分布式锁"></a>14.4 分布式锁</h3><p>​    由于分布式系统多线程、多进程并且分布在不同机器上，使得原单机部署情况下的并发控制锁策略失效，淡出的JAVA API并不能提供分布式锁的能力。为了解决这个问题，就要一种跨JVM的互斥机制来控制共享资源的访问，这就是分布式锁要解决的问题</p>
+<h4 id="14-4-1-分布式锁主流方案："><a href="#14-4-1-分布式锁主流方案：" class="headerlink" title="14.4.1 分布式锁主流方案："></a>14.4.1 分布式锁主流方案：</h4><p>（1）基于数据库实现分布式锁</p>
+<p>（2）基于缓存（Redis等）</p>
+<p>（3）基于Zookeeper</p>
+<p>每一种锁都有各自的优缺点：</p>
+<p>（1）性能：redis最高</p>
+<p>（2）可靠性：zookeeper最高</p>
+<h4 id="14-4-2-使用redis实现分布式锁"><a href="#14-4-2-使用redis实现分布式锁" class="headerlink" title="14.4.2 使用redis实现分布式锁"></a>14.4.2 使用redis实现分布式锁</h4><p>set [key] [value] nx ex [time] </p>
+<p>del [key] 可以释放锁</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015204825479.png" alt="image-20211015204825479"></p>
+<h4 id="14-4-3-UUID防止误删"><a href="#14-4-3-UUID防止误删" class="headerlink" title="14.4.3 UUID防止误删"></a>14.4.3 UUID防止误删</h4><p>​    在上锁时，通过uuid表示不同的操作</p>
+<p>​    set lock uuid nx ex 10</p>
+<p>​    在释放锁时，首先判断uuid和要释放锁的uuid是否一样，如果一样正常释放，如果不一样无法释放</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String uuid = UUID.randomUUID().toString();</span><br><span class="line"></span><br><span class="line">String lockUuid  = (string)redisTemplate.opsForValue().get(<span class="string">"lock"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(lockUuid.equals(uuid))&#123;</span><br><span class="line">  redisTemplate.delete(<span class="string">"lock"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    在这种方式下，由于没有原子性，导致会出现一定的问题，如在a想要释放锁的时候，首先比较了uuid发现可以删除，但是还没有删除的时候，自动释放时间到了，导致锁自动释放，这时b获得锁，进行具体操作，此时a进行了释放操作，导致b得到的锁被释放</p>
+<p>​    可以使用lua脚本来实现</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>SunDaohan</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>为中华之<strong>崛起</strong>而读书</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E3%80%90Redis%E3%80%91/"># 【Redis】</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/10/25/Kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Kafka学习笔记</a>
+            
+            
+            <a class="next" rel="next" href="/2021/10/02/Swagger2%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Swagger2接口文档基础使用方法</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+
+        <!-- 不蒜子统计 -->
+        <div align="center"><span id="busuanzi_container_site_pv" >
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span></div>
+        <div align = "center"><span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <div class="copyright">
+        <span>© SunDaohan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+    </div>
+</body>
+</html>

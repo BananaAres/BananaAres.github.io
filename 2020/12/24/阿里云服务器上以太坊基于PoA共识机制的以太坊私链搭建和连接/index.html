@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="author" content="SunDaohan">
+
+
+
+
+
+<title>基于PoA共识机制的以太坊私链在阿里云服务器上的搭建和连接 | SunDaohan</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">孙道涵的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">孙道涵的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">基于PoA共识机制的以太坊私链在阿里云服务器上的搭建和连接</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">SunDaohan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十二月 24, 2020&nbsp;&nbsp;20:55:38</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E3%80%90%E5%AE%9E%E8%B7%B5%E3%80%91/">【实践】</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
+<li>操作系统：MacOS 10.15以上版本(win一样)</li>
+<li>阿里云服务器(ubuntu 16.04)</li>
+</ul>
+<h1 id="二、准备环节——阿里云服务器相关操作"><a href="#二、准备环节——阿里云服务器相关操作" class="headerlink" title="二、准备环节——阿里云服务器相关操作"></a>二、准备环节——阿里云服务器相关操作</h1><p>1.购买云服务器(略过)</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211007792.png" alt="image-20201224211007792"></p>
+<p>2.更改云服务器连接密码，点击右上角的三个小点，然后点击重置实例密码</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211134465.png" alt="image-20201224211134465"></p>
+<p>输入并牢记密码，通过终端远程登录时需要用到</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211235459.png" alt="image-20201224211235459"></p>
+<p>3.点击配置安全组配置安全组规则，点击右侧的配置规则</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211427406.png" alt="image-20201224211427406"></p>
+<p>点击快速添加，点击SSH(22)，方便后续终端远程连接服务器</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211538351.png" alt="image-20201224211538351"></p>
+<p>4.打开终端，输入ssh <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a>(服务器的公网IP)</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211659759.png" alt="image-20201224211659759"></p>
+<p>按要求输入密码，成功连接并控制云服务器</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211747538.png" alt="image-20201224211747538"></p>
+<h1 id="三、ubuntu中下载以太坊源码"><a href="#三、ubuntu中下载以太坊源码" class="headerlink" title="三、ubuntu中下载以太坊源码"></a>三、ubuntu中下载以太坊源码</h1><p>1.更新软件包信息</p>
+<p>apt-get upadate</p>
+<p>2.添加ppa到当前库中并且自动导入公钥</p>
+<p>apt-get install software-properties-common </p>
+<p>add-apt-repository -y ppa:ethereum/ethereum</p>
+<p>add-apt-repository -y ppa:ethereum/ethereum-dev </p>
+<p>apt-get update</p>
+<p>3.安装以太坊</p>
+<p>apt-get install ethereum</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212018402.png" alt="image-20201224212018402"></p>
+<p>4.查看版本号确认安装成功</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212132131.png" alt="image-20201224212132131"></p>
+<h1 id="四、以太坊账户创建"><a href="#四、以太坊账户创建" class="headerlink" title="四、以太坊账户创建"></a>四、以太坊账户创建</h1><p>​    搭建以太坊私链之前要先创建相应的账户，可以创建在任意位置创建任意数量的账户，在这里举一个简单的例子，在云服务器上创建一个账户，在自己的电脑上创建三个账户。</p>
+<p>1.连接云服务器，创建一个用来装节点的文件夹</p>
+<p>mkdir MyEth(你喜欢的名字，什么都行)</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212429508.png" alt="image-20201224212429508"></p>
+<p>2.进入文件夹中</p>
+<p>cd MyEth</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212516579.png" alt="image-20201224212516579"></p>
+<p>3.使用命令创建第一个账户，输入命令后，按要求输入两次密码，即可得到该账户的公钥地址，牢记</p>
+<p>geth –datadir node1/data account new</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212710013.png" alt="image-20201224212710013"></p>
+<p>4.在自己的本地电脑上，创建一个文件夹，同样用来装节点信息，推荐和云服务器上的文件夹名字相同</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212825930.png" alt="image-20201224212825930"></p>
+<p>5.同样的方式，通过终端进入该文件夹，创建三个账户 node2,node3,node4</p>
+<p>cd MyEth</p>
+<p>geth –datadir node2/data account new</p>
+<p>geth –datadir node3/data account new</p>
+<p>geth –datadir node4/data account new</p>
+<p>同样，牢记公钥地址，配置创始区块时需要</p>
+<h1 id="五、配置创世区块"><a href="#五、配置创世区块" class="headerlink" title="五、配置创世区块"></a>五、配置创世区块</h1><p>以太坊的私链想要达成节点互连，有两个必要条件：</p>
+<p>1.创世区块配置文件相同</p>
+<p>2.有相同的ChainID</p>
+<p>我们通过已有的puppeth工具创建配置区块文件</p>
+<p>1.切换到云服务器中，在MyEth文件夹下，输入命令puppeth，输入该配置的名称，任意都行，此处我填写sdh</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224213552246.png" alt="image-20201224213552246"></p>
+<p>填写之后，工具会检测该配置是否存在，如果不存在，第二个选项则是配置新的创世区块，否则是管理该配置，这里展示配置新创世区块的选项</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224213704416.png" alt="image-20201224213704416"></p>
+<p>选择2，配置新的创世区块，之后的选项1是创建新的创世区块，2是导入一个已经存在的配置，这里选择1</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224213752479.png" alt="image-20201224213752479"></p>
+<p>这里的选项是选择该链所用的共识机制，第一个是以太坊的公链共识机制PoW，显然不适合私链或者联盟链，所以这里选择2 Clique，该共识机制是基于PoA的，此处不详细解释</p>
+<p>![image-20201224213843219](/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224213843219.png)</p>
+<p>这里是出块时间，没有特殊需求默认就行（直接回车或者打上15再回车都行）</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224214006727.png" alt="image-20201224214006727"></p>
+<p>这里就比较重要了，是允许挖矿的账户，上一步我们创建了共四个账户，一个是在云服务器上的node1，和在本地的三个账户node2,node3,node4，我们可以选择一个或者多个当做挖矿节点，我这里选择了node3，填写完成以回车结束该选项</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224214314198.png" alt="image-20201224214314198"></p>
+<p>这一部分是设置预置资金账号，这部分账号里可以有初始资金，这里我设置了node1和node3</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224214839557.png" alt="image-20201224214839557"></p>
+<p>这一步选择是否给刚才设置的预置资金账号存点钱，yes就行</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224214930272.png" alt="image-20201224214930272"></p>
+<p>这一步很重要，关系到能否互连，是设置chainID，如果两个节点想要互连，那么输入的chainID必须相同，输入一个能记住的号，最好大于5</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224214946493.png" alt="image-20201224214946493"></p>
+<p>到这里创世区块配置就完成了，再出现的二号选项就变成了管理已经存在的配置，选择2进入管理界面</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224215113354.png" alt="image-20201224215113354"></p>
+<p>选择2，将已经配置好的创世区块文件导出</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224215139505.png" alt="image-20201224215139505"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224215154172.png" alt="image-20201224215154172"></p>
+<p>我这里报了错误，还没弄明白是为什么，但是并不影响使用，搞定后直接ctrl+c退出puppeth</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224215537367.png" alt="image-20201224215537367"></p>
+<p>然后打开自己电脑的本地终端，输入以下命令将刚才已经导出的创世区块配置文件下载到本地电脑下的MyEth文件夹中</p>
+<p>scp <a href="mailto:root@8.131.78.39">root@8.131.78.39</a>:/root/MyEth/sdh.json /Users/sundaohan/MyEth</p>
+<p>该命令的格式为</p>
+<p>scp <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a>(云服务器公网IP) :/xx/xx/xx.xx（远程目录） 『空格』 /xxx/xxx/xxx(目标目录)</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224215904212.png" alt="image-20201224215904212"></p>
+<p>![image-20201224215922977](/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224215922977.png)</p>
+<p>可以看到该文件已经下载成功了</p>
+<p>至此，创世区块配置的准备工作已经全部完成</p>
+<h1 id="六、初始化私有链"><a href="#六、初始化私有链" class="headerlink" title="六、初始化私有链"></a>六、初始化私有链</h1><p>回到云服务器终端上，在MyEth文件下，输入命令</p>
+<p>geth –datadir node1/data init sdh.json(创世区块配置文件名称)</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224220150933.png" alt="image-20201224220150933"></p>
+<p>在自己电脑的本地文件夹下，也运行同样的命令，记得把node1改成相应节点的名字</p>
+<p>geth –datadir node2/data init sdh.json </p>
+<p>geth –datadir node3/data init sdh.json </p>
+<p>geth –datadir node4/data init sdh.json</p>
+<p>全部运行成功后，四个节点的初始化就完成了</p>
+<h1 id="七、启动节点"><a href="#七、启动节点" class="headerlink" title="七、启动节点"></a>七、启动节点</h1><p>​    1.首先启动云服务器的节点，先切换到云服务器的MyEth文件夹下，运行如下命令</p>
+<p>geth –datadir node1/data –nodiscover –networkid 98512 –port 3000 console</p>
+<p>其中</p>
+<p>datadir:指定数据库和keystore密钥的数据目录</p>
+<p>nodiscover(重要):禁止节点发现，只允许手动添加节点，如果不写这个我们的私链可能会被别人发现，但是写了这个选项会增强链的隐蔽性，只能手动添加</p>
+<p>networkid: 网络标识符，这个在创世区块的配置时已经写定，所有想要加入这个私链中的节点都要写相同的网络标识符</p>
+<p>port:网卡监听端口,每个节点都要有这个端口号，默认是30303，保证每个节点使用的都不同</p>
+<p>还有很多其他选项，这里不再赘述</p>
+<p>命令输入成功后，node1就启动完毕了</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224234804316.png" alt="image-20201224234804316"></p>
+<p>2.切换回自己的电脑终端，开启多个终端窗口，分别启动node2、node3、node4，命令与刚才相似</p>
+<p>geth –datadir node2/data –networkid 98512 –port 3001 console</p>
+<p>geth –datadir node3/data –networkid 98512 –port 3002 console</p>
+<p>geth –datadir node4/data –networkid 98512 –port 3003 console</p>
+<p>至此，节点已经全部启动</p>
+<h1 id="八、连接"><a href="#八、连接" class="headerlink" title="八、连接"></a>八、连接</h1><p>​    节点启动后，开始进行连接操作，连接使用的admin.addPeer(encode)命令，首先在四个已经启动的节点下输入如下命令查看每个节点的encode值</p>
+<p>admin.nodeInfo</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224235715672.png" alt=""></p>
+<p>第一行中的</p>
+<p>“enode://94900340edefd9f8b1d269682bea6df2a4394966b972026d930c50356e2b90a6f2de74beccab042324a81d108ea419d9336d889c261b8f0ce932a8b01206f8ed@127.0.0.1:3000?discport=0”</p>
+<p>即是节点的encode值，如果要连接的节点不在同一个网络下，比如我们启动的node1是在云服务器上，node2、node3、node4是在自己的电脑上，那么node2、node3、node4即在同一网络下，而node1与另外三个节点就不在同一节点下，此时如果想要使他们互连，就要将encode中127.0.0.1换成节点的真实的IP地址。我的云服务器公网地址是8.131.78.39，那我如果想要用node2连接node1，就要在node2的终端中输入</p>
+<p>admin.addPeer(“enode://94900340edefd9f8b1d269682bea6df2a4394966b972026d930c50356e2b90a6f2de74beccab042324a81d108ea419d9336d889c261b8f0ce932a8b01206f8ed@8.131.78.39:3000?discport=0”)</p>
+<p>如果输入正确，会返回true，但是并不代表已经连接上了</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224235801556.png" alt="image-20201224235801556"></p>
+<p>此时切换到node1的节点终端，输入命令</p>
+<p>admin.peers</p>
+<p>可以看到所有已经连接上的节点，此时我们看到node2已经连接上了</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224235931943.png" alt="image-20201224235931943"></p>
+<p>继续将剩下的节点连接，一条完整的基于PoA共识机制的私链就完成了，等到下次再开启节点时，他们会自动连接</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>SunDaohan</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>为中华之<strong>崛起</strong>而读书</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E3%80%90%E4%BB%A5%E5%A4%AA%E5%9D%8A%E3%80%91/"># 【以太坊】</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/07/09/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/">在MacOS系统下运行本地以太坊源码</a>
+            
+            
+            <a class="next" rel="next" href="/2020/11/25/Paxos%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E7%9A%84GO%E8%AF%AD%E8%A8%80%E6%A8%A1%E6%8B%9F/">Paxos共识算法的GO语言模拟</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+
+        <!-- 不蒜子统计 -->
+        <div align="center"><span id="busuanzi_container_site_pv" >
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span></div>
+        <div align = "center"><span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <div class="copyright">
+        <span>© SunDaohan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+    </div>
+</body>
+</html>

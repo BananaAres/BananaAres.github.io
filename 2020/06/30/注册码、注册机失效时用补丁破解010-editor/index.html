@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="author" content="SunDaohan">
+
+
+
+
+
+<title>注册码、注册机失效时用补丁破解010 editor | SunDaohan</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">孙道涵的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">孙道涵的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">注册码、注册机失效时用补丁破解010 editor</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">SunDaohan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">六月 30, 2020&nbsp;&nbsp;18:36:26</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E3%80%90%E5%AD%A6%E4%B9%A0%E3%80%91/">【学习】</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="一、操作环境"><a href="#一、操作环境" class="headerlink" title="一、操作环境"></a>一、操作环境</h1><p>​    操作系统：此操作全部基于Mac OS操作系统。</p>
+<p>​    软件版本：010 editor v7.0.2</p>
+<br>
+
+<h1 id="二、010-editor"><a href="#二、010-editor" class="headerlink" title="二、010 editor"></a>二、010 editor</h1><p>​    010 editor是一款极其强大，甚至可以说是最优秀的文本/十六机制编辑器，同时兼容Mac OS、Windows、Linux等操作系统，支持模版和脚本操作，可以为二进制文件定义模版，如果以后再编辑相同类型文件，可以调用模版进行自动分析，功能丰富、简单易用。</p>
+<br>
+
+<h1 id="三、注册码、注册机方式"><a href="#三、注册码、注册机方式" class="headerlink" title="三、注册码、注册机方式"></a>三、注册码、注册机方式</h1><p>​    010 editor早已经被破解，主要方式主要是注册码以及注册机两种，注册码方式如下：</p>
+<p>​    百度查找通用注册码，如下图</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630222452730.png" alt="image-20200630222452730"></p>
+<p>​    将其输入至下图所示的文本框中，即完成破解</p>
+<br>
+
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630223618224.png" alt="image-20200630223618224"></p>
+<br>
+
+<p>注册机方式如下：</p>
+<p>​    下载如图所示的注册机，输入Name，就会得到相应的注册码</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630224813986.png" alt="image-20200630224813986">    将得到的内容，输入到对应的文本框，即可完成破解。</p>
+<br>
+
+<h1 id="四、破解补丁方式"><a href="#四、破解补丁方式" class="headerlink" title="四、破解补丁方式"></a>四、破解补丁方式</h1><p>​    注册码、注册机方式进行破解后，很有可能会出现如图所示问题：</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/896827_F6NYZSAQ7SX54UB.png" alt="图片描述"></p>
+<p>为解决此问题，可以使用破解补丁方式，绕过网络审核，从而破解软件。</p>
+<p><strong>补丁下载链接：</strong></p>
+<p>链接: <a href="https://pan.baidu.com/s/1oCCmK0LMxwg-VMuC9ZEX2w" target="_blank" rel="noopener">https://pan.baidu.com/s/1oCCmK0LMxwg-VMuC9ZEX2w</a><br>密码: 3968</p>
+<br>
+
+<p>将此补丁下载后，将其中的010 editor文件复制，找到你电脑应用中的010 editor,点击右键，选择显示包内容</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/896827_HTK79TDDM4V7BUY.png" alt="图片描述"></p>
+<p>然后找到MacOS文件夹</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630225416412.png" alt="image-20200630225416412"></p>
+<p>并用刚才复制的010 editor文件覆盖此文件夹中的对应文件</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630225513189.png" alt="image-20200630225513189"></p>
+<p>之后可正常使用该软件。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630225535473.png" alt="image-20200630225535473"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>SunDaohan</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>为中华之<strong>崛起</strong>而读书</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91/"># 【工具】</a>
+                    
+                        <a href="/tags/%E3%80%90%E7%A0%B4%E8%A7%A3%E3%80%91/"># 【破解】</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/07/01/%E8%A7%A3%E5%86%B3MacOS-10-15%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8ida%E7%9A%84%E9%97%AE%E9%A2%98/">解决MacOS 10.15以上版本无法启动IDA的问题</a>
+            
+            
+            <a class="next" rel="next" href="/2020/06/30/Hello-SunDaohan/">Hello SunDaohan</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+
+        <!-- 不蒜子统计 -->
+        <div align="center"><span id="busuanzi_container_site_pv" >
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span></div>
+        <div align = "center"><span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <div class="copyright">
+        <span>© SunDaohan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+    </div>
+</body>
+</html>
