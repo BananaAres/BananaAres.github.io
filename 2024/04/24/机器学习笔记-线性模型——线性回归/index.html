@@ -13,7 +13,7 @@
 
 
 
-<title>解决gradle下找不到符号错误 | SunDaohan</title>
+<title>[机器学习笔记]线性模型——线性回归 | SunDaohan</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">解决gradle下找不到符号错误</h1>
+            <h1 class="post-title">[机器学习笔记]线性模型——线性回归</h1>
             
                 <div class="post-meta">
                     
@@ -183,14 +183,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">三月 28, 2022&nbsp;&nbsp;19:43:23</a>
+                        Date: <a href="#">四月 24, 2024&nbsp;&nbsp;21:50:47</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E3%80%90%E9%97%AE%E9%A2%98%E3%80%91/">【问题】</a>
+                                <a href="/categories/%E3%80%90%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E3%80%91/">【线性模型】</a>
                             
                         </span>
                     
@@ -199,19 +199,19 @@
         </header>
 
         <div class="post-content">
-            <h1 id="解决gradle下找不到符号错误"><a href="#解决gradle下找不到符号错误" class="headerlink" title="解决gradle下找不到符号错误"></a>解决gradle下找不到符号错误</h1><h2 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h2><p>​    在写代码的时候，发现编译的时候报了找不到符号错误</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220328194506911.png" alt="image-20220328194506911"></p>
-<p>​    这个类是在common下的tools包里，项目中server依赖于common，我在server中注入AppealTool类时，报了这个错误。</p>
-<p>​    经过检查，发现在AppealTool中已经加了@Component注解</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220328194638938.png" alt="image-20220328194638938"></p>
-<p>​    在启动类中，也能够扫描到这个类</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220328194841015.png" alt="image-20220328194841015"></p>
-<p>通过command+鼠标单击是可以点进去的，证明代码逻辑没有问题。经过多次clean+build和invalidate caches/restart均没有效果。</p>
-<h2 id="二、问题原因"><a href="#二、问题原因" class="headerlink" title="二、问题原因"></a>二、问题原因</h2><p>​    最后发现项目是依赖jar包运行的，但是我在gradle的build.gradle里面设置</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220328195105076.png" alt="image-20220328195105076"></p>
-<p>导致项目不生成可执行jar包，所以找不到包位置了，此时将false改成true</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220328195140855.png" alt="image-20220328195140855"></p>
-<p>成功运行</p>
+            <h1 id="一、基本形式"><a href="#一、基本形式" class="headerlink" title="一、基本形式"></a>一、基本形式</h1><p>​    使用线性组合来进行预测，其函数形式可以写为<br>$$<br>f(x)=w_1x_1+w_2x_2…w_mx_m+b<br>$$<br>写为向量形式可以表示为， T为w转置<br>$$<br>f(x) = w^Tx+b<br>$$</p>
+<h2 id="二、线性回归"><a href="#二、线性回归" class="headerlink" title="二、线性回归"></a>二、线性回归</h2><p>​    线性回归试图学得一个线性模型以尽可能准确地预测实值输出标记。对于离散属性，如果属性值之间具有有序关系，如“身高”属性的“高”、“矮”，可以转化为{1,0}，而三值“高”、”中“、”低“属性可以转化为{1,0.5,0}；而k个无序属性可以转化为k维向量，例如“黄瓜”、“南瓜”、“黄瓜”可以转化为(0,0,1)、(0,1,0)、(1,0,0)。</p>
+<p>​    均方误差，即平方损失是回归任务最常用的性能度量，均方误差在几何上对应了常用的欧几里得距离。平方损失函数为<br>$$<br>E(f;D) = \frac{1}{m}\sum_{i=1}^{m}(f(x_i)-y_i)^2<br>$$<br>​    即<br>$$<br>\frac{1}{m}\sum_{i=1}^{m}(y_i-wx_i-b)^2<br>$$<br>求该值最小，来进行模型求解，这种方式也成为“最小二乘法”。在线性回归中，最小二乘法就是找到一条直线，使所有样本到直线上的欧氏距离之和最小。上述函数是一个二次函数，通常是一个凸函数，具有唯一的极值，因此可以求导求解，求解w和b使上述函数最小的过程，称为线性回归模型的最小二乘“参数估计”。</p>
+<p>​    将函数分别对w和b求导，可得到：</p>
+<p>​    ![image-20240424222659727](/Users/sundaohan/Library/Application Support/typora-user-images/image-20240424222659727.png)</p>
+<p>令上式分别为0，即可得到w和b最邮件的闭式解</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424222857621.png" alt="image-20240424222857621"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424222911540.png" alt="image-20240424222911540"></p>
+<p>具体计算过程如下：<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424232242511.png" alt="image-20240424232242511"></p>
+<p>​        扩展到d个属性描述的数据集D，试图学得<br>$$<br>f(x_i)=w^Tx_i+b<br>$$<br>称为多元线性回归</p>
+<p>​    这也可以用最小二乘法来对w和b进行估计，用向量表示w和b，即(w;b)，数据集D表示为一个m×(d+1)大小的矩阵X，即</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424233101706.png" alt="image-20240424233101706"></p>
+<p>最后一列恒为1的原因是做完矩阵乘法后，能表示出+b</p>
 
         </div>
 
@@ -240,9 +240,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E3%80%90java%E3%80%91/"># 【java】</a>
-                    
-                        <a href="/tags/%E3%80%90gradle%E3%80%91/"># 【gradle】</a>
+                        <a href="/tags/%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%91/"># 【机器学习】</a>
                     
                         
                 </span>
@@ -255,10 +253,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/04/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">[机器学习笔记]线性模型——线性回归</a>
             
-            
-            <a class="next" rel="next" href="/2022/03/21/hexo%E5%8D%9A%E5%AE%A2github%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/">hexo博客github账号密码登录失败问题</a>
+            <a class="next" rel="next" href="/2022/03/28/%E8%A7%A3%E5%86%B3gradle%E4%B8%8B%E6%89%BE%E4%B8%8D%E5%88%B0%E7%AC%A6%E5%8F%B7%E9%94%99%E8%AF%AF/">解决gradle下找不到符号错误</a>
             
         </section>
 
