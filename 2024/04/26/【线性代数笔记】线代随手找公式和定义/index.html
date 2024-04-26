@@ -205,26 +205,55 @@
 <p>4.行列式的某一行（列）有公因子，可以提出；同样的，给某一行乘k，等于行列式乘k</p>
 <p>5.如果行列式的某一行（列）的元素可以看做两数之和，则可以看做是仅将该行拆开为两个行列式之和</p>
 <p>6.把行列式的某一行（列）的各元素同乘一个数然后加到另一行（列）对应元素上，行列式不变</p>
-<p>7.在n阶行列式中，将（i,j）元aij所在的行列划去后，剩下的行列式叫做余子式，记作Mij，则代数余子式为<br>$$<br>A_{ij}=(-1)^{i+j}M_{ij}<br>$$<br>8.一个n阶行列式，如果其中第i行所有元素除aij外都为0，则该行列式等于aij与它的代数余子式的乘积，即<br>$$<br>D=a_{ij}A_{ij}<br>$$<br>9.行列式等于它任一行（列）的各元素与其对应的代数余子式乘积之和</p>
+<p>7.在n阶行列式中，将（i,j）元aij所在的行列划去后，剩下的行列式叫做余子式，记作Mij，则代数余子式为</p>
+<script type="math/tex; mode=display">
+A_{ij}=(-1)^{i+j}M_{ij}</script><p>8.一个n阶行列式，如果其中第i行所有元素除aij外都为0，则该行列式等于aij与它的代数余子式的乘积，即</p>
+<script type="math/tex; mode=display">
+D=a_{ij}A_{ij}</script><p>9.行列式等于它任一行（列）的各元素与其对应的代数余子式乘积之和</p>
 <p>10.行列式某一行（列）的元素与另一个行（列）的对应元素的代数余子式乘积之和等于0</p>
 <p>11.对换行列式的两行（列），行列式变号</p>
 <p>12.主对角线以下（上）的元素都为0的行列式叫做上（下）三角形行列式，如果都为0，叫做对角行列式</p>
 <p>其行列式等于主对角线的元素乘积</p>
-<h1 id="二、矩阵"><a href="#二、矩阵" class="headerlink" title="二、矩阵"></a>二、矩阵</h1><p>1.矩阵满足加法的交换律和结合律，即<br>$$<br>A+B=B+A<br>$$</p>
-<p>$$<br>(A+B)+C=A+(B+C)<br>$$</p>
-<p>2.数乘矩阵满足数学运算规律</p>
-<p>3.矩阵相乘不满足交换律，即<br>$$<br>AB≠BA<br>$$</p>
-<p>4.如果矩阵相乘为零矩阵，不代表任一矩阵为零矩阵，同样地，如果<br>$$<br>A(X-Y)=O<br>$$<br>不代表X=Y</p>
-<p>5.矩阵乘法不满足交换律，但满足结合律和分配率，即<br>$$<br>(AB)C = A(BC)<br>$$<br>$$<br>λ(AB)=(λA)B=A(λB)<br>$$<br>$$<br>A(B+C)=AB+AC,(B+C)A=BA+CA<br>$$</p>
-<p>6.纯量阵与任何同阶方阵均可交换，纯量阵即λE<br>7.矩阵的幂有以下性质<br>$$<br>A^kA^l=A^{k+l}<br>$$<br>$$<br>(A^k)^l=A^{kl}<br>$$</p>
-<p>当AB是可交换的时候，满足以下规律<br>$$<br>(AB)^k=A^kB^k<br>$$<br>$$<br>(A+B)^2=A^2+2AB+B^2<br>$$<br>$$<br>(A-B)(A+B)=A^2-B^2<br>$$</p>
-<p>8.矩阵转置满足以下规律<br>$$<br>\begin{aligned}<br>&amp;(A^T)^T \<br>&amp;(A+B)^T=A^T+B^T\<br>&amp;(λA)^T=λA^T\<br>&amp;(AB)^T=B^TA^T<br>\end{aligned}<br>$$</p>
-<p>9.方阵的行列式满足以下规律<br>$$<br>\begin{aligned}<br>&amp;|A^T|=|A| \<br>&amp;|λA|=λ^n|A|\<br>&amp;|AB|=|A||B|<br>\end{aligned}<br>$$</p>
-<p>10.行列式|A|的各个元素的代数余子式构成的如下矩阵称为矩阵A的伴随矩阵，且满足如下规律<br><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220010685.png" alt="image-20240426220010685"><br>$$<br>AA^<em>=A^</em>A=|A|E<br>$$</p>
-<p>11.如果矩阵A有逆矩阵B，则AB=BA=E，且B是唯一的，即$B=A^{-1}$</p>
+<h1 id="二、矩阵"><a href="#二、矩阵" class="headerlink" title="二、矩阵"></a>二、矩阵</h1><p>1.矩阵满足加法的交换律和结合律，即</p>
+<script type="math/tex; mode=display">
+A+B=B+A</script><script type="math/tex; mode=display">
+(A+B)+C=A+(B+C)</script><p>2.数乘矩阵满足数学运算规律</p>
+<p>3.矩阵相乘不满足交换律，即</p>
+<script type="math/tex; mode=display">
+AB≠BA</script><p>4.如果矩阵相乘为零矩阵，不代表任一矩阵为零矩阵，同样地，如果</p>
+<script type="math/tex; mode=display">
+A(X-Y)=O</script><p>不代表X=Y</p>
+<p>5.矩阵乘法不满足交换律，但满足结合律和分配率，即</p>
+<script type="math/tex; mode=display">
+(AB)C = A(BC)</script><script type="math/tex; mode=display">
+λ(AB)=(λA)B=A(λB)</script><script type="math/tex; mode=display">
+A(B+C)=AB+AC,(B+C)A=BA+CA</script><p>6.纯量阵与任何同阶方阵均可交换，纯量阵即λE<br>7.矩阵的幂有以下性质</p>
+<script type="math/tex; mode=display">
+A^kA^l=A^{k+l}</script><script type="math/tex; mode=display">
+(A^k)^l=A^{kl}</script><p>当AB是可交换的时候，满足以下规律</p>
+<script type="math/tex; mode=display">
+(AB)^k=A^kB^k</script><script type="math/tex; mode=display">
+(A+B)^2=A^2+2AB+B^2</script><script type="math/tex; mode=display">
+(A-B)(A+B)=A^2-B^2</script><p>8.矩阵转置满足以下规律</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&(A^T)^T \\
+&(A+B)^T=A^T+B^T\\
+&(λA)^T=λA^T\\
+&(AB)^T=B^TA^T
+\end{aligned}</script><p>9.方阵的行列式满足以下规律</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&|A^T|=|A| \\
+&|λA|=λ^n|A|\\
+&|AB|=|A||B|
+\end{aligned}</script><p>10.行列式|A|的各个元素的代数余子式构成的如下矩阵称为矩阵A的伴随矩阵，且满足如下规律<br><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220010685.png" alt="image-20240426220010685"></p>
+<script type="math/tex; mode=display">
+AA^*=A^*A=|A|E</script><p>11.如果矩阵A有逆矩阵B，则AB=BA=E，且B是唯一的，即$B=A^{-1}$</p>
 <p>12.如果矩阵A可逆，则|A|≠0</p>
-<p>13.如果|A|≠0，则矩阵A可逆，且<br>$$<br>A^{-1}= \frac{1}{|A|}A^*<br>$$</p>
-<p>14.如果|A|=0，则称A为奇异矩阵，否则为非奇异矩阵，可逆矩阵是非奇异矩阵</p>
+<p>13.如果|A|≠0，则矩阵A可逆，且</p>
+<script type="math/tex; mode=display">
+A^{-1}= \frac{1}{|A|}A^*</script><p>14.如果|A|=0，则称A为奇异矩阵，否则为非奇异矩阵，可逆矩阵是非奇异矩阵</p>
 <p>15.逆矩阵满足如下运算规律： </p>
 <p>(1) 如果A可逆，则$A^{-1}$也可逆，且$(A^{-1})^{-1}$</p>
 <p>(2) 如果A可逆，数λ≠0，则λA可逆，且$(λA)^{-1}=\frac{1}{λ}A^{-1}$</p>
@@ -240,7 +269,7 @@
 <p>(1)对换两行</p>
 <p>(2)以数k≠0乘某一行中的所有元</p>
 <p>(3)把某一行的所有元的k倍加到另一行的对应元上去</p>
-<ol start="2">
+<ol>
 <li>如果矩阵A经过有限次初等行变换变成矩阵B，就称A与B行等价，列等价同理。如果矩阵A经过有限次初等变换变成B，则称A与B等价，记作$A \sim B$</li>
 </ol>
 <p>3.如果矩阵具有等价关系，则具有以下性质</p>
@@ -260,7 +289,7 @@
 <p>11.$max{R(A),R(B)} &lt;= R(A,B) &lt;= R(A)+R(B)$</p>
 <p>12.R(A+B)≤R(A)+R(B)</p>
 <p>13.$R(AB)≤min{R(A),R(B)}$</p>
-<p>14.若$A_{m×n}B_{n×l}=O$，则R(A)+R(B)≤n</p>
+<p>14.若$A<em>{m×n}B</em>{n×l}=O$，则R(A)+R(B)≤n</p>
 <p>15.设$AB=O$，若A为列满秩矩阵，则$B=O$</p>
 <p>16.对于一个n元线性方程组Ax=b</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220053115.png" alt="image-20240426220053115"></p>

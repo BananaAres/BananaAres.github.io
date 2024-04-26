@@ -223,45 +223,33 @@
 <h2 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h2><p>1.官网下载Redis 6.2.1 redis-6.2.1.tar.gz  官网：<a href="https://redis.io/，也可以前往https://download.redis.io/releases/下载" target="_blank" rel="noopener">https://redis.io/，也可以前往https://download.redis.io/releases/下载</a></p>
 <p>2.进入/opt目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br></pre></td></tr></table></figure>
-
 <p>3.解压redis-6.2.1.tar.gz</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf redis-6.2.1.tar.gz</span><br></pre></td></tr></table></figure>
-
 <p>4.安装c语言环境(已安装可略过)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install centos-release-scl scl-utils-build</span><br><span class="line">yum install -y devtoolset-8-toolchain</span><br><span class="line">scl enable devtoolset-8 bash</span><br></pre></td></tr></table></figure>
-
 <p>测试gcc版本</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010202134794.png" alt="image-20211010202134794"></p>
 <p>5.进入 redis-6.2.1目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd redis-6.2.1</span><br></pre></td></tr></table></figure>
-
 <p>6.编译</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
-
 <p>7.执行安装</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010202651293.png" alt="image-20211010202651293"></p>
 <p>8.进入bin目录，使用前台启动测试安装是否成功</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /bin</span><br><span class="line">redis-server</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010203010224.png" alt="image-20211010203010224"></p>
 <p>出现这个界面就算成功了，使用control+c停止redis进程</p>
 <p>9.设置后台启动</p>
 <p>(1)进入 redis-6.2.1目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/redis-6.2.1</span><br></pre></td></tr></table></figure>
-
 <p>(2)复制redis.conf文件到/etc目录下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp redis.conf /etc/redis.conf</span><br></pre></td></tr></table></figure>
-
 <p>(3)进入/etc文件夹</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc</span><br></pre></td></tr></table></figure>
-
 <p>(4)修改 redis.conf文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi redis.conf</span><br></pre></td></tr></table></figure>
-
 <p>(5)后台启动设置daemonize no改为yes，可以打/dae搜索到这个语句</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010204625406.png" alt="image-20211010204625406"></p>
 <p>找到 daemonize no 改为yes</p>
@@ -269,10 +257,8 @@
 <p>保存修改</p>
 <p>(6)进入 /usr/local/bin目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/bin</span><br></pre></td></tr></table></figure>
-
 <p>（7）输入 redis-server /etc/redis.conf后台启动redis</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /etc/redis.conf</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010205124156.png" alt="image-20211010205124156"></p>
 <p>此时可以输入redis-cli可以客户端访问</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010205256276.png" alt="image-20211010205256276"></p>
@@ -362,7 +348,7 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201616779.png" alt="image-20211011201616779"></p>
 <p>（11）sdiff [key1] [key2]： 返回两个集合的差集（key1中的，不包含key2中的）</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201632139.png" alt="image-20211011201632139"></p>
-<h3 id="5-5-Redis哈希Hash"><a href="#5-5-Redis哈希Hash" class="headerlink" title="5.5 Redis哈希Hash"></a>5.5 Redis哈希Hash</h3><p>​    Redis中的hash是一个string类型的field和value的映射表，适合用于存储对象，类似java中的Map&lt;String,Object&gt;，其底层当field-value长度较短且个数较少时，会使用ziplist（压缩列表），否则使用hashtable（hash表）</p>
+<h3 id="5-5-Redis哈希Hash"><a href="#5-5-Redis哈希Hash" class="headerlink" title="5.5 Redis哈希Hash"></a>5.5 Redis哈希Hash</h3><p>​    Redis中的hash是一个string类型的field和value的映射表，适合用于存储对象，类似java中的Map<String,Object>，其底层当field-value长度较短且个数较少时，会使用ziplist（压缩列表），否则使用hashtable（hash表）</p>
 <p>操作：</p>
 <p>（1）hset [key] [field] [value]：给key集合中的field键赋值value</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203250489.png" alt="image-20211011203250489"></p>
@@ -517,7 +503,7 @@
 <p>重启redis后，可以看到生成了对应文件</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014204931434.png" alt="image-20211014204931434"></p>
 <p>​    当AOF和RDB同时开启时，系统会默认取AOF的数据</p>
-<h4 id="11-2-4-异常恢复"><a href="#11-2-4-异常恢复" class="headerlink" title="11.2.4 异常恢复"></a>11.2.4 异常恢复</h4><p>​    如果AOF文件意外损坏，可以通过/usr/local/bin/redis-check-aof–fix appendonly.aof进行恢复</p>
+<h4 id="11-2-4-异常恢复"><a href="#11-2-4-异常恢复" class="headerlink" title="11.2.4 异常恢复"></a>11.2.4 异常恢复</h4><p>​    如果AOF文件意外损坏，可以通过/usr/local/bin/redis-check-aof—fix appendonly.aof进行恢复</p>
 <p>​    用vi命令打开appendonly.aof文件并在其后随便追加一个无用信息</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014205624208.png" alt="image-20211014205624208"></p>
 <p>​    重新启动redis后，启动客户端失败，因为无法正确读取AOF文件</p>
@@ -533,7 +519,7 @@
 <p>​    每秒同步，每秒计入日志一次，如果此时崩溃，可能会丢失本秒的数据</p>
 <p>（3）appendfsync no</p>
 <p>​    不主动同步，把同步时机交给操作系统</p>
-<p>![image-20211014210243169](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014210243169.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014210243169.png" alt="image-20211014210243169"></p>
 <h4 id="11-2-6-Rewrite压缩"><a href="#11-2-6-Rewrite压缩" class="headerlink" title="11.2.6 Rewrite压缩"></a>11.2.6 Rewrite压缩</h4><p>​    AOF采用文件追加方式,文件会越来越大为避免出现此种情况,新增了重写机制，当AOF文件的大小超过所设定的阈值时, Redis就会启动AOF文件的内容压缩，只保留可以恢复数据的最小指令集.可以使用命令bgrewriteaofs</p>
 <p>​    AOF文件持续增长而过大时，会fork出一条新进程来将文件重写( 也是先写临时文件最后再rename) ，redis4.0版本后的重写，就是把rdb的快照，以二进制的形式附在新的aof头部，作为已有的历史数据,替换掉原来的流水账操作。</p>
 <h4 id="11-2-7-优势"><a href="#11-2-7-优势" class="headerlink" title="11.2.7 优势"></a>11.2.7 优势</h4><p>（1）备份机制更稳健，丢失数据概率更低</p>
@@ -563,7 +549,7 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215050330.png" alt="image-20211014215050330"></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215130319.png" alt="image-20211014215130319"></p>
 <p>（4）启动三个服务</p>
-<p>![image-20211014215242074](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014215242074.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014215242074.png" alt="image-20211014215242074"></p>
 <p>（5）检查服务开启是否成功</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215318875.png" alt="image-20211014215318875"></p>
 <p>（6）开启三个终端，分别打开三个服务的客户端</p>
@@ -648,13 +634,13 @@
 <p>（4）将6个节点合成一个集群</p>
 <p>首先进入redis安装目录中的src目录下，此处我的redis安装在/opt下</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015161028810.png" alt="image-20211015161028810"></p>
-<p>使用redis-cli –cluster create –cluster-replicas 1 192.168.33.11:6379 192.168.33.11:6380 192.168.33.11:6381 192.168.33.11:6389 192.168.33.11:6390 192.168.33.11:6391</p>
-<p>–replicas 1表示采用最简单的方式配置集群，一台主机，一台从机，正好三组</p>
+<p>使用redis-cli —cluster create —cluster-replicas 1 192.168.33.11:6379 192.168.33.11:6380 192.168.33.11:6381 192.168.33.11:6389 192.168.33.11:6390 192.168.33.11:6391</p>
+<p>—replicas 1表示采用最简单的方式配置集群，一台主机，一台从机，正好三组</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015161639220.png" alt="image-20211015161639220"></p>
 <p>之后会询问是否接受这种分配方式，yes即可</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015162405747.png" alt="image-20211015162405747"></p>
-<p>如果出现一些问题，可以使用redis-cli –cluster fix 192.168.33.11:6379 这个命令来修复出问题的节点</p>
-<p>redis-cli –cluster check 192.168.33.11:6379可以检查节点出现了什么问题</p>
+<p>如果出现一些问题，可以使用redis-cli —cluster fix 192.168.33.11:6379 这个命令来修复出问题的节点</p>
+<p>redis-cli —cluster check 192.168.33.11:6379可以检查节点出现了什么问题</p>
 <p>（5）连接集群</p>
 <p>通过redis-cli -c -p 6379连接，-c表示采用集群策略连接，设置数据会自动切换到相应的主机，因为redis集群采用无中心连接方式，所以用任何一个节点进行连接都可以，即命令中的6379可以换成其他的端口号，如6380</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015162800239.png" alt="image-20211015162800239"></p>
@@ -715,7 +701,6 @@
 <p>​    set lock uuid nx ex 10</p>
 <p>​    在释放锁时，首先判断uuid和要释放锁的uuid是否一样，如果一样正常释放，如果不一样无法释放</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String uuid = UUID.randomUUID().toString();</span><br><span class="line"></span><br><span class="line">String lockUuid  = (string)redisTemplate.opsForValue().get(<span class="string">"lock"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(lockUuid.equals(uuid))&#123;</span><br><span class="line">  redisTemplate.delete(<span class="string">"lock"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>​    在这种方式下，由于没有原子性，导致会出现一定的问题，如在a想要释放锁的时候，首先比较了uuid发现可以删除，但是还没有删除的时候，自动释放时间到了，导致锁自动释放，这时b获得锁，进行具体操作，此时a进行了释放操作，导致b得到的锁被释放</p>
 <p>​    可以使用lua脚本来实现</p>
 

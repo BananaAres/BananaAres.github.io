@@ -9,26 +9,55 @@
 <p>4.行列式的某一行（列）有公因子，可以提出；同样的，给某一行乘k，等于行列式乘k</p>
 <p>5.如果行列式的某一行（列）的元素可以看做两数之和，则可以看做是仅将该行拆开为两个行列式之和</p>
 <p>6.把行列式的某一行（列）的各元素同乘一个数然后加到另一行（列）对应元素上，行列式不变</p>
-<p>7.在n阶行列式中，将（i,j）元aij所在的行列划去后，剩下的行列式叫做余子式，记作Mij，则代数余子式为<br>$$<br>A_{ij}=(-1)^{i+j}M_{ij}<br>$$<br>8.一个n阶行列式，如果其中第i行所有元素除aij外都为0，则该行列式等于aij与它的代数余子式的乘积，即<br>$$<br>D=a_{ij}A_{ij}<br>$$<br>9.行列式等于它任一行（列）的各元素与其对应的代数余子式乘积之和</p>
+<p>7.在n阶行列式中，将（i,j）元aij所在的行列划去后，剩下的行列式叫做余子式，记作Mij，则代数余子式为</p>
+<script type="math/tex; mode=display">
+A_{ij}=(-1)^{i+j}M_{ij}</script><p>8.一个n阶行列式，如果其中第i行所有元素除aij外都为0，则该行列式等于aij与它的代数余子式的乘积，即</p>
+<script type="math/tex; mode=display">
+D=a_{ij}A_{ij}</script><p>9.行列式等于它任一行（列）的各元素与其对应的代数余子式乘积之和</p>
 <p>10.行列式某一行（列）的元素与另一个行（列）的对应元素的代数余子式乘积之和等于0</p>
 <p>11.对换行列式的两行（列），行列式变号</p>
 <p>12.主对角线以下（上）的元素都为0的行列式叫做上（下）三角形行列式，如果都为0，叫做对角行列式</p>
 <p>其行列式等于主对角线的元素乘积</p>
-<h1 id="二、矩阵"><a href="#二、矩阵" class="headerlink" title="二、矩阵"></a>二、矩阵</h1><p>1.矩阵满足加法的交换律和结合律，即<br>$$<br>A+B=B+A<br>$$</p>
-<p>$$<br>(A+B)+C=A+(B+C)<br>$$</p>
-<p>2.数乘矩阵满足数学运算规律</p>
-<p>3.矩阵相乘不满足交换律，即<br>$$<br>AB≠BA<br>$$</p>
-<p>4.如果矩阵相乘为零矩阵，不代表任一矩阵为零矩阵，同样地，如果<br>$$<br>A(X-Y)=O<br>$$<br>不代表X=Y</p>
-<p>5.矩阵乘法不满足交换律，但满足结合律和分配率，即<br>$$<br>(AB)C = A(BC)<br>$$<br>$$<br>λ(AB)=(λA)B=A(λB)<br>$$<br>$$<br>A(B+C)=AB+AC,(B+C)A=BA+CA<br>$$</p>
-<p>6.纯量阵与任何同阶方阵均可交换，纯量阵即λE<br>7.矩阵的幂有以下性质<br>$$<br>A^kA^l=A^{k+l}<br>$$<br>$$<br>(A^k)^l=A^{kl}<br>$$</p>
-<p>当AB是可交换的时候，满足以下规律<br>$$<br>(AB)^k=A^kB^k<br>$$<br>$$<br>(A+B)^2=A^2+2AB+B^2<br>$$<br>$$<br>(A-B)(A+B)=A^2-B^2<br>$$</p>
-<p>8.矩阵转置满足以下规律<br>$$<br>\begin{aligned}<br>&amp;(A^T)^T \<br>&amp;(A+B)^T=A^T+B^T\<br>&amp;(λA)^T=λA^T\<br>&amp;(AB)^T=B^TA^T<br>\end{aligned}<br>$$</p>
-<p>9.方阵的行列式满足以下规律<br>$$<br>\begin{aligned}<br>&amp;|A^T|=|A| \<br>&amp;|λA|=λ^n|A|\<br>&amp;|AB|=|A||B|<br>\end{aligned}<br>$$</p>
-<p>10.行列式|A|的各个元素的代数余子式构成的如下矩阵称为矩阵A的伴随矩阵，且满足如下规律<br><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220010685.png" alt="image-20240426220010685"><br>$$<br>AA^<em>=A^</em>A=|A|E<br>$$</p>
-<p>11.如果矩阵A有逆矩阵B，则AB=BA=E，且B是唯一的，即$B=A^{-1}$</p>
+<h1 id="二、矩阵"><a href="#二、矩阵" class="headerlink" title="二、矩阵"></a>二、矩阵</h1><p>1.矩阵满足加法的交换律和结合律，即</p>
+<script type="math/tex; mode=display">
+A+B=B+A</script><script type="math/tex; mode=display">
+(A+B)+C=A+(B+C)</script><p>2.数乘矩阵满足数学运算规律</p>
+<p>3.矩阵相乘不满足交换律，即</p>
+<script type="math/tex; mode=display">
+AB≠BA</script><p>4.如果矩阵相乘为零矩阵，不代表任一矩阵为零矩阵，同样地，如果</p>
+<script type="math/tex; mode=display">
+A(X-Y)=O</script><p>不代表X=Y</p>
+<p>5.矩阵乘法不满足交换律，但满足结合律和分配率，即</p>
+<script type="math/tex; mode=display">
+(AB)C = A(BC)</script><script type="math/tex; mode=display">
+λ(AB)=(λA)B=A(λB)</script><script type="math/tex; mode=display">
+A(B+C)=AB+AC,(B+C)A=BA+CA</script><p>6.纯量阵与任何同阶方阵均可交换，纯量阵即λE<br>7.矩阵的幂有以下性质</p>
+<script type="math/tex; mode=display">
+A^kA^l=A^{k+l}</script><script type="math/tex; mode=display">
+(A^k)^l=A^{kl}</script><p>当AB是可交换的时候，满足以下规律</p>
+<script type="math/tex; mode=display">
+(AB)^k=A^kB^k</script><script type="math/tex; mode=display">
+(A+B)^2=A^2+2AB+B^2</script><script type="math/tex; mode=display">
+(A-B)(A+B)=A^2-B^2</script><p>8.矩阵转置满足以下规律</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&(A^T)^T \\
+&(A+B)^T=A^T+B^T\\
+&(λA)^T=λA^T\\
+&(AB)^T=B^TA^T
+\end{aligned}</script><p>9.方阵的行列式满足以下规律</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&|A^T|=|A| \\
+&|λA|=λ^n|A|\\
+&|AB|=|A||B|
+\end{aligned}</script><p>10.行列式|A|的各个元素的代数余子式构成的如下矩阵称为矩阵A的伴随矩阵，且满足如下规律<br><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220010685.png" alt="image-20240426220010685"></p>
+<script type="math/tex; mode=display">
+AA^*=A^*A=|A|E</script><p>11.如果矩阵A有逆矩阵B，则AB=BA=E，且B是唯一的，即$B=A^{-1}$</p>
 <p>12.如果矩阵A可逆，则|A|≠0</p>
-<p>13.如果|A|≠0，则矩阵A可逆，且<br>$$<br>A^{-1}= \frac{1}{|A|}A^*<br>$$</p>
-<p>14.如果|A|=0，则称A为奇异矩阵，否则为非奇异矩阵，可逆矩阵是非奇异矩阵</p>
+<p>13.如果|A|≠0，则矩阵A可逆，且</p>
+<script type="math/tex; mode=display">
+A^{-1}= \frac{1}{|A|}A^*</script><p>14.如果|A|=0，则称A为奇异矩阵，否则为非奇异矩阵，可逆矩阵是非奇异矩阵</p>
 <p>15.逆矩阵满足如下运算规律： </p>
 <p>(1) 如果A可逆，则$A^{-1}$也可逆，且$(A^{-1})^{-1}$</p>
 <p>(2) 如果A可逆，数λ≠0，则λA可逆，且$(λA)^{-1}=\frac{1}{λ}A^{-1}$</p>
@@ -44,7 +73,7 @@
 <p>(1)对换两行</p>
 <p>(2)以数k≠0乘某一行中的所有元</p>
 <p>(3)把某一行的所有元的k倍加到另一行的对应元上去</p>
-<ol start="2">
+<ol>
 <li>如果矩阵A经过有限次初等行变换变成矩阵B，就称A与B行等价，列等价同理。如果矩阵A经过有限次初等变换变成B，则称A与B等价，记作$A \sim B$</li>
 </ol>
 <p>3.如果矩阵具有等价关系，则具有以下性质</p>
@@ -64,7 +93,7 @@
 <p>11.$max{R(A),R(B)} &lt;= R(A,B) &lt;= R(A)+R(B)$</p>
 <p>12.R(A+B)≤R(A)+R(B)</p>
 <p>13.$R(AB)≤min{R(A),R(B)}$</p>
-<p>14.若$A_{m×n}B_{n×l}=O$，则R(A)+R(B)≤n</p>
+<p>14.若$A<em>{m×n}B</em>{n×l}=O$，则R(A)+R(B)≤n</p>
 <p>15.设$AB=O$，若A为列满秩矩阵，则$B=O$</p>
 <p>16.对于一个n元线性方程组Ax=b</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220053115.png" alt="image-20240426220053115"></p>
@@ -82,20 +111,31 @@
   <entry>
     <title>[机器学习笔记]线性模型——线性回归</title>
     <url>/2024/04/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
-    <content><![CDATA[<h1 id="一、基本形式"><a href="#一、基本形式" class="headerlink" title="一、基本形式"></a>一、基本形式</h1><p>​    使用线性组合来进行预测，其函数形式可以写为<br>$$<br>f(x)=w_1x_1+w_2x_2…w_mx_m+b<br>$$<br>写为向量形式可以表示为， T为w转置<br>$$<br>f(x) = w^Tx+b<br>$$</p>
-<h2 id="二、线性回归"><a href="#二、线性回归" class="headerlink" title="二、线性回归"></a>二、线性回归</h2><p>​    线性回归试图学得一个线性模型以尽可能准确地预测实值输出标记。对于离散属性，如果属性值之间具有有序关系，如“身高”属性的“高”、“矮”，可以转化为{1,0}，而三值“高”、”中“、”低“属性可以转化为{1,0.5,0}；而k个无序属性可以转化为k维向量，例如“黄瓜”、“南瓜”、“黄瓜”可以转化为(0,0,1)、(0,1,0)、(1,0,0)。</p>
-<p>​    均方误差，即平方损失是回归任务最常用的性能度量，均方误差在几何上对应了常用的欧几里得距离。平方损失函数为<br>$$<br>E(f;D) = \frac{1}{m}\sum_{i=1}^{m}(f(x_i)-y_i)^2<br>$$<br>​    即<br>$$<br>\frac{1}{m}\sum_{i=1}^{m}(y_i-wx_i-b)^2<br>$$<br>求该值最小，来进行模型求解，这种方式也成为“最小二乘法”。在线性回归中，最小二乘法就是找到一条直线，使所有样本到直线上的欧氏距离之和最小。上述函数是一个二次函数，通常是一个凸函数，具有唯一的极值，因此可以求导求解，求解w和b使上述函数最小的过程，称为线性回归模型的最小二乘“参数估计”。</p>
+    <content><![CDATA[<h1 id="一、基本形式"><a href="#一、基本形式" class="headerlink" title="一、基本形式"></a>一、基本形式</h1><p>​    使用线性组合来进行预测，其函数形式可以写为</p>
+<script type="math/tex; mode=display">
+f(x)=w_1x_1+w_2x_2…w_mx_m+b</script><p>写为向量形式可以表示为， T为w转置</p>
+<script type="math/tex; mode=display">
+f(x) = w^Tx+b</script><h2 id="二、线性回归"><a href="#二、线性回归" class="headerlink" title="二、线性回归"></a>二、线性回归</h2><p>​    线性回归试图学得一个线性模型以尽可能准确地预测实值输出标记。对于离散属性，如果属性值之间具有有序关系，如“身高”属性的“高”、“矮”，可以转化为{1,0}，而三值“高”、”中“、”低“属性可以转化为{1,0.5,0}；而k个无序属性可以转化为k维向量，例如“黄瓜”、“南瓜”、“黄瓜”可以转化为(0,0,1)、(0,1,0)、(1,0,0)。</p>
+<p>​    均方误差，即平方损失是回归任务最常用的性能度量，均方误差在几何上对应了常用的欧几里得距离。平方损失函数为</p>
+<script type="math/tex; mode=display">
+E(f;D) = \frac{1}{m}\sum_{i=1}^{m}(f(x_i)-y_i)^2</script><p>​    即</p>
+<script type="math/tex; mode=display">
+\frac{1}{m}\sum_{i=1}^{m}(y_i-wx_i-b)^2</script><p>求该值最小，来进行模型求解，这种方式也成为“最小二乘法”。在线性回归中，最小二乘法就是找到一条直线，使所有样本到直线上的欧氏距离之和最小。上述函数是一个二次函数，通常是一个凸函数，具有唯一的极值，因此可以求导求解，求解w和b使上述函数最小的过程，称为线性回归模型的最小二乘“参数估计”。</p>
 <p>​    将函数分别对w和b求导，可得到：</p>
-<p>​    ![image-20240424222659727](/Users/sundaohan/Library/Application Support/typora-user-images/image-20240424222659727.png)</p>
+<p>​    <img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20240424222659727.png" alt="image-20240424222659727"></p>
 <p>令上式分别为0，即可得到w和b最邮件的闭式解</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424222857621.png" alt="image-20240424222857621"></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424222911540.png" alt="image-20240424222911540"></p>
 <p>具体计算过程如下：<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424232242511.png" alt="image-20240424232242511"></p>
-<p>​        扩展到d个属性描述的数据集D，试图学得<br>$$<br>f(x_i)=w^Tx_i+b<br>$$<br>称为多元线性回归</p>
+<p>​        扩展到d个属性描述的数据集D，试图学得</p>
+<script type="math/tex; mode=display">
+f(x_i)=w^Tx_i+b</script><p>称为多元线性回归</p>
 <p>​    这也可以用最小二乘法来对w和b进行估计，用向量表示w和b，即(w;b)，数据集D表示为一个m×(d+1)大小的矩阵X，即</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424233101706.png" alt="image-20240424233101706"></p>
-<p>此时，我们将原式转化为常用的形式，即X的每一行是一条样本，共m行表示m个样本，前d列表示d个属性值，最后一个1即能乘出一个b，此时原式可转化为<br>$$<br>X\hat{W}<br>$$<br>此时的结果和原本的结果只有一个转置的差别，原来的结果将是一个1行m列的矩阵，而现在的结果是一个m行1列的矩阵。对于y，依然可以写成一个列向量的形式，则求均方误差最小可以表示为</p>
-<p>![image-20240425093116263](/Users/sundaohan/Library/Application Support/typora-user-images/image-20240425093116263.png)</p>
+<p>此时，我们将原式转化为常用的形式，即X的每一行是一条样本，共m行表示m个样本，前d列表示d个属性值，最后一个1即能乘出一个b，此时原式可转化为</p>
+<script type="math/tex; mode=display">
+X\hat{W}</script><p>此时的结果和原本的结果只有一个转置的差别，原来的结果将是一个1行m列的矩阵，而现在的结果是一个m行1列的矩阵。对于y，依然可以写成一个列向量的形式，则求均方误差最小可以表示为</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20240425093116263.png" alt="image-20240425093116263"></p>
 <p>这是因为y-XW最终将是一个m行1列的矩阵，也就是一个列向量，其平方等于模的平方，写成如上形式也完全相同</p>
 ]]></content>
       <categories>
@@ -134,7 +174,7 @@
     <title>hexo博客github账号密码登录失败问题</title>
     <url>/2022/03/21/hexo%E5%8D%9A%E5%AE%A2github%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p>​    博客写好想要推送到github上时，运行hexo d发现出错</p>
-<p>![image-20220321214258930](/Users/sundaohan/Library/Application Support/typora-user-images/image-20220321214258930.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20220321214258930.png" alt="image-20220321214258930"></p>
 <p>根据网上很多方式进行修改，无法解决，最后发现是github账号密码错误，现在github登录时不能使用密码，而是使用token，具体解决方式如下</p>
 <h1 id="二、问题解决"><a href="#二、问题解决" class="headerlink" title="二、问题解决"></a>二、问题解决</h1><h2 id="2-1-申请token"><a href="#2-1-申请token" class="headerlink" title="2.1. 申请token"></a>2.1. 申请token</h2><p>参考：</p>
 <p><a href="https://blog.csdn.net/weixin_41010198/article/details/119698015?utm_source=app&amp;app_version=4.12.0&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41010198/article/details/119698015?utm_source=app&amp;app_version=4.12.0&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen</a></p>
@@ -150,7 +190,6 @@
 <h2 id="2-2-修改hexo配置"><a href="#2-2-修改hexo配置" class="headerlink" title="2.2 修改hexo配置"></a>2.2 修改hexo配置</h2><p>1.进入hexo博客主文件夹中</p>
 <p>2.修改配置文件</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
-
 <p>3.修改内容如下</p>
 <p>repo: <a href="https://token@github.com/名字/名字.github.io.git" target="_blank" rel="noopener">https://token@github.com/名字/名字.github.io.git</a></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220321215027065.png" alt="image-20220321215027065"></p>
@@ -190,16 +229,13 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220118234529172.png" alt="image-20220118234529172"></p>
 <h2 id="二、配置BCOS网络并在JAVA上连接"><a href="#二、配置BCOS网络并在JAVA上连接" class="headerlink" title="二、配置BCOS网络并在JAVA上连接"></a>二、配置BCOS网络并在JAVA上连接</h2><p>1.首先进入bcos目录下的console/conf，比如我的目录是 ~/fisco/console/conf</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~/fisco/console/conf</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220118234755137.png" alt="image-20220118234755137"></p>
 <p>修改其中的config.toml文件</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi config.toml</span><br></pre></td></tr></table></figure>
-
 <p>找到[network]，将其中的127.0.0.1:20200和另一个 修改为本机ip地址，由于我是在虚拟机上，ip地址是192.168.33.11，所以修改如下</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220118234930547.png" alt="image-20220118234930547"></p>
 <p>2.进入~/fisco/nodes/127.0.0.1/sdk</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~/fisco/nodes/127.0.0.1/sdk</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220118235304162.png" alt="image-20220118235304162"></p>
 <p>将四个文件复制到项目的main下的resources/conf文件夹下（自己创建一个conf）</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220118235331242.png" alt="image-20220118235331242"></p>
@@ -208,111 +244,108 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220118235839564.png" alt="image-20220118235839564"></p>
 <p>其完整内容如下</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"defaultConfigProperty"</span> <span class="attr">class</span>=<span class="string">"org.fisco.bcos.sdk.config.model.ConfigProperty"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cryptoMaterial"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"certPath"</span> <span class="attr">value</span>=<span class="string">"conf"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"network"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"peers"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">value</span>&gt;</span>192.168.33.11:20200<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">value</span>&gt;</span>192.168.33.11:20201<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">entry</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"account"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"keyStoreDir"</span> <span class="attr">value</span>=<span class="string">"account"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"accountAddress"</span> <span class="attr">value</span>=<span class="string">""</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"accountFileFormat"</span> <span class="attr">value</span>=<span class="string">"pem"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">""</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"accountFilePath"</span> <span class="attr">value</span>=<span class="string">""</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"threadPool"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"channelProcessorThreadSize"</span> <span class="attr">value</span>=<span class="string">"16"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"receiptProcessorThreadSize"</span> <span class="attr">value</span>=<span class="string">"16"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"maxBlockingQueueSize"</span> <span class="attr">value</span>=<span class="string">"102400"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"defaultConfigOption"</span> <span class="attr">class</span>=<span class="string">"org.fisco.bcos.sdk.config.ConfigOption"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"configProperty"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"defaultConfigProperty"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"bcosSDK"</span> <span class="attr">class</span>=<span class="string">"org.fisco.bcos.sdk.BcosSDK"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"configOption"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"defaultConfigOption"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>其中peers配置中的节点ip地址和端口要和上面配置的相同</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"peers"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>192.168.33.11:20200<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>192.168.33.11:20201<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">entry</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="三、编写智能合约并在项目中部署"><a href="#三、编写智能合约并在项目中部署" class="headerlink" title="三、编写智能合约并在项目中部署"></a>三、编写智能合约并在项目中部署</h2><p>1.bcos支持solidity，所以用remix开发即可</p>
 <p><a href="https://ethereum.github.io/browser-solidity/#optimize=false&amp;version=soljson-v0.7.1+commit.f4a555be.js" target="_blank" rel="noopener">https://ethereum.github.io/browser-solidity/#optimize=false&amp;version=soljson-v0.7.1+commit.f4a555be.js</a></p>
 <p>这里使用自带的HelloWorld.sol演示，这个文件在~/fisco/console/contracts/solidity</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119154309514.png" alt="image-20220119154309514"></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.2</span>;</span><br><span class="line"></span><br><span class="line">contract HelloWorld&#123;</span><br><span class="line">    string name;</span><br><span class="line">	</span><br><span class="line">    </span><br><span class="line">    <span class="function">function <span class="title">set</span><span class="params">(string n)</span></span>&#123;</span><br><span class="line">		<span class="function">emit <span class="title">test</span><span class="params">(n)</span></span>;</span><br><span class="line">    	name = n;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	<span class="function">event <span class="title">test</span><span class="params">(string a)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">function <span class="title">HelloWorld</span><span class="params">()</span></span>&#123;</span><br><span class="line">       name = <span class="string">"Hello, World!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">function <span class="title">get</span><span class="params">()</span>constant <span class="title">returns</span><span class="params">(string)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>​    这个不涉及到表，实际上bcos的智能合约支持表结构存储，具体可以看官方文档<a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/smart_contract.html#kvtable" target="_blank" rel="noopener">https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/smart_contract.html#kvtable</a></p>
 <p>​    需要注意的是，BCOS和mysql等不同的是表设置的主键是可以重复的，而且无论是增删改查，都需要传入主键值作为参数，而且不提供全表查询功能，所以如果需要全表查询，建议主键值可以设置一个全部都相同的，方便查询。</p>
 <p>​    比如设计一个表是</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">name</th>
-<th align="center">number</th>
+<th style="text-align:center">name</th>
+<th style="text-align:center">number</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">张三</td>
-<td align="center">1</td>
+<tbody>
+<tr>
+<td style="text-align:center">张三</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
-<td align="center">李四</td>
-<td align="center">2</td>
+<td style="text-align:center">李四</td>
+<td style="text-align:center">2</td>
 </tr>
 <tr>
-<td align="center">王五</td>
-<td align="center">3</td>
+<td style="text-align:center">王五</td>
+<td style="text-align:center">3</td>
 </tr>
 <tr>
-<td align="center">赵六</td>
-<td align="center">4</td>
+<td style="text-align:center">赵六</td>
+<td style="text-align:center">4</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>​    如果把name当做主键，搜索时只能使用 table.select(name, table.newCondition());这里的name不是主键列名，而是张三、李四、王五这些名字，此时就无法做到全表查询。</p>
 <p>​    如果按下面这个设计表</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">type</th>
-<th align="center">name</th>
+<th style="text-align:center">type</th>
+<th style="text-align:center">name</th>
 <th>number</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">school</td>
-<td align="center">张三</td>
+<tbody>
+<tr>
+<td style="text-align:center">school</td>
+<td style="text-align:center">张三</td>
 <td>1</td>
 </tr>
 <tr>
-<td align="center">school</td>
-<td align="center">李四</td>
+<td style="text-align:center">school</td>
+<td style="text-align:center">李四</td>
 <td>2</td>
 </tr>
 <tr>
-<td align="center">school</td>
-<td align="center">王五</td>
+<td style="text-align:center">school</td>
+<td style="text-align:center">王五</td>
 <td>3</td>
 </tr>
 <tr>
-<td align="center">school</td>
-<td align="center">赵六</td>
+<td style="text-align:center">school</td>
+<td style="text-align:center">赵六</td>
 <td>4</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>查询时可以直接 table.select(“school”, table.newCondition()); 这样查询的就是全部数据了</p>
 <p>2.通过bcos自带的脚本将sol文件转化为java文件</p>
 <p>进入console目录</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~/fisco/console</span><br></pre></td></tr></table></figure>
-
 <p>调用下面的start.sh脚本</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./sol2java.sh org.example.demo.contract</span><br></pre></td></tr></table></figure>
-
 <p>这个org.example.demo.contract是你在项目中存放智能合约的包，按实际需求写</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119190718900.png" alt="image-20220119190718900"></p>
 <p>之后我们进入contracts/sdk/java/org/example/demo/contract</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd contracts&#x2F;sdk&#x2F;java&#x2F;org&#x2F;example&#x2F;demo&#x2F;contract</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119190950075.png" alt="image-20220119190950075"></p>
 <p>可以看到HelloWorld.java文件，将其下载到本机上（sz可以百度一下安装和使用方法，这里不赘述）</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sz HelloWorld.java</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119191058722.png" alt="image-20220119191058722"></p>
 <p>将其放到项目中的contract目录下</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119191205021.png" alt="image-20220119191205021"></p>
 <p>3.接着我们在demo包下创建一个conf目录，在其下创建SdkBeanConfig类，用来配置连接区块链</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.demo.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.fisco.bcos.sdk.BcosSDK;</span><br><span class="line"><span class="keyword">import</span> org.fisco.bcos.sdk.client.Client;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SdkBeanConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> BcosSDK bcosSDK;</span><br><span class="line">    <span class="keyword">private</span> Client client;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ContractConfig contractConfig;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Client <span class="title">client</span><span class="params">()</span> <span class="keyword">throws</span>  Exception</span>&#123;</span><br><span class="line">        <span class="comment">//指定配置xml文件的位置</span></span><br><span class="line">        ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"classpath:applicationContext.xml"</span>);</span><br><span class="line">        bcosSDK = context.getBean(BcosSDK<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        <span class="comment">//选择群组1</span></span><br><span class="line">        client = bcosSDK.getClient(Integer.valueOf(<span class="number">1</span>));</span><br><span class="line">        <span class="comment">//连接后返回当前区块高度</span></span><br><span class="line">        BigInteger blockNumber = client.getBlockNumber().getBlockNumber();</span><br><span class="line">        System.out.println(<span class="string">"=========================="</span>);</span><br><span class="line">        System.out.println(blockNumber);</span><br><span class="line">        System.out.println(<span class="string">"=========================="</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> client;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
 <p>4.之后同级目录创建ContractConfig类，来记录智能合约地址</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.demo.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContractConfig</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String HelloWorldAddress;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>（文件位置别创建错了）</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119192657296.png" alt="image-20220119192657296"></p>
 <p>5.创建一个controller类，方便后续的测试</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119192805193.png" alt="image-20220119192805193"></p>
 <p>内容如下</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.demo.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.example.demo.service.HelloWorldService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"hello"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span> <span class="keyword">private</span> HelloWorldService service;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"set"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">set</span><span class="params">(@RequestParam(<span class="string">"n"</span>)</span> String n) <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"n = "</span> + n);</span><br><span class="line">        <span class="keyword">return</span> service.set(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"get"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> service.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>6.之后再创建一个HelloWorldService类，来实现对智能合约方法的调用</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119193942023.png" alt="image-20220119193942023"></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.demo.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.PostConstruct;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> org.example.demo.config.ContractConfig;</span><br><span class="line"><span class="keyword">import</span> org.example.demo.contract.HelloWorld;</span><br><span class="line"><span class="keyword">import</span> org.fisco.bcos.sdk.client.Client;</span><br><span class="line"><span class="keyword">import</span> org.fisco.bcos.sdk.model.TransactionReceipt;</span><br><span class="line"><span class="keyword">import</span> org.fisco.bcos.sdk.transaction.manager.AssembleTransactionProcessor;</span><br><span class="line"><span class="keyword">import</span> org.fisco.bcos.sdk.transaction.manager.TransactionProcessorFactory;</span><br><span class="line"><span class="keyword">import</span> org.fisco.bcos.sdk.transaction.model.exception.ContractException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span> <span class="keyword">private</span> Client client;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span> <span class="keyword">private</span> ContractConfig contractConfig;</span><br><span class="line"></span><br><span class="line">    AssembleTransactionProcessor txProcessor;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HelloWorld helloWorld;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="comment">//项目部署时运行一次</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.txProcessor =</span><br><span class="line">                TransactionProcessorFactory.createAssembleTransactionProcessor(</span><br><span class="line">                        <span class="keyword">this</span>.client, <span class="keyword">this</span>.client.getCryptoSuite().getCryptoKeyPair());</span><br><span class="line">        <span class="comment">//判断在智能合约配置类里，该智能合约是否已经有地址</span></span><br><span class="line">        <span class="keyword">if</span>(contractConfig.getHelloWorldAddress() == <span class="keyword">null</span> ||</span><br><span class="line">                contractConfig.getHelloWorldAddress().isEmpty())&#123;</span><br><span class="line">            <span class="comment">//如果没有的话，将其部署到链上</span></span><br><span class="line">            helloWorld = HelloWorld.deploy(client,client.getCryptoSuite().getCryptoKeyPair());</span><br><span class="line">            System.out.println(<span class="string">"address = "</span> + helloWorld.getContractAddress());</span><br><span class="line">            <span class="comment">//将该合约的地址填写到智能合约配置类中</span></span><br><span class="line">            contractConfig.setHelloWorldAddress(helloWorld.getContractAddress());</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//如果已有地址，则加载</span></span><br><span class="line">            helloWorld = HelloWorld.load(</span><br><span class="line">                    contractConfig.getHelloWorldAddress(),</span><br><span class="line">                    client,</span><br><span class="line">                    client.getCryptoSuite().getCryptoKeyPair()</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">set</span><span class="params">(String n)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        TransactionReceipt set = helloWorld.set(n);</span><br><span class="line">        <span class="keyword">return</span> set.getBlockNumber();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String mess = helloWorld.get();</span><br><span class="line">        <span class="keyword">return</span> mess;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>7.全部写好后，我们开始测试结果</p>
 <p>启动项目后，我们可以看到当前部署后的智能合约地址0x192e21b94ba64a2254380d387dfa40e25b464ed0</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119200045966.png" alt="image-20220119200045966"></p>
@@ -330,7 +363,6 @@
 <p>现在我们进入ContractConfig类中，把第一次的智能合约地址赋给HelloWorldAddress</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119201006847.png" alt="image-20220119201006847"></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.demo.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span> sundaohan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Package</span> com.neu.config.bcos</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Title</span> ContractConfig</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2022/1/18 下午9:33</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContractConfig</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String HelloWorldAddress = <span class="string">"0x192e21b94ba64a2254380d387dfa40e25b464ed0"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>再次启动项目后，打开浏览器，输入localhost:8080/hello/get，发现返回值是我们当时修改的testContract，证明这次加载的是我们当时部署的那个合约</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220119201121089.png" alt="image-20220119201121089"></p>
 <p>至此，BCOS智能合约在springboot框架下的java项目中的部署与调用演示完毕。</p>
@@ -356,37 +388,30 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173636036.png" alt="image-20220116173636036"></p>
 <p>在终端上 进入这个文件夹，输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173721700.png" alt="image-20220116173721700"></p>
 <p>继续输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch README.md</span><br></pre></td></tr></table></figure>
-
 <p>创建一个README.md文件</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173902095.png" alt="image-20220116173902095"></p>
 <p>输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-
 <p>将刚才更新的文件提交到本地缓冲区</p>
 <p>此时可以输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
 <p>查看是否成功</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174004343.png" alt="image-20220116174004343"></p>
 <p>如图所示，有一行绿色的new file，证明成功了</p>
 <p>接着输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git commit -m 'fisrt test'</span><br></pre></td></tr></table></figure>
-
 <p>将修改提交到当前的本地库中</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174314336.png" alt="image-20220116174314336"></p>
 <p>之后输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add origin https://gitee.com/BananaAres/test.git</span><br></pre></td></tr></table></figure>
-
 <p>绑定远程仓库，那串链接实际上就是下图所示的链接</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174651267.png" alt="image-20220116174651267"></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174719454.png" alt="image-20220116174719454"></p>
 <p>再输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push -u origin "master"</span><br></pre></td></tr></table></figure>
-
 <p>推送到远程仓库</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174931069.png" alt="image-20220116174931069"></p>
 <p>此时已经成功了，可以去gitee查看一下</p>
@@ -423,66 +448,48 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180717946.png" alt="image-20220116180717946"></p>
 <p>进行clone</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://gitee.com/BananaAres/test.git</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180804760.png" alt="image-20220116180804760"></p>
 <p>可以看到，已经clone下来了</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180827163.png" alt="image-20220116180827163"></p>
 <p>之后进入项目文件夹</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd test</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180917450.png" alt="image-20220116180917450"></p>
 <p>由于现在还没有develop分支，我们可以预先创建一个，后续的开发者可以在这个分支上进行合作编码</p>
 <p>先创建一个develop分支</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git branch develop</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181248083.png" alt="image-20220116181248083"></p>
 <p>然后进入分支</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout develop</span><br></pre></td></tr></table></figure>
-
 <p>此时如果直接push，会提示</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181421400.png" alt="image-20220116181421400"></p>
 <p>我们按照提示，输入命令之后再push</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push --set-upstream origin develop</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181518011.png" alt="image-20220116181518011"></p>
 <p>此时到gitee查看是否添加分支成功</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181553813.png" alt="image-20220116181553813"></p>
 <p>可以看到，此时分支添加成功了</p>
 <p>​    现在我们已经在develop分支中了，我们可以根据我们需要开发的功能，再创建一个分支，并在该分支上工作，比如要开发一个登陆功能，可以再创建一个feature-login分支</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git branch feature-login</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181724225.png" alt="image-20220116181724225"></p>
 <p>切换到该分支中</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout feature-login</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181801533.png" alt="image-20220116181801533"></p>
 <p>此时我们可以进行开发，这里就创建一个新文件代替开发</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181848835.png" alt="image-20220116181848835"></p>
 <p>开发好后，我们将修改加入本地缓冲区</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181933718.png" alt="image-20220116181933718"></p>
 <p>之后将其提交到本地库，-m后的可以随便写，不是定死的</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &#39;sdh-login&#39;</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182014610.png" alt="image-20220116182014610"></p>
 <p>之后我们切换到develop分支后，将feature-login分支合并到develop分支中</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout develop</span><br><span class="line">git merge feature-login</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182233713.png" alt="image-20220116182233713"></p>
 <p>此时feature-login分支已经没用了，将其删除，防止分支太多导致冗余</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git branch -d feature-login</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182401617.png" alt="image-20220116182401617"></p>
 <p>然后push即可</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182429757.png" alt="image-20220116182429757"></p>
 <p>此时前往gitee查看，发现master分支内容没有改变</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182505924.png" alt="image-20220116182505924"></p>
@@ -588,12 +595,9 @@
 <h2 id="12、如何查看线程死锁"><a href="#12、如何查看线程死锁" class="headerlink" title="12、如何查看线程死锁"></a>12、如何查看线程死锁</h2><p>（1）可以通过jstack命令来进行查看，jstack命令会显示发生了死锁的线程</p>
 <p>（2）两个线程去操作数据库时，数据库发生了死锁，这时可以查询数据库的死锁情况</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、查询是否锁表</span><br><span class="line">show OPEN TABLES where In_use &gt; 0;</span><br><span class="line">2、查询进程</span><br><span class="line">show processlist;</span><br><span class="line">3、查看正在锁的事务</span><br><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS;</span><br><span class="line">4、查看等待锁的事务</span><br><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="13、ThreadLocal的原理和使用场景"><a href="#13、ThreadLocal的原理和使用场景" class="headerlink" title="13、ThreadLocal的原理和使用场景"></a>13、ThreadLocal的原理和使用场景</h2><p>​    每一个Thread对象均含有一个ThreadLoca7Map类型的成员变量threadLocals，它存储本线程中所有ThreadLocal对象及其对应的值。</p>
 <p>​    ThreadLocaTMap由一个个Entry对象构成。</p>
-<p>​    Entry继承自WeakReference &lt;ThreadLoca1&lt;?&gt;&gt;。一个Entry由ThreadLocal对象和object构成。由此可见，Entry 的key是ThreadLocal对象,并且是一个弱引用。 当没指向key的强引用后，该key就会被垃圾收集器回收。</p>
+<p>​    Entry继承自WeakReference <ThreadLoca1<?>&gt;。一个Entry由ThreadLocal对象和object构成。由此可见，Entry 的key是ThreadLocal对象,并且是一个弱引用。 当没指向key的强引用后，该key就会被垃圾收集器回收。</p>
 <p>​    当执行set方法时，ThreadLocal首先会获取当前线程对象，然后获取当前线程的ThreadLocalMap对象。再以当前ThreadLocal对象为key,将值存储进ThreadLocalMap对象中。</p>
 <p>​    get方法执行过程类似。ThreadLocal首先会获取当前线程对象,然后获取当前线程的ThreadLocalMap对象。再以当前ThreadLocal对象为key,获取对应的value。由于每一条线程均含有各自私有的ThreadLocalMap容器,这些容器相互独立互不影响，因此不会存在线程安全性问题，从而也无需使用同步机制来保证多条线程访问容器的互斥性。 </p>
 <p><strong>使用场景：</strong></p>
@@ -621,7 +625,7 @@
 <p>本地方法栈中JNI（即一般说的Native方法）引用的对象</p>
 <p>​    可达性算法中的不可达对象并不是立即死亡的，对象拥有一次自我拯救的机会。对象被系统宣告死亡至少要经历两次标记过程:第- -次是经过可达性分析发现没有与GC Roots相连接的引用链，第二次是在由虚拟机自动建立的Finalizer队列中判断是否需要执行finalize()法。<br>​    当对象变成(GC Roots)不可达时, GC会判断该对象是否覆盖(重写)了finalize方法，若末覆盖,则直接将其回收。否则，若对象未执行过finalize方法，将其放入F-Queue队列， 由- -低优先级线程执行该队列中对象的finalize方法。执行finalize方法完毕后，GC会再次判断该对象是否可达，若不可达，则进行回收,否则，对象”复活<br>​    每个对象只能触发一次finalize)方法由于finalize()方法运行代价高昂，不确定性大，无法保证各个对象的调用顺序，不推荐大家使用，建议遗忘它。</p>
 <h2 id="21、什么是字节码，采用字节码的好处？"><a href="#21、什么是字节码，采用字节码的好处？" class="headerlink" title="21、什么是字节码，采用字节码的好处？"></a>21、什么是字节码，采用字节码的好处？</h2><p><strong>java中的编译器和解释器:</strong><br>Java中引入了虚拟机的概念,即在机器和编译程序之间加入了一层抽象的虚拟的机器。这台虚拟的机器在任何平台上都提供给编译程序-个的共同的接口。<br>    编译程序只需要面向虚拟机，生成虚拟机能够理解的代码，然后由解释器来将虚拟机代码转换为特定系统的机器码执行。在Java中，这种供虚拟机理解的代码叫做字节码(即扩展名为.class的文件)，它不面向任何特定的处理器，只面向虚拟机。<br>    每一种平台的解释器是不同的，但是实现的虚拟机是相同的。Java源程序经过编译器编译后变成字节码,字节码由虚拟机解释执行,虛拟机将每一条要执行的字节码送给解释器 ，解释器将其翻译成特定机器上的机器码，然后在特定的机器.上运行。这也就是解释了]ava的编译与解释并存的特点。</p>
-<p>Java源代—&gt;编译—jm可执行的Java字节码(即虚拟令)–&gt;-jvm—&gt;jvm中解释qi–机器可执行的二进<br>制机器—&gt;程序运行。<br><strong>采用字节码的好处:</strong><br>    Java语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以Java程序运行时比较高效,而且，由于字节码并不专对一种特定的机器，因此，Java程序无须重新编译便可在多种不同的计算机上运行。</p>
+<p>Java源代—-&gt;编译—-jm可执行的Java字节码(即虚拟令)—&gt;-jvm—-&gt;jvm中解释qi—机器可执行的二进<br>制机器—-&gt;程序运行。<br><strong>采用字节码的好处:</strong><br>    Java语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以Java程序运行时比较高效,而且，由于字节码并不专对一种特定的机器，因此，Java程序无须重新编译便可在多种不同的计算机上运行。</p>
 <h2 id="22、双亲委托模型"><a href="#22、双亲委托模型" class="headerlink" title="22、双亲委托模型"></a>22、双亲委托模型</h2><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211103211618646.png" alt="image-20211103211618646"></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NvZGV5YW5iYW8=,size_16,color_FFFFFF,t_70.png" alt="img"></p>
 <p>Bootstrap classLoader:主要负责加载核心的类库(java.lang.*等)，构造ExtClassLoader和APPClassLoader。</p>
@@ -709,9 +713,9 @@
 <p>这种半同步复制相比异步复制，能够有效的提高数据的安全性。但是这种安全性也不是绝对的，他只保证事务提交后的binlog至少传输到了一个从库,并且并不保证从库应用这个事务的binlog是成功的。另一方面，半同步复制机制也会造成一定程度的延迟，这个延迟时间最少一个TCP/IP请求往返的时间。</p>
 <h2 id="7、MySQL执行计划怎么看"><a href="#7、MySQL执行计划怎么看" class="headerlink" title="7、MySQL执行计划怎么看"></a>7、MySQL执行计划怎么看</h2><p>执行计划就是sql的执行查询的顺序，以及如何使用索引查询，返回的结果集的行数</p>
 <p>EXPLAIN SELECT * from A where X=? and Y=?</p>
-<p>![image-20211105155804961](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211105155804961.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211105155804961.png" alt="image-20211105155804961"></p>
 <p>1.id :是一个有顺序的编号，是查询的顺序号,有几个select就显示几行。id的顺序是按select出现的顺序增<br>长的。id列的值越大执行优先级越高越先执行，id列的值相同则从上往下执行，id列的值为NULL最后执行。<br>2.selectType 表示查询中每个select子句的类型<br>●SIMPLE: 示此查询不包含UNION查询或子查询<br>●PRIMARY:表示此查询是最外层的查询(包含子查询)<br>●SUBQUERY:子查询中的第一个SELECT<br>●UNION:表示此查询是 UNION的第二或随后的查询<br>●DEPENDENT UNION: UNION 中的第二个或后面的查询语句, 取决于外面的查询<br>●UNION RESULT, UNION的结果<br>●DEPENDENT SUBQUERY:子查询中的第一个 SELECT,取决于外面的查询.即子查询依赖于外层查询的结果.<br>●DERIVED: 衍生，表示导出表的SELECT (FROM子句的子查询)<br>3.table:表示该语句查询的表<br>4.type:优化sq的重要字段，也是我们判断sql性能和优化程度重要指标。他的取值类型范围:</p>
-<p>5.possible_ keys:它表示Mysq|在执行该sq|语句的时候，可能用到的索引信息，仅仅是可能，实际不一定会用<br>到。<br>6.key:此字段是mysql在当前查询时所真正使用到的索引。他是possible_ keys的子集</p>
+<p>5.possible<em> keys:它表示Mysq|在执行该sq|语句的时候，可能用到的索引信息，仅仅是可能，实际不一定会用<br>到。<br>6.key:此字段是mysql在当前查询时所真正使用到的索引。他是possible</em> keys的子集</p>
 <p>7.key_ len:表示查询优化器使用了索引的字节数，这个字段可以评估组合索引是否完全被使用,这也是我们优化<br>sq|时，评估索引的重要指标<br>9.rows: mysql 查询优化器根据统计信息，估算该sq|返回结果集需要扫描读取的行数，这个值相关重要,索引优<br>化之后，扫描读取的行数越多,说明索引设置不对，或者字段传入的类型之类的问题，说明要优化空间越大<br>10.filtered:返回结果的行占需要读到的行(rows列的值)的百分比，就是百分比越高，说明需要查询到数据越准确，百分比越小，说明查询到的数据量大，而结果集很少<br>11.extra<br>●using filesort :表示mysql对结果集进行外部排序，不能通过索弓|顺序达到排序效果。-般有using filesort都建议优化去掉，因为这样的查询cpu资源消耗大,延时大。<br>●using index:覆盖索引扫描，表示查询在索弓|树中就可查找所需数据，不用扫描表数据文件,往往说明性能不错。<br>●using temporary:查询有使用临时表,一般出现于排序， 分组和多表join的情况，查询效率不高， 建议优化。<br>●using where : sq|使用了where过滤效率较高。</p>
 <h2 id="8、mysql主从同步原理"><a href="#8、mysql主从同步原理" class="headerlink" title="8、mysql主从同步原理"></a>8、mysql主从同步原理</h2><p>mysql主从同步的过程:<br>    Mysql的主从复制中主要有三个线程: master (bin1og dump thread) 、slave (I/O thread 、SQL thread)，Master- 条线程和Slave中的两条线程。<br>●主节点binlog,主从复制的基础是主库记录数据库的所有变更记录到binlog。binlog 是数据库服务器启动的<br>那一刻起，保存所有修改数据库结构或内容的一个文件。<br>●主节点log dump线程，当binlog有变动时，log dump线程读取其内容并发送给从节点。<br>●从节点I/O线程接收binlog内容,并将其写入到relay log文件中。<br>●从节点的SQL线程读取relay log文件内容对数据更新进行重放，最终保证主从数据库的一致性。<br>注:主从节点使用binglog文件+ position偏移量来定位主从同步的位置,从节点会保存其已接收到的偏移量,如果从节点发生宕机重启，则会自动从position的位置发起同步。<br>    由于mysq|默认的复制方式是异步的，主库把日志发送给从库后不关心从库是否已经处理,这样会产生一个问题就是假设主库挂了，从库处理失败了，这时候从库升为主库后，日志就丢失了。由此产生两个概念。</p>
 <p>全同步复制<br>    主库写入binlog后强制同步日志到从库,所有的从库都执行完成后才返回给客户端，但是很显然这个方式的话性能会受到严重影响。</p>
@@ -728,7 +732,7 @@
 <p>索引可以极大的提高数据的查询速度。<br>通过使用索引，可以在查询的过程中，使用优化隐藏器，提高系统的性能。<br>但是会降低插入、删除、更新表的速度，因为在执行这些写操作时,还要操作索引文件<br>索弓|需要占物理空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大，如果非聚集索引很多，一旦聚集索引改变，那么所有非聚集索引都会跟着变。</p>
 <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="1、-RDB和AOF机制"><a href="#1、-RDB和AOF机制" class="headerlink" title="1、 RDB和AOF机制"></a>1、 RDB和AOF机制</h2><p>RDB: Redis DataBase<br>    在指定的时间间隔内将内存中的数据集快照写入磁盘，实际操作过程是fork-个子进程,先将数据集写入临时文<br>件，写入成功后，再替换之前的文件，用二进制压缩存储。<br>优点:<br>1、整个Redis数据库将只包含-个文件dump.rdb,方便持久化。<br>2、容灾性好，方便备份。<br>3、性能最大化，fork 子进程来完成写操作，让主进程继续处理命令,所以是I0最大化。使用单独子进程来进行<br>持久化，主进程不会进行任何10操作,保证了redis的高性能<br>4.相对于数据集大时，比AOF的启动效率更高。<br>缺点:<br>1、数据安全性低。RDB是间隔一段时间进行持久化，如果持久化之间redis发生故障，会发生数据丢失。所以这<br>种方式更适合数据要求不严谨的时候)<br>2、由于RDB是通过fork子 进程来协助完成数据持久化工作的，因此，如果当数据集较大时，可能会导致整个服务<br>器停止服务几百毫秒，甚至是1秒钟。</p>
 <h2 id="2、Redis单线程为什么这么快"><a href="#2、Redis单线程为什么这么快" class="headerlink" title="2、Redis单线程为什么这么快"></a>2、Redis单线程为什么这么快</h2><p>​    Redis基于Reactor模式开发了网络事件处理器、文件事件处理器file event handler。它是单线程的，所以Redis才叫做单线程的模型，它采用IO多路复用机制来同时监听多个Socket,根据Socket上的事件类型来选择对应的事件处理器来处理这个事件。可以实现高性能的网络通信模型，又可以跟内部其他单线程的模块进行对接，保证了Redis内部的线程模型的简单性。<br>​    文件事件处理器的结构包含4个部分:多个Socket、I0多路复用程序、文件事件分派器以及事件处理器(命令请求处理器、命令回复处理器、连接应答处理器等)。<br>​    多个Socket可能并发的产生不同的事件，10多路复用程序会监听多个Socket,会将Socket放入一个队列中排队，每次从队列中有序、同步取出一个Socket给事件分派器，事件分派器把Socket给对应的事件处理器。然后一个Socket的事件处理完之后，10多路复用程序才会将队列中的下一个Socket给事件分派器。文件事件分派器会根据每个Socket当前产生的事件,来选择对应的事件处理器来处理。</p>
-<p>1、Redis启动初始化时,将连接应答处理器跟AE_ READABLE事件关联。<br>2、若一个客户端发起连接，会产生一个AE_ <em>READABLE事件,然后由连接应答处理器负责和客户端建立连接,创<br>建客户端对应的socket,同时将这个socket的AE</em> READABLE事件和命令请求处理器关联，使得客户端可以向主服<br>务器发送命令请求。<br>3、当客户端向Redis发请求时(不管读还是写请求)，客户端socket都会产生一 个AE_ READABLE事件,触发命令<br>请求处理器。处理器读取客户端的命令内容，然后传给相关程序执行。<br>4、当Redis服务 器准备好给客户端的响应数据后，会将socket的AE_ WRITABLE事件和命令回复处理器关联,当客<br>户端准备好读取响应数据时，会在socket产生一个AE_ <em>WRITABLE事件，由对应命令回复处理器处理，即将准备好<br>的响应数据写入socket,供客户端读取。</em></p>
+<p>1、Redis启动初始化时,将连接应答处理器跟AE<em> READABLE事件关联。<br>2、若一个客户端发起连接，会产生一个AE</em> <em>READABLE事件,然后由连接应答处理器负责和客户端建立连接,创<br>建客户端对应的socket,同时将这个socket的AE</em> READABLE事件和命令请求处理器关联，使得客户端可以向主服<br>务器发送命令请求。<br>3、当客户端向Redis发请求时(不管读还是写请求)，客户端socket都会产生一 个AE<em> READABLE事件,触发命令<br>请求处理器。处理器读取客户端的命令内容，然后传给相关程序执行。<br>4、当Redis服务 器准备好给客户端的响应数据后，会将socket的AE</em> WRITABLE事件和命令回复处理器关联,当客<br>户端准备好读取响应数据时，会在socket产生一个AE<em> _WRITABLE事件，由对应命令回复处理器处理，即将准备好<br>的响应数据写入socket,供客户端读取。</em></p>
 <p>5、命令回复处理器全部写完到socket后，就会删除该socket的AE_ _WRITABLE事件和命令回复处理器的映射。</p>
 <p>单线程快的原因</p>
 <p>（1）纯内存操作</p>
@@ -743,7 +747,7 @@
 <h2 id="4、Redis的过期键的删除策略"><a href="#4、Redis的过期键的删除策略" class="headerlink" title="4、Redis的过期键的删除策略"></a>4、Redis的过期键的删除策略</h2><p>​    Redis是key-value数据库，我们可以设置Redis中缓存的key的过期时间。Redis的过期策略就是指当Redis中缓存的key过期了，Redis如何处理。<br>●惰性过期:只有当访问一个key时， 才会判断该key是否已过期，过期则清除。该策略可以最大化地节省CPU资源，却对内存非常不友好。极端情况可能出现大量的过期key没有再次被访问,从而不会被清除，占用大量内存。<br>●定期过期:每隔一定的时间，会扫描一 定数量的数据库的expires字典中一定数量的key,并清除其中已过期的key。该策略是前两者的一个折中方案。通过调整定时扫描的时间间隔和每次扫描的限定耗时，可以在不同情况下使得CPU和内存资源达到最优的平衡效果。<br>(expires字典会保存所有设置了过期时间的key的过期时间数据，其中，key是指向键空间中的某个键的指针,<br>value是该键的毫秒精度的UNIX时间戳表示的过期时间。键空间是指该Redis集群中保存的所有键。)<br>Redis中同时使用了惰性过期和定期过期两种过期策略。</p>
 <h2 id="5、Redis的分布式锁底层如何实现"><a href="#5、Redis的分布式锁底层如何实现" class="headerlink" title="5、Redis的分布式锁底层如何实现"></a>5、Redis的分布式锁底层如何实现</h2><p>1.首先利用setnx来保证:如果key不存在才能获取到锁,如果key存在,则获取不到锁<br>2.然后还要利用lua脚本来保证多个redis操作的原子性<br>3.同时还要考虑到锁过期,所以需要额外的一个看]狗定时任务来监听锁是否需要续约<br>4.同时还要考虑到redis节点挂掉后的情况，所以需要采用红锁的方式来同时向N/2+ 1个节点申请锁,都申请到了才证明获取锁成功，这样就算其中某个redis节点挂掉了，锁也不能被其他客户端获取到</p>
 <h2 id="6、Redis有哪些数据结构？分别有哪些典型的应用场景"><a href="#6、Redis有哪些数据结构？分别有哪些典型的应用场景" class="headerlink" title="6、Redis有哪些数据结构？分别有哪些典型的应用场景"></a>6、Redis有哪些数据结构？分别有哪些典型的应用场景</h2><p>Redis的数据结构有:<br>1.字符串:可以用来做最简单的数据缓存，可以缓存某个简单的字符串，也可以缓存某个json格式的字符串，Redis分布式锁的实现就利用了这种数据结构,还包括可以实现计数器、Session共享、 分布式ID<br>2.哈希表:可以用来存储一些key-value对, 更适合用来存储对象<br>3.列表: Redis的列表通过命令的组合,既可以当做栈，也可以当做队列来使用，可以用来缓存类似微信公众号、微博等消息流数据。<br>4.集合:和列表类似，也可以存储多个元素,但是不能重复，集合可以进行交集、并集、差集操作,从而可以实现类似,<br>我和某人共同关注的人、朋友圈点赞等功能<br>5.有序集合:集合是无序的,有序集合可以设置顺序，可以用来实现排行榜功能</p>
-<h2 id="7、-Redis主从复制的原理"><a href="#7、-Redis主从复制的原理" class="headerlink" title="7、 Redis主从复制的原理"></a>7、 Redis主从复制的原理</h2><p>![image-20211107205606534](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211107205606534.png)</p>
+<h2 id="7、-Redis主从复制的原理"><a href="#7、-Redis主从复制的原理" class="headerlink" title="7、 Redis主从复制的原理"></a>7、 Redis主从复制的原理</h2><p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211107205606534.png" alt="image-20211107205606534"></p>
 <p>​    通过执行slaveof命令或设置slaveof选项，让一个服务 器去复制另一个服务器的数据。主数据库可以进行读写操作，当写操作导致数据变化时会自动将数据同步给从数据库。而从数据库-般是只读的，并接受主数据库同步过来<br>的数据。一个主数据库可以拥有多个从数据库，而一个从数据库只能拥有一个主数据库<br>全量复制:<br>(1)节点通过bgsave命令fork子进程进行RDB持久化，该过程是非常消耗CPU、内存页表复制)、硬盘lO的<br>(2)节点通过网络将RDB文件发送给从节点,对主从节点的带宽都会带来很大的消耗<br>(3)从节点清空老数据、载入新RDB文件的过程是阻塞的，无法响应客户端的命令;如果从节点执行bgrewriteaof,也会带来额外的消耗<br>部分复制:<br>1.复制偏移<br>2.复制积压缓冲区:主节点内部维护了一个固定长度的、先进先出(FIFO)队列 作为复制积压缓冲区，当主从节点<br>offset的差距过大超过缓冲区长度时，将无法执行部分复制，只能执行全量复制。<br>3.服务器运行ID(runid):每个Redis节点, 都有其运行ID,运行ID由节点在启动时自动生成，主节点会将自己的<br>运行ID发送给从节点，从节点会将主节点的运行ID存起来。从节点Redis断开重连的时候，就是根据运行ID来<br>判断同步的进度:</p>
 <p>1.复制偏移量:执行复制的双方，主从节点，分别会维护一个复制偏移量offset<br>2.复制积压缓冲区:主节点内部维护了一个固定长度的、先进先出(FIFO)队列 作为复制积压缓冲区，当主从节点offset的差距过大超过缓冲区长度时,将无法执行部分复制，只能执行全量复制。<br>3.服务器运行ID(runid):每个Redis节点, 都有其运行ID,运行ID由节点在启动时自动生成，主节点会将自己的运行ID发送给从节点，从节点会将主节点的运行ID存起来。从节点Redis断开重连的时候，就是根据运行ID来判断同步的进度:</p>
 <p>​    如果从节点保存的runid与主节点现在的runid相同,说明主从节点之前同步过，主节点会继续尝试使用部分复制(到底能不能部分复制还要看offset和复制积压缓冲区的情况);<br>​    如果从节点保存的runid与主节点现在的runid不同，说明从节点在断线前同步的Redis节点并不是当前的主节点，只能进行全量复制。</p>
@@ -756,7 +760,8 @@
 <h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h1><h2 id="1、SpringBoot、Spring-MVC和Spring有什么区别"><a href="#1、SpringBoot、Spring-MVC和Spring有什么区别" class="headerlink" title="1、SpringBoot、Spring MVC和Spring有什么区别"></a>1、SpringBoot、Spring MVC和Spring有什么区别</h2><p>spring是一个I0C容器，用来管理Bean,使用依赖注入实现控制反转，可以很方便的整合各种框架，提供AOP机制弥补00P的代码重复问题、更方便将不同类不同方法中的共同处理抽取成切面、自动注入给方法执行，比如日志、异常等</p>
 <p>springmvc是spring对web框架的一个解决方案，提供了一个总的前端控制器Servlet,来接收请求,然后定义了一套路由策略 (url|到handle的映射) 及适配执行handle,将handle结果使用视图解析技术生成视图展现给前端</p>
 <p>springboot是spring提供的一个快速开发工具包，让程序员能更方便、更快速的开发spring+springmvc应用， 简<br>化了配置(约定了默认配置)，整合了一系列的解决方案(starter机制) 、redis、 mongodb、 es,可以开箱即用</p>
-<h2 id="2、-和-的区别"><a href="#2、-和-的区别" class="headerlink" title="2、 #{}和${}的区别"></a>2、 #{}和${}的区别</h2><p>#{}是预编译处理、是占位符，${}是字符串替换、 是拼接符。<br>Mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement来赋值;<br>Mybatis在处理${}时，就是把${}替换成变量的值， 调用Statement来赋值;<br>#{}的变量替换是在DBMS中、变量替换后，#{} 对应的变量自动加上单引号<br>${}的变量替换是在DBMS外、变量替换后，${} 对应的变量不会加_上单引号<br>使用#{}可以有效的防止SQL注入，提高系统安全性。</p>
+<h2 id="2、-和-的区别"><a href="#2、-和-的区别" class="headerlink" title="2、 #{}和${}的区别"></a>2、 #{}和${}的区别</h2><h1 id="是预编译处理、是占位符，-是字符串替换、-是拼接符。"><a href="#是预编译处理、是占位符，-是字符串替换、-是拼接符。" class="headerlink" title="{}是预编译处理、是占位符，${}是字符串替换、 是拼接符。"></a>{}是预编译处理、是占位符，${}是字符串替换、 是拼接符。</h1><p>Mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement来赋值;<br>Mybatis在处理${}时，就是把${}替换成变量的值， 调用Statement来赋值;</p>
+<h1 id="的变量替换是在DBMS中、变量替换后，-对应的变量自动加上单引号"><a href="#的变量替换是在DBMS中、变量替换后，-对应的变量自动加上单引号" class="headerlink" title="{}的变量替换是在DBMS中、变量替换后，#{} 对应的变量自动加上单引号"></a>{}的变量替换是在DBMS中、变量替换后，#{} 对应的变量自动加上单引号</h1><p>${}的变量替换是在DBMS外、变量替换后，${} 对应的变量不会加_上单引号<br>使用#{}可以有效的防止SQL注入，提高系统安全性。</p>
 <h2 id="3、ApplicationContext和BeanFactory有什么区别"><a href="#3、ApplicationContext和BeanFactory有什么区别" class="headerlink" title="3、ApplicationContext和BeanFactory有什么区别"></a>3、ApplicationContext和BeanFactory有什么区别</h2><p>​    BeanFactory是Spring中非常核心的组件，表示Bean厂，可以生成Bean, 维护Bean, 而ApplicationContext继承了 BeanFactory,所以ApplicationContext拥有BeanFactory所有的特点, 但是ApplicationContext除开继承了BeanFactory之外，还继承了诸如EnvironmentCapable、MessageSource、ApplicationEventPublisher等接口，从而ApplicationContext还有获取系统环境变量、国际化、事件发布等功能，这是BeanFactory不具备的</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109155210675.png" alt="image-20211109155210675"></p>
 <p> <img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211109155505152.png" alt="image-20211109155505152"></p>
@@ -853,7 +858,7 @@
 <h4 id="1-2-2-消息队列的两种模式"><a href="#1-2-2-消息队列的两种模式" class="headerlink" title="1.2.2 消息队列的两种模式"></a>1.2.2 消息队列的两种模式</h4><p>（1）点对点模式（一对一，消费者主动拉取数据，消息收到后消息清除）</p>
 <p>（2）发布/订阅模式（一对多，消费者消费数据之后不会清除消息）</p>
 <p>​    消息生产者（发布）将消息发布到topic中，同时有多个消息消费者（订阅）消费该消息，和点对点方式不同，发布到topic的消息会被所有订阅者消费</p>
-<p>![image-20211019133619513](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019133619513.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019133619513.png" alt="image-20211019133619513"></p>
 <h3 id="1-3-kafka基础架构"><a href="#1-3-kafka基础架构" class="headerlink" title="1.3 kafka基础架构"></a>1.3 kafka基础架构</h3><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019150922580.png" alt="image-20211019150922580"></p>
 <h2 id="二、kafka快速入门"><a href="#二、kafka快速入门" class="headerlink" title="二、kafka快速入门"></a>二、kafka快速入门</h2><h3 id="2-1-搭建集群"><a href="#2-1-搭建集群" class="headerlink" title="2.1 搭建集群"></a>2.1 搭建集群</h3><p>（1）官网地址：kafka.apache.org</p>
 <p>下载 0.11.0</p>
@@ -862,7 +867,7 @@
 <p>(3)改名 mv </p>
 <p>​    mv kafka_2.11-0.11.0.0 kafka</p>
 <p>（4）修改config下的server.properties文件，修改四项内容</p>
-<p>![image-20211019154945056](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019154945056.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019154945056.png" alt="image-20211019154945056"></p>
 <p>修改id，不能重复，本次使用0 ，1，2</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154423982.png" alt="image-20211019154423982"></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154403179.png" alt="image-20211019154403179"></p>
@@ -879,29 +884,28 @@
 <p>群起脚本</p>
 <p>shell脚本：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">case $1 in</span><br><span class="line"></span><br><span class="line">"start")&#123;</span><br><span class="line">	for i in 192.168.33.12 192.168.33.13 192.168.33.14</span><br><span class="line">	do</span><br><span class="line">			echo ---------------- kafka $i 启动 ------------</span><br><span class="line">			ssh $i "/opt/software/kafka/bin/kafka-server-start.sh -daemon /opt/software/kafka/config/server.properties"</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">;;</span><br><span class="line"></span><br><span class="line">"stop")&#123;</span><br><span class="line">	for i in 192.168.33.12 192.168.33.13 192.168.33.14</span><br><span class="line">	do</span><br><span class="line">			echo ---------------- kafka $i 停止 ------------</span><br><span class="line">			ssh $i "/opt/software/kafka/bin/kafka-server-stop.sh /opt/software/kafka/config/server.properties"</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line">;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
-
 <h3 id="2-2-命令"><a href="#2-2-命令" class="headerlink" title="2.2 命令"></a>2.2 命令</h3><p>（1）创建主题</p>
-<p>bin/kafka-topics.sh –create –zookeeper 192.168.33.12:2181 –topic first  –partitions 2 –replication-factor 2</p>
+<p>bin/kafka-topics.sh —create —zookeeper 192.168.33.12:2181 —topic first  —partitions 2 —replication-factor 2</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019161427213.png" alt="image-20211019161427213"></p>
 <p>（2）查看主题</p>
-<p>bin/kafka-topics.sh –list –zookeeper 192.168.33.12:2181</p>
+<p>bin/kafka-topics.sh —list —zookeeper 192.168.33.12:2181</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019161440493.png" alt="image-20211019161440493"></p>
 <p>（3）删除</p>
-<p>bin/kafka-topics.sh –delete –zookeeper 192.168.33.12:2181 –topic first</p>
-<p>![image-20211019190227449](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190227449.png)</p>
+<p>bin/kafka-topics.sh —delete —zookeeper 192.168.33.12:2181 —topic first</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190227449.png" alt="image-20211019190227449"></p>
 <p>(4)查看信息</p>
-<p>bin/kafka-topics.sh –describe –topic first –zookeeper 192.168.33.12:2181</p>
-<p>![image-20211019190521194](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190521194.png)</p>
+<p>bin/kafka-topics.sh —describe —topic first —zookeeper 192.168.33.12:2181</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190521194.png" alt="image-20211019190521194"></p>
 <p>注意副本数不能超过broker数，分区数不受限制</p>
 <p>（5）生产消息</p>
-<p>bin/kafka-console-producer.sh –topic first –broker-list 192.168.33.12:9092</p>
+<p>bin/kafka-console-producer.sh —topic first —broker-list 192.168.33.12:9092</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170215428.png" alt="image-20211025170215428"></p>
 <p>（6）建立消费者消费消息（zookeeper老版本）</p>
-<p>bin/kafka-console-consumer.sh –topic first –zookeeper 192.168.33.12:2181</p>
+<p>bin/kafka-console-consumer.sh —topic first —zookeeper 192.168.33.12:2181</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025152057281.png" alt="image-20211025152057281">此时可能会报kafka.consumer.ConsumerFetcherManager$LeaderFinderThread错误</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170252571.png" alt="image-20211025170252571"></p>
 <p>到config中 修改server.properties 将advertised.listeners中的host修改为自己的ip地址，集群内的所有机器都要修改，即可解决该问题</p>
-<p>![image-20211025170414645](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211025170414645.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211025170414645.png" alt="image-20211025170414645"></p>
 <p>生产者发送消息后，消费者即可拿到消息</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170330958.png" alt="image-20211025170330958"></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170339918.png" alt="image-20211025170339918"></p>
@@ -954,45 +958,33 @@
 <h2 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h2><p>1.官网下载Redis 6.2.1 redis-6.2.1.tar.gz  官网：<a href="https://redis.io/，也可以前往https://download.redis.io/releases/下载" target="_blank" rel="noopener">https://redis.io/，也可以前往https://download.redis.io/releases/下载</a></p>
 <p>2.进入/opt目录</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /opt</span><br></pre></td></tr></table></figure>
-
 <p>3.解压redis-6.2.1.tar.gz</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -zxvf redis-6.2.1.tar.gz</span><br></pre></td></tr></table></figure>
-
 <p>4.安装c语言环境(已安装可略过)</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install centos-release-scl scl-utils-build</span><br><span class="line">yum install -y devtoolset-8-toolchain</span><br><span class="line">scl enable devtoolset-8 bash</span><br></pre></td></tr></table></figure>
-
 <p>测试gcc版本</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gcc --version</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010202134794.png" alt="image-20211010202134794"></p>
 <p>5.进入 redis-6.2.1目录</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd redis-6.2.1</span><br></pre></td></tr></table></figure>
-
 <p>6.编译</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
-
 <p>7.执行安装</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010202651293.png" alt="image-20211010202651293"></p>
 <p>8.进入bin目录，使用前台启动测试安装是否成功</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /bin</span><br><span class="line">redis-server</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010203010224.png" alt="image-20211010203010224"></p>
 <p>出现这个界面就算成功了，使用control+c停止redis进程</p>
 <p>9.设置后台启动</p>
 <p>(1)进入 redis-6.2.1目录</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /opt/redis-6.2.1</span><br></pre></td></tr></table></figure>
-
 <p>(2)复制redis.conf文件到/etc目录下</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp redis.conf /etc/redis.conf</span><br></pre></td></tr></table></figure>
-
 <p>(3)进入/etc文件夹</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /etc</span><br></pre></td></tr></table></figure>
-
 <p>(4)修改 redis.conf文件</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi redis.conf</span><br></pre></td></tr></table></figure>
-
 <p>(5)后台启动设置daemonize no改为yes，可以打/dae搜索到这个语句</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010204625406.png" alt="image-20211010204625406"></p>
 <p>找到 daemonize no 改为yes</p>
@@ -1000,10 +992,8 @@
 <p>保存修改</p>
 <p>(6)进入 /usr/local/bin目录</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/bin</span><br></pre></td></tr></table></figure>
-
 <p>（7）输入 redis-server /etc/redis.conf后台启动redis</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">redis-server /etc/redis.conf</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010205124156.png" alt="image-20211010205124156"></p>
 <p>此时可以输入redis-cli可以客户端访问</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211010205256276.png" alt="image-20211010205256276"></p>
@@ -1093,7 +1083,7 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201616779.png" alt="image-20211011201616779"></p>
 <p>（11）sdiff [key1] [key2]： 返回两个集合的差集（key1中的，不包含key2中的）</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011201632139.png" alt="image-20211011201632139"></p>
-<h3 id="5-5-Redis哈希Hash"><a href="#5-5-Redis哈希Hash" class="headerlink" title="5.5 Redis哈希Hash"></a>5.5 Redis哈希Hash</h3><p>​    Redis中的hash是一个string类型的field和value的映射表，适合用于存储对象，类似java中的Map&lt;String,Object&gt;，其底层当field-value长度较短且个数较少时，会使用ziplist（压缩列表），否则使用hashtable（hash表）</p>
+<h3 id="5-5-Redis哈希Hash"><a href="#5-5-Redis哈希Hash" class="headerlink" title="5.5 Redis哈希Hash"></a>5.5 Redis哈希Hash</h3><p>​    Redis中的hash是一个string类型的field和value的映射表，适合用于存储对象，类似java中的Map<String,Object>，其底层当field-value长度较短且个数较少时，会使用ziplist（压缩列表），否则使用hashtable（hash表）</p>
 <p>操作：</p>
 <p>（1）hset [key] [field] [value]：给key集合中的field键赋值value</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211011203250489.png" alt="image-20211011203250489"></p>
@@ -1248,7 +1238,7 @@
 <p>重启redis后，可以看到生成了对应文件</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014204931434.png" alt="image-20211014204931434"></p>
 <p>​    当AOF和RDB同时开启时，系统会默认取AOF的数据</p>
-<h4 id="11-2-4-异常恢复"><a href="#11-2-4-异常恢复" class="headerlink" title="11.2.4 异常恢复"></a>11.2.4 异常恢复</h4><p>​    如果AOF文件意外损坏，可以通过/usr/local/bin/redis-check-aof–fix appendonly.aof进行恢复</p>
+<h4 id="11-2-4-异常恢复"><a href="#11-2-4-异常恢复" class="headerlink" title="11.2.4 异常恢复"></a>11.2.4 异常恢复</h4><p>​    如果AOF文件意外损坏，可以通过/usr/local/bin/redis-check-aof—fix appendonly.aof进行恢复</p>
 <p>​    用vi命令打开appendonly.aof文件并在其后随便追加一个无用信息</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014205624208.png" alt="image-20211014205624208"></p>
 <p>​    重新启动redis后，启动客户端失败，因为无法正确读取AOF文件</p>
@@ -1264,7 +1254,7 @@
 <p>​    每秒同步，每秒计入日志一次，如果此时崩溃，可能会丢失本秒的数据</p>
 <p>（3）appendfsync no</p>
 <p>​    不主动同步，把同步时机交给操作系统</p>
-<p>![image-20211014210243169](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014210243169.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014210243169.png" alt="image-20211014210243169"></p>
 <h4 id="11-2-6-Rewrite压缩"><a href="#11-2-6-Rewrite压缩" class="headerlink" title="11.2.6 Rewrite压缩"></a>11.2.6 Rewrite压缩</h4><p>​    AOF采用文件追加方式,文件会越来越大为避免出现此种情况,新增了重写机制，当AOF文件的大小超过所设定的阈值时, Redis就会启动AOF文件的内容压缩，只保留可以恢复数据的最小指令集.可以使用命令bgrewriteaofs</p>
 <p>​    AOF文件持续增长而过大时，会fork出一条新进程来将文件重写( 也是先写临时文件最后再rename) ，redis4.0版本后的重写，就是把rdb的快照，以二进制的形式附在新的aof头部，作为已有的历史数据,替换掉原来的流水账操作。</p>
 <h4 id="11-2-7-优势"><a href="#11-2-7-优势" class="headerlink" title="11.2.7 优势"></a>11.2.7 优势</h4><p>（1）备份机制更稳健，丢失数据概率更低</p>
@@ -1294,7 +1284,7 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215050330.png" alt="image-20211014215050330"></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215130319.png" alt="image-20211014215130319"></p>
 <p>（4）启动三个服务</p>
-<p>![image-20211014215242074](/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014215242074.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211014215242074.png" alt="image-20211014215242074"></p>
 <p>（5）检查服务开启是否成功</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211014215318875.png" alt="image-20211014215318875"></p>
 <p>（6）开启三个终端，分别打开三个服务的客户端</p>
@@ -1379,13 +1369,13 @@
 <p>（4）将6个节点合成一个集群</p>
 <p>首先进入redis安装目录中的src目录下，此处我的redis安装在/opt下</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015161028810.png" alt="image-20211015161028810"></p>
-<p>使用redis-cli –cluster create –cluster-replicas 1 192.168.33.11:6379 192.168.33.11:6380 192.168.33.11:6381 192.168.33.11:6389 192.168.33.11:6390 192.168.33.11:6391</p>
-<p>–replicas 1表示采用最简单的方式配置集群，一台主机，一台从机，正好三组</p>
+<p>使用redis-cli —cluster create —cluster-replicas 1 192.168.33.11:6379 192.168.33.11:6380 192.168.33.11:6381 192.168.33.11:6389 192.168.33.11:6390 192.168.33.11:6391</p>
+<p>—replicas 1表示采用最简单的方式配置集群，一台主机，一台从机，正好三组</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015161639220.png" alt="image-20211015161639220"></p>
 <p>之后会询问是否接受这种分配方式，yes即可</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015162405747.png" alt="image-20211015162405747"></p>
-<p>如果出现一些问题，可以使用redis-cli –cluster fix 192.168.33.11:6379 这个命令来修复出问题的节点</p>
-<p>redis-cli –cluster check 192.168.33.11:6379可以检查节点出现了什么问题</p>
+<p>如果出现一些问题，可以使用redis-cli —cluster fix 192.168.33.11:6379 这个命令来修复出问题的节点</p>
+<p>redis-cli —cluster check 192.168.33.11:6379可以检查节点出现了什么问题</p>
 <p>（5）连接集群</p>
 <p>通过redis-cli -c -p 6379连接，-c表示采用集群策略连接，设置数据会自动切换到相应的主机，因为redis集群采用无中心连接方式，所以用任何一个节点进行连接都可以，即命令中的6379可以换成其他的端口号，如6380</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211015162800239.png" alt="image-20211015162800239"></p>
@@ -1446,7 +1436,6 @@
 <p>​    set lock uuid nx ex 10</p>
 <p>​    在释放锁时，首先判断uuid和要释放锁的uuid是否一样，如果一样正常释放，如果不一样无法释放</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String uuid = UUID.randomUUID().toString();</span><br><span class="line"></span><br><span class="line">String lockUuid  = (string)redisTemplate.opsForValue().get(<span class="string">"lock"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(lockUuid.equals(uuid))&#123;</span><br><span class="line">  redisTemplate.delete(<span class="string">"lock"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>​    在这种方式下，由于没有原子性，导致会出现一定的问题，如在a想要释放锁的时候，首先比较了uuid发现可以删除，但是还没有删除的时候，自动释放时间到了，导致锁自动释放，这时b获得锁，进行具体操作，此时a进行了释放操作，导致b得到的锁被释放</p>
 <p>​    可以使用lua脚本来实现</p>
 ]]></content>
@@ -1466,61 +1455,43 @@
 <p>3.支持多种语言</p>
 <p>官网 ： <a href="https://swagger.io/" target="_blank" rel="noopener">https://swagger.io/</a></p>
 <h2 id="二、Swagger2配置"><a href="#二、Swagger2配置" class="headerlink" title="二、Swagger2配置"></a>二、Swagger2配置</h2><h3 id="2-1-需要引入的依赖"><a href="#2-1-需要引入的依赖" class="headerlink" title="2.1 需要引入的依赖"></a>2.1 需要引入的依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--swagger2 依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- swagger2 ui依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>当然还可以引入其他作者编写的第三方UI界面</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--Swagger第三方UI依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.xiaoymin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>swagger-bootstrap-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.9.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="2-2-配置类注解"><a href="#2-2-配置类注解" class="headerlink" title="2.2 配置类注解"></a>2.2 配置类注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Swagger2Config</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="2-3-配置Docket实例"><a href="#2-3-配置Docket实例" class="headerlink" title="2.3 配置Docket实例"></a>2.3 配置Docket实例</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Docket  <span class="title">createRestApi</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="2-4配置swagger-apiInfo"><a href="#2-4配置swagger-apiInfo" class="headerlink" title="2.4配置swagger apiInfo"></a>2.4配置swagger apiInfo</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">            .title(<span class="string">"云E办接口文档"</span>)</span><br><span class="line">      			.description(<span class="string">"接口文档"</span>)</span><br><span class="line">            .contact(<span class="keyword">new</span> Contact(<span class="string">"sdh"</span>,</span><br><span class="line">                                 <span class="string">"https://xxxxxxx.github.io/"</span>,</span><br><span class="line">                                 <span class="string">"123456789@qq.com"</span>))</span><br><span class="line">            .version(<span class="string">"1.0"</span>)</span><br><span class="line">            .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>其中title是文档名称</p>
 <p>description是文档描述</p>
 <p>contact是作者信息</p>
 <p>version是版本</p>
 <h3 id="2-5-Swagger配置扫描接口"><a href="#2-5-Swagger配置扫描接口" class="headerlink" title="2.5 Swagger配置扫描接口"></a>2.5 Swagger配置扫描接口</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Docket  <span class="title">createRestApi</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">            .apiInfo(apiInfo())</span><br><span class="line">            .select()</span><br><span class="line">          	.apis(RequestHandlerSelectors.</span><br><span class="line">         		 			basePackage(<span class="string">"com.xxx.server.controller"</span>))</span><br><span class="line">            .paths(PathSelectors.any())</span><br><span class="line">            .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>其中apiInfo()传入我们刚刚写好的apiInfo,之后再.select开始配置扫描接口，此处采用了建造者模式，在.selcet后只有.apis、.paths、.build三个选项。</p>
 <h4 id="1-apis"><a href="#1-apis" class="headerlink" title="(1) .apis"></a>(1) .apis</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.apis(RequestHandlerSelectors.basePackage())</span><br></pre></td></tr></table></figure>
-
 <p>basePackage()表示基于包扫描，例如下面的例子</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.apis(RequestHandlerSelectors.basePackage(<span class="string">"com.sundaohan.server.controller"</span>))</span><br></pre></td></tr></table></figure>
-
 <p>any()表示搜索全部</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.apis(RequestHandlerSelectors.any())</span><br></pre></td></tr></table></figure>
-
 <p>none()表示都不扫描</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.apis(RequestHandlerSelectors.none())</span><br></pre></td></tr></table></figure>
-
 <p>withClassAnnatation()表示按类上的注解扫描，需要传入一个注解的反射对象</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.apis(RequestHandlerSelectors.withMethodAnnotation())</span><br></pre></td></tr></table></figure>
-
 <p>例如想扫描RestController注解修饰的类</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.apis(RequestHandlerSelectors.withMethodAnnotation(RestController<span class="class">.<span class="keyword">class</span>))</span></span><br></pre></td></tr></table></figure>
-
 <p>withMethodAnnotation()表示按方法上的注解扫描，需要传入一个注解的反射对象</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.apis(RequestHandlerSelectors.withMethodAnnotation())</span><br></pre></td></tr></table></figure>
-
 <p>例如想扫描GetMapping修饰的方法</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.apis(RequestHandlerSelectors.withMethodAnnotation(GetMapping<span class="class">.<span class="keyword">class</span>))</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="2-paths"><a href="#2-paths" class="headerlink" title="(2) .paths"></a>(2) .paths</h4><p>.paths()用来过滤路径，表示扫描什么路径下的内容</p>
 <p>.any()表示扫描全部路径下的内容</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.paths(PathSelectors.any())</span><br></pre></td></tr></table></figure>
-
 <p>.none()表示全都不扫描</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.paths(PathSelectors.none())</span><br></pre></td></tr></table></figure>
-
 <p>.ant()表示扫描带有指定路径的接口，如</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.paths(PathSelectors.ant(<span class="string">"/api/**"</span>))</span><br></pre></td></tr></table></figure>
-
 <p>表示只扫描请求以/api开头的接口，其他的不会扫描</p>
 <h4 id="3-enable"><a href="#3-enable" class="headerlink" title="(3).enable()"></a>(3).enable()</h4><p>控制swagger是否开启，需要传入一个布尔值作为参数，默认为true，即开启状态</p>
 <p>如果想要关闭，传入false即可</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">.enable(<span class="keyword">false</span>)</span><br></pre></td></tr></table></figure>
-
 <p>设置完成后，访问localhost:端口号/doc.html就可以看到接口文档界面了</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211002210147820.png" alt="image-20211002210147820"></p>
 ]]></content>
@@ -1535,17 +1506,9 @@
     <title>【go】跨平台编译</title>
     <url>/2021/09/30/%E3%80%90go%E3%80%91%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/</url>
     <content><![CDATA[<h1 id="跨平台编译"><a href="#跨平台编译" class="headerlink" title="跨平台编译"></a>跨平台编译</h1><h3 id="1-windows"><a href="#1-windows" class="headerlink" title="1.windows"></a>1.windows</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0  // 禁用CGO</span><br><span class="line">SET GOOS=linux  // 目标平台是linux</span><br><span class="line">SET GOARCH=amd64  // 目标处理器架构是amd64</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0</span><br><span class="line">SET GOOS=darwin//Mac</span><br><span class="line">SET GOARCH=amd64</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2.MAC"></a>2.MAC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build//Linux</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build//Windows</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="3-Linux"><a href="#3-Linux" class="headerlink" title="3.Linux"></a>3.Linux</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>【语言学习】</category>
@@ -1571,19 +1534,14 @@
 <p>​    </p>
 <h2 id="三、PoW的go语言实现"><a href="#三、PoW的go语言实现" class="headerlink" title="三、PoW的go语言实现"></a>三、PoW的go语言实现</h2><p>1.首先定义工作量证明对象</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> ProofOfWork <span class="keyword">struct</span> &#123;</span><br><span class="line">   Block  *Block   <span class="comment">//当前要验证的区块</span></span><br><span class="line">   target *big.Int <span class="comment">//大数存储</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>2.定义难度值</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">//256位hash里面至少有16个零</span></span><br><span class="line"><span class="keyword">const</span> targetBit = <span class="number">16</span></span><br></pre></td></tr></table></figure>
-
 <p>3.初始化工作量证明对象，计算出临界值target</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewProofOfWork</span><span class="params">(block *Block)</span> *<span class="title">ProofOfWork</span></span> &#123;</span><br><span class="line">   <span class="comment">//创建一个初始值为1的target</span></span><br><span class="line">   target := big.NewInt(<span class="number">1</span>)</span><br><span class="line">   <span class="comment">//左移256-targetBit</span></span><br><span class="line">   target = target.Lsh(target, <span class="number">256</span>-targetBit)</span><br><span class="line">   <span class="keyword">return</span> &amp;ProofOfWork&#123;</span><br><span class="line">      block,</span><br><span class="line">      target,</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>4.拼接Nounce值和区块头中的内容</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(proofOfWork *ProofOfWork)</span> <span class="title">prepareData</span><span class="params">(nonce <span class="keyword">int</span>)</span> []<span class="title">byte</span></span> &#123;</span><br><span class="line">   join := bytes.Join(</span><br><span class="line">      [][]<span class="keyword">byte</span>&#123;</span><br><span class="line">         proofOfWork.Block.PreBlockHash,<span class="comment">//前一个区块的hash</span></span><br><span class="line">         proofOfWork.Block.HashTransactions(),<span class="comment">//默克尔树根</span></span><br><span class="line">         Utils.IntToHex(proofOfWork.Block.TimeStamp),<span class="comment">//时间戳</span></span><br><span class="line">         Utils.IntToHex(<span class="keyword">int64</span>(targetBit)),<span class="comment">//难度值</span></span><br><span class="line">         Utils.IntToHex(<span class="keyword">int64</span>(nonce)),<span class="comment">//Nounce</span></span><br><span class="line">         Utils.IntToHex(<span class="keyword">int64</span>(proofOfWork.Block.Height)),<span class="comment">//区块高度</span></span><br><span class="line">      &#125;,</span><br><span class="line">      []<span class="keyword">byte</span>&#123;&#125;,</span><br><span class="line">   )</span><br><span class="line">   <span class="keyword">return</span> join</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>5.开始进行工作量证明计算</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(proofOfWork *ProofOfWork)</span> <span class="title">Run</span><span class="params">()</span> <span class="params">([]<span class="keyword">byte</span>, <span class="keyword">int64</span>)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">   nonce := <span class="number">0</span></span><br><span class="line">   <span class="keyword">var</span> hashInt big.Int <span class="comment">//存储我们新生成的hash</span></span><br><span class="line">   <span class="keyword">var</span> hash [<span class="number">32</span>]<span class="keyword">byte</span></span><br><span class="line">   <span class="keyword">for</span> &#123;</span><br><span class="line">      <span class="comment">// 将BLOCK属性拼接成字节数组</span></span><br><span class="line">      dataBytes := proofOfWork.prepareData(nonce)</span><br><span class="line">      <span class="comment">// 生成hash, sum256返回32位需要转换为64位</span></span><br><span class="line">      hash = sha256.Sum256(dataBytes)</span><br><span class="line">      <span class="comment">// 将hash存储到hashInt,采取hash[:]将切片转换为64位</span></span><br><span class="line">      hashInt.SetBytes(hash[:])</span><br><span class="line">      fmt.Printf(<span class="string">"\r%x"</span>, hash)</span><br><span class="line">      <span class="comment">// 判断hashInt是否小于Block里面的target</span></span><br><span class="line">      <span class="comment">// x &lt; y -1</span></span><br><span class="line">      <span class="comment">// x == y 0</span></span><br><span class="line">      <span class="comment">// x &gt; y 1</span></span><br><span class="line">      <span class="keyword">if</span> proofOfWork.target.Cmp(&amp;hashInt) == <span class="number">1</span> &#123;</span><br><span class="line">         <span class="comment">//判断有效性，如果满足条件，跳出循环</span></span><br><span class="line">         <span class="keyword">break</span></span><br><span class="line">      &#125;</span><br><span class="line">      nonce = nonce + <span class="number">1</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> hash[:], <span class="keyword">int64</span>(nonce)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>6.编写当需要验证Nounce值是否合法时的验证函数</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(proofOfWork *ProofOfWork)</span> <span class="title">IsValid</span><span class="params">()</span> <span class="title">bool</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> hashInt big.Int</span><br><span class="line">	hashInt.SetBytes(proofOfWork.Block.Hash)</span><br><span class="line">  <span class="comment">//判断提供的hash是否小于target</span></span><br><span class="line">	<span class="keyword">if</span> proofOfWork.target.Cmp(&amp;hashInt) == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -1596,167 +1554,174 @@
   <entry>
     <title>【go】基本数据类型</title>
     <url>/2021/07/10/%E3%80%90go%E3%80%91%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="一、整型"><a href="#一、整型" class="headerlink" title="一、整型"></a>一、整型</h2><table>
+    <content><![CDATA[<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="一、整型"><a href="#一、整型" class="headerlink" title="一、整型"></a>一、整型</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">类型</th>
-<th align="center">描述</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">uint8</td>
-<td align="center">无符号 8位整型 (0 到 255)</td>
+<tbody>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">无符号 8位整型 (0 到 255)</td>
 </tr>
 <tr>
-<td align="center">uint16</td>
-<td align="center">无符号 16位整型 (0 到 65535)</td>
+<td style="text-align:center">uint16</td>
+<td style="text-align:center">无符号 16位整型 (0 到 65535)</td>
 </tr>
 <tr>
-<td align="center">uint32</td>
-<td align="center">无符号 32位整型 (0 到 4294967295)</td>
+<td style="text-align:center">uint32</td>
+<td style="text-align:center">无符号 32位整型 (0 到 4294967295)</td>
 </tr>
 <tr>
-<td align="center">uint64</td>
-<td align="center">无符号 64位整型 (0 到 18446744073709551615)</td>
+<td style="text-align:center">uint64</td>
+<td style="text-align:center">无符号 64位整型 (0 到 18446744073709551615)</td>
 </tr>
 <tr>
-<td align="center">int8</td>
-<td align="center">有符号 8位整型 (-128 到 127)</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">有符号 8位整型 (-128 到 127)</td>
 </tr>
 <tr>
-<td align="center">int16</td>
-<td align="center">有符号 16位整型 (-32768 到 32767)</td>
+<td style="text-align:center">int16</td>
+<td style="text-align:center">有符号 16位整型 (-32768 到 32767)</td>
 </tr>
 <tr>
-<td align="center">int32</td>
-<td align="center">有符号 32位整型 (-2147483648 到 2147483647)</td>
+<td style="text-align:center">int32</td>
+<td style="text-align:center">有符号 32位整型 (-2147483648 到 2147483647)</td>
 </tr>
 <tr>
-<td align="center">int64</td>
-<td align="center">有符号 64位整型 (-9223372036854775808 到 9223372036854775807)</td>
+<td style="text-align:center">int64</td>
+<td style="text-align:center">有符号 64位整型 (-9223372036854775808 到 9223372036854775807)</td>
 </tr>
-</tbody></table>
-<h3 id="1-特殊整型"><a href="#1-特殊整型" class="headerlink" title="1.特殊整型"></a>1.特殊整型</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="1-特殊整型"><a href="#1-特殊整型" class="headerlink" title="1.特殊整型"></a>1.特殊整型</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">类型</th>
-<th align="center">描述</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">uint</td>
-<td align="center">32位操作系统上就是<code>uint32</code>，64位操作系统上就是<code>uint64</code></td>
+<tbody>
+<tr>
+<td style="text-align:center">uint</td>
+<td style="text-align:center">32位操作系统上就是<code>uint32</code>，64位操作系统上就是<code>uint64</code></td>
 </tr>
 <tr>
-<td align="center">int</td>
-<td align="center">32位操作系统上就是<code>int32</code>，64位操作系统上就是<code>int64</code></td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">32位操作系统上就是<code>int32</code>，64位操作系统上就是<code>int64</code></td>
 </tr>
 <tr>
-<td align="center">uintptr</td>
-<td align="center">无符号整型，用于存放一个指针</td>
+<td style="text-align:center">uintptr</td>
+<td style="text-align:center">无符号整型，用于存放一个指针</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="2-数字字面量语法"><a href="#2-数字字面量语法" class="headerlink" title="2.数字字面量语法"></a>2.数字字面量语法</h3><p>Go1.13版本之后引入了数字字面量语法，这样便于开发者以二进制、八进制或十六进制浮点数的格式定义数字，例如：<code>v := 0b00101101</code>， 代表二进制的 101101，相当于十进制的 45。 <code>v := 0o377</code>，代表八进制的 377，相当于十进制的 255。 <code>v := 0x1p-2</code>，代表十六进制的 1 除以 2²，也就是 0.25。</p>
 <p>而且还允许我们用 <code>_</code> 来分隔数字，比如说： <code>v := 123_456</code> 表示 v 的值等于 123456。</p>
 <p>我们可以借助fmt函数来将一个整数以不同进制形式展示。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">// 十进制</span></span><br><span class="line">	<span class="keyword">var</span> a <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line">	fmt.Printf(<span class="string">"%d \n"</span>, a)  <span class="comment">// 10</span></span><br><span class="line">	fmt.Printf(<span class="string">"%b \n"</span>, a)  <span class="comment">// 1010  占位符%b表示二进制</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 八进制  以0开头</span></span><br><span class="line">	<span class="keyword">var</span> b <span class="keyword">int</span> = <span class="number">077</span></span><br><span class="line">	fmt.Printf(<span class="string">"%o \n"</span>, b)  <span class="comment">// 77</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 十六进制  以0x开头</span></span><br><span class="line">	<span class="keyword">var</span> c <span class="keyword">int</span> = <span class="number">0xff</span></span><br><span class="line">	fmt.Printf(<span class="string">"%x \n"</span>, c)  <span class="comment">// ff</span></span><br><span class="line">	fmt.Printf(<span class="string">"%X \n"</span>, c)  <span class="comment">// FF</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="3-浮点型"><a href="#3-浮点型" class="headerlink" title="3.浮点型"></a>3.浮点型</h2><p>Go语言支持两种浮点型数：<code>float32</code>和<code>float64</code>。这两种浮点型数据格式遵循<code>IEEE 754</code>标准： <code>float32</code> 的浮点数的最大范围约为 <code>3.4e38</code>，可以使用常量定义：<code>math.MaxFloat32</code>。 <code>float64</code> 的浮点数的最大范围约为 <code>1.8e308</code>，可以使用一个常量定义：<code>math.MaxFloat64</code>。</p>
 <p>打印浮点数时，可以使用<code>fmt</code>包配合动词<code>%f</code>，代码如下：</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">        <span class="string">"fmt"</span></span><br><span class="line">        <span class="string">"math"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">        fmt.Printf(<span class="string">"%f\n"</span>, math.Pi)</span><br><span class="line">        fmt.Printf(<span class="string">"%.2f\n"</span>, math.Pi)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="4-复数"><a href="#4-复数" class="headerlink" title="4.复数"></a>4.复数</h3><p>复数有实部和虚部，complex64的实部和虚部为32位，complex128的实部和虚部为64位。</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c1 <span class="keyword">complex64</span></span><br><span class="line">c1 = <span class="number">1</span> + <span class="number">2i</span></span><br><span class="line"><span class="keyword">var</span> c2 <span class="keyword">complex128</span></span><br><span class="line">c2 = <span class="number">2</span> + <span class="number">3i</span></span><br><span class="line">fmt.Println(c1)</span><br><span class="line">fmt.Println(c2)</span><br></pre></td></tr></table></figure>
-
 <h3 id="5-布尔"><a href="#5-布尔" class="headerlink" title="5.布尔"></a>5.布尔</h3><p><code>bool</code>表示<code>true</code>或者<code>false</code>,默认为<code>false</code>,布尔型不能进行数值运算，也不能和其他类型转换，</p>
 <h3 id="6-字符串"><a href="#6-字符串" class="headerlink" title="6.字符串"></a>6.字符串</h3><p>字符串双引号包裹</p>
 <p>字符单引号包裹</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">s1 := <span class="string">"sdh"</span></span><br><span class="line">s2 := <span class="string">"孙道涵"</span></span><br><span class="line"><span class="comment">//1个字符’A‘ = 8Bit(8个二进制位)</span></span><br><span class="line"><span class="comment">//1个字符'A' = 1字节</span></span><br><span class="line"><span class="comment">//1个utf-8的汉字一般3个字节</span></span><br><span class="line">c1 := <span class="string">'s'</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="7-字符串转义符"><a href="#7-字符串转义符" class="headerlink" title="7.字符串转义符"></a>7.字符串转义符</h3><table>
+<h3 id="7-字符串转义符"><a href="#7-字符串转义符" class="headerlink" title="7.字符串转义符"></a>7.字符串转义符</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">转义符</th>
-<th align="center">含义</th>
+<th style="text-align:center">转义符</th>
+<th style="text-align:center">含义</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>\r</code></td>
-<td align="center">回车符（返回行首）</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>\r</code></td>
+<td style="text-align:center">回车符（返回行首）</td>
 </tr>
 <tr>
-<td align="center"><code>\n</code></td>
-<td align="center">换行符（直接跳到下一行的同列位置）</td>
+<td style="text-align:center"><code>\n</code></td>
+<td style="text-align:center">换行符（直接跳到下一行的同列位置）</td>
 </tr>
 <tr>
-<td align="center"><code>\t</code></td>
-<td align="center">制表符</td>
+<td style="text-align:center"><code>\t</code></td>
+<td style="text-align:center">制表符</td>
 </tr>
 <tr>
-<td align="center"><code>\&#39;</code></td>
-<td align="center">单引号</td>
+<td style="text-align:center"><code>\&#39;</code></td>
+<td style="text-align:center">单引号</td>
 </tr>
 <tr>
-<td align="center"><code>\&quot;</code></td>
-<td align="center">双引号</td>
+<td style="text-align:center"><code>\&quot;</code></td>
+<td style="text-align:center">双引号</td>
 </tr>
 <tr>
-<td align="center"><code>\\</code></td>
-<td align="center">反斜杠</td>
+<td style="text-align:center"><code>\\</code></td>
+<td style="text-align:center">反斜杠</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="8-多行字符串"><a href="#8-多行字符串" class="headerlink" title="8.多行字符串"></a>8.多行字符串</h3><p>使用反引号定义多行字符串，反引号包裹中的换行会作为字符串中的换行</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">s1 := <span class="string">`</span></span><br><span class="line"><span class="string">	知行合一</span></span><br><span class="line"><span class="string">	自强不息</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line">fmt.Println(s1)</span><br></pre></td></tr></table></figure>
-
-<h3 id="9-字符串常用操作"><a href="#9-字符串常用操作" class="headerlink" title="9.字符串常用操作"></a>9.字符串常用操作</h3><table>
+<h3 id="9-字符串常用操作"><a href="#9-字符串常用操作" class="headerlink" title="9.字符串常用操作"></a>9.字符串常用操作</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">方法</th>
-<th align="center">介绍</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">介绍</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">len(str)</td>
-<td align="center">求长度</td>
+<tbody>
+<tr>
+<td style="text-align:center">len(str)</td>
+<td style="text-align:center">求长度</td>
 </tr>
 <tr>
-<td align="center">+或fmt.Sprintf</td>
-<td align="center">拼接字符串</td>
+<td style="text-align:center">+或fmt.Sprintf</td>
+<td style="text-align:center">拼接字符串</td>
 </tr>
 <tr>
-<td align="center">strings.Split</td>
-<td align="center">分割</td>
+<td style="text-align:center">strings.Split</td>
+<td style="text-align:center">分割</td>
 </tr>
 <tr>
-<td align="center">strings.contains</td>
-<td align="center">判断是否包含</td>
+<td style="text-align:center">strings.contains</td>
+<td style="text-align:center">判断是否包含</td>
 </tr>
 <tr>
-<td align="center">strings.HasPrefix,strings.HasSuffix</td>
-<td align="center">前缀/后缀判断</td>
+<td style="text-align:center">strings.HasPrefix,strings.HasSuffix</td>
+<td style="text-align:center">前缀/后缀判断</td>
 </tr>
 <tr>
-<td align="center">strings.Index(),strings.LastIndex()</td>
-<td align="center">子串出现的位置</td>
+<td style="text-align:center">strings.Index(),strings.LastIndex()</td>
+<td style="text-align:center">子串出现的位置</td>
 </tr>
 <tr>
-<td align="center">strings.Join(a[]string, sep string)</td>
-<td align="center">join操作</td>
+<td style="text-align:center">strings.Join(a[]string, sep string)</td>
+<td style="text-align:center">join操作</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>TODO</p>
 <h3 id="10-字符类型"><a href="#10-字符类型" class="headerlink" title="10.字符类型"></a>10.字符类型</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'中'</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'x'</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="1-byte类型"><a href="#1-byte类型" class="headerlink" title="1.byte类型"></a>1.byte类型</h4><p>uint8<code>类型，或者叫 byte 型，代表了</code>ASCII码的一个字符。</p>
 <h4 id="2-rune类型"><a href="#2-rune类型" class="headerlink" title="2.rune类型"></a>2.rune类型</h4><p><code>rune</code>类型，代表一个 <code>UTF-8字符</code>。处理中文可以使用该类型，<code>rune</code>实际上是<code>int32</code></p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">c1 := <span class="string">'你'</span></span><br><span class="line">fmt.Printf(<span class="string">"c1 : %T\n"</span>, c1)<span class="comment">//int32</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="3-字符串更改"><a href="#3-字符串更改" class="headerlink" title="3.字符串更改"></a>3.字符串更改</h4><p>字符串是不能修改的，如果要修改，只能转换之后修改再赋值</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">s1 := <span class="string">"早上好"</span></span><br><span class="line">s2 := []<span class="keyword">rune</span>(s1)<span class="comment">//字符串s1强制转换为rune切片</span></span><br><span class="line">s2[<span class="number">0</span>] = <span class="string">'晚'</span></span><br><span class="line">fmt.Println(<span class="keyword">string</span>(s2))<span class="comment">//晚上好</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="11-类型转换"><a href="#11-类型转换" class="headerlink" title="11.类型转换"></a>11.类型转换</h3><p>Go中只有强制类型转换，没有隐式类型转换</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">n := <span class="number">10</span><span class="comment">//int</span></span><br><span class="line"><span class="keyword">var</span> f <span class="keyword">float64</span></span><br><span class="line">f = <span class="keyword">float64</span>(n)</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>【语言学习】</category>
@@ -1771,19 +1736,12 @@
     <content><![CDATA[<h1 id="fmt占位符"><a href="#fmt占位符" class="headerlink" title="fmt占位符"></a>fmt占位符</h1><p>格式化输出使用<code>fmt.Printf()</code>时，可以使用如<code>%s</code>的占位符</p>
 <p>占位符类型如下：</p>
 <h2 id="1-查看类型"><a href="#1-查看类型" class="headerlink" title="1.查看类型"></a>1.查看类型</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%T\n"</span>, n)</span><br></pre></td></tr></table></figure>
-
 <h3 id="2-查看变量值"><a href="#2-查看变量值" class="headerlink" title="2.查看变量值"></a>2.查看变量值</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%v\n"</span>, n)</span><br></pre></td></tr></table></figure>
-
 <h3 id="3-查看二进制"><a href="#3-查看二进制" class="headerlink" title="3.查看二进制"></a>3.查看二进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%b\n"</span>, n)</span><br></pre></td></tr></table></figure>
-
 <h3 id="4-查看八进制"><a href="#4-查看八进制" class="headerlink" title="4.查看八进制"></a>4.查看八进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%o\n"</span>, n)</span><br></pre></td></tr></table></figure>
-
 <h3 id="5-查看十进制"><a href="#5-查看十进制" class="headerlink" title="5.查看十进制"></a>5.查看十进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%d\n"</span>, n)</span><br></pre></td></tr></table></figure>
-
 <h3 id="6-查看十六进制"><a href="#6-查看十六进制" class="headerlink" title="6.查看十六进制"></a>6.查看十六进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%x\n"</span>, n)</span><br></pre></td></tr></table></figure>
-
 <h3 id="7-查看字符串"><a href="#7-查看字符串" class="headerlink" title="7.查看字符串"></a>7.查看字符串</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%s\n"</span>, n)</span><br></pre></td></tr></table></figure>
-
 <p>TODO</p>
 ]]></content>
       <categories>
@@ -1799,49 +1757,31 @@
     <content><![CDATA[<h1 id="变量和常量"><a href="#变量和常量" class="headerlink" title="变量和常量"></a>变量和常量</h1><h2 id="一-变量"><a href="#一-变量" class="headerlink" title="一.变量"></a>一.变量</h2><h3 id="1-声明声明"><a href="#1-声明声明" class="headerlink" title="1.声明声明"></a>1.声明声明</h3><p>声明格式：var 变量名 变量类型</p>
 <p>不需要写分号;</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 <span class="keyword">string</span> <span class="comment">//声明字符串变量s1；</span></span><br><span class="line"><span class="keyword">var</span> s2 <span class="keyword">int</span></span><br><span class="line"><span class="keyword">var</span> s3 <span class="keyword">bool</span></span><br><span class="line"><span class="keyword">var</span> s4 <span class="keyword">string</span> = <span class="string">"sdh"</span><span class="comment">//声明同时赋值</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="2-批量声明"><a href="#2-批量声明" class="headerlink" title="2.批量声明"></a>2.批量声明</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span>(</span><br><span class="line">  name <span class="keyword">string</span> <span class="comment">//""</span></span><br><span class="line">  age <span class="keyword">int</span> <span class="comment">// 0</span></span><br><span class="line">  isOk <span class="keyword">bool</span> <span class="comment">// false</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <h3 id="3-类型推导"><a href="#3-类型推导" class="headerlink" title="3.类型推导"></a>3.类型推导</h3><p>根据赋值自动判断什么类型</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="string">"sdh"</span><span class="comment">//根据"sdh"自动判断string类型</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="4-简短变量声明"><a href="#4-简短变量声明" class="headerlink" title="4.简短变量声明"></a>4.简短变量声明</h3><p>只能在函数里使用</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">s1 := <span class="string">"sdh"</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="5-匿名变量"><a href="#5-匿名变量" class="headerlink" title="5.匿名变量"></a>5.匿名变量</h3><p>​    使用多重赋值的时候，某个值不需要使用，可以用<code>_</code>忽略该变量值</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">a</span><span class="params">()</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">string</span>)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">10</span>,<span class="string">"abc"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  x, _ := a()</span><br><span class="line">  _, y := a()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="6-三种打印方法"><a href="#6-三种打印方法" class="headerlink" title="6.三种打印方法"></a>6.三种打印方法</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Print(name)<span class="comment">//打印</span></span><br><span class="line">fmt.Printf(<span class="string">"name = %s\n"</span>, name)<span class="comment">//格式化输出，%s占位符</span></span><br><span class="line">fmt.<span class="built_in">println</span>(name)<span class="comment">//打印完自动换行</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="7-注意事项"><a href="#7-注意事项" class="headerlink" title="7.注意事项"></a>7.注意事项</h3><p>定义的变量必须使用，否则报错；全局变量不使用也不会报错</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="comment">//全局变量，不使用也没报错</span></span><br><span class="line"><span class="keyword">var</span> name <span class="keyword">string</span></span><br><span class="line"><span class="keyword">var</span> age <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello world!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">//未使用 报错</span></span><br><span class="line">	<span class="keyword">var</span> name <span class="keyword">string</span></span><br><span class="line">	<span class="keyword">string</span> = <span class="string">"sdh"</span></span><br><span class="line">	fmt.Println(<span class="string">"Hello world!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="二、常量"><a href="#二、常量" class="headerlink" title="二、常量"></a>二、常量</h2><h3 id="1-声明常量"><a href="#1-声明常量" class="headerlink" title="1.声明常量"></a>1.声明常量</h3><p>常量定义之后不可更改</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> pi = <span class="number">3.1415</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="2-批量声明常量"><a href="#2-批量声明常量" class="headerlink" title="2.批量声明常量"></a>2.批量声明常量</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  n1 = <span class="number">100</span></span><br><span class="line">  n2 = <span class="number">200</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p>如果批量声明常量时，如果某一行声明没有赋值，默认同上</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  n1 = <span class="number">100</span></span><br><span class="line">  n2 <span class="comment">//默认和n1一样</span></span><br><span class="line">  n3</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <h3 id="3-iota"><a href="#3-iota" class="headerlink" title="3.iota"></a>3.iota</h3><p>iota是计数器，只能在常量表达式中使用</p>
 <p>iota在const关键字出现时会被重置为0，const中每新增一行常量声明会使iota计数一次。在定义枚举的时候很有用</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  a1 = <span class="literal">iota</span><span class="comment">//0</span></span><br><span class="line">  a2 <span class="comment">//1</span></span><br><span class="line">  a3 <span class="comment">//2</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  b1 = <span class="literal">iota</span><span class="comment">//0</span></span><br><span class="line">  b2 <span class="comment">//1</span></span><br><span class="line">  _</span><br><span class="line">  b3 <span class="comment">//3</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  a1 = <span class="literal">iota</span><span class="comment">//0</span></span><br><span class="line">  a2 = <span class="number">100</span></span><br><span class="line">  a3 = <span class="string">"abc"</span></span><br><span class="line">  a4 = <span class="literal">iota</span> <span class="comment">//3</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p>注意，iota新增一行变量才会+1，如果一行声明多个变量，也只会+1</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  d1, d2 = <span class="literal">iota</span> + <span class="number">1</span>, <span class="literal">iota</span> + <span class="number">2</span><span class="comment">// 1, 2</span></span><br><span class="line">  d3, d4 = <span class="literal">iota</span> + <span class="number">1</span>, <span class="literal">iota</span> + <span class="number">2</span><span class="comment">// 2, 3</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p>定义数量级</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  _ = <span class="literal">iota</span><span class="comment">//丢弃无意义0</span></span><br><span class="line">  KB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>) <span class="comment">//1024</span></span><br><span class="line">  MB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">  GB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">  TB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">  PB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>【语言学习】</category>
@@ -1854,17 +1794,9 @@
     <title>在MacOS系统下运行本地以太坊源码</title>
     <url>/2021/07/09/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/</url>
     <content><![CDATA[<h1 id="跨平台编译"><a href="#跨平台编译" class="headerlink" title="跨平台编译"></a>跨平台编译</h1><h3 id="1-windows"><a href="#1-windows" class="headerlink" title="1.windows"></a>1.windows</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0  // 禁用CGO</span><br><span class="line">SET GOOS=linux  // 目标平台是linux</span><br><span class="line">SET GOARCH=amd64  // 目标处理器架构是amd64</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0</span><br><span class="line">SET GOOS=darwin//Mac</span><br><span class="line">SET GOARCH=amd64</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2.MAC"></a>2.MAC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build//Linux</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build//Windows</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="3-Linux"><a href="#3-Linux" class="headerlink" title="3.Linux"></a>3.Linux</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>【语言学习】</category>
@@ -1890,7 +1822,7 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211427406.png" alt="image-20201224211427406"></p>
 <p>点击快速添加，点击SSH(22)，方便后续终端远程连接服务器</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211538351.png" alt="image-20201224211538351"></p>
-<p>4.打开终端，输入ssh <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a>(服务器的公网IP)</p>
+<p>4.打开终端，输入ssh root@xxx.xxx.xxx.xxx(服务器的公网IP)</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211659759.png" alt="image-20201224211659759"></p>
 <p>按要求输入密码，成功连接并控制云服务器</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211747538.png" alt="image-20201224211747538"></p>
@@ -1914,15 +1846,15 @@
 <p>cd MyEth</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212516579.png" alt="image-20201224212516579"></p>
 <p>3.使用命令创建第一个账户，输入命令后，按要求输入两次密码，即可得到该账户的公钥地址，牢记</p>
-<p>geth –datadir node1/data account new</p>
+<p>geth —datadir node1/data account new</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212710013.png" alt="image-20201224212710013"></p>
 <p>4.在自己的本地电脑上，创建一个文件夹，同样用来装节点信息，推荐和云服务器上的文件夹名字相同</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212825930.png" alt="image-20201224212825930"></p>
 <p>5.同样的方式，通过终端进入该文件夹，创建三个账户 node2,node3,node4</p>
 <p>cd MyEth</p>
-<p>geth –datadir node2/data account new</p>
-<p>geth –datadir node3/data account new</p>
-<p>geth –datadir node4/data account new</p>
+<p>geth —datadir node2/data account new</p>
+<p>geth —datadir node3/data account new</p>
+<p>geth —datadir node4/data account new</p>
 <p>同样，牢记公钥地址，配置创始区块时需要</p>
 <h1 id="五、配置创世区块"><a href="#五、配置创世区块" class="headerlink" title="五、配置创世区块"></a>五、配置创世区块</h1><p>以太坊的私链想要达成节点互连，有两个必要条件：</p>
 <p>1.创世区块配置文件相同</p>
@@ -1935,7 +1867,7 @@
 <p>选择2，配置新的创世区块，之后的选项1是创建新的创世区块，2是导入一个已经存在的配置，这里选择1</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224213752479.png" alt="image-20201224213752479"></p>
 <p>这里的选项是选择该链所用的共识机制，第一个是以太坊的公链共识机制PoW，显然不适合私链或者联盟链，所以这里选择2 Clique，该共识机制是基于PoA的，此处不详细解释</p>
-<p>![image-20201224213843219](/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224213843219.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224213843219.png" alt="image-20201224213843219"></p>
 <p>这里是出块时间，没有特殊需求默认就行（直接回车或者打上15再回车都行）</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224214006727.png" alt="image-20201224214006727"></p>
 <p>这里就比较重要了，是允许挖矿的账户，上一步我们创建了共四个账户，一个是在云服务器上的node1，和在本地的三个账户node2,node3,node4，我们可以选择一个或者多个当做挖矿节点，我这里选择了node3，填写完成以回车结束该选项</p>
@@ -1954,23 +1886,23 @@
 <p>我这里报了错误，还没弄明白是为什么，但是并不影响使用，搞定后直接ctrl+c退出puppeth</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224215537367.png" alt="image-20201224215537367"></p>
 <p>然后打开自己电脑的本地终端，输入以下命令将刚才已经导出的创世区块配置文件下载到本地电脑下的MyEth文件夹中</p>
-<p>scp <a href="mailto:root@8.131.78.39">root@8.131.78.39</a>:/root/MyEth/sdh.json /Users/sundaohan/MyEth</p>
+<p>scp root@8.131.78.39:/root/MyEth/sdh.json /Users/sundaohan/MyEth</p>
 <p>该命令的格式为</p>
-<p>scp <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a>(云服务器公网IP) :/xx/xx/xx.xx（远程目录） 『空格』 /xxx/xxx/xxx(目标目录)</p>
+<p>scp root@xxx.xxx.xxx.xxx(云服务器公网IP) :/xx/xx/xx.xx（远程目录） 『空格』 /xxx/xxx/xxx(目标目录)</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224215904212.png" alt="image-20201224215904212"></p>
-<p>![image-20201224215922977](/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224215922977.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224215922977.png" alt="image-20201224215922977"></p>
 <p>可以看到该文件已经下载成功了</p>
 <p>至此，创世区块配置的准备工作已经全部完成</p>
 <h1 id="六、初始化私有链"><a href="#六、初始化私有链" class="headerlink" title="六、初始化私有链"></a>六、初始化私有链</h1><p>回到云服务器终端上，在MyEth文件下，输入命令</p>
-<p>geth –datadir node1/data init sdh.json(创世区块配置文件名称)</p>
+<p>geth —datadir node1/data init sdh.json(创世区块配置文件名称)</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224220150933.png" alt="image-20201224220150933"></p>
 <p>在自己电脑的本地文件夹下，也运行同样的命令，记得把node1改成相应节点的名字</p>
-<p>geth –datadir node2/data init sdh.json </p>
-<p>geth –datadir node3/data init sdh.json </p>
-<p>geth –datadir node4/data init sdh.json</p>
+<p>geth —datadir node2/data init sdh.json </p>
+<p>geth —datadir node3/data init sdh.json </p>
+<p>geth —datadir node4/data init sdh.json</p>
 <p>全部运行成功后，四个节点的初始化就完成了</p>
 <h1 id="七、启动节点"><a href="#七、启动节点" class="headerlink" title="七、启动节点"></a>七、启动节点</h1><p>​    1.首先启动云服务器的节点，先切换到云服务器的MyEth文件夹下，运行如下命令</p>
-<p>geth –datadir node1/data –nodiscover –networkid 98512 –port 3000 console</p>
+<p>geth —datadir node1/data —nodiscover —networkid 98512 —port 3000 console</p>
 <p>其中</p>
 <p>datadir:指定数据库和keystore密钥的数据目录</p>
 <p>nodiscover(重要):禁止节点发现，只允许手动添加节点，如果不写这个我们的私链可能会被别人发现，但是写了这个选项会增强链的隐蔽性，只能手动添加</p>
@@ -1980,9 +1912,9 @@
 <p>命令输入成功后，node1就启动完毕了</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224234804316.png" alt="image-20201224234804316"></p>
 <p>2.切换回自己的电脑终端，开启多个终端窗口，分别启动node2、node3、node4，命令与刚才相似</p>
-<p>geth –datadir node2/data –networkid 98512 –port 3001 console</p>
-<p>geth –datadir node3/data –networkid 98512 –port 3002 console</p>
-<p>geth –datadir node4/data –networkid 98512 –port 3003 console</p>
+<p>geth —datadir node2/data —networkid 98512 —port 3001 console</p>
+<p>geth —datadir node3/data —networkid 98512 —port 3002 console</p>
+<p>geth —datadir node4/data —networkid 98512 —port 3003 console</p>
 <p>至此，节点已经全部启动</p>
 <h1 id="八、连接"><a href="#八、连接" class="headerlink" title="八、连接"></a>八、连接</h1><p>​    节点启动后，开始进行连接操作，连接使用的admin.addPeer(encode)命令，首先在四个已经启动的节点下输入如下命令查看每个节点的encode值</p>
 <p>admin.nodeInfo</p>
@@ -2026,9 +1958,9 @@
 <h2 id="以最重链取代最长链"><a href="#以最重链取代最长链" class="headerlink" title="以最重链取代最长链"></a>以最重链取代最长链</h2><p>​    在以太坊的Ghost协议中，孤块并非像比特币中直接被抛弃，而是认为孤块也有一定的价值，并给予挖出孤块的矿工一定的回报，并称其为”叔块“，这不仅减少了在更短出块时间下频繁产生分差的算力浪费问题，也为主链的安全作出贡献。</p>
 <p>​    与比特币不同，以太坊中的主链是最重链，而不是最长链，打包引用叔块的矿工也能够获得一定的报酬，同时也能够使主链更重，这激励了矿工去打包叔块。</p>
 <h2 id="叔块如何被引用"><a href="#叔块如何被引用" class="headerlink" title="叔块如何被引用"></a>叔块如何被引用</h2><p>​    相比于引用，我认为网络上所说的”招安“更加通俗和恰当，打包叔块可以理解为主链上的大区块来”招安“叔块，避免有些矿工在分叉后不愿意合并到主链，继续在自己的分叉上挖矿，希望能够赌运气下一次比大矿池挖得更快，这样就会不利于出现分叉后的快速合并。</p>
-<p>​    并非所有叔块和引用者都能得到奖励，在Ghost协议下，只有7代以内的叔块能够被招安并得到奖励，这样是为了避免有些矿工专门在之前的链上制造分叉，然后等待被招安获得奖励的情况。同时，距离主链代数越近的叔块，被招安得到的奖励也就越多，从1到7代分别为:7/8、6/8、5/8……1/8，其奖励也就 = 出块奖励 * 比例。引用者得到的奖励 = 出块奖励 + 1/32 * 出块奖励 * 打包的叔块数，每次打包的叔块数不能超过2个。</p>
+<p>​    并非所有叔块和引用者都能得到奖励，在Ghost协议下，只有7代以内的叔块能够被招安并得到奖励，这样是为了避免有些矿工专门在之前的链上制造分叉，然后等待被招安获得奖励的情况。同时，距离主链代数越近的叔块，被招安得到的奖励也就越多，从1到7代分别为:7/8、6/8、5/8……1/8，其奖励也就 = 出块奖励 <em> 比例。引用者得到的奖励 = 出块奖励 + 1/32 </em> 出块奖励 * 打包的叔块数，每次打包的叔块数不能超过2个。</p>
 <p>​    <img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/1446032-20180909110545259-1917568601.png" alt="1446032-20180909110545259-1917568601"></p>
-<p>​    如图所示，主链为1、2、3、4，其他的均为叔块，假设此时3已经出块，大矿池想要将叔块与主链快速合并，就要进行招安，它可以首先选择3-1、3-2两个叔块，那么他就要讲这两个叔块的Hash值写到即将要挖出来的4号区块中，如果4号区块成功被挖出，那大矿池能够得到的奖励 = 出块奖励 * 1/32  * 2 + 出块奖励，同时挖出这两个区块的矿工能够获得的奖励 = 出块奖励 * 7/8，当3-1、3-2两个叔块的矿工发现自己被招安，且获得奖励，那么他们将有很大概率不会继续挑战大矿池的算力而选择合并，由此实现了主链的快速合并。</p>
+<p>​    如图所示，主链为1、2、3、4，其他的均为叔块，假设此时3已经出块，大矿池想要将叔块与主链快速合并，就要进行招安，它可以首先选择3-1、3-2两个叔块，那么他就要讲这两个叔块的Hash值写到即将要挖出来的4号区块中，如果4号区块成功被挖出，那大矿池能够得到的奖励 = 出块奖励 <em> 1/32  </em> 2 + 出块奖励，同时挖出这两个区块的矿工能够获得的奖励 = 出块奖励 * 7/8，当3-1、3-2两个叔块的矿工发现自己被招安，且获得奖励，那么他们将有很大概率不会继续挑战大矿池的算力而选择合并，由此实现了主链的快速合并。</p>
 <p>​    在准备挖第五块区块时，可以继续选择招安3-3、3-4两个叔块，但是此时的奖励比例已经变成了6/8，一直到某个叔块已经超过7代，就不会获得奖励了。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/wanghui-garcia/p/9607356.html" target="_blank" rel="noopener">https://www.cnblogs.com/wanghui-garcia/p/9607356.html</a></p>
 <p><a href="https://blog.csdn.net/t46414704152abc/article/details/81191804" target="_blank" rel="noopener">https://blog.csdn.net/t46414704152abc/article/details/81191804</a></p>
@@ -2048,14 +1980,12 @@
 <li>编译器：goland 2020.2.2</li>
 <li>环境：Go 1.15.2</li>
 </ul>
-<br>
-
+<p><br></p>
 <h1 id="二、go-ethereum代码下载"><a href="#二、go-ethereum代码下载" class="headerlink" title="二、go-ethereum代码下载"></a>二、go-ethereum代码下载</h1><p>​    ethereum开源免费，可以前往<a href="https://github.com/ethereum/go-ethereum" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum</a>  下载源码</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143445539.png" alt="image-20200919143445539"></p>
 <p>点击右上角绿色的Code，再点击下方的Download ZIP即可将源代码下载至本地</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143552435.png" alt="image-20200919143552435"></p>
-<br>
-
+<p><br></p>
 <h1 id="三、项目结构"><a href="#三、项目结构" class="headerlink" title="三、项目结构"></a>三、项目结构</h1><p>​    该项目对目录结构有严格的要求，如果不按其预定的目录结构进行部署，将会有一系列的编译错误：</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919143750120.png" alt="image-20200919143750120"></p>
 <p>其正确的目录要求如下：</p>
@@ -2064,7 +1994,7 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144007994.png" alt="image-20200919144007994"></p>
 <p>2.然后进入src目录下创建github.com目录和golang.org目录</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144107511.png" alt="image-20200919144107511"></p>
-<ol start="3">
+<ol>
 <li><p>进入到github.com目录，创建ethereum目录</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919144157891.png" alt=""></p>
 </li>
@@ -2092,8 +2022,7 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145641821.png" alt="image-20200919145641821"></p>
 </li>
 </ol>
-   <br>
-
+<p>   <br></p>
 <h1 id="五、常见问题"><a href="#五、常见问题" class="headerlink" title="五、常见问题"></a>五、常见问题</h1><p><strong>1.依赖问题，这类问题是没有下载所需的依赖包</strong></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200919145730455.png" alt="image-20200919145730455"></p>
 <p>​    找到错误位置，并点击红色小灯泡 点击go get…………下载所需依赖即可，如下图这种常见的缺失的依赖包，此处已经下载完毕，所以没有报错</p>
@@ -2118,14 +2047,12 @@
 <li><p>操作系统：MacOS 10.15以上版本</p>
 </li>
 <li><p>使用工具：IDA v7.0</p>
-<br>
-
+<p><br></p>
 </li>
 </ul>
 <h1 id="二、IDA简介"><a href="#二、IDA简介" class="headerlink" title="二、IDA简介"></a>二、IDA简介</h1><p>​    IDA是IDA Pro的简称，是一款极为优秀的交互式汇编工具，也是目前最为优秀的静态反编译软件之一，具有强大的功能，但是操作十分复杂，功能众多。IDA具有交互式、可编程、可扩展、多处理器等特点，是最好的逆向工程利器之一。</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701180000231.png" alt="image-20200701180000231"></p>
-<br>
-
+<p><br></p>
 <h1 id="三、解决IDA在MacOS-10-15版本上无法运行的问题"><a href="#三、解决IDA在MacOS-10-15版本上无法运行的问题" class="headerlink" title="三、解决IDA在MacOS 10.15版本上无法运行的问题"></a>三、解决IDA在MacOS 10.15版本上无法运行的问题</h1><p>​    由于10.15版本以上的Mac系统指令集的问题，IDA无法直接安装，但是如果在10.4等低版本的Mac系统上安装后，提取在/Applications文件下的文件，在10.15上打开就可以正确运行，有以下两种方式可以做到：</p>
 <p>​    <strong>1.用vm虚拟机构建MacOS低版本环境，安装好IDA后，提取出来，在自己的电脑环境中运行。</strong></p>
 <p>​    <strong>2.将自己的电脑系统版本退回到低版本（极不推荐）。</strong></p>
@@ -2134,8 +2061,7 @@
 <p>​    <strong>链接:</strong> <strong><a href="https://pan.baidu.com/s/1ZBfbtQUOal3a5E0L9vOM5Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1ZBfbtQUOal3a5E0L9vOM5Q</a></strong>  </p>
 <p>​    <strong>密码: jrik</strong></p>
 <p>​    下载之后，解压，可正常使用。</p>
-<br>
-
+<p><br></p>
 <h1 id="四、解决IDA-has-almost-crashed问题"><a href="#四、解决IDA-has-almost-crashed问题" class="headerlink" title="四、解决IDA has almost crashed问题"></a>四、解决IDA has almost crashed问题</h1><p>​    在使用ida时，经常会出现如下问题</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200701181159903.png" alt="image-20200701181159903"></p>
 <p>​    这是由于多输入法造成的，只要在使用的时候，使用自带的默认英文状态，不使用其他输入法，就可以解决此类问题，成功启动</p>
@@ -2163,32 +2089,26 @@
     <url>/2020/06/30/%E6%B3%A8%E5%86%8C%E7%A0%81%E3%80%81%E6%B3%A8%E5%86%8C%E6%9C%BA%E5%A4%B1%E6%95%88%E6%97%B6%E7%94%A8%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3010-editor/</url>
     <content><![CDATA[<h1 id="一、操作环境"><a href="#一、操作环境" class="headerlink" title="一、操作环境"></a>一、操作环境</h1><p>​    操作系统：此操作全部基于Mac OS操作系统。</p>
 <p>​    软件版本：010 editor v7.0.2</p>
-<br>
-
+<p><br></p>
 <h1 id="二、010-editor"><a href="#二、010-editor" class="headerlink" title="二、010 editor"></a>二、010 editor</h1><p>​    010 editor是一款极其强大，甚至可以说是最优秀的文本/十六机制编辑器，同时兼容Mac OS、Windows、Linux等操作系统，支持模版和脚本操作，可以为二进制文件定义模版，如果以后再编辑相同类型文件，可以调用模版进行自动分析，功能丰富、简单易用。</p>
-<br>
-
+<p><br></p>
 <h1 id="三、注册码、注册机方式"><a href="#三、注册码、注册机方式" class="headerlink" title="三、注册码、注册机方式"></a>三、注册码、注册机方式</h1><p>​    010 editor早已经被破解，主要方式主要是注册码以及注册机两种，注册码方式如下：</p>
 <p>​    百度查找通用注册码，如下图</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630222452730.png" alt="image-20200630222452730"></p>
 <p>​    将其输入至下图所示的文本框中，即完成破解</p>
-<br>
-
+<p><br></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630223618224.png" alt="image-20200630223618224"></p>
-<br>
-
+<p><br></p>
 <p>注册机方式如下：</p>
 <p>​    下载如图所示的注册机，输入Name，就会得到相应的注册码</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20200630224813986.png" alt="image-20200630224813986">    将得到的内容，输入到对应的文本框，即可完成破解。</p>
-<br>
-
+<p><br></p>
 <h1 id="四、破解补丁方式"><a href="#四、破解补丁方式" class="headerlink" title="四、破解补丁方式"></a>四、破解补丁方式</h1><p>​    注册码、注册机方式进行破解后，很有可能会出现如图所示问题：</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/896827_F6NYZSAQ7SX54UB.png" alt="图片描述"></p>
 <p>为解决此问题，可以使用破解补丁方式，绕过网络审核，从而破解软件。</p>
 <p><strong>补丁下载链接：</strong></p>
 <p>链接: <a href="https://pan.baidu.com/s/1oCCmK0LMxwg-VMuC9ZEX2w" target="_blank" rel="noopener">https://pan.baidu.com/s/1oCCmK0LMxwg-VMuC9ZEX2w</a><br>密码: 3968</p>
-<br>
-
+<p><br></p>
 <p>将此补丁下载后，将其中的010 editor文件复制，找到你电脑应用中的010 editor,点击右键，选择显示包内容</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/896827_HTK79TDDM4V7BUY.png" alt="图片描述"></p>
 <p>然后找到MacOS文件夹</p>
@@ -2223,16 +2143,12 @@
     <url>/2020/06/29/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
   </entry>

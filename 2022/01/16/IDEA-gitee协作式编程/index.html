@@ -210,37 +210,30 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173636036.png" alt="image-20220116173636036"></p>
 <p>在终端上 进入这个文件夹，输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173721700.png" alt="image-20220116173721700"></p>
 <p>继续输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch README.md</span><br></pre></td></tr></table></figure>
-
 <p>创建一个README.md文件</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116173902095.png" alt="image-20220116173902095"></p>
 <p>输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-
 <p>将刚才更新的文件提交到本地缓冲区</p>
 <p>此时可以输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
 <p>查看是否成功</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174004343.png" alt="image-20220116174004343"></p>
 <p>如图所示，有一行绿色的new file，证明成功了</p>
 <p>接着输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m 'fisrt test'</span><br></pre></td></tr></table></figure>
-
 <p>将修改提交到当前的本地库中</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174314336.png" alt="image-20220116174314336"></p>
 <p>之后输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://gitee.com/BananaAres/test.git</span><br></pre></td></tr></table></figure>
-
 <p>绑定远程仓库，那串链接实际上就是下图所示的链接</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174651267.png" alt="image-20220116174651267"></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174719454.png" alt="image-20220116174719454"></p>
 <p>再输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin "master"</span><br></pre></td></tr></table></figure>
-
 <p>推送到远程仓库</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116174931069.png" alt="image-20220116174931069"></p>
 <p>此时已经成功了，可以去gitee查看一下</p>
@@ -277,66 +270,48 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180717946.png" alt="image-20220116180717946"></p>
 <p>进行clone</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/BananaAres/test.git</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180804760.png" alt="image-20220116180804760"></p>
 <p>可以看到，已经clone下来了</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180827163.png" alt="image-20220116180827163"></p>
 <p>之后进入项目文件夹</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd test</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116180917450.png" alt="image-20220116180917450"></p>
 <p>由于现在还没有develop分支，我们可以预先创建一个，后续的开发者可以在这个分支上进行合作编码</p>
 <p>先创建一个develop分支</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch develop</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181248083.png" alt="image-20220116181248083"></p>
 <p>然后进入分支</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop</span><br></pre></td></tr></table></figure>
-
 <p>此时如果直接push，会提示</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181421400.png" alt="image-20220116181421400"></p>
 <p>我们按照提示，输入命令之后再push</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --set-upstream origin develop</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181518011.png" alt="image-20220116181518011"></p>
 <p>此时到gitee查看是否添加分支成功</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181553813.png" alt="image-20220116181553813"></p>
 <p>可以看到，此时分支添加成功了</p>
 <p>​    现在我们已经在develop分支中了，我们可以根据我们需要开发的功能，再创建一个分支，并在该分支上工作，比如要开发一个登陆功能，可以再创建一个feature-login分支</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch feature-login</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181724225.png" alt="image-20220116181724225"></p>
 <p>切换到该分支中</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout feature-login</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181801533.png" alt="image-20220116181801533"></p>
 <p>此时我们可以进行开发，这里就创建一个新文件代替开发</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181848835.png" alt="image-20220116181848835"></p>
 <p>开发好后，我们将修改加入本地缓冲区</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116181933718.png" alt="image-20220116181933718"></p>
 <p>之后将其提交到本地库，-m后的可以随便写，不是定死的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#39;sdh-login&#39;</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182014610.png" alt="image-20220116182014610"></p>
 <p>之后我们切换到develop分支后，将feature-login分支合并到develop分支中</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop</span><br><span class="line">git merge feature-login</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182233713.png" alt="image-20220116182233713"></p>
 <p>此时feature-login分支已经没用了，将其删除，防止分支太多导致冗余</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d feature-login</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182401617.png" alt="image-20220116182401617"></p>
 <p>然后push即可</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182429757.png" alt="image-20220116182429757"></p>
 <p>此时前往gitee查看，发现master分支内容没有改变</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220116182505924.png" alt="image-20220116182505924"></p>

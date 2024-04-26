@@ -213,7 +213,7 @@
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211427406.png" alt="image-20201224211427406"></p>
 <p>点击快速添加，点击SSH(22)，方便后续终端远程连接服务器</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211538351.png" alt="image-20201224211538351"></p>
-<p>4.打开终端，输入ssh <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a>(服务器的公网IP)</p>
+<p>4.打开终端，输入ssh root@xxx.xxx.xxx.xxx(服务器的公网IP)</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211659759.png" alt="image-20201224211659759"></p>
 <p>按要求输入密码，成功连接并控制云服务器</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224211747538.png" alt="image-20201224211747538"></p>
@@ -237,15 +237,15 @@
 <p>cd MyEth</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212516579.png" alt="image-20201224212516579"></p>
 <p>3.使用命令创建第一个账户，输入命令后，按要求输入两次密码，即可得到该账户的公钥地址，牢记</p>
-<p>geth –datadir node1/data account new</p>
+<p>geth —datadir node1/data account new</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212710013.png" alt="image-20201224212710013"></p>
 <p>4.在自己的本地电脑上，创建一个文件夹，同样用来装节点信息，推荐和云服务器上的文件夹名字相同</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224212825930.png" alt="image-20201224212825930"></p>
 <p>5.同样的方式，通过终端进入该文件夹，创建三个账户 node2,node3,node4</p>
 <p>cd MyEth</p>
-<p>geth –datadir node2/data account new</p>
-<p>geth –datadir node3/data account new</p>
-<p>geth –datadir node4/data account new</p>
+<p>geth —datadir node2/data account new</p>
+<p>geth —datadir node3/data account new</p>
+<p>geth —datadir node4/data account new</p>
 <p>同样，牢记公钥地址，配置创始区块时需要</p>
 <h1 id="五、配置创世区块"><a href="#五、配置创世区块" class="headerlink" title="五、配置创世区块"></a>五、配置创世区块</h1><p>以太坊的私链想要达成节点互连，有两个必要条件：</p>
 <p>1.创世区块配置文件相同</p>
@@ -258,7 +258,7 @@
 <p>选择2，配置新的创世区块，之后的选项1是创建新的创世区块，2是导入一个已经存在的配置，这里选择1</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224213752479.png" alt="image-20201224213752479"></p>
 <p>这里的选项是选择该链所用的共识机制，第一个是以太坊的公链共识机制PoW，显然不适合私链或者联盟链，所以这里选择2 Clique，该共识机制是基于PoA的，此处不详细解释</p>
-<p>![image-20201224213843219](/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224213843219.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224213843219.png" alt="image-20201224213843219"></p>
 <p>这里是出块时间，没有特殊需求默认就行（直接回车或者打上15再回车都行）</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224214006727.png" alt="image-20201224214006727"></p>
 <p>这里就比较重要了，是允许挖矿的账户，上一步我们创建了共四个账户，一个是在云服务器上的node1，和在本地的三个账户node2,node3,node4，我们可以选择一个或者多个当做挖矿节点，我这里选择了node3，填写完成以回车结束该选项</p>
@@ -277,23 +277,23 @@
 <p>我这里报了错误，还没弄明白是为什么，但是并不影响使用，搞定后直接ctrl+c退出puppeth</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224215537367.png" alt="image-20201224215537367"></p>
 <p>然后打开自己电脑的本地终端，输入以下命令将刚才已经导出的创世区块配置文件下载到本地电脑下的MyEth文件夹中</p>
-<p>scp <a href="mailto:root@8.131.78.39">root@8.131.78.39</a>:/root/MyEth/sdh.json /Users/sundaohan/MyEth</p>
+<p>scp root@8.131.78.39:/root/MyEth/sdh.json /Users/sundaohan/MyEth</p>
 <p>该命令的格式为</p>
-<p>scp <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a>(云服务器公网IP) :/xx/xx/xx.xx（远程目录） 『空格』 /xxx/xxx/xxx(目标目录)</p>
+<p>scp root@xxx.xxx.xxx.xxx(云服务器公网IP) :/xx/xx/xx.xx（远程目录） 『空格』 /xxx/xxx/xxx(目标目录)</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224215904212.png" alt="image-20201224215904212"></p>
-<p>![image-20201224215922977](/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224215922977.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20201224215922977.png" alt="image-20201224215922977"></p>
 <p>可以看到该文件已经下载成功了</p>
 <p>至此，创世区块配置的准备工作已经全部完成</p>
 <h1 id="六、初始化私有链"><a href="#六、初始化私有链" class="headerlink" title="六、初始化私有链"></a>六、初始化私有链</h1><p>回到云服务器终端上，在MyEth文件下，输入命令</p>
-<p>geth –datadir node1/data init sdh.json(创世区块配置文件名称)</p>
+<p>geth —datadir node1/data init sdh.json(创世区块配置文件名称)</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224220150933.png" alt="image-20201224220150933"></p>
 <p>在自己电脑的本地文件夹下，也运行同样的命令，记得把node1改成相应节点的名字</p>
-<p>geth –datadir node2/data init sdh.json </p>
-<p>geth –datadir node3/data init sdh.json </p>
-<p>geth –datadir node4/data init sdh.json</p>
+<p>geth —datadir node2/data init sdh.json </p>
+<p>geth —datadir node3/data init sdh.json </p>
+<p>geth —datadir node4/data init sdh.json</p>
 <p>全部运行成功后，四个节点的初始化就完成了</p>
 <h1 id="七、启动节点"><a href="#七、启动节点" class="headerlink" title="七、启动节点"></a>七、启动节点</h1><p>​    1.首先启动云服务器的节点，先切换到云服务器的MyEth文件夹下，运行如下命令</p>
-<p>geth –datadir node1/data –nodiscover –networkid 98512 –port 3000 console</p>
+<p>geth —datadir node1/data —nodiscover —networkid 98512 —port 3000 console</p>
 <p>其中</p>
 <p>datadir:指定数据库和keystore密钥的数据目录</p>
 <p>nodiscover(重要):禁止节点发现，只允许手动添加节点，如果不写这个我们的私链可能会被别人发现，但是写了这个选项会增强链的隐蔽性，只能手动添加</p>
@@ -303,9 +303,9 @@
 <p>命令输入成功后，node1就启动完毕了</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20201224234804316.png" alt="image-20201224234804316"></p>
 <p>2.切换回自己的电脑终端，开启多个终端窗口，分别启动node2、node3、node4，命令与刚才相似</p>
-<p>geth –datadir node2/data –networkid 98512 –port 3001 console</p>
-<p>geth –datadir node3/data –networkid 98512 –port 3002 console</p>
-<p>geth –datadir node4/data –networkid 98512 –port 3003 console</p>
+<p>geth —datadir node2/data —networkid 98512 —port 3001 console</p>
+<p>geth —datadir node3/data —networkid 98512 —port 3002 console</p>
+<p>geth —datadir node4/data —networkid 98512 —port 3003 console</p>
 <p>至此，节点已经全部启动</p>
 <h1 id="八、连接"><a href="#八、连接" class="headerlink" title="八、连接"></a>八、连接</h1><p>​    节点启动后，开始进行连接操作，连接使用的admin.addPeer(encode)命令，首先在四个已经启动的节点下输入如下命令查看每个节点的encode值</p>
 <p>admin.nodeInfo</p>

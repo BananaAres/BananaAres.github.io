@@ -199,167 +199,174 @@
         </header>
 
         <div class="post-content">
-            <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="一、整型"><a href="#一、整型" class="headerlink" title="一、整型"></a>一、整型</h2><table>
+            <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="一、整型"><a href="#一、整型" class="headerlink" title="一、整型"></a>一、整型</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">类型</th>
-<th align="center">描述</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">uint8</td>
-<td align="center">无符号 8位整型 (0 到 255)</td>
+<tbody>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">无符号 8位整型 (0 到 255)</td>
 </tr>
 <tr>
-<td align="center">uint16</td>
-<td align="center">无符号 16位整型 (0 到 65535)</td>
+<td style="text-align:center">uint16</td>
+<td style="text-align:center">无符号 16位整型 (0 到 65535)</td>
 </tr>
 <tr>
-<td align="center">uint32</td>
-<td align="center">无符号 32位整型 (0 到 4294967295)</td>
+<td style="text-align:center">uint32</td>
+<td style="text-align:center">无符号 32位整型 (0 到 4294967295)</td>
 </tr>
 <tr>
-<td align="center">uint64</td>
-<td align="center">无符号 64位整型 (0 到 18446744073709551615)</td>
+<td style="text-align:center">uint64</td>
+<td style="text-align:center">无符号 64位整型 (0 到 18446744073709551615)</td>
 </tr>
 <tr>
-<td align="center">int8</td>
-<td align="center">有符号 8位整型 (-128 到 127)</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">有符号 8位整型 (-128 到 127)</td>
 </tr>
 <tr>
-<td align="center">int16</td>
-<td align="center">有符号 16位整型 (-32768 到 32767)</td>
+<td style="text-align:center">int16</td>
+<td style="text-align:center">有符号 16位整型 (-32768 到 32767)</td>
 </tr>
 <tr>
-<td align="center">int32</td>
-<td align="center">有符号 32位整型 (-2147483648 到 2147483647)</td>
+<td style="text-align:center">int32</td>
+<td style="text-align:center">有符号 32位整型 (-2147483648 到 2147483647)</td>
 </tr>
 <tr>
-<td align="center">int64</td>
-<td align="center">有符号 64位整型 (-9223372036854775808 到 9223372036854775807)</td>
+<td style="text-align:center">int64</td>
+<td style="text-align:center">有符号 64位整型 (-9223372036854775808 到 9223372036854775807)</td>
 </tr>
-</tbody></table>
-<h3 id="1-特殊整型"><a href="#1-特殊整型" class="headerlink" title="1.特殊整型"></a>1.特殊整型</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="1-特殊整型"><a href="#1-特殊整型" class="headerlink" title="1.特殊整型"></a>1.特殊整型</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">类型</th>
-<th align="center">描述</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">uint</td>
-<td align="center">32位操作系统上就是<code>uint32</code>，64位操作系统上就是<code>uint64</code></td>
+<tbody>
+<tr>
+<td style="text-align:center">uint</td>
+<td style="text-align:center">32位操作系统上就是<code>uint32</code>，64位操作系统上就是<code>uint64</code></td>
 </tr>
 <tr>
-<td align="center">int</td>
-<td align="center">32位操作系统上就是<code>int32</code>，64位操作系统上就是<code>int64</code></td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">32位操作系统上就是<code>int32</code>，64位操作系统上就是<code>int64</code></td>
 </tr>
 <tr>
-<td align="center">uintptr</td>
-<td align="center">无符号整型，用于存放一个指针</td>
+<td style="text-align:center">uintptr</td>
+<td style="text-align:center">无符号整型，用于存放一个指针</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="2-数字字面量语法"><a href="#2-数字字面量语法" class="headerlink" title="2.数字字面量语法"></a>2.数字字面量语法</h3><p>Go1.13版本之后引入了数字字面量语法，这样便于开发者以二进制、八进制或十六进制浮点数的格式定义数字，例如：<code>v := 0b00101101</code>， 代表二进制的 101101，相当于十进制的 45。 <code>v := 0o377</code>，代表八进制的 377，相当于十进制的 255。 <code>v := 0x1p-2</code>，代表十六进制的 1 除以 2²，也就是 0.25。</p>
 <p>而且还允许我们用 <code>_</code> 来分隔数字，比如说： <code>v := 123_456</code> 表示 v 的值等于 123456。</p>
 <p>我们可以借助fmt函数来将一个整数以不同进制形式展示。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">// 十进制</span></span><br><span class="line">	<span class="keyword">var</span> a <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line">	fmt.Printf(<span class="string">"%d \n"</span>, a)  <span class="comment">// 10</span></span><br><span class="line">	fmt.Printf(<span class="string">"%b \n"</span>, a)  <span class="comment">// 1010  占位符%b表示二进制</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 八进制  以0开头</span></span><br><span class="line">	<span class="keyword">var</span> b <span class="keyword">int</span> = <span class="number">077</span></span><br><span class="line">	fmt.Printf(<span class="string">"%o \n"</span>, b)  <span class="comment">// 77</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 十六进制  以0x开头</span></span><br><span class="line">	<span class="keyword">var</span> c <span class="keyword">int</span> = <span class="number">0xff</span></span><br><span class="line">	fmt.Printf(<span class="string">"%x \n"</span>, c)  <span class="comment">// ff</span></span><br><span class="line">	fmt.Printf(<span class="string">"%X \n"</span>, c)  <span class="comment">// FF</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="3-浮点型"><a href="#3-浮点型" class="headerlink" title="3.浮点型"></a>3.浮点型</h2><p>Go语言支持两种浮点型数：<code>float32</code>和<code>float64</code>。这两种浮点型数据格式遵循<code>IEEE 754</code>标准： <code>float32</code> 的浮点数的最大范围约为 <code>3.4e38</code>，可以使用常量定义：<code>math.MaxFloat32</code>。 <code>float64</code> 的浮点数的最大范围约为 <code>1.8e308</code>，可以使用一个常量定义：<code>math.MaxFloat64</code>。</p>
 <p>打印浮点数时，可以使用<code>fmt</code>包配合动词<code>%f</code>，代码如下：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">        <span class="string">"fmt"</span></span><br><span class="line">        <span class="string">"math"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">        fmt.Printf(<span class="string">"%f\n"</span>, math.Pi)</span><br><span class="line">        fmt.Printf(<span class="string">"%.2f\n"</span>, math.Pi)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="4-复数"><a href="#4-复数" class="headerlink" title="4.复数"></a>4.复数</h3><p>复数有实部和虚部，complex64的实部和虚部为32位，complex128的实部和虚部为64位。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c1 <span class="keyword">complex64</span></span><br><span class="line">c1 = <span class="number">1</span> + <span class="number">2i</span></span><br><span class="line"><span class="keyword">var</span> c2 <span class="keyword">complex128</span></span><br><span class="line">c2 = <span class="number">2</span> + <span class="number">3i</span></span><br><span class="line">fmt.Println(c1)</span><br><span class="line">fmt.Println(c2)</span><br></pre></td></tr></table></figure>
-
 <h3 id="5-布尔"><a href="#5-布尔" class="headerlink" title="5.布尔"></a>5.布尔</h3><p><code>bool</code>表示<code>true</code>或者<code>false</code>,默认为<code>false</code>,布尔型不能进行数值运算，也不能和其他类型转换，</p>
 <h3 id="6-字符串"><a href="#6-字符串" class="headerlink" title="6.字符串"></a>6.字符串</h3><p>字符串双引号包裹</p>
 <p>字符单引号包裹</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s1 := <span class="string">"sdh"</span></span><br><span class="line">s2 := <span class="string">"孙道涵"</span></span><br><span class="line"><span class="comment">//1个字符’A‘ = 8Bit(8个二进制位)</span></span><br><span class="line"><span class="comment">//1个字符'A' = 1字节</span></span><br><span class="line"><span class="comment">//1个utf-8的汉字一般3个字节</span></span><br><span class="line">c1 := <span class="string">'s'</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="7-字符串转义符"><a href="#7-字符串转义符" class="headerlink" title="7.字符串转义符"></a>7.字符串转义符</h3><table>
+<h3 id="7-字符串转义符"><a href="#7-字符串转义符" class="headerlink" title="7.字符串转义符"></a>7.字符串转义符</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">转义符</th>
-<th align="center">含义</th>
+<th style="text-align:center">转义符</th>
+<th style="text-align:center">含义</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>\r</code></td>
-<td align="center">回车符（返回行首）</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>\r</code></td>
+<td style="text-align:center">回车符（返回行首）</td>
 </tr>
 <tr>
-<td align="center"><code>\n</code></td>
-<td align="center">换行符（直接跳到下一行的同列位置）</td>
+<td style="text-align:center"><code>\n</code></td>
+<td style="text-align:center">换行符（直接跳到下一行的同列位置）</td>
 </tr>
 <tr>
-<td align="center"><code>\t</code></td>
-<td align="center">制表符</td>
+<td style="text-align:center"><code>\t</code></td>
+<td style="text-align:center">制表符</td>
 </tr>
 <tr>
-<td align="center"><code>\&#39;</code></td>
-<td align="center">单引号</td>
+<td style="text-align:center"><code>\&#39;</code></td>
+<td style="text-align:center">单引号</td>
 </tr>
 <tr>
-<td align="center"><code>\&quot;</code></td>
-<td align="center">双引号</td>
+<td style="text-align:center"><code>\&quot;</code></td>
+<td style="text-align:center">双引号</td>
 </tr>
 <tr>
-<td align="center"><code>\\</code></td>
-<td align="center">反斜杠</td>
+<td style="text-align:center"><code>\\</code></td>
+<td style="text-align:center">反斜杠</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="8-多行字符串"><a href="#8-多行字符串" class="headerlink" title="8.多行字符串"></a>8.多行字符串</h3><p>使用反引号定义多行字符串，反引号包裹中的换行会作为字符串中的换行</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s1 := <span class="string">`</span></span><br><span class="line"><span class="string">	知行合一</span></span><br><span class="line"><span class="string">	自强不息</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line">fmt.Println(s1)</span><br></pre></td></tr></table></figure>
-
-<h3 id="9-字符串常用操作"><a href="#9-字符串常用操作" class="headerlink" title="9.字符串常用操作"></a>9.字符串常用操作</h3><table>
+<h3 id="9-字符串常用操作"><a href="#9-字符串常用操作" class="headerlink" title="9.字符串常用操作"></a>9.字符串常用操作</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">方法</th>
-<th align="center">介绍</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">介绍</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">len(str)</td>
-<td align="center">求长度</td>
+<tbody>
+<tr>
+<td style="text-align:center">len(str)</td>
+<td style="text-align:center">求长度</td>
 </tr>
 <tr>
-<td align="center">+或fmt.Sprintf</td>
-<td align="center">拼接字符串</td>
+<td style="text-align:center">+或fmt.Sprintf</td>
+<td style="text-align:center">拼接字符串</td>
 </tr>
 <tr>
-<td align="center">strings.Split</td>
-<td align="center">分割</td>
+<td style="text-align:center">strings.Split</td>
+<td style="text-align:center">分割</td>
 </tr>
 <tr>
-<td align="center">strings.contains</td>
-<td align="center">判断是否包含</td>
+<td style="text-align:center">strings.contains</td>
+<td style="text-align:center">判断是否包含</td>
 </tr>
 <tr>
-<td align="center">strings.HasPrefix,strings.HasSuffix</td>
-<td align="center">前缀/后缀判断</td>
+<td style="text-align:center">strings.HasPrefix,strings.HasSuffix</td>
+<td style="text-align:center">前缀/后缀判断</td>
 </tr>
 <tr>
-<td align="center">strings.Index(),strings.LastIndex()</td>
-<td align="center">子串出现的位置</td>
+<td style="text-align:center">strings.Index(),strings.LastIndex()</td>
+<td style="text-align:center">子串出现的位置</td>
 </tr>
 <tr>
-<td align="center">strings.Join(a[]string, sep string)</td>
-<td align="center">join操作</td>
+<td style="text-align:center">strings.Join(a[]string, sep string)</td>
+<td style="text-align:center">join操作</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>TODO</p>
 <h3 id="10-字符类型"><a href="#10-字符类型" class="headerlink" title="10.字符类型"></a>10.字符类型</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'中'</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'x'</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="1-byte类型"><a href="#1-byte类型" class="headerlink" title="1.byte类型"></a>1.byte类型</h4><p>uint8<code>类型，或者叫 byte 型，代表了</code>ASCII码的一个字符。</p>
 <h4 id="2-rune类型"><a href="#2-rune类型" class="headerlink" title="2.rune类型"></a>2.rune类型</h4><p><code>rune</code>类型，代表一个 <code>UTF-8字符</code>。处理中文可以使用该类型，<code>rune</code>实际上是<code>int32</code></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c1 := <span class="string">'你'</span></span><br><span class="line">fmt.Printf(<span class="string">"c1 : %T\n"</span>, c1)<span class="comment">//int32</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="3-字符串更改"><a href="#3-字符串更改" class="headerlink" title="3.字符串更改"></a>3.字符串更改</h4><p>字符串是不能修改的，如果要修改，只能转换之后修改再赋值</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 := <span class="string">"早上好"</span></span><br><span class="line">s2 := []<span class="keyword">rune</span>(s1)<span class="comment">//字符串s1强制转换为rune切片</span></span><br><span class="line">s2[<span class="number">0</span>] = <span class="string">'晚'</span></span><br><span class="line">fmt.Println(<span class="keyword">string</span>(s2))<span class="comment">//晚上好</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="11-类型转换"><a href="#11-类型转换" class="headerlink" title="11.类型转换"></a>11.类型转换</h3><p>Go中只有强制类型转换，没有隐式类型转换</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n := <span class="number">10</span><span class="comment">//int</span></span><br><span class="line"><span class="keyword">var</span> f <span class="keyword">float64</span></span><br><span class="line">f = <span class="keyword">float64</span>(n)</span><br></pre></td></tr></table></figure>
-
 
         </div>
 

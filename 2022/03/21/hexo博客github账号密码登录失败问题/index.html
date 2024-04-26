@@ -200,7 +200,7 @@
 
         <div class="post-content">
             <h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p>​    博客写好想要推送到github上时，运行hexo d发现出错</p>
-<p>![image-20220321214258930](/Users/sundaohan/Library/Application Support/typora-user-images/image-20220321214258930.png)</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20220321214258930.png" alt="image-20220321214258930"></p>
 <p>根据网上很多方式进行修改，无法解决，最后发现是github账号密码错误，现在github登录时不能使用密码，而是使用token，具体解决方式如下</p>
 <h1 id="二、问题解决"><a href="#二、问题解决" class="headerlink" title="二、问题解决"></a>二、问题解决</h1><h2 id="2-1-申请token"><a href="#2-1-申请token" class="headerlink" title="2.1. 申请token"></a>2.1. 申请token</h2><p>参考：</p>
 <p><a href="https://blog.csdn.net/weixin_41010198/article/details/119698015?utm_source=app&amp;app_version=4.12.0&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41010198/article/details/119698015?utm_source=app&amp;app_version=4.12.0&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen</a></p>
@@ -216,7 +216,6 @@
 <h2 id="2-2-修改hexo配置"><a href="#2-2-修改hexo配置" class="headerlink" title="2.2 修改hexo配置"></a>2.2 修改hexo配置</h2><p>1.进入hexo博客主文件夹中</p>
 <p>2.修改配置文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
-
 <p>3.修改内容如下</p>
 <p>repo: <a href="https://token@github.com/名字/名字.github.io.git" target="_blank" rel="noopener">https://token@github.com/名字/名字.github.io.git</a></p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20220321215027065.png" alt="image-20220321215027065"></p>
