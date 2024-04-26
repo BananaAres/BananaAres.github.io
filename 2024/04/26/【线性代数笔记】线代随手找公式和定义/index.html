@@ -210,7 +210,64 @@
 <p>11.对换行列式的两行（列），行列式变号</p>
 <p>12.主对角线以下（上）的元素都为0的行列式叫做上（下）三角形行列式，如果都为0，叫做对角行列式</p>
 <p>其行列式等于主对角线的元素乘积</p>
-<h1 id="二、矩阵"><a href="#二、矩阵" class="headerlink" title="二、矩阵"></a>二、矩阵</h1>
+<h1 id="二、矩阵"><a href="#二、矩阵" class="headerlink" title="二、矩阵"></a>二、矩阵</h1><p>1.矩阵满足加法的交换律和结合律，即<br>$$<br>A+B=B+A<br>$$</p>
+<p>$$<br>(A+B)+C=A+(B+C)<br>$$</p>
+<p>2.数乘矩阵满足数学运算规律</p>
+<p>3.矩阵相乘不满足交换律，即<br>$$<br>AB≠BA<br>$$</p>
+<p>4.如果矩阵相乘为零矩阵，不代表任一矩阵为零矩阵，同样地，如果<br>$$<br>A(X-Y)=O<br>$$<br>不代表X=Y</p>
+<p>5.矩阵乘法不满足交换律，但满足结合律和分配率，即<br>$$<br>(AB)C = A(BC)<br>$$<br>$$<br>λ(AB)=(λA)B=A(λB)<br>$$<br>$$<br>A(B+C)=AB+AC,(B+C)A=BA+CA<br>$$</p>
+<p>6.纯量阵与任何同阶方阵均可交换，纯量阵即λE<br>7.矩阵的幂有以下性质<br>$$<br>A^kA^l=A^{k+l}<br>$$<br>$$<br>(A^k)^l=A^{kl}<br>$$</p>
+<p>当AB是可交换的时候，满足以下规律<br>$$<br>(AB)^k=A^kB^k<br>$$<br>$$<br>(A+B)^2=A^2+2AB+B^2<br>$$<br>$$<br>(A-B)(A+B)=A^2-B^2<br>$$</p>
+<p>8.矩阵转置满足以下规律<br>$$<br>\begin{aligned}<br>&amp;(A^T)^T \<br>&amp;(A+B)^T=A^T+B^T\<br>&amp;(λA)^T=λA^T\<br>&amp;(AB)^T=B^TA^T<br>\end{aligned}<br>$$</p>
+<p>9.方阵的行列式满足以下规律<br>$$<br>\begin{aligned}<br>&amp;|A^T|=|A| \<br>&amp;|λA|=λ^n|A|\<br>&amp;|AB|=|A||B|<br>\end{aligned}<br>$$</p>
+<p>10.行列式|A|的各个元素的代数余子式构成的如下矩阵称为矩阵A的伴随矩阵，且满足如下规律<br><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220010685.png" alt="image-20240426220010685"><br>$$<br>AA^<em>=A^</em>A=|A|E<br>$$</p>
+<p>11.如果矩阵A有逆矩阵B，则AB=BA=E，且B是唯一的，即$B=A^{-1}$</p>
+<p>12.如果矩阵A可逆，则|A|≠0</p>
+<p>13.如果|A|≠0，则矩阵A可逆，且<br>$$<br>A^{-1}= \frac{1}{|A|}A^*<br>$$</p>
+<p>14.如果|A|=0，则称A为奇异矩阵，否则为非奇异矩阵，可逆矩阵是非奇异矩阵</p>
+<p>15.逆矩阵满足如下运算规律： </p>
+<p>(1) 如果A可逆，则$A^{-1}$也可逆，且$(A^{-1})^{-1}$</p>
+<p>(2) 如果A可逆，数λ≠0，则λA可逆，且$(λA)^{-1}=\frac{1}{λ}A^{-1}$</p>
+<p>(3) 如果A、B为同阶矩阵且均可逆，则AB也可逆，且$(AB)^{-1}=B^{-1}A^{-1}$</p>
+<p>(4)如果A可逆，则$A^T$也可逆，且$(A^T)^{-1}=(A^{-1})^T$</p>
+<p>16.矩阵$A=O$的充分必要条件是$A^TA=O$</p>
+<p>17.克拉默法则<br><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220028618.png" alt="image-20240426220028618"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220041628.png" alt="image-20240426220041628"></p>
+<p>18.分块矩阵略</p>
+<h1 id="三、矩阵的初等变换与线性方程组"><a href="#三、矩阵的初等变换与线性方程组" class="headerlink" title="三、矩阵的初等变换与线性方程组"></a>三、矩阵的初等变换与线性方程组</h1><ol>
+<li>初等行变换，初等列变换同理</li>
+</ol>
+<p>(1)对换两行</p>
+<p>(2)以数k≠0乘某一行中的所有元</p>
+<p>(3)把某一行的所有元的k倍加到另一行的对应元上去</p>
+<ol start="2">
+<li>如果矩阵A经过有限次初等行变换变成矩阵B，就称A与B行等价，列等价同理。如果矩阵A经过有限次初等变换变成B，则称A与B等价，记作$A \sim B$</li>
+</ol>
+<p>3.如果矩阵具有等价关系，则具有以下性质</p>
+<p>(1)反身性： A \sim A$</p>
+<p>(2)对称性：若$A \sim B$，则$B \sim A$</p>
+<p>(3)传递性：若$A \sim B$，$B \sim C$，则$A \sim C$</p>
+<p>4.设A和B为m×n矩阵，那么</p>
+<p>(1)$A \mathop{\sim} \limits^{r} B$的充分必要条件是存在m阶可逆矩阵P，使PA=B</p>
+<p>(2)$A \mathop{\sim} \limits^{c} B$的充分必要条件是存在n阶可逆矩阵Q，使AQ=B</p>
+<p>(3)$A \sim B$的充分必要条件是存在m阶可逆矩阵P及n阶可逆矩阵Q，使PAQ=B</p>
+<p>5.方阵A可逆的充分必要条件是$A \mathop{\sim} \limits^{r} E$</p>
+<p>6.如果PA=B，对矩阵(A,E)作初等行变换，当把A变成B时，E就变为可逆矩阵P</p>
+<p>7.设$A \mathop{\sim} \limits^{r} B$，则A与B中非零子式的最高阶数相等。k阶子式的定义为，在m×n矩阵A中，任取k行与k列，位于这些行列交叉处的$k^2$个元素，不改变它们在A中所处的位置次序而得的k阶行列式，称为矩阵A的k阶子式</p>
+<p>8.如果矩阵A中有一个不等于0的r阶子式D，且所有r+1阶子式券等于0，那么D称为矩阵A的最高阶非零子式，数r称为矩阵A的秩</p>
+<p>9.若$A \sim B$，则R(A)=R(B)</p>
+<p>10.若可逆矩阵P、Q使PAQ=B，则R(A)=R(B)</p>
+<p>11.$max{R(A),R(B)} &lt;= R(A,B) &lt;= R(A)+R(B)$</p>
+<p>12.R(A+B)≤R(A)+R(B)</p>
+<p>13.$R(AB)≤min{R(A),R(B)}$</p>
+<p>14.若$A_{m×n}B_{n×l}=O$，则R(A)+R(B)≤n</p>
+<p>15.设$AB=O$，若A为列满秩矩阵，则$B=O$</p>
+<p>16.对于一个n元线性方程组Ax=b</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240426220053115.png" alt="image-20240426220053115"></p>
+<p>17.n元齐次线性方程组Ax=0有非零解的充分必要条件是R(A)&lt;n</p>
+<p>18.线性方程组Ax=b有解的充分必要条件是R(A)=R(A,b)</p>
+<p>19.矩阵方程AX=B有解的充分必要条件是R(A)=R(A,B)</p>
+
         </div>
 
         
