@@ -13,98 +13,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Kafka学习笔记</title>
-    <url>/2021/10/25/Kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h1><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><p>​    kafka是一个分布式的基于发布/订阅模式的消息队列，主要应用于大数据实时处理领域</p>
-<h3 id="1-2-消息队列"><a href="#1-2-消息队列" class="headerlink" title="1.2 消息队列"></a>1.2 消息队列</h3><h4 id="1-2-1-消息队列的应用场景"><a href="#1-2-1-消息队列的应用场景" class="headerlink" title="1.2.1 消息队列的应用场景"></a>1.2.1 消息队列的应用场景</h4><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019132724762.png" alt="image-20211019132724762"></p>
-<p>使用消息队列的好处：  </p>
-<p>（1）解耦：</p>
-<p>​    允许独立的扩展或修改两边的处理过程，只要保证它们遵守同样的接口约束 </p>
-<p>（2）可恢复性：</p>
-<p>​    系统的一部分组件失效，不影响整个系统</p>
-<p>（3）缓冲：</p>
-<p>​    有助于控制和优化数据流经过系统的速度，解决生产消息和消费消息的处理速度不一致的情况（生产&gt;消费）</p>
-<p>（4）灵活性&amp;峰值处理能力（削峰）：</p>
-<p>​    访问量剧增的情况下，应用仍需继续发挥作用。使用消息队列能够使关键组件顶住突发的访问压力，而不会因为突发的超负荷的请求而完全崩溃</p>
-<p>（5）异步通信：</p>
-<p>​    消息队列提供异步处理机制，允许用户把一个消息放入队列，但并不立即处理。</p>
-<h4 id="1-2-2-消息队列的两种模式"><a href="#1-2-2-消息队列的两种模式" class="headerlink" title="1.2.2 消息队列的两种模式"></a>1.2.2 消息队列的两种模式</h4><p>（1）点对点模式（一对一，消费者主动拉取数据，消息收到后消息清除）</p>
-<p>（2）发布/订阅模式（一对多，消费者消费数据之后不会清除消息）</p>
-<p>​    消息生产者（发布）将消息发布到topic中，同时有多个消息消费者（订阅）消费该消息，和点对点方式不同，发布到topic的消息会被所有订阅者消费</p>
-<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019133619513.png" alt="image-20211019133619513"></p>
-<h3 id="1-3-kafka基础架构"><a href="#1-3-kafka基础架构" class="headerlink" title="1.3 kafka基础架构"></a>1.3 kafka基础架构</h3><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019150922580.png" alt="image-20211019150922580"></p>
-<h2 id="二、kafka快速入门"><a href="#二、kafka快速入门" class="headerlink" title="二、kafka快速入门"></a>二、kafka快速入门</h2><h3 id="2-1-搭建集群"><a href="#2-1-搭建集群" class="headerlink" title="2.1 搭建集群"></a>2.1 搭建集群</h3><p>（1）官网地址：kafka.apache.org</p>
-<p>下载 0.11.0</p>
-<p>（2）解压到/opt/software </p>
-<p>​    tar zxvf kafka_2.11-0.11.0.0.tgz</p>
-<p>(3)改名 mv </p>
-<p>​    mv kafka_2.11-0.11.0.0 kafka</p>
-<p>（4）修改config下的server.properties文件，修改四项内容</p>
-<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019154945056.png" alt="image-20211019154945056"></p>
-<p>修改id，不能重复，本次使用0 ，1，2</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154423982.png" alt="image-20211019154423982"></p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154403179.png" alt="image-20211019154403179"></p>
-<p>/opt/software/kafka/logs</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154311710.png" alt="image-20211019154311710"></p>
-<p>192.168.33.12:2181,192.168.33.13:2181,192.168.33.14:2181</p>
-<p>在kafka下创建logs目录 </p>
-<p>mkdir logs</p>
-<p>（5）使用写好的脚本启动zk集群</p>
-<p>./zk.sh start</p>
-<p>（6）启动</p>
-<p>bin/kafka-server-start.sh -daemon config/server.properties</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019155613032.png" alt="image-20211019155613032"></p>
-<p>群起脚本</p>
-<p>shell脚本：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">case $1 in</span><br><span class="line"></span><br><span class="line">"start")&#123;</span><br><span class="line">	for i in 192.168.33.12 192.168.33.13 192.168.33.14</span><br><span class="line">	do</span><br><span class="line">			echo ---------------- kafka $i 启动 ------------</span><br><span class="line">			ssh $i "/opt/software/kafka/bin/kafka-server-start.sh -daemon /opt/software/kafka/config/server.properties"</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">;;</span><br><span class="line"></span><br><span class="line">"stop")&#123;</span><br><span class="line">	for i in 192.168.33.12 192.168.33.13 192.168.33.14</span><br><span class="line">	do</span><br><span class="line">			echo ---------------- kafka $i 停止 ------------</span><br><span class="line">			ssh $i "/opt/software/kafka/bin/kafka-server-stop.sh /opt/software/kafka/config/server.properties"</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line">;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-命令"><a href="#2-2-命令" class="headerlink" title="2.2 命令"></a>2.2 命令</h3><p>（1）创建主题</p>
-<p>bin/kafka-topics.sh —create —zookeeper 192.168.33.12:2181 —topic first  —partitions 2 —replication-factor 2</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019161427213.png" alt="image-20211019161427213"></p>
-<p>（2）查看主题</p>
-<p>bin/kafka-topics.sh —list —zookeeper 192.168.33.12:2181</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019161440493.png" alt="image-20211019161440493"></p>
-<p>（3）删除</p>
-<p>bin/kafka-topics.sh —delete —zookeeper 192.168.33.12:2181 —topic first</p>
-<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190227449.png" alt="image-20211019190227449"></p>
-<p>(4)查看信息</p>
-<p>bin/kafka-topics.sh —describe —topic first —zookeeper 192.168.33.12:2181</p>
-<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190521194.png" alt="image-20211019190521194"></p>
-<p>注意副本数不能超过broker数，分区数不受限制</p>
-<p>（5）生产消息</p>
-<p>bin/kafka-console-producer.sh —topic first —broker-list 192.168.33.12:9092</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170215428.png" alt="image-20211025170215428"></p>
-<p>（6）建立消费者消费消息（zookeeper老版本）</p>
-<p>bin/kafka-console-consumer.sh —topic first —zookeeper 192.168.33.12:2181</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025152057281.png" alt="image-20211025152057281">此时可能会报kafka.consumer.ConsumerFetcherManager$LeaderFinderThread错误</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170252571.png" alt="image-20211025170252571"></p>
-<p>到config中 修改server.properties 将advertised.listeners中的host修改为自己的ip地址，集群内的所有机器都要修改，即可解决该问题</p>
-<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211025170414645.png" alt="image-20211025170414645"></p>
-<p>生产者发送消息后，消费者即可拿到消息</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170330958.png" alt="image-20211025170330958"></p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170339918.png" alt="image-20211025170339918"></p>
-<p>最新方式启动</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025171108866.png" alt="image-20211025171108866"></p>
-<h2 id="三、Kafka架构深入"><a href="#三、Kafka架构深入" class="headerlink" title="三、Kafka架构深入"></a>三、Kafka架构深入</h2><h3 id="3-1-工作流程及文件存储机制"><a href="#3-1-工作流程及文件存储机制" class="headerlink" title="3.1 工作流程及文件存储机制"></a>3.1 工作流程及文件存储机制</h3><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025210815632.png" alt="image-20211025210815632">    Kafka中消息是以topic进行分类的,生产者生产消息，消费者消费消息，都是面向topic的。<br>    topic是逻辑上的概念，而partition 是物理上的概念，每个partition 对应于一个log文件，该log文件中存储的就是producer生产的数据。Producer生产的数据会被不断追加到该log文件末端，且每条数据都有自己的offset。消费者组中的每个消费者,都会实时记录自己消费到了哪个offset,以便出错恢复时，从上次的位置继续消费。</p>
-<p>​    每个分区都维护独立的偏移量，即Kafka只能保证局部的消息有序，而不能保证全局有序。</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025213218142.png" alt="image-20211025213218142"></p>
-<p>​    由于生产者生产的消息会不断追加到log文件末尾，为防止log文件过大导致数据定位效率低下，Kafka 采取了分片和索引机制，将每个partition 分为多个segment.每个segment对应两个文件——“.index”文件 和“.1og”文件。这些文件位于一个文件夹下，该文件夹的命名规则为: topic 名称+分区序号。例如，first 这个topic有三个分区，则其对应的文件夹为first-0,first-1 ,first-2。。</p>
-<p>​    在server.properties中可以设置一个.log文件最大的大小，默认1G，当超过1G后会新建一个.log存储，.log中只存数据，index中存索引</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025213534581.png" alt="image-20211025213534581"></p>
-<p>.log命名是当前的偏移量，从哪个开始的</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025214054632.png" alt="image-20211025214054632"></p>
-<h3 id="3-2-生产者"><a href="#3-2-生产者" class="headerlink" title="3.2 生产者"></a>3.2 生产者</h3><h4 id="3-2-1分区策略"><a href="#3-2-1分区策略" class="headerlink" title="3.2.1分区策略"></a>3.2.1分区策略</h4><h5 id="3-2-1-1-分区的原因"><a href="#3-2-1-1-分区的原因" class="headerlink" title="3.2.1.1 分区的原因"></a>3.2.1.1 分区的原因</h5><p>（1）方便在集群中扩展,每个Partition可以通过调整以适应它所在的机器，而一个topic又可以有多个Partition组成，因此整个集群就可以适应任意大小的数据了<br>（2）可以提高并发，因为可以以Partition为单位读写了</p>
-<h5 id="3-2-1-2-分区的原则"><a href="#3-2-1-2-分区的原则" class="headerlink" title="3.2.1.2 分区的原则"></a>3.2.1.2 分区的原则</h5><p>​    需要将producer发送的数据封装成一个ProducerRecord对象</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025220104661.png" alt="image-20211025220104661"></p>
-<p>（1）指明partition 的情况下，直接将指明的值直接作为partiton 值；<br>（2）没有指明partition 值但有key的情况下，将key的hash 值与topic 的partition数进行取余得到partition 值；<br>（3）既没有partition 值又没有key 值的情况下，第一次调用时随机生成一个整数（后面每次调用在这个整数上自增），将这个值与topic 可用的partition 总数取余得到partition值，也就是常说的round-robin 算法。</p>
-]]></content>
-      <categories>
-        <category>【消息队列】</category>
-      </categories>
-      <tags>
-        <tag>【Kafka】</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>IDEA+gitee协作式编程</title>
     <url>/2022/01/16/IDEA-gitee%E5%8D%8F%E4%BD%9C%E5%BC%8F%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="IDEA-gitee协作式编程"><a href="#IDEA-gitee协作式编程" class="headerlink" title="IDEA+gitee协作式编程"></a>IDEA+gitee协作式编程</h1><h2 id="一、git下载"><a href="#一、git下载" class="headerlink" title="一、git下载"></a>一、git下载</h2><p>略</p>
@@ -232,6 +140,98 @@
       </categories>
       <tags>
         <tag>【git】</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kafka学习笔记</title>
+    <url>/2021/10/25/Kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h1><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><p>​    kafka是一个分布式的基于发布/订阅模式的消息队列，主要应用于大数据实时处理领域</p>
+<h3 id="1-2-消息队列"><a href="#1-2-消息队列" class="headerlink" title="1.2 消息队列"></a>1.2 消息队列</h3><h4 id="1-2-1-消息队列的应用场景"><a href="#1-2-1-消息队列的应用场景" class="headerlink" title="1.2.1 消息队列的应用场景"></a>1.2.1 消息队列的应用场景</h4><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019132724762.png" alt="image-20211019132724762"></p>
+<p>使用消息队列的好处：  </p>
+<p>（1）解耦：</p>
+<p>​    允许独立的扩展或修改两边的处理过程，只要保证它们遵守同样的接口约束 </p>
+<p>（2）可恢复性：</p>
+<p>​    系统的一部分组件失效，不影响整个系统</p>
+<p>（3）缓冲：</p>
+<p>​    有助于控制和优化数据流经过系统的速度，解决生产消息和消费消息的处理速度不一致的情况（生产&gt;消费）</p>
+<p>（4）灵活性&amp;峰值处理能力（削峰）：</p>
+<p>​    访问量剧增的情况下，应用仍需继续发挥作用。使用消息队列能够使关键组件顶住突发的访问压力，而不会因为突发的超负荷的请求而完全崩溃</p>
+<p>（5）异步通信：</p>
+<p>​    消息队列提供异步处理机制，允许用户把一个消息放入队列，但并不立即处理。</p>
+<h4 id="1-2-2-消息队列的两种模式"><a href="#1-2-2-消息队列的两种模式" class="headerlink" title="1.2.2 消息队列的两种模式"></a>1.2.2 消息队列的两种模式</h4><p>（1）点对点模式（一对一，消费者主动拉取数据，消息收到后消息清除）</p>
+<p>（2）发布/订阅模式（一对多，消费者消费数据之后不会清除消息）</p>
+<p>​    消息生产者（发布）将消息发布到topic中，同时有多个消息消费者（订阅）消费该消息，和点对点方式不同，发布到topic的消息会被所有订阅者消费</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019133619513.png" alt="image-20211019133619513"></p>
+<h3 id="1-3-kafka基础架构"><a href="#1-3-kafka基础架构" class="headerlink" title="1.3 kafka基础架构"></a>1.3 kafka基础架构</h3><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019150922580.png" alt="image-20211019150922580"></p>
+<h2 id="二、kafka快速入门"><a href="#二、kafka快速入门" class="headerlink" title="二、kafka快速入门"></a>二、kafka快速入门</h2><h3 id="2-1-搭建集群"><a href="#2-1-搭建集群" class="headerlink" title="2.1 搭建集群"></a>2.1 搭建集群</h3><p>（1）官网地址：kafka.apache.org</p>
+<p>下载 0.11.0</p>
+<p>（2）解压到/opt/software </p>
+<p>​    tar zxvf kafka_2.11-0.11.0.0.tgz</p>
+<p>(3)改名 mv </p>
+<p>​    mv kafka_2.11-0.11.0.0 kafka</p>
+<p>（4）修改config下的server.properties文件，修改四项内容</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019154945056.png" alt="image-20211019154945056"></p>
+<p>修改id，不能重复，本次使用0 ，1，2</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154423982.png" alt="image-20211019154423982"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154403179.png" alt="image-20211019154403179"></p>
+<p>/opt/software/kafka/logs</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019154311710.png" alt="image-20211019154311710"></p>
+<p>192.168.33.12:2181,192.168.33.13:2181,192.168.33.14:2181</p>
+<p>在kafka下创建logs目录 </p>
+<p>mkdir logs</p>
+<p>（5）使用写好的脚本启动zk集群</p>
+<p>./zk.sh start</p>
+<p>（6）启动</p>
+<p>bin/kafka-server-start.sh -daemon config/server.properties</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019155613032.png" alt="image-20211019155613032"></p>
+<p>群起脚本</p>
+<p>shell脚本：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">case $1 in</span><br><span class="line"></span><br><span class="line">"start")&#123;</span><br><span class="line">	for i in 192.168.33.12 192.168.33.13 192.168.33.14</span><br><span class="line">	do</span><br><span class="line">			echo ---------------- kafka $i 启动 ------------</span><br><span class="line">			ssh $i "/opt/software/kafka/bin/kafka-server-start.sh -daemon /opt/software/kafka/config/server.properties"</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">;;</span><br><span class="line"></span><br><span class="line">"stop")&#123;</span><br><span class="line">	for i in 192.168.33.12 192.168.33.13 192.168.33.14</span><br><span class="line">	do</span><br><span class="line">			echo ---------------- kafka $i 停止 ------------</span><br><span class="line">			ssh $i "/opt/software/kafka/bin/kafka-server-stop.sh /opt/software/kafka/config/server.properties"</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line">;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-命令"><a href="#2-2-命令" class="headerlink" title="2.2 命令"></a>2.2 命令</h3><p>（1）创建主题</p>
+<p>bin/kafka-topics.sh —create —zookeeper 192.168.33.12:2181 —topic first  —partitions 2 —replication-factor 2</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019161427213.png" alt="image-20211019161427213"></p>
+<p>（2）查看主题</p>
+<p>bin/kafka-topics.sh —list —zookeeper 192.168.33.12:2181</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211019161440493.png" alt="image-20211019161440493"></p>
+<p>（3）删除</p>
+<p>bin/kafka-topics.sh —delete —zookeeper 192.168.33.12:2181 —topic first</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190227449.png" alt="image-20211019190227449"></p>
+<p>(4)查看信息</p>
+<p>bin/kafka-topics.sh —describe —topic first —zookeeper 192.168.33.12:2181</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211019190521194.png" alt="image-20211019190521194"></p>
+<p>注意副本数不能超过broker数，分区数不受限制</p>
+<p>（5）生产消息</p>
+<p>bin/kafka-console-producer.sh —topic first —broker-list 192.168.33.12:9092</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170215428.png" alt="image-20211025170215428"></p>
+<p>（6）建立消费者消费消息（zookeeper老版本）</p>
+<p>bin/kafka-console-consumer.sh —topic first —zookeeper 192.168.33.12:2181</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025152057281.png" alt="image-20211025152057281">此时可能会报kafka.consumer.ConsumerFetcherManager$LeaderFinderThread错误</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170252571.png" alt="image-20211025170252571"></p>
+<p>到config中 修改server.properties 将advertised.listeners中的host修改为自己的ip地址，集群内的所有机器都要修改，即可解决该问题</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20211025170414645.png" alt="image-20211025170414645"></p>
+<p>生产者发送消息后，消费者即可拿到消息</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170330958.png" alt="image-20211025170330958"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025170339918.png" alt="image-20211025170339918"></p>
+<p>最新方式启动</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025171108866.png" alt="image-20211025171108866"></p>
+<h2 id="三、Kafka架构深入"><a href="#三、Kafka架构深入" class="headerlink" title="三、Kafka架构深入"></a>三、Kafka架构深入</h2><h3 id="3-1-工作流程及文件存储机制"><a href="#3-1-工作流程及文件存储机制" class="headerlink" title="3.1 工作流程及文件存储机制"></a>3.1 工作流程及文件存储机制</h3><p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025210815632.png" alt="image-20211025210815632">    Kafka中消息是以topic进行分类的,生产者生产消息，消费者消费消息，都是面向topic的。<br>    topic是逻辑上的概念，而partition 是物理上的概念，每个partition 对应于一个log文件，该log文件中存储的就是producer生产的数据。Producer生产的数据会被不断追加到该log文件末端，且每条数据都有自己的offset。消费者组中的每个消费者,都会实时记录自己消费到了哪个offset,以便出错恢复时，从上次的位置继续消费。</p>
+<p>​    每个分区都维护独立的偏移量，即Kafka只能保证局部的消息有序，而不能保证全局有序。</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025213218142.png" alt="image-20211025213218142"></p>
+<p>​    由于生产者生产的消息会不断追加到log文件末尾，为防止log文件过大导致数据定位效率低下，Kafka 采取了分片和索引机制，将每个partition 分为多个segment.每个segment对应两个文件——“.index”文件 和“.1og”文件。这些文件位于一个文件夹下，该文件夹的命名规则为: topic 名称+分区序号。例如，first 这个topic有三个分区，则其对应的文件夹为first-0,first-1 ,first-2。。</p>
+<p>​    在server.properties中可以设置一个.log文件最大的大小，默认1G，当超过1G后会新建一个.log存储，.log中只存数据，index中存索引</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025213534581.png" alt="image-20211025213534581"></p>
+<p>.log命名是当前的偏移量，从哪个开始的</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025214054632.png" alt="image-20211025214054632"></p>
+<h3 id="3-2-生产者"><a href="#3-2-生产者" class="headerlink" title="3.2 生产者"></a>3.2 生产者</h3><h4 id="3-2-1分区策略"><a href="#3-2-1分区策略" class="headerlink" title="3.2.1分区策略"></a>3.2.1分区策略</h4><h5 id="3-2-1-1-分区的原因"><a href="#3-2-1-1-分区的原因" class="headerlink" title="3.2.1.1 分区的原因"></a>3.2.1.1 分区的原因</h5><p>（1）方便在集群中扩展,每个Partition可以通过调整以适应它所在的机器，而一个topic又可以有多个Partition组成，因此整个集群就可以适应任意大小的数据了<br>（2）可以提高并发，因为可以以Partition为单位读写了</p>
+<h5 id="3-2-1-2-分区的原则"><a href="#3-2-1-2-分区的原则" class="headerlink" title="3.2.1.2 分区的原则"></a>3.2.1.2 分区的原则</h5><p>​    需要将producer发送的数据封装成一个ProducerRecord对象</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20211025220104661.png" alt="image-20211025220104661"></p>
+<p>（1）指明partition 的情况下，直接将指明的值直接作为partiton 值；<br>（2）没有指明partition 值但有key的情况下，将key的hash 值与topic 的partition数进行取余得到partition 值；<br>（3）既没有partition 值又没有key 值的情况下，第一次调用时随机生成一个整数（后面每次调用在这个整数上自增），将这个值与topic 可用的partition 总数取余得到partition值，也就是常说的round-robin 算法。</p>
+]]></content>
+      <categories>
+        <category>【消息队列】</category>
+      </categories>
+      <tags>
+        <tag>【Kafka】</tag>
       </tags>
   </entry>
   <entry>
@@ -863,6 +863,27 @@
       </tags>
   </entry>
   <entry>
+    <title>【go】fmt占位符</title>
+    <url>/2021/07/10/%E3%80%90go%E3%80%91fmt%E5%8D%A0%E4%BD%8D%E7%AC%A6/</url>
+    <content><![CDATA[<h1 id="fmt占位符"><a href="#fmt占位符" class="headerlink" title="fmt占位符"></a>fmt占位符</h1><p>格式化输出使用<code>fmt.Printf()</code>时，可以使用如<code>%s</code>的占位符</p>
+<p>占位符类型如下：</p>
+<h2 id="1-查看类型"><a href="#1-查看类型" class="headerlink" title="1.查看类型"></a>1.查看类型</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%T\n"</span>, n)</span><br></pre></td></tr></table></figure>
+<h3 id="2-查看变量值"><a href="#2-查看变量值" class="headerlink" title="2.查看变量值"></a>2.查看变量值</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%v\n"</span>, n)</span><br></pre></td></tr></table></figure>
+<h3 id="3-查看二进制"><a href="#3-查看二进制" class="headerlink" title="3.查看二进制"></a>3.查看二进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%b\n"</span>, n)</span><br></pre></td></tr></table></figure>
+<h3 id="4-查看八进制"><a href="#4-查看八进制" class="headerlink" title="4.查看八进制"></a>4.查看八进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%o\n"</span>, n)</span><br></pre></td></tr></table></figure>
+<h3 id="5-查看十进制"><a href="#5-查看十进制" class="headerlink" title="5.查看十进制"></a>5.查看十进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%d\n"</span>, n)</span><br></pre></td></tr></table></figure>
+<h3 id="6-查看十六进制"><a href="#6-查看十六进制" class="headerlink" title="6.查看十六进制"></a>6.查看十六进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%x\n"</span>, n)</span><br></pre></td></tr></table></figure>
+<h3 id="7-查看字符串"><a href="#7-查看字符串" class="headerlink" title="7.查看字符串"></a>7.查看字符串</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%s\n"</span>, n)</span><br></pre></td></tr></table></figure>
+<p>TODO</p>
+]]></content>
+      <categories>
+        <category>【语言学习】</category>
+      </categories>
+      <tags>
+        <tag>【golang】</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>springboot+Bcos智能合约的部署与调用</title>
     <url>/2022/01/18/springboot-Bcos%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84%E9%83%A8%E7%BD%B2%E4%B8%8E%E8%B0%83%E7%94%A8/</url>
     <content><![CDATA[<h1 id="springboot-Bcos智能合约的部署与调用"><a href="#springboot-Bcos智能合约的部署与调用" class="headerlink" title="springboot+Bcos智能合约的部署与调用"></a>springboot+Bcos智能合约的部署与调用</h1><h2 id="一、引入java-sdk"><a href="#一、引入java-sdk" class="headerlink" title="一、引入java sdk"></a>一、引入java sdk</h2><p>​    引入java sdk官方文档说的比较清晰，根据<a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/java_sdk/quick_start.html的步骤引入即可" target="_blank" rel="noopener">https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/java_sdk/quick_start.html的步骤引入即可</a></p>
@@ -1015,27 +1036,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【go】fmt占位符</title>
-    <url>/2021/07/10/%E3%80%90go%E3%80%91fmt%E5%8D%A0%E4%BD%8D%E7%AC%A6/</url>
-    <content><![CDATA[<h1 id="fmt占位符"><a href="#fmt占位符" class="headerlink" title="fmt占位符"></a>fmt占位符</h1><p>格式化输出使用<code>fmt.Printf()</code>时，可以使用如<code>%s</code>的占位符</p>
-<p>占位符类型如下：</p>
-<h2 id="1-查看类型"><a href="#1-查看类型" class="headerlink" title="1.查看类型"></a>1.查看类型</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%T\n"</span>, n)</span><br></pre></td></tr></table></figure>
-<h3 id="2-查看变量值"><a href="#2-查看变量值" class="headerlink" title="2.查看变量值"></a>2.查看变量值</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%v\n"</span>, n)</span><br></pre></td></tr></table></figure>
-<h3 id="3-查看二进制"><a href="#3-查看二进制" class="headerlink" title="3.查看二进制"></a>3.查看二进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%b\n"</span>, n)</span><br></pre></td></tr></table></figure>
-<h3 id="4-查看八进制"><a href="#4-查看八进制" class="headerlink" title="4.查看八进制"></a>4.查看八进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%o\n"</span>, n)</span><br></pre></td></tr></table></figure>
-<h3 id="5-查看十进制"><a href="#5-查看十进制" class="headerlink" title="5.查看十进制"></a>5.查看十进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%d\n"</span>, n)</span><br></pre></td></tr></table></figure>
-<h3 id="6-查看十六进制"><a href="#6-查看十六进制" class="headerlink" title="6.查看十六进制"></a>6.查看十六进制</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%x\n"</span>, n)</span><br></pre></td></tr></table></figure>
-<h3 id="7-查看字符串"><a href="#7-查看字符串" class="headerlink" title="7.查看字符串"></a>7.查看字符串</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fmt.Printf(<span class="string">"%s\n"</span>, n)</span><br></pre></td></tr></table></figure>
-<p>TODO</p>
-]]></content>
-      <categories>
-        <category>【语言学习】</category>
-      </categories>
-      <tags>
-        <tag>【golang】</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【go】变量与常量</title>
     <url>/2021/07/09/%E3%80%90go%E3%80%91%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F/</url>
     <content><![CDATA[<h1 id="变量和常量"><a href="#变量和常量" class="headerlink" title="变量和常量"></a>变量和常量</h1><h2 id="一-变量"><a href="#一-变量" class="headerlink" title="一.变量"></a>一.变量</h2><h3 id="1-声明声明"><a href="#1-声明声明" class="headerlink" title="1.声明声明"></a>1.声明声明</h3><p>声明格式：var 变量名 变量类型</p>
@@ -1066,21 +1066,6 @@
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  d1, d2 = <span class="literal">iota</span> + <span class="number">1</span>, <span class="literal">iota</span> + <span class="number">2</span><span class="comment">// 1, 2</span></span><br><span class="line">  d3, d4 = <span class="literal">iota</span> + <span class="number">1</span>, <span class="literal">iota</span> + <span class="number">2</span><span class="comment">// 2, 3</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>定义数量级</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  _ = <span class="literal">iota</span><span class="comment">//丢弃无意义0</span></span><br><span class="line">  KB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>) <span class="comment">//1024</span></span><br><span class="line">  MB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">  GB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">  TB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">  PB = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>【语言学习】</category>
-      </categories>
-      <tags>
-        <tag>【golang】</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【go】跨平台编译</title>
-    <url>/2021/09/30/%E3%80%90go%E3%80%91%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h1 id="跨平台编译"><a href="#跨平台编译" class="headerlink" title="跨平台编译"></a>跨平台编译</h1><h3 id="1-windows"><a href="#1-windows" class="headerlink" title="1.windows"></a>1.windows</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0  // 禁用CGO</span><br><span class="line">SET GOOS=linux  // 目标平台是linux</span><br><span class="line">SET GOARCH=amd64  // 目标处理器架构是amd64</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0</span><br><span class="line">SET GOOS=darwin//Mac</span><br><span class="line">SET GOARCH=amd64</span><br></pre></td></tr></table></figure>
-<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2.MAC"></a>2.MAC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build//Linux</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build//Windows</span><br></pre></td></tr></table></figure>
-<h3 id="3-Linux"><a href="#3-Linux" class="headerlink" title="3.Linux"></a>3.Linux</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>【语言学习】</category>
@@ -1260,6 +1245,21 @@
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">s1 := <span class="string">"早上好"</span></span><br><span class="line">s2 := []<span class="keyword">rune</span>(s1)<span class="comment">//字符串s1强制转换为rune切片</span></span><br><span class="line">s2[<span class="number">0</span>] = <span class="string">'晚'</span></span><br><span class="line">fmt.Println(<span class="keyword">string</span>(s2))<span class="comment">//晚上好</span></span><br></pre></td></tr></table></figure>
 <h3 id="11-类型转换"><a href="#11-类型转换" class="headerlink" title="11.类型转换"></a>11.类型转换</h3><p>Go中只有强制类型转换，没有隐式类型转换</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">n := <span class="number">10</span><span class="comment">//int</span></span><br><span class="line"><span class="keyword">var</span> f <span class="keyword">float64</span></span><br><span class="line">f = <span class="keyword">float64</span>(n)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>【语言学习】</category>
+      </categories>
+      <tags>
+        <tag>【golang】</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【go】跨平台编译</title>
+    <url>/2021/09/30/%E3%80%90go%E3%80%91%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="跨平台编译"><a href="#跨平台编译" class="headerlink" title="跨平台编译"></a>跨平台编译</h1><h3 id="1-windows"><a href="#1-windows" class="headerlink" title="1.windows"></a>1.windows</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0  // 禁用CGO</span><br><span class="line">SET GOOS=linux  // 目标平台是linux</span><br><span class="line">SET GOARCH=amd64  // 目标处理器架构是amd64</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0</span><br><span class="line">SET GOOS=darwin//Mac</span><br><span class="line">SET GOARCH=amd64</span><br></pre></td></tr></table></figure>
+<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2.MAC"></a>2.MAC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build//Linux</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build//Windows</span><br></pre></td></tr></table></figure>
+<h3 id="3-Linux"><a href="#3-Linux" class="headerlink" title="3.Linux"></a>3.Linux</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>【语言学习】</category>
@@ -1650,6 +1650,21 @@ X\hat{W}</script><p>此时的结果和原本的结果只有一个转置的差别
       </tags>
   </entry>
   <entry>
+    <title>在MacOS系统下运行本地以太坊源码</title>
+    <url>/2021/07/09/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="跨平台编译"><a href="#跨平台编译" class="headerlink" title="跨平台编译"></a>跨平台编译</h1><h3 id="1-windows"><a href="#1-windows" class="headerlink" title="1.windows"></a>1.windows</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0  // 禁用CGO</span><br><span class="line">SET GOOS=linux  // 目标平台是linux</span><br><span class="line">SET GOARCH=amd64  // 目标处理器架构是amd64</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0</span><br><span class="line">SET GOOS=darwin//Mac</span><br><span class="line">SET GOARCH=amd64</span><br></pre></td></tr></table></figure>
+<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2.MAC"></a>2.MAC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build//Linux</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build//Windows</span><br></pre></td></tr></table></figure>
+<h3 id="3-Linux"><a href="#3-Linux" class="headerlink" title="3.Linux"></a>3.Linux</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>【语言学习】</category>
+      </categories>
+      <tags>
+        <tag>【golang】</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记一次连接云服务器MySQL数据库时总是空闲连接超时断开问题</title>
     <url>/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%97%B6%E6%80%BB%E6%98%AF%E7%A9%BA%E9%97%B2%E8%BF%9E%E6%8E%A5%E8%B6%85%E6%97%B6%E6%96%AD%E5%BC%80%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h1><p>​    最新在写项目的时候使用了hikari连接池，连接的是阿里云服务器上部署的MySQL数据库，结果每次运行项目后没操作一小会，就开始报一些警告，具体如下</p>
@@ -1667,21 +1682,6 @@ X\hat{W}</script><p>此时的结果和原本的结果只有一个转置的差别
       </categories>
       <tags>
         <tag>【Java】</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在MacOS系统下运行本地以太坊源码</title>
-    <url>/2021/07/09/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h1 id="跨平台编译"><a href="#跨平台编译" class="headerlink" title="跨平台编译"></a>跨平台编译</h1><h3 id="1-windows"><a href="#1-windows" class="headerlink" title="1.windows"></a>1.windows</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0  // 禁用CGO</span><br><span class="line">SET GOOS=linux  // 目标平台是linux</span><br><span class="line">SET GOARCH=amd64  // 目标处理器架构是amd64</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SET CGO_ENABLED=0</span><br><span class="line">SET GOOS=darwin//Mac</span><br><span class="line">SET GOARCH=amd64</span><br></pre></td></tr></table></figure>
-<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2.MAC"></a>2.MAC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build//Linux</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build//Windows</span><br></pre></td></tr></table></figure>
-<h3 id="3-Linux"><a href="#3-Linux" class="headerlink" title="3.Linux"></a>3.Linux</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>【语言学习】</category>
-      </categories>
-      <tags>
-        <tag>【golang】</tag>
       </tags>
   </entry>
   <entry>
