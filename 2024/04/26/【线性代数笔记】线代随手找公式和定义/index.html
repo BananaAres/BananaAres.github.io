@@ -13,7 +13,7 @@
 
 
 
-<title>[机器学习笔记]线性模型——线性回归 | SunDaohan</title>
+<title>【线性代数笔记】线代随手找公式和定义 | SunDaohan</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">[机器学习笔记]线性模型——线性回归</h1>
+            <h1 class="post-title">【线性代数笔记】线代随手找公式和定义</h1>
             
                 <div class="post-meta">
                     
@@ -183,14 +183,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 24, 2024&nbsp;&nbsp;21:50:47</a>
+                        Date: <a href="#">四月 26, 2024&nbsp;&nbsp;9:45:52</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E3%80%90%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E3%80%91/">【线性模型】</a>
+                                <a href="/categories/%E3%80%90%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E3%80%91/">【线性代数】</a>
                             
                         </span>
                     
@@ -199,22 +199,18 @@
         </header>
 
         <div class="post-content">
-            <h1 id="一、基本形式"><a href="#一、基本形式" class="headerlink" title="一、基本形式"></a>一、基本形式</h1><p>​    使用线性组合来进行预测，其函数形式可以写为<br>$$<br>f(x)=w_1x_1+w_2x_2…w_mx_m+b<br>$$<br>写为向量形式可以表示为， T为w转置<br>$$<br>f(x) = w^Tx+b<br>$$</p>
-<h2 id="二、线性回归"><a href="#二、线性回归" class="headerlink" title="二、线性回归"></a>二、线性回归</h2><p>​    线性回归试图学得一个线性模型以尽可能准确地预测实值输出标记。对于离散属性，如果属性值之间具有有序关系，如“身高”属性的“高”、“矮”，可以转化为{1,0}，而三值“高”、”中“、”低“属性可以转化为{1,0.5,0}；而k个无序属性可以转化为k维向量，例如“黄瓜”、“南瓜”、“黄瓜”可以转化为(0,0,1)、(0,1,0)、(1,0,0)。</p>
-<p>​    均方误差，即平方损失是回归任务最常用的性能度量，均方误差在几何上对应了常用的欧几里得距离。平方损失函数为<br>$$<br>E(f;D) = \frac{1}{m}\sum_{i=1}^{m}(f(x_i)-y_i)^2<br>$$<br>​    即<br>$$<br>\frac{1}{m}\sum_{i=1}^{m}(y_i-wx_i-b)^2<br>$$<br>求该值最小，来进行模型求解，这种方式也成为“最小二乘法”。在线性回归中，最小二乘法就是找到一条直线，使所有样本到直线上的欧氏距离之和最小。上述函数是一个二次函数，通常是一个凸函数，具有唯一的极值，因此可以求导求解，求解w和b使上述函数最小的过程，称为线性回归模型的最小二乘“参数估计”。</p>
-<p>​    将函数分别对w和b求导，可得到：</p>
-<p>​    ![image-20240424222659727](/Users/sundaohan/Library/Application Support/typora-user-images/image-20240424222659727.png)</p>
-<p>令上式分别为0，即可得到w和b最邮件的闭式解</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424222857621.png" alt="image-20240424222857621"></p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424222911540.png" alt="image-20240424222911540"></p>
-<p>具体计算过程如下：<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424232242511.png" alt="image-20240424232242511"></p>
-<p>​        扩展到d个属性描述的数据集D，试图学得<br>$$<br>f(x_i)=w^Tx_i+b<br>$$<br>称为多元线性回归</p>
-<p>​    这也可以用最小二乘法来对w和b进行估计，用向量表示w和b，即(w;b)，数据集D表示为一个m×(d+1)大小的矩阵X，即</p>
-<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240424233101706.png" alt="image-20240424233101706"></p>
-<p>此时，我们将原式转化为常用的形式，即X的每一行是一条样本，共m行表示m个样本，前d列表示d个属性值，最后一个1即能乘出一个b，此时原式可转化为<br>$$<br>X\hat{W}<br>$$<br>此时的结果和原本的结果只有一个转置的差别，原来的结果将是一个1行m列的矩阵，而现在的结果是一个m行1列的矩阵。对于y，依然可以写成一个列向量的形式，则求均方误差最小可以表示为</p>
-<p>![image-20240425093116263](/Users/sundaohan/Library/Application Support/typora-user-images/image-20240425093116263.png)</p>
-<p>这是因为y-XW最终将是一个m行1列的矩阵，也就是一个列向量，其平方等于模的平方，写成如上形式也完全相同</p>
-
+            <h1 id="一、行列式"><a href="#一、行列式" class="headerlink" title="一、行列式"></a>一、行列式</h1><p>1.只有二阶三阶行列式才满足对角线法则</p>
+<p>2.行列式与他的转置行列式相等</p>
+<p>3.如果行列式有两行（列）完全相同或成比例，则此行列式等于0</p>
+<p>4.行列式的某一行（列）有公因子，可以提出；同样的，给某一行乘k，等于行列式乘k</p>
+<p>5.如果行列式的某一行（列）的元素可以看做两数之和，则可以看做是仅将该行拆开为两个行列式之和</p>
+<p>6.把行列式的某一行（列）的各元素同乘一个数然后加到另一行（列）对应元素上，行列式不变</p>
+<p>7.在n阶行列式中，将（i,j）元aij所在的行列划去后，剩下的行列式叫做余子式，记作Mij，则代数余子式为<br>$$<br>A_{ij}=(-1)^{i+j}M_{ij}<br>$$<br>8.一个n阶行列式，如果其中第i行所有元素除aij外都为0，则该行列式等于aij与它的代数余子式的乘积，即<br>$$<br>D=a_{ij}A_{ij}<br>$$<br>9.行列式等于它任一行（列）的各元素与其对应的代数余子式乘积之和</p>
+<p>10.行列式某一行（列）的元素与另一个行（列）的对应元素的代数余子式乘积之和等于0</p>
+<p>11.对换行列式的两行（列），行列式变号</p>
+<p>12.主对角线以下（上）的元素都为0的行列式叫做上（下）三角形行列式，如果都为0，叫做对角行列式</p>
+<p>其行列式等于主对角线的元素乘积</p>
+<h1 id="二、矩阵"><a href="#二、矩阵" class="headerlink" title="二、矩阵"></a>二、矩阵</h1>
         </div>
 
         
@@ -242,7 +238,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%91/"># 【机器学习】</a>
+                        <a href="/tags/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91/"># 【学习笔记】</a>
                     
                         
                 </span>
@@ -255,10 +251,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/04/26/%E3%80%90%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BA%BF%E4%BB%A3%E9%9A%8F%E6%89%8B%E6%89%BE%E5%85%AC%E5%BC%8F%E5%92%8C%E5%AE%9A%E4%B9%89/">【线性代数笔记】线代随手找公式和定义</a>
             
-            
-            <a class="next" rel="next" href="/2022/03/28/%E8%A7%A3%E5%86%B3gradle%E4%B8%8B%E6%89%BE%E4%B8%8D%E5%88%B0%E7%AC%A6%E5%8F%B7%E9%94%99%E8%AF%AF/">解决gradle下找不到符号错误</a>
+            <a class="next" rel="next" href="/2024/04/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">[机器学习笔记]线性模型——线性回归</a>
             
         </section>
 
