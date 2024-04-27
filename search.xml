@@ -138,7 +138,7 @@ k_1a_1+k_2a_2+…+k_ma_m=0</script><p>则称向量组A是线性相关的，否�
 <p>27.基变化公式：$(b_1,b_2,b_3)=(a_1,a_2,a_3)P$，其中$P=A^{-1}B$，P也称为旧基到新基的过度矩阵</p>
 <p>28.坐标变换公式：设向量x在旧基和新基中的坐标分别为$y_1,_y2_,y_3$和$z_1,z_2,z_3$，则</p>
 <p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20240427233626589.png" alt="image-20240427233626589"></p>
-<h1 id="相似矩阵及二次型"><a href="#相似矩阵及二次型" class="headerlink" title="相似矩阵及二次型"></a>相似矩阵及二次型</h1><p>1.向量内积定义及性质</p>
+<h1 id="五、相似矩阵及二次型"><a href="#五、相似矩阵及二次型" class="headerlink" title="五、相似矩阵及二次型"></a>五、相似矩阵及二次型</h1><p>1.向量内积定义及性质</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240427233909456.png" alt="image-20240427233909456"></p>
 <p>2.n维向量x的长度(范数)的定义</p>
 <p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240427234117222.png" alt="image-20240427234117222"></p>
