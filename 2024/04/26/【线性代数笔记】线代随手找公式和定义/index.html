@@ -350,6 +350,43 @@ b=λ_1a_1+λ_2a_2+…λ_ma_m</script><p>则向量b是向量组A的线性组合�
 <script type="math/tex; mode=display">
 k_1a_1+k_2a_2+…+k_ma_m=0</script><p>则称向量组A是线性相关的，否则称为线性无关</p>
 <p>8.向量组$A:a_1,a_2,…,a_m$线性相关的充分必要条件是它所构成的矩阵$A=(a_1,a_2,…,a_m)$的秩小于向量个数m；向量组A线性无关的充分必要条件是R(A)=m</p>
+<p>9.若向量组$A:a_1,a_2,…,a_m$线性相关，则向量组$B:a_1,a_2,…,a_m,a_{m+1}$也线性相关，反之，若方程组B线性无关，则A也线性无关</p>
+<p>10.m个n维向量组成的向量组，当维数小于向量个数m时，一定线性相关，特别地，n+1个n维向量一定线性相关。证明可以参考 8</p>
+<p>11.设向量组$A:a_1,a_2,…,a_m$线性无关，而向量组$B:a_1,a_2,…,a_m,b$线性相关，则向量b必能由向量组A线性表示，且表示式是唯一的</p>
+<p>12.<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240427165954622.png" alt="image-20240427165954622"></p>
+<p>13.如果向量组$A_0:a_1,a_2,…,a_r$是向量组A的一个部分组，满足向量组$A_0$线性无关，且向量组A的任一向量都能由向量组$A_0$线性表示，则向量组$A_0$便是向量组A的一个最大无关组</p>
+<p>14.矩阵的秩等于它的列向量组的秩，也等于它行向量组的秩</p>
+<p>15.若$x=\xi_1,x=\xi_2$是向量方程$AX=O$的解，则$x=\xi_1+\xi_2$也是其解</p>
+<p>16..若$x=\xi_1$是向量方程$AX=O$的解，则$x=k\xi_1$也是其解</p>
+<p>17.齐次线性方程组的解集的最大无关组称为该齐次线性方程的基础解系，要求齐次线性方程组的通解，只需求出它的基础解系</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240427180008701.png" alt="image-20240427180008701"></p>
+<p>18.设m×n矩阵A的秩R(A)=r，则n元齐次线性方程组Ax=0的解集S的秩$R_S=n-r$</p>
+<p>19.若$A_{m×n}B_{n×l}=O$，则R(A)+R(B)≤n</p>
+<p>20.若$x=\eta_1$及$x=\eta_2$都是向量方程$Ax=b$的解，则$x=\eta_1-\eta_2$为对应齐次线性方程组$Ax=0$的解</p>
+<p>21.若$x=\eta$是方程$Ax=b$的解，$x=\xi$是方程$Ax=0$的解，则$x=\eta+\xi$仍是$Ax=b$的解</p>
+<p>22.非齐次线性方程的通解=对应的齐次方程的通解+非齐次方程的一个特解</p>
+<p>23.向量空间的定义<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240427230120450.png" alt="image-20240427230120450"></p>
+<p>24.有向量空间$V_1$及$V_2$，若$V_1\subseteq{V_2}$，则称$V_1$是$V_2$的子空间</p>
+<p>25.基和r维向量空间的定义</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240427231552477.png" alt="image-20240427231552477"></p>
+<p>26.<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240427232451060.png" alt="image-20240427232451060"></p>
+<p>27.基变化公式：$(b_1,b_2,b_3)=(a_1,a_2,a_3)P$，其中$P=A^{-1}B$，P也称为旧基到新基的过度矩阵</p>
+<p>28.坐标变换公式：设向量x在旧基和新基中的坐标分别为$y_1,_y2_,y_3$和$z_1,z_2,z_3$，则</p>
+<p><img src="/Users/sundaohan/Library/Application Support/typora-user-images/image-20240427233626589.png" alt="image-20240427233626589"></p>
+<h1 id="相似矩阵及二次型"><a href="#相似矩阵及二次型" class="headerlink" title="相似矩阵及二次型"></a>相似矩阵及二次型</h1><p>1.向量内积定义及性质</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240427233909456.png" alt="image-20240427233909456"></p>
+<p>2.n维向量x的长度(范数)的定义</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240427234117222.png" alt="image-20240427234117222"></p>
+<p>向量的长度具有下述性质：</p>
+<p>（1）非负性：当x≠0时，$||x||&gt;0$；当x=0时，$||x||=0$</p>
+<p>（2）齐次性：$||λx||=|λ|||x||$</p>
+<p>3.当$||x||=1$时，称x为单位向量，若a≠0，取$x=\frac{a}{||a||}$，则x是一个单位向量，由向量a得到x的过程称为把a单位化</p>
+<p>4.由施瓦茨不等式，有</p>
+<script type="math/tex; mode=display">
+-1≤\frac{[x,y]}{||x||||y||}≤1（当||x||||y||≠0时）</script><p>5.当x≠0、y≠0时，</p>
+<script type="math/tex; mode=display">
+θ=arccos\frac{[x,y]}{||x||||y||}</script><p>称为n维向量x与y的夹角。当[x,y]=0时，称x与y正交，若x=0，则x与任何向量都正交</p>
+<p>6.若n维向量$a_1,a_2,…,a_r$是一组两两正交的非零向量，则$a_1,a_2,…,a_r$线性无关</p>
 
         </div>
 
