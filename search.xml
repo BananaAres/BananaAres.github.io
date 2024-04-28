@@ -175,12 +175,29 @@ k_1a_1+k_2a_2+…+k_ma_m=0</script><p>则称向量组A是线性相关的，否�
 <script type="math/tex; mode=display">
 P^{-1}AP=B</script><p>则称B是A的相似矩阵，对A进行运算$P^{-1}AP$称为对A进行相似变换，可逆矩阵P称为把A变成B的相似变换矩阵</p>
 <p>23.如果n阶矩阵A与B相似，则A与B的特征多项式相同，从而A与B的特征值也相同</p>
-<p>24.<img src="image-4.png" alt="alt text"></p>
+<p>24.<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240428230711250.png" alt="image-20240428230711250"></p>
 <p>25.对n阶矩阵A，寻求相似变换矩阵P，使$P^{-1}AP=\land$为对角矩阵，这就称为把矩阵A对角化</p>
 <p>26.n阶矩阵A与对角矩阵相似（即A能对角化）的充分必要条件是A有n个线性无关的特征向量</p>
 <p>27.如果n阶矩阵A的n个特征值互不相等，则A与对角矩阵相似</p>
 <p>28.对称矩阵的特征值为实数</p>
 <p>29.设$λ_1,λ_2$是对称矩阵A的两个特征值，$P_1,P_2$是对应的特征向量，若$λ_1≠λ_2$，则$P_1,P_2$正交</p>
+<p>30.设A为n阶对称矩阵，则必有正交矩阵P，使$P^{-1}AP=P^TAP=\land$，其中$\land$是以A的n个特征值为对角元的对角矩阵</p>
+<p>31.设A为n阶对称矩阵，λ是A的特征方程的k重根，则矩阵A-λE的秩R(A-λE)=n-k，从而对应特征值λ恰有k个线性无关的特征向量</p>
+<p>32.对角化步骤</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240428230911994.png" alt="image-20240428230911994"></p>
+<p>33.二次型定义</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240428232626930.png" alt="image-20240428232626930"></p>
+<p>34.标准型、规范性、复二次型的定义</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240428232817802.png" alt="image-20240428232817802"></p>
+<p>35.<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240428232950908.png" alt="image-20240428232950908"></p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240428233007474.png" alt="image-20240428233007474"></p>
+<p>36.任给一个二次型，就唯一地确定一个对称矩阵；反之，任给一个对称矩阵，就能唯一地确定一个二次型。二次型与对称矩阵之间存在一一对应关系，因此，我们把对称矩阵A叫做二次型f的矩阵，也把f叫做对称矩阵A的二次型，对称矩阵A的秩就叫做二次型f的秩</p>
+<p>37.设A和B是n阶矩阵，若有可逆矩阵C，使$B=C^TAC$，则称可逆矩阵A与B合同</p>
+<p>38.要使二次型f经可逆变换x=Cy变成标准型，就是</p>
+<p><img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240428233511621.png" alt="image-20240428233511621"></p>
+<p>也就是要使$C^TAC$称为对角矩阵，即对于对称矩阵A，寻找可逆矩阵C，能使$C^TAC$为对角矩阵，这个问题称为把对称矩阵A合同对角化</p>
+<p>39.<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240428233748172.png" alt="image-20240428233748172"></p>
+<p>40.任给n元二次型$f(x)=x^TAx(A^T=A)$，总有可逆变换x=Cz，使f(Cz)为规范形</p>
 ]]></content>
       <categories>
         <category>【线性代数】</category>
