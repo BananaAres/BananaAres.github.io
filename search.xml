@@ -198,6 +198,45 @@ P^{-1}AP=B</script><p>则称B是A的相似矩阵，对A进行运算$P^{-1}AP$称
 <p>也就是要使$C^TAC$称为对角矩阵，即对于对称矩阵A，寻找可逆矩阵C，能使$C^TAC$为对角矩阵，这个问题称为把对称矩阵A合同对角化</p>
 <p>39.<img src="https://sundaohan.oss-cn-beijing.aliyuncs.com/SDHBlog/image-20240428233748172.png" alt="image-20240428233748172"></p>
 <p>40.任给n元二次型$f(x)=x^TAx(A^T=A)$，总有可逆变换x=Cz，使f(Cz)为规范形</p>
+<p>41.设二次型$f=x^TA$的秩为r，且有两个可逆变换</p>
+<script type="math/tex; mode=display">
+x=Cy及x=Pz</script><p>使</p>
+<script type="math/tex; mode=display">
+f=k_1y_1^2+k_2y_2^2+…+k_3y_3^2 (k_i≠0)\\
+f=λ_1z_1^2+λ_2z_2^2+…+λ_3z_3^2 (λ_i≠0)</script><p>则$k_1,…,k_r$中正数的个数与$λ_1,…,λ_r$中正数的个数相等，这称为惯性定理。二次型的标准形中正系数的个数称为二次型的正惯性指数，负系数的个数称为负惯性指数</p>
+<p>42.设二次型$f(x)=x^tAx$，如果对任何x≠0，都有f(x)&gt;0(显然f(0)=0)，则称f为正定二次型，并称对称矩阵A是正定的；果对任何x≠0，都有f(x)&lt;0(显然f(0)=0)，则称f为负定二次型，并称对称矩阵A是负定的</p>
+<p>43.n元二次型$f(x)=x^tAx$为正定的充分必要条件是：它的标准形的n个系数全为正，即它的规范形的n个系数全为1，亦即它的正惯性指数等于n</p>
+<p>44.对称矩阵A为正定的充分必要条件是A的特征值全为正</p>
+<p>45.对称矩阵A为正定的充分必要条件是A的各阶主子式都为正<br><img src="image-5.png" alt="alt text"></p>
+<p>46.对称矩阵A为负定的充分必要条件是奇数阶主子式为负，而偶数阶主子式为正，即<br><img src="image-6.png" alt="alt text"></p>
+<h1 id="线性空间与线性变换"><a href="#线性空间与线性变换" class="headerlink" title="线性空间与线性变换"></a>线性空间与线性变换</h1><p>1.定义<br><img src="image-7.png" alt="alt text"></p>
+<p>2.线性空间的性质</p>
+<p>（1）零向量是唯一的</p>
+<p>（2）任一向量的负向量是唯一的</p>
+<p>（3）如果λa=0，则λ=0或a=0</p>
+<p>3.设V是一个线性空间，L是V的一个非空子集，如果L对于V中所定义的加法和数乘两种运算也构成一个线性空间，则称L为V的子空间</p>
+<p>4.线性空间V的非空子集L构成子空间的充分必要条件是：L对于V中的线性运算封闭</p>
+<p>5.设$a_1,a_2,…,a_n$是线性空间$V_n$的一个基，对于任一向量$a\in{V_n}$，总有且仅有一组有序数$x_1,x_2,…,x_n$使</p>
+<script type="math/tex; mode=display">
+a=x_1a_1+x_2a_2+…+x_n_an</script><p>$x_1,x_2,…,x_n$这组有序数就称为向量a在$a_1,a_2,…,a_n$这个基中的坐标，并记作</p>
+<script type="math/tex; mode=display">
+a=(x_1,x_2,…,x_n)^T</script><p>6.同构概念<br><img src="image-8.png" alt="alt text"></p>
+<p>7.设有两个非空集合A,B，如果对于A中任一元素a，按照一定规则，总有B种的一个确定的元素β和它对应，那么，这个对应规则称为从集合A到集合B的映射，我们常用字母表示一个映射，如T，并记</p>
+<script type="math/tex; mode=display">
+β=T(a)或β=Ta(a\in{A})</script><p>设$a_1\in{A},T(a_1)=β_1$，就说映射T把元素$a_1$变为$β_1$，$β_1$称为$a_1$在映射T下的像，$a_1$称为$β_1$在映射T下的原像，A称为映射T的定义域，像的全体所构成的集合称为像集，记作T(A)，即</p>
+<script type="math/tex; mode=display">
+T(A)={β=T(a)|a\in{A}}</script><p>显然$T(A)\subseteq{B}$</p>
+<p>8.线性映射（线性变换）的定义<br><img src="image-9.png" alt="alt text"><br>特别地，如果$U_m=V_n$，那么T是一个从线性空间$V_n$到其自身的线性映射，称为线性空间$V_n$中的线性变换</p>
+<p>9.线性变换具有以下性质</p>
+<p>（1）T0=0，T(-a)=-Ta</p>
+<p>（2）若$β=k_1a_1+k_2a_2+…+k_ma_m$，则</p>
+<script type="math/tex; mode=display">
+Tβ=k_1Ta_1+k_2Ta_2+…+k_mTa_m</script><p>（3）若$a_1,a_2,…,a_m$线性相关，则$Ta_1,Ta_2,…,Ta_m$也线性相关</p>
+<p>（4）线性变换T的像集$T(V_n)$是一个线性空间，称为线性变换T的像空间</p>
+<p>（5）使Ta=0的a的全体</p>
+<script type="math/tex; mode=display">
+N_T={a|a\in{V_n},Ta=0}</script><p>也是一个线性空间，$N_T$称为线性变化T的核</p>
+<p>10.</p>
 ]]></content>
       <categories>
         <category>【线性代数】</category>
